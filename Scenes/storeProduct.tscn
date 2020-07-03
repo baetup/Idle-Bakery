@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/storeProduct.gd" type="Script" id=1]
+[ext_resource path="res://Image-assets/button-one.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Image-assets/metal-frame.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=5]
+
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[node name="storeProductAvalonia" type="Panel"]
+margin_right = 431.0
+margin_bottom = 141.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 38.7052, 102.979, 55.3169 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 341.517, 65.4011 ]
+}
+
+[node name="productName" type="Label" parent="."]
+margin_left = 157.084
+margin_top = 34.818
+margin_right = 263.086
+margin_bottom = 54.818
+custom_fonts/font = SubResource( 2 )
+text = "[product NAME]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productIcon" type="TextureButton" parent="."]
+margin_left = 65.9239
+margin_top = 38.7428
+margin_right = 129.924
+margin_bottom = 102.743
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productCountLabel" type="Label" parent="."]
+margin_left = 135.377
+margin_top = 37.615
+margin_right = 151.377
+margin_bottom = 51.615
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBar" type="ProgressBar" parent="."]
+margin_left = 133.0
+margin_top = 53.0
+margin_right = 247.0
+margin_bottom = 73.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="saleTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="progressTimer" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="levelCount" type="Label" parent="."]
+margin_left = 177.279
+margin_top = 79.8414
+margin_right = 193.279
+margin_bottom = 93.8414
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelLabel" type="Label" parent="."]
+margin_left = 134.637
+margin_top = 79.8678
+margin_right = 174.637
+margin_bottom = 93.8678
+text = "Level:"
+
+[node name="saleProduct" type="TextureButton" parent="."]
+margin_left = 255.24
+margin_top = 56.4401
+margin_right = 341.24
+margin_bottom = 96.4401
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sellProductLabel" type="Label" parent="saleProduct"]
+margin_left = 29.8676
+margin_top = 11.2453
+margin_right = 52.8676
+margin_bottom = 25.2453
+custom_fonts/font = ExtResource( 5 )
+text = "Sell"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="productIcon" to="." method="_on_productIcon_pressed"]
+[connection signal="timeout" from="saleTimer" to="." method="_on_saleTimer_timeout"]
+[connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
+[connection signal="pressed" from="saleProduct" to="." method="_on_saleProduct_pressed"]

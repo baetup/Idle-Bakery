@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/options.gd" type="Script" id=1]
+[ext_resource path="res://Image-assets/button-two.png" type="Texture" id=2]
+
+[node name="options" type="Panel"]
+margin_left = 63.2399
+margin_top = 238.587
+margin_right = 401.24
+margin_bottom = 526.587
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeSlider" type="HSlider" parent="."]
+margin_left = 58.9474
+margin_top = 133.684
+margin_right = 210.947
+margin_bottom = 149.684
+max_value = 1.0
+step = 0.001
+value = 0.001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeLabel" type="Label" parent="."]
+margin_left = 58.0177
+margin_top = 116.035
+margin_right = 98.0177
+margin_bottom = 130.035
+text = "Volume:"
+
+[node name="save" type="TextureButton" parent="."]
+margin_left = 122.55
+margin_top = 245.1
+margin_right = 229.55
+margin_bottom = 285.1
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="volumeSlider" to="." method="_on_volumeSlider_value_changed"]
+[connection signal="pressed" from="save" to="." method="_on_save_pressed"]

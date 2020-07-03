@@ -1,0 +1,519 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Image-assets/charPanelBkgr.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Image-assets/charPanel-female.png" type="Texture" id=3]
+[ext_resource path="res://Image-assets/revert-btn.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/button-two.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/charPanel.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/charPanelFont_1.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/charPanelFont_2.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Image-assets/charAddStat_normal.png" type="Texture" id=10]
+[ext_resource path="res://Image-assets/charAddStat_disabled.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.141176, 0.0980392, 0.0745098, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 17
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.207843, 0.133333, 0.0980392, 0.890196 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="charPanel" type="Panel"]
+margin_left = 25.0
+margin_top = 155.0
+margin_right = 405.0
+margin_bottom = 498.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 540.315 ]
+}
+
+[node name="charPanelBkgr" type="Sprite" parent="."]
+position = Vector2( 188.291, 162.964 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="panelTitle" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 31.0
+margin_right = 187.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 2 )
+text = "Character Panel:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="username" type="Label" parent="panelTitle"]
+anchor_left = 0.0184232
+anchor_top = 0.0455179
+anchor_right = 0.0184232
+anchor_bottom = 0.0455179
+margin_left = 149.699
+margin_top = 1.97889
+margin_right = 277.699
+margin_bottom = 19.9789
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "arsgasfrtasft"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save" type="TextureButton" parent="."]
+margin_left = 134.138
+margin_top = 286.211
+margin_right = 241.138
+margin_bottom = 326.211
+rect_pivot_offset = Vector2( 86.5947, -94.5656 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="saveLabel" type="Label" parent="save"]
+margin_left = 32.345
+margin_top = 10.2543
+margin_right = 74.345
+margin_bottom = 29.2543
+custom_fonts/font = SubResource( 4 )
+text = "SAVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="avatar" type="Node2D" parent="."]
+
+[node name="avatarImage" type="Sprite" parent="avatar"]
+position = Vector2( 75.9824, 144.009 )
+texture = ExtResource( 3 )
+
+[node name="prestigeLevelLabel" type="Label" parent="."]
+margin_left = 31.2557
+margin_top = 210.837
+margin_right = 138.256
+margin_bottom = 229.837
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
+text = "Prestige Level :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="prestigeLevel" type="Label" parent="prestigeLevelLabel"]
+margin_left = 113.226
+margin_top = 0.854004
+margin_right = 153.226
+margin_bottom = 18.854
+rect_pivot_offset = Vector2( 42.7502, -5.77789 )
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="traitsLabel" type="Label" parent="."]
+margin_left = 138.631
+margin_top = 98.6092
+margin_right = 184.631
+margin_bottom = 117.609
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
+text = "Traits:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="prestigeBar" type="ProgressBar" parent="."]
+anchor_top = 0.00119832
+anchor_bottom = 0.00119832
+margin_left = 29.0
+margin_top = 242.676
+margin_right = 343.0
+margin_bottom = 260.676
+max_value = 10.0
+step = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="traitsContainer" type="GridContainer" parent="."]
+margin_left = 139.0
+margin_top = 124.0
+margin_right = 343.0
+margin_bottom = 189.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 95
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cunLabel" type="Label" parent="traitsContainer"]
+margin_right = 22.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 9 )
+text = "CUN:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cun" type="Label" parent="traitsContainer/cunLabel"]
+margin_left = 31.0
+margin_right = 71.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 167.677, 52.8549 )
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addStat" type="TextureButton" parent="traitsContainer/cunLabel"]
+anchor_left = 3.498
+anchor_top = 0.5
+anchor_right = 3.498
+anchor_bottom = 0.5
+margin_left = -15.7125
+margin_top = -15.2322
+margin_right = 14.2875
+margin_bottom = 14.7678
+rect_pivot_offset = Vector2( 238.369, 104.722 )
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cunInfo" type="Button" parent="traitsContainer/cunLabel"]
+margin_right = 49.0
+margin_bottom = 20.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chrLabel" type="Label" parent="traitsContainer"]
+margin_left = 117.0
+margin_right = 139.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 9 )
+text = "CHR:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chr" type="Label" parent="traitsContainer/chrLabel"]
+margin_left = 31.0
+margin_right = 71.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 167.677, 52.8549 )
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addStat" type="TextureButton" parent="traitsContainer/chrLabel"]
+anchor_left = 3.455
+anchor_top = 0.5
+anchor_right = 3.455
+anchor_bottom = 0.5
+margin_left = -15.7679
+margin_top = -16.0082
+margin_right = 14.2321
+margin_bottom = 13.9918
+rect_pivot_offset = Vector2( 121.369, 104.722 )
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chrInfo" type="Button" parent="traitsContainer/chrLabel"]
+margin_left = -1.0
+margin_right = 48.0
+margin_bottom = 20.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intLabel" type="Label" parent="traitsContainer"]
+margin_top = 40.0
+margin_right = 22.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 9 )
+text = "INT:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="int" type="Label" parent="traitsContainer/intLabel"]
+margin_left = 31.0
+margin_right = 71.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 167.677, 52.8549 )
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addStat" type="TextureButton" parent="traitsContainer/intLabel"]
+anchor_left = 3.493
+anchor_top = 0.526
+anchor_right = 3.493
+anchor_bottom = 0.526
+margin_left = -15.8617
+margin_top = -15.4112
+margin_right = 14.1383
+margin_bottom = 14.5888
+rect_pivot_offset = Vector2( 238.369, 68.722 )
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intInfo" type="Button" parent="traitsContainer/intLabel"]
+margin_left = -3.0
+margin_right = 51.0
+margin_bottom = 20.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="invLabel" type="Label" parent="traitsContainer"]
+margin_left = 117.0
+margin_top = 40.0
+margin_right = 139.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 9 )
+text = "INV:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inv" type="Label" parent="traitsContainer/invLabel"]
+margin_left = 31.0
+margin_right = 71.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 167.677, 52.8549 )
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addStat" type="TextureButton" parent="traitsContainer/invLabel"]
+anchor_left = 3.499
+anchor_top = 0.534
+anchor_right = 3.499
+anchor_bottom = 0.534
+margin_left = -15.9139
+margin_top = -15.616
+margin_right = 14.0861
+margin_bottom = 14.384
+rect_pivot_offset = Vector2( 121.369, 68.722 )
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="invInfo" type="Button" parent="traitsContainer/invLabel"]
+margin_left = -2.0
+margin_right = 52.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 193.384, 26.5073 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charPointsLabel" type="Label" parent="."]
+margin_left = 256.935
+margin_top = 210.664
+margin_right = 302.935
+margin_bottom = 229.664
+rect_pivot_offset = Vector2( -26.5374, 16.91 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
+text = "Points:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charPoints" type="Label" parent="charPointsLabel"]
+margin_left = 49.0
+margin_top = 1.0
+margin_right = 86.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 9 )
+text = "[0]"
+
+[node name="revertPoints" type="TextureButton" parent="charPointsLabel"]
+margin_left = -25.0
+margin_right = -5.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cunPop" type="PopupMenu" parent="."]
+margin_left = 155.926
+margin_top = 305.778
+margin_right = 351.926
+margin_bottom = 382.778
+rect_pivot_offset = Vector2( 198.28, -19.0187 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cunPopupLabel" type="Label" parent="cunPop"]
+anchor_left = 0.108
+anchor_top = 0.157
+anchor_right = 0.108
+anchor_bottom = 0.157
+margin_left = -5.97882
+margin_top = 0.00484085
+margin_right = 162.021
+margin_bottom = 48.0048
+custom_colors/font_color = Color( 0.917647, 0.694118, 0, 1 )
+text = "CUN: The Cunning trait allows the character to ask  a higher selling price."
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="chrPop" type="PopupMenu" parent="."]
+margin_left = 516.0
+margin_top = 306.0
+margin_right = 689.0
+margin_bottom = 383.0
+rect_pivot_offset = Vector2( -17.9258, -2.91116 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chrPopupLabel" type="Label" parent="chrPop"]
+anchor_left = 0.108
+anchor_top = 0.157
+anchor_right = 0.108
+anchor_bottom = 0.157
+margin_left = -5.97882
+margin_top = 0.00484085
+margin_right = 162.021
+margin_bottom = 48.0048
+custom_colors/font_color = Color( 0.917647, 0.694118, 0, 1 )
+text = "CHR: The Charisma trait allows the character to  buy buildings cheaper."
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="intPop" type="PopupMenu" parent="."]
+margin_left = 156.0
+margin_top = 345.0
+margin_right = 322.0
+margin_bottom = 422.0
+rect_pivot_offset = Vector2( 329.411, 75.3405 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intPopupLabel" type="Label" parent="intPop"]
+anchor_left = 0.108
+anchor_top = 0.157
+anchor_right = 0.108
+anchor_bottom = 0.157
+margin_left = -6.168
+margin_top = -0.0890007
+margin_right = 138.832
+margin_bottom = 47.911
+custom_colors/font_color = Color( 0.917647, 0.694118, 0, 1 )
+text = "INT: The Intelligence trait I forgot what it does."
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="invPop" type="PopupMenu" parent="."]
+margin_left = 516.0
+margin_top = 345.0
+margin_right = 671.0
+margin_bottom = 405.0
+rect_pivot_offset = Vector2( 313.13, 38.0082 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="invPopupLabel" type="Label" parent="invPop"]
+anchor_left = 0.108
+anchor_top = 0.157
+anchor_right = 0.108
+anchor_bottom = 0.157
+margin_left = -6.168
+margin_top = -0.0890007
+margin_right = 138.832
+margin_bottom = 47.911
+custom_colors/font_color = Color( 0.917647, 0.694118, 0, 1 )
+text = "INV: The Inventive trait boosts upgrades."
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="traitsContainer/cunLabel/addStat" to="." method="_on_addStatCun_pressed"]
+[connection signal="pressed" from="traitsContainer/cunLabel/cunInfo" to="." method="_on_cunInfo_pressed"]
+[connection signal="pressed" from="traitsContainer/chrLabel/addStat" to="." method="_on_addStatChr_pressed"]
+[connection signal="pressed" from="traitsContainer/chrLabel/chrInfo" to="." method="_on_chrInfo_pressed"]
+[connection signal="pressed" from="traitsContainer/intLabel/addStat" to="." method="_on_addStatInt_pressed"]
+[connection signal="pressed" from="traitsContainer/intLabel/intInfo" to="." method="_on_intInfo_pressed"]
+[connection signal="pressed" from="traitsContainer/invLabel/addStat" to="." method="_on_addStatInv_pressed"]
+[connection signal="pressed" from="traitsContainer/invLabel/invInfo" to="." method="_on_invInfo_pressed"]
+[connection signal="pressed" from="charPointsLabel/revertPoints" to="." method="_on_revertPoints_pressed"]

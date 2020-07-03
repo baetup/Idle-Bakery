@@ -1,0 +1,205 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
+[ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/upgradesBakery.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/store.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/upgradesStore.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/bakery.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=20]
+[ext_resource path="res://Image-assets/button-four-disabled.png" type="Texture" id=22]
+[ext_resource path="res://Image-assets/world-map3.jpg" type="Texture" id=24]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+outline_size = 1
+outline_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
+use_filter = true
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="villageAvalonia" type="Node2D"]
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1949.95, -1300.83 ],
+"_edit_vertical_guides_": [ -1392.0, 2176.8 ]
+}
+
+[node name="world-map2" type="Sprite" parent="."]
+position = Vector2( -700, -1663.24 )
+texture = ExtResource( 24 )
+
+[node name="unlockableBuildingsBtns" type="Node2D" parent="."]
+
+[node name="buyBuilding1" type="TextureButton" parent="unlockableBuildingsBtns"]
+margin_left = -347.057
+margin_top = 296.79
+margin_right = -218.057
+margin_bottom = 324.79
+texture_normal = ExtResource( 14 )
+texture_disabled = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buyLabel" type="Label" parent="unlockableBuildingsBtns/buyBuilding1"]
+margin_left = 17.9471
+margin_top = 5.97775
+margin_right = 100.947
+margin_bottom = 23.9778
+custom_fonts/font = SubResource( 1 )
+text = "BUY INN - 1K"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bakeryLabel" type="Label" parent="."]
+margin_left = -31.7673
+margin_top = 139.219
+margin_right = 39.2327
+margin_bottom = 158.219
+custom_fonts/font = SubResource( 2 )
+text = "bakery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shopLabel" type="Label" parent="."]
+margin_left = 213.307
+margin_top = 499.48
+margin_right = 261.307
+margin_bottom = 516.48
+custom_fonts/font = SubResource( 2 )
+text = "Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getBakeryOpen" type="Button" parent="."]
+margin_left = -162.0
+margin_top = 231.0
+margin_right = 34.0
+margin_bottom = 372.0
+rect_rotation = -29.1
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getStoreOpen" type="Button" parent="."]
+margin_left = 209.96
+margin_top = 531.213
+margin_right = 403.96
+margin_bottom = 669.213
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getFarmOpen" type="Button" parent="."]
+margin_left = 544.432
+margin_top = 584.0
+margin_right = 901.432
+margin_bottom = 840.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="farmLabel" type="Label" parent="."]
+margin_left = 553.949
+margin_top = 540.444
+margin_right = 595.949
+margin_bottom = 562.444
+custom_fonts/font = SubResource( 8 )
+text = "Farm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickMoneyButton" type="Button" parent="."]
+margin_left = -1.0
+margin_top = 696.0
+margin_right = 218.0
+margin_bottom = 929.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickMoneyLabel" type="Label" parent="."]
+margin_left = 11.6271
+margin_top = 669.273
+margin_right = 132.628
+margin_bottom = 686.273
+rect_rotation = -15.5
+custom_fonts/font = SubResource( 3 )
+text = "Click Money"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UiCanvas" type="CanvasLayer" parent="."]
+
+[node name="bakery" parent="UiCanvas" instance=ExtResource( 19 )]
+visible = false
+margin_top = 101.0
+margin_bottom = 756.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
+visible = false
+custom_styles/panel = SubResource( 5 )
+
+[node name="upgradesBakery" parent="UiCanvas" instance=ExtResource( 16 )]
+visible = false
+margin_top = 103.0
+margin_bottom = 799.0
+rect_pivot_offset = Vector2( 216.996, 68.9989 )
+custom_styles/panel = SubResource( 6 )
+
+[node name="upgradesStore" parent="UiCanvas" instance=ExtResource( 18 )]
+visible = false
+custom_styles/panel = SubResource( 7 )
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.002
+autostart = true
+[connection signal="pressed" from="unlockableBuildingsBtns/buyBuilding1" to="." method="_on_buyBuilding1_pressed"]
+[connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
+[connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
+[connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

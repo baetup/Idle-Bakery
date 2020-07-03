@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Image-assets/paper.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/charCreation.gd" type="Script" id=3]
+[ext_resource path="res://Image-assets/charPanel-male.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/charPanel-female.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/check-mark.png" type="Texture" id=6]
+[ext_resource path="res://Image-assets/bread.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_color = Color( 0.341176, 0.203922, 0, 1 )
+extra_spacing_top = 5
+font_data = ExtResource( 1 )
+
+[node name="charCreation" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="paper" type="Sprite" parent="."]
+position = Vector2( 215.099, 376.988 )
+texture = ExtResource( 2 )
+
+[node name="firstStep" type="Node2D" parent="paper"]
+position = Vector2( -144, -202 )
+
+[node name="introText" type="RichTextLabel" parent="paper/firstStep"]
+margin_top = 1.0
+margin_right = 284.0
+margin_bottom = 172.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.265625, 0.174413, 0.0415039, 1 )
+text = "Welcome to the jungle !
+I will be your guide for now.
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="introText2" type="RichTextLabel" parent="paper/firstStep"]
+margin_left = 2.0
+margin_top = 179.0
+margin_right = 286.0
+margin_bottom = 214.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.265625, 0.174413, 0.0415039, 1 )
+text = "Tap on me"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="secondStep" type="Node2D" parent="paper"]
+visible = false
+
+[node name="GridContainer" type="GridContainer" parent="paper/secondStep"]
+margin_left = -167.099
+margin_top = -131.988
+margin_right = 174.901
+margin_bottom = 120.012
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_right = 110.0
+margin_bottom = 110.0
+texture_normal = ExtResource( 5 )
+
+[node name="TextureButton2" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_left = 114.0
+margin_right = 224.0
+margin_bottom = 110.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+
+[node name="TextureButton3" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_left = 228.0
+margin_right = 338.0
+margin_bottom = 110.0
+texture_normal = ExtResource( 4 )
+
+[node name="TextureButton4" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_top = 114.0
+margin_right = 110.0
+margin_bottom = 224.0
+texture_normal = ExtResource( 4 )
+
+[node name="TextureButton5" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_left = 114.0
+margin_top = 114.0
+margin_right = 224.0
+margin_bottom = 224.0
+texture_normal = ExtResource( 5 )
+
+[node name="TextureButton6" type="TextureButton" parent="paper/secondStep/GridContainer"]
+margin_left = 228.0
+margin_top = 114.0
+margin_right = 338.0
+margin_bottom = 224.0
+texture_normal = ExtResource( 5 )
+
+[node name="avatarSelectionLabel" type="RichTextLabel" parent="paper/secondStep"]
+margin_left = -139.977
+margin_top = -171.613
+margin_right = 19.0225
+margin_bottom = -150.613
+text = "Choose your avatar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="TextureButton" parent="paper/secondStep"]
+margin_left = 107.31
+margin_top = 165.801
+margin_right = 147.31
+margin_bottom = 205.801
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="thirdStep" type="Node2D" parent="paper"]
+visible = false
+
+[node name="avatarSelectionLabel2" type="RichTextLabel" parent="paper/thirdStep"]
+margin_left = -139.977
+margin_top = -171.613
+margin_right = 19.0225
+margin_bottom = -150.613
+text = "You will be called:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next2" type="TextureButton" parent="paper/thirdStep"]
+margin_left = 107.31
+margin_top = 165.801
+margin_right = 147.31
+margin_bottom = 205.801
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input" type="LineEdit" parent="paper/thirdStep"]
+margin_left = -138.0
+margin_top = -141.0
+margin_right = 32.0
+margin_bottom = -117.0
+max_length = 13
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="error" type="Label" parent="paper/thirdStep"]
+margin_left = -138.0
+margin_top = -110.0
+margin_right = 32.0
+margin_bottom = -94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="paper/firstStep/introText2" to="." method="_on_introText2_gui_input"]
+[connection signal="pressed" from="paper/secondStep/GridContainer/TextureButton2" to="." method="_on_TextureButton2_pressed"]
+[connection signal="toggled" from="paper/secondStep/GridContainer/TextureButton2" to="." method="_on_TextureButton2_toggled"]
+[connection signal="pressed" from="paper/secondStep/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="paper/thirdStep/next2" to="." method="_on_next2_pressed"]
+[connection signal="text_changed" from="paper/thirdStep/input" to="." method="_on_input_text_changed"]

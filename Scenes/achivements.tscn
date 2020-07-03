@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/achivements.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/achievement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/achievementBkgr.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/title_brown.png" type="Texture" id=6]
+[ext_resource path="res://Image-assets/achievementBkgr_split.png" type="Texture" id=7]
+
+
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Theme" id=3]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource( 2 )
+VScrollBar/styles/scroll_focus = null
+
+[node name="achivements" type="Panel"]
+margin_left = 17.5062
+margin_top = -30.5275
+margin_right = 395.506
+margin_bottom = 598.473
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 274.752 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 360.269, 86.8116 ]
+}
+
+[node name="achievementBkgr" type="Sprite" parent="."]
+position = Vector2( 195.88, 365.239 )
+scale = Vector2( 1.44587, 1.44587 )
+texture = ExtResource( 5 )
+
+[node name="title_brown" type="Sprite" parent="achievementBkgr"]
+position = Vector2( 5.0419, -123.797 )
+texture = ExtResource( 6 )
+
+[node name="AchievementsTitle" type="Label" parent="achievementBkgr/title_brown"]
+margin_left = -46.3348
+margin_top = -10.1718
+margin_right = 49.6652
+margin_bottom = 4.82818
+custom_fonts/font = ExtResource( 3 )
+text = "ACHIEVEMENTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close" type="TextureButton" parent="."]
+margin_left = 329.218
+margin_top = 74.5598
+margin_right = 376.218
+margin_bottom = 116.56
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkAchivements" type="Timer" parent="."]
+wait_time = 0.002
+autostart = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 66.0
+margin_top = 230.0
+margin_right = 340.0
+margin_bottom = 612.0
+theme = SubResource( 3 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_bottom = 390.0
+custom_constants/separation = 65
+
+[node name="a1" type="Control" parent="ScrollContainer/VBoxContainer"]
+
+[node name="a1" parent="ScrollContainer/VBoxContainer/a1" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="a2" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 65.0
+margin_bottom = 65.0
+
+[node name="a2" parent="ScrollContainer/VBoxContainer/a2" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="rewardCount" parent="ScrollContainer/VBoxContainer/a2/a2" index="0"]
+text = "1000"
+
+[node name="conditionLabel" parent="ScrollContainer/VBoxContainer/a2/a2" index="1"]
+text = "GET 1000 COINS :"
+
+[node name="a3" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 130.0
+margin_bottom = 130.0
+
+[node name="a3" parent="ScrollContainer/VBoxContainer/a3" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="rewardCount" parent="ScrollContainer/VBoxContainer/a3/a3" index="0"]
+text = "2000"
+
+[node name="conditionLabel" parent="ScrollContainer/VBoxContainer/a3/a3" index="1"]
+text = "GET 2000 COINS :"
+
+[node name="a4" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 195.0
+margin_bottom = 195.0
+
+[node name="a4" parent="ScrollContainer/VBoxContainer/a4" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="a5" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 260.0
+margin_bottom = 260.0
+
+[node name="a5" parent="ScrollContainer/VBoxContainer/a5" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="a6" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 325.0
+margin_bottom = 325.0
+
+[node name="a6" parent="ScrollContainer/VBoxContainer/a6" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="a7" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_top = 390.0
+margin_bottom = 390.0
+
+[node name="a7" parent="ScrollContainer/VBoxContainer/a7" instance=ExtResource( 2 )]
+margin_left = 1.05926
+margin_top = 4.04105
+margin_right = 51.0593
+margin_bottom = 54.041
+
+[node name="achievementBkgr_split" type="Sprite" parent="."]
+position = Vector2( 195.07, 584.531 )
+scale = Vector2( 1.44909, 1.44909 )
+texture = ExtResource( 7 )
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="timeout" from="checkAchivements" to="." method="_on_checkAchivements_timeout"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/a1/a1" to="." method="_on_a1_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/a2/a2" to="." method="_on_a2_pressed"]
+
+[editable path="ScrollContainer/VBoxContainer/a1/a1"]
+
+[editable path="ScrollContainer/VBoxContainer/a2/a2"]
+
+[editable path="ScrollContainer/VBoxContainer/a3/a3"]

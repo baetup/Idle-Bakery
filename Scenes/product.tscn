@@ -1,0 +1,356 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Scripts/product.gd" type="Script" id=1]
+[ext_resource path="res://Image-assets/product-frame.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/filler.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/button-five-pressed.png" type="Texture" id=6]
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/charPanelFont_2.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Image-assets/button-five-disabled.png" type="Texture" id=9]
+[ext_resource path="res://Image-assets/info.png" type="Texture" id=10]
+[ext_resource path="res://Shaders/outline_shader.shader" type="Shader" id=11]
+[ext_resource path="res://Image-assets/product-frame-outline.png" type="Texture" id=12]
+[ext_resource path="res://Image-assets/round-frame.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 11 )
+shader_param/width = 0.0
+shader_param/outline_color = Color( 0.827451, 0.6, 0.117647, 1 )
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 0.9375, 0.157013, 0.0292969, 1, 0.980469, 0.965867, 0.0459595, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="Curve" id=13]
+min_value = 81.92
+max_value = 274.07
+_data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+trail_size_modifier = SubResource( 14 )
+emission_shape = 2
+emission_box_extents = Vector3( 20, 20, 20 )
+flag_disable_z = true
+direction = Vector3( 0.017, 0, 0 )
+spread = 25.0
+gravity = Vector3( 0, -90, 0 )
+initial_velocity = 10.0
+angular_velocity = 218.73
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -65.82
+linear_accel_random = 0.24
+damping = 5.06
+scale = 3.0
+scale_random = 0.41
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
+hue_variation = -0.2
+hue_variation_random = 0.16
+anim_speed = 14.58
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 178, 11 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+outline_size = 1
+outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 15
+outline_size = 1
+outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 13
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.113725, 0.0745098, 0.054902, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.396078, 0.262745, 0.203922, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="product" type="Panel"]
+margin_left = 57.0
+margin_top = 206.0
+margin_right = 375.0
+margin_bottom = 300.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 291.058 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 58.0673, 367.518, 139.289 ]
+}
+targetProduct = ""
+
+[node name="productName" type="Label" parent="."]
+margin_left = 81.634
+margin_top = 12.6981
+margin_right = 170.004
+margin_bottom = 32.6981
+custom_fonts/font = SubResource( 2 )
+text = "[product NAME]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productIconOutline" type="TextureButton" parent="."]
+material = SubResource( 8 )
+margin_left = -1.0
+margin_top = 8.0
+margin_right = 79.0
+margin_bottom = 94.0
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productIcon" type="TextureButton" parent="."]
+margin_left = 7.0
+margin_top = 15.3585
+margin_right = 71.0
+margin_bottom = 85.3585
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles2D" type="Particles2D" parent="productIcon"]
+visible = false
+position = Vector2( 31.8272, 41.394 )
+amount = 12
+lifetime = 1.5
+explosiveness = 0.14
+process_material = SubResource( 15 )
+
+[node name="productCountLabel" type="Label" parent="."]
+margin_left = 250.0
+margin_top = 15.0
+margin_right = 266.0
+margin_bottom = 29.0
+grow_horizontal = 0
+text = "[0]"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBarBody" type="TextureRect" parent="."]
+margin_left = 82.0
+margin_top = 35.0
+margin_right = 266.0
+margin_bottom = 51.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBar" type="ProgressBar" parent="."]
+margin_left = 84.0
+margin_top = 37.0
+margin_right = 263.0
+margin_bottom = 49.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amount" type="Label" parent="progressBar"]
+margin_left = 58.0
+margin_top = -2.0
+margin_right = 115.0
+margin_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 119.68, -64.1705 )
+custom_fonts/font = SubResource( 5 )
+text = "[amount]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bakeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="progressTimer" type="Timer" parent="."]
+wait_time = 0.001
+
+[node name="levelCount" type="Label" parent="."]
+margin_left = 30.7194
+margin_top = 66.9979
+margin_right = 46.7194
+margin_bottom = 85.9979
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 6 )
+text = "[0]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="research" type="TextureButton" parent="."]
+margin_left = 82.0
+margin_top = 56.0
+margin_right = 229.0
+margin_bottom = 85.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+texture_disabled = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonLabel" type="Label" parent="research"]
+margin_left = 2.68173
+margin_top = 4.6658
+margin_right = 45.6817
+margin_bottom = 24.6658
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+text = "Upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgradeCost" type="Label" parent="research"]
+margin_left = 114.0
+margin_top = 8.0
+margin_right = 142.0
+margin_bottom = 24.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+text = "[cost]"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="durationLabel" type="Label" parent="."]
+margin_left = 234.912
+margin_top = 64.4983
+margin_right = 264.912
+margin_bottom = 78.4983
+grow_horizontal = 2
+grow_vertical = 2
+text = "[sec]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="TextureButton" parent="."]
+margin_left = 275.372
+margin_top = 40.8759
+margin_right = 305.372
+margin_bottom = 70.8759
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.002
+autostart = true
+
+[node name="unlockPanel" type="Panel" parent="."]
+visible = false
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 302.0
+margin_bottom = 86.0
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="product-frame" type="Sprite" parent="unlockPanel"]
+position = Vector2( 47.2402, 39.6686 )
+texture = ExtResource( 13 )
+
+[node name="unlockBtn" type="Button" parent="unlockPanel"]
+margin_left = 1.0
+margin_right = 296.0
+margin_bottom = 68.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="productName" type="Label" parent="unlockPanel"]
+margin_left = 94.4801
+margin_top = 18.3045
+margin_right = 171.48
+margin_bottom = 32.3045
+text = "[prod name]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unlockLabel" type="Label" parent="unlockPanel"]
+margin_left = 95.9951
+margin_top = 47.1208
+margin_right = 143.995
+margin_bottom = 61.1208
+text = "Unlock:"
+
+[node name="costLabel" type="Label" parent="unlockPanel"]
+margin_left = 146.555
+margin_top = 46.6342
+margin_right = 186.555
+margin_bottom = 60.6342
+text = "[cost]"
+[connection signal="pressed" from="productIcon" to="." method="_on_productIcon_pressed"]
+[connection signal="timeout" from="bakeTimer" to="." method="_on_bakeTimer_timeout"]
+[connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
+[connection signal="pressed" from="research" to="." method="_on_research_pressed"]
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
+[connection signal="pressed" from="unlockPanel/unlockBtn" to="." method="_on_unlockBtn_pressed"]

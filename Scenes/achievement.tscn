@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Image-assets/award.png" type="Texture" id=2]
+[ext_resource path="res://Image-assets/award-disable.png" type="Texture" id=3]
+
+[node name="achievement" type="TextureButton"]
+anchor_left = 0.00184744
+anchor_right = 0.00184744
+margin_left = 59.147
+margin_top = 268.985
+margin_right = 109.147
+margin_bottom = 318.985
+texture_normal = ExtResource( 2 )
+texture_disabled = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rewardCount" type="Label" parent="."]
+margin_left = 100.941
+margin_top = 26.2039
+margin_right = 124.941
+margin_bottom = 40.2039
+rect_pivot_offset = Vector2( 66.6196, 23.5196 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="conditionLabel" type="Label" parent="."]
+anchor_top = 0.043
+anchor_bottom = 0.043
+margin_left = 51.0
+margin_top = 0.85
+margin_right = 114.0
+margin_bottom = 14.85
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.156863, 0.101961, 0.0745098, 1 )
+text = "GET 100 COINS :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rewardLabel" type="Label" parent="."]
+margin_left = 50.406
+margin_top = 26.1251
+margin_right = 96.406
+margin_bottom = 40.1251
+text = "Reward:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

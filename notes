@@ -1,0 +1,11 @@
+#func _on_makeMoney_pressed():
+#	if productCount > 0:
+#		productCount = productCount - 1
+#		money = money + saleProfit
+#		get_owner().addToMoney(money)
+#		UpdateUI()
+
+	money = get_node("/root/GameManager").get("money")
+
+
+

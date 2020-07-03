@@ -1,0 +1,280 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Image-assets/coins_animation.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/villageAvalonia.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/cameraControl.gd" type="Script" id=5]
+[ext_resource path="res://Image-assets/award.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/worldMap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/achivements.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Image-assets/zoom-out.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/main-font.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Shaders/glow.shader" type="Shader" id=11]
+[ext_resource path="res://Image-assets/ribbonVioletSplit.png" type="Texture" id=12]
+[ext_resource path="res://Image-assets/charPanel-male.png" type="Texture" id=13]
+[ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Scenes/charPanel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Image-assets/zoom-in.png" type="Texture" id=16]
+[ext_resource path="res://Image-assets/optionsBtn.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/ingameOptions.tscn" type="PackedScene" id=18]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 11 )
+shader_param/radius = 5.0
+shader_param/amount = 0.25
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.235294, 0.235294, 0.235294, 0.619608 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 7 ]
+}
+
+[node name="GameManager" type="Node"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -692.402, 839.097, -2588.61 ],
+"_edit_vertical_guides_": [ 5043.32 ]
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 217, 384 )
+offset = Vector2( 0.021, 0 )
+current = true
+limit_left = -1400
+limit_top = -1300
+limit_right = 2200
+limit_bottom = 1900
+smoothing_speed = 30.0
+drag_margin_left = 1.0
+drag_margin_top = 1.0
+drag_margin_right = 1.0
+drag_margin_bottom = 1.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 5 )
+
+[node name="worldMap" parent="." instance=ExtResource( 7 )]
+visible = false
+z_index = 1
+
+[node name="villageAvalonia" parent="." instance=ExtResource( 4 )]
+
+[node name="UiCanvas" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="achivementsButton" type="TextureButton" parent="UiCanvas"]
+material = SubResource( 1 )
+margin_left = 383.059
+margin_top = 293.487
+margin_right = 433.059
+margin_bottom = 343.487
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ribbonViolet" type="Sprite" parent="UiCanvas/achivementsButton"]
+position = Vector2( -50.3639, 22.4264 )
+scale = Vector2( 1.40387, 0.863468 )
+texture = ExtResource( 12 )
+
+[node name="achievementsLabel" type="Label" parent="UiCanvas/achivementsButton"]
+margin_left = -78.9583
+margin_top = 11.216
+margin_right = 4.04166
+margin_bottom = 25.216
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "ACHIEVEMENTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="worldMapBtn" type="TextureButton" parent="UiCanvas"]
+material = SubResource( 1 )
+margin_left = 383.059
+margin_top = 231.487
+margin_right = 433.059
+margin_bottom = 281.487
+rect_pivot_offset = Vector2( -165.896, 52.8149 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ribbonViolet" type="Sprite" parent="UiCanvas/worldMapBtn"]
+modulate = Color( 0.117926, 0.433594, 0.0728302, 1 )
+position = Vector2( -50.3639, 22.4264 )
+scale = Vector2( 1.40387, 0.863468 )
+texture = ExtResource( 12 )
+
+[node name="worldMapLabel" type="Label" parent="UiCanvas/worldMapBtn"]
+margin_left = -78.9583
+margin_top = 11.216
+margin_right = 4.04166
+margin_bottom = 25.216
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "WORLD  MAP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charPanelBtn" type="TextureButton" parent="UiCanvas"]
+margin_left = 6.63414
+margin_top = 9.2878
+margin_right = 116.634
+margin_bottom = 119.288
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charNameBkgr" type="Panel" parent="UiCanvas/charPanelBtn"]
+margin_left = 118.0
+margin_top = 14.0
+margin_right = 241.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 80.8884, 34.225 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charName" type="Label" parent="UiCanvas/charPanelBtn/charNameBkgr"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 102.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 14 )
+text = "Sir Allemon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="moneyBkgr" type="Panel" parent="UiCanvas"]
+margin_left = 124.84
+margin_top = 78.6147
+margin_right = 221.84
+margin_bottom = 106.615
+rect_pivot_offset = Vector2( 80.8884, 34.225 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="moneyLabel" type="Label" parent="UiCanvas"]
+margin_left = 150.117
+margin_top = 80.6147
+margin_right = 219.117
+margin_bottom = 104.615
+rect_pivot_offset = Vector2( 55.611, 32.225 )
+custom_fonts/font = SubResource( 3 )
+text = "[money]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UiCanvas/moneyLabel"]
+position = Vector2( -13.8363, 11.6833 )
+scale = Vector2( 1.30331, 1.30331 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UiCanvas/moneyLabel/Sprite"]
+autoplay = "coin-flip"
+anims/coin-flip = SubResource( 4 )
+
+[node name="options" type="TextureButton" parent="UiCanvas"]
+margin_left = 373.229
+margin_top = 23.3268
+margin_right = 413.229
+margin_bottom = 63.3268
+texture_normal = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zoomOut" type="TextureButton" parent="UiCanvas"]
+margin_left = 359.976
+margin_top = 371.515
+margin_right = 407.976
+margin_bottom = 414.515
+rect_pivot_offset = Vector2( 45.8738, 88.2412 )
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zoomIn" type="TextureButton" parent="UiCanvas"]
+margin_left = 359.976
+margin_top = 427.702
+margin_right = 409.976
+margin_bottom = 477.702
+rect_pivot_offset = Vector2( 45.8738, 32.0542 )
+texture_normal = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="achivements" parent="UiCanvas" instance=ExtResource( 8 )]
+visible = false
+margin_left = 16.9591
+margin_top = 14.6916
+margin_right = 394.959
+margin_bottom = 643.691
+
+[node name="charPanel" parent="UiCanvas" instance=ExtResource( 15 )]
+visible = false
+margin_left = 25.6597
+margin_top = 163.88
+margin_right = 405.66
+margin_bottom = 433.88
+
+[node name="ingameOptions" parent="UiCanvas" instance=ExtResource( 18 )]
+visible = false
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="updateUi" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+[connection signal="pressed" from="UiCanvas/achivementsButton" to="." method="_on_achivementsButton_pressed"]
+[connection signal="pressed" from="UiCanvas/worldMapBtn" to="." method="_on_worldMapBtn_pressed"]
+[connection signal="pressed" from="UiCanvas/charPanelBtn" to="." method="_on_charPanelBtn_pressed"]
+[connection signal="pressed" from="UiCanvas/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UiCanvas/zoomOut" to="." method="_on_zoomOut_pressed"]
+[connection signal="pressed" from="UiCanvas/zoomIn" to="." method="_on_zoomIn_pressed"]
+[connection signal="timeout" from="updateUi" to="." method="_on_updateUi_timeout"]
+
+[editable path="villageAvalonia"]
+
+[editable path="villageAvalonia/UiCanvas/bakery"]
+
+[editable path="villageAvalonia/UiCanvas/store"]
+
+[editable path="UiCanvas/achivements"]
+
+[editable path="UiCanvas/charPanel"]
