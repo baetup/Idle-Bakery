@@ -29,9 +29,12 @@ margin_top = 14.4401
 margin_right = 88.3623
 margin_bottom = 28.4401
 custom_fonts/font = ExtResource( 2 )
-text = "PLAY"
+text = "PLAYY"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="options" type="TextureButton" parent="."]
 margin_left = 142.857
