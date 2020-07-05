@@ -8,6 +8,7 @@ func _ready():
 	UpdateUI()
 
 func UpdateUI():
+	$productIcon.set_normal_texture(load(globals.get(targetProduct).productIcon))
 	$productCountLabel.text= str(globals.get(targetProduct).productCount)
 	$levelCount.text = str(globals.get(targetProduct).bakeryProductLevel)
 	$durationLabel.text = "%.1f" % ($bakeTimer.time_left) + "s"

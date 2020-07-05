@@ -13,18 +13,16 @@ var chrStat : int = 0
 var intStat : int = 0
 var invStat : int = 0
 
-var breadAvalonia = product.new("bread", 0, 0 ,15, 1, 0.2, 2, 0.2, 2, 2, 1, 0, 15,true) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
-var cookieAvalonia = product.new("cookie", 0, 0, 250, 1,0.2, 5, 0.2, 2, 5, 1, 0, 300,false)
-var dictOfProductsAvalonia = {"bread" : breadAvalonia, "cookie" : cookieAvalonia}
+var breadAvalonia = product.new("bread", "res://Image-assets/breadProduct.png", 3, 0 ,15, 1, 0.2, 2, 0.2, 2, 2, 1, 0, 15,true) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
+var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieProduct.png", 0, 0, 250, 1,0.2, 5, 0.2, 2, 5, 1, 0, 300,false)
+
 
 var breadBakAvaS = supervisor.new(false, 100, "breadAvalonia", "bakery") #isHired, price, targetProduct, type
 var cookieBakAvaS = supervisor.new(false, 3, "cookieAvalonia", "bakery")
 var breadStorAvaS = supervisor.new(false, 5, "breadAvalonia", "store")
 var cookieStorAvaS = supervisor.new(false, 6, "cookieAvalonia", "store")
-var dictOfSupervisorsAvalonia = {"breadSupervisor":breadBakAvaS, "cookieSupervisor":cookieBakAvaS}
 
-var avaloniaBakery = bakery.new(dictOfProductsAvalonia, dictOfSupervisorsAvalonia)
-var bakeryDict = {"avaloniaBakery": avaloniaBakery, }
+var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 
 
 func setUsername(name):
@@ -80,6 +78,7 @@ class supervisor:
 
 class product:
 	var productName : String
+	var productIcon : String
 	var productCount : int
 	var bakeryProductLevel : int
 	var bakeryLevelCost : float
@@ -96,8 +95,9 @@ class product:
 	
 	var isUnlocked : bool
 
-	func _init(name : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool):
+	func _init(name : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool):
 		productName = name
+		productIcon = setProductIcon
 		productCount = setProductCount
 		bakeryProductLevel = setBakeryProductLevel
 		bakeryLevelCost = setBakeryLevelCost

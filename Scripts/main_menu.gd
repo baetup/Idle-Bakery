@@ -2,7 +2,7 @@ extends Node
 
 func _on_play_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Scenes/GameManager.tscn")
+	get_tree().change_scene("res://Scenes/charCreation.tscn")
 
 func _on_options_pressed():
 	$play.visible = 0

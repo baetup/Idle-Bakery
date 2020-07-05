@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/inventorySystem.gd" type="Script" id=3]
+
+[node name="inventorySystem" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 60.0
+margin_right = -24.0
+margin_bottom = -60.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bkgr" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroll" type="ScrollContainer" parent="bkgr"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grid" type="GridContainer" parent="bkgr/scroll"]
+custom_constants/vseparation = 128
+custom_constants/hseparation = 128
+columns = 3
+
+[node name="addSlots" type="TextureButton" parent="bkgr"]
+margin_left = 334.074
+margin_top = 609.992
+margin_right = 381.074
+margin_bottom = 651.992
+texture_normal = ExtResource( 2 )
