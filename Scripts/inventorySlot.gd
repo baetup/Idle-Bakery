@@ -1,6 +1,12 @@
 extends Control
 
-var inventoryIndex : int
+export var inventoryIndex : int
 
-func _ready():
-	pass # Replace with function body.
+func setIndex(index):
+	inventoryIndex = index
+
+func setProductIcon(icon):
+	$slotBkgr/itemIcon.set_normal_texture(load(icon))
+	
+func setProductCount(count):
+	$slotBkgr/productCount.text = str(count)
