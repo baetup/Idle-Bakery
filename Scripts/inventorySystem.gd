@@ -15,10 +15,21 @@ func _ready():
 #Checking what products have > 0 productCount
 func checkAvailableItems():
 	var temp = 0
+
 	for x in globals.arrayOfProducts:
-		if globals.arrayOfProducts[temp].productCount > 0:
-			availableitems.append(globals.arrayOfProducts[temp])
-			temp =+ 1
+		if globals.arrayOfProducts[temp].productCount > 0 && (availableitems.has(globals.arrayOfProducts[temp]) == false):
+				availableitems.push_back(globals.arrayOfProducts[temp])
+		temp =+ 1
+	print(availableitems.size())
+	
+func removeItem():
+	var temp = 0
+	for x in availableitems:
+		if availableitems[temp].productCount == 0:
+			availableitems.remove(temp)
+			inventorySlotIndexes[temp].setProductIcon("")
+			inventorySlotIndexes[temp].setProductCount("")
+			setItems()
 
 #Creating the available inventory slots
 func addSlots():
@@ -27,19 +38,22 @@ func addSlots():
 
 #Giving inventory slot instances indexes
 func setIndexes():
-	var temp = ""
 	var temp2 = 0
 	for i in inventorySlots:
 		var gridChildren = $bkgr/scroll/grid.get_children()
-		gridChildren[temp2].setIndex(temp2)
 		inventorySlotIndexes.append(gridChildren[temp2])
+		inventorySlotIndexes[temp2].setIndex(temp2)
+		inventorySlotIndexes[temp2].set_name("inventorySlot" + str(temp2))
 		temp2 += 1
-		temp = "inventorySlot" + str(temp2)
 
 #Adding the actual items in the inventory
 func setItems():
 	var temp = 0
 	for i in availableitems:
-		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].productIcon)
-		inventorySlotIndexes[temp].setProductCount(availableitems[temp].productCount) 
-		temp += 1
+		inventorySlotIndexes[temp].setProductCount("")
+		inventorySlotIndexes[temp].setProductIcon("")
+	temp += 1
+
+func _on_close_pressed():
+	$".".visible = 0
+

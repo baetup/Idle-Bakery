@@ -10,3 +10,7 @@ func setProductIcon(icon):
 	
 func setProductCount(count):
 	$slotBkgr/productCount.text = str(count)
+
+
+func _on_checkUi_timeout():
+	pass # Replace with function body.

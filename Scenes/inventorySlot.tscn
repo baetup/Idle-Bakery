@@ -40,3 +40,8 @@ text = "[count]"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.002
+autostart = true
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

@@ -1,5 +1,6 @@
 extends Panel
 
+onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 export var targetProduct = "breadAvalonia"
 var hasSupervisor = false
 var unlockCost = globals.money * 0.9
@@ -27,8 +28,12 @@ func UpdateUI():
 	
 	$unlockPanel/costLabel.text = str(unlockCost)
 	$unlockPanel/productName.text = globals.get(targetProduct).productName
+	
+
+
 
 func _on_checkUi_timeout():
+	UpdateUI()
 	if globals.money < globals.get(targetProduct).bakeryLevelCost:
 		$research.disabled = 1
 	else:
@@ -46,6 +51,9 @@ func _on_bakeTimer_timeout():
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		$productIcon.disabled = 0 
+		if globals.get(targetProduct).productCount > 0:
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
 	UpdateUI()
 
 func _on_progressTimer_timeout():

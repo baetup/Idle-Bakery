@@ -86,4 +86,4 @@ func _on_zoomIn_pressed():
 		$Camera2D.zoom -= cameraZoomRate
 
 func _on_inventoryButton_pressed():
-	pass # Replace with function body.
+	$UiCanvas/inventorySystem.visible = 1
