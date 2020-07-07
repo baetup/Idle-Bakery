@@ -15,21 +15,13 @@ func _ready():
 #Checking what products have > 0 productCount
 func checkAvailableItems():
 	var temp = 0
-
 	for x in globals.arrayOfProducts:
 		if globals.arrayOfProducts[temp].productCount > 0 && (availableitems.has(globals.arrayOfProducts[temp]) == false):
-				availableitems.push_back(globals.arrayOfProducts[temp])
+			availableitems.push_back(globals.arrayOfProducts[temp])
 		temp =+ 1
 	print(availableitems.size())
 	
-func removeItem():
-	var temp = 0
-	for x in availableitems:
-		if availableitems[temp].productCount == 0:
-			availableitems.remove(temp)
-			inventorySlotIndexes[temp].setProductIcon("")
-			inventorySlotIndexes[temp].setProductCount("")
-			setItems()
+
 
 #Creating the available inventory slots
 func addSlots():
@@ -49,10 +41,28 @@ func setIndexes():
 #Adding the actual items in the inventory
 func setItems():
 	var temp = 0
+	var temp2 = 0
 	for i in availableitems:
-		inventorySlotIndexes[temp].setProductCount("")
-		inventorySlotIndexes[temp].setProductIcon("")
-	temp += 1
+		inventorySlotIndexes[temp].setProductCount(availableitems[temp].productCount)
+		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].productIcon)
+		temp += 1
+	if availableitems.size() < inventorySlotIndexes.size():
+		while (temp2 + availableitems.size()) < inventorySlotIndexes.size():
+			for x in (inventorySlotIndexes.size()-availableitems.size()):
+				inventorySlotIndexes[temp2+availableitems.size()].setProductCount("")
+				inventorySlotIndexes[temp2+availableitems.size()].removeProductIcon()
+				temp2 += 1
+
+func removeItem():
+	var temp = 0
+	for x in availableitems:
+		if availableitems[temp].productCount == 0:
+			availableitems.remove(temp)
+			inventorySlotIndexes[temp].removeProductIcon()
+			inventorySlotIndexes[temp].setProductCount("")
+			checkAvailableItems()
+			setItems()
+		temp += 1
 
 func _on_close_pressed():
 	$".".visible = 0

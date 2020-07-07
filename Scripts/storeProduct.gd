@@ -35,9 +35,10 @@ func _on_saleTimer_timeout():
 	if globals.get(targetProduct).productCount > 0 && isSellingPossible == true :
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
+		inventoryNodePath.removeItem()
 		inventoryNodePath.checkAvailableItems()
 		inventoryNodePath.setItems()
-		inventoryNodePath.removeItem()
+			
 	else:
 		isSellingPossible = false
 		$progressTimer.stop()

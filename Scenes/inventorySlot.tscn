@@ -37,6 +37,8 @@ margin_top = 96.6025
 margin_right = 120.98
 margin_bottom = 110.603
 text = "[count]"
+align = 2
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
