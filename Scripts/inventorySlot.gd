@@ -14,5 +14,8 @@ func removeProductIcon():
 func setProductCount(count):
 	$slotBkgr/productCount.text = str(count)
 
+func setProductName(name):
+	$slotBkgr/productName.text = name
+
 func _on_checkUi_timeout():
 	pass # Replace with function body.

@@ -289,6 +289,8 @@ visible = false
 
 [node name="inventorySystem" parent="UiCanvas" instance=ExtResource( 19 )]
 visible = false
+margin_top = 128.0
+margin_bottom = -246.0
 
 [node name="Tween" type="Tween" parent="."]
 

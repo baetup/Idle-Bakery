@@ -1,23 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/inventorySystem.gd" type="Script" id=3]
+[ext_resource path="res://Image-assets/inventory-bkgr.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="inventorySystem" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
-margin_top = 60.0
+margin_top = 124.0
 margin_right = -24.0
-margin_bottom = -60.0
+margin_bottom = -250.0
+rect_pivot_offset = Vector2( 91.7311, 220.297 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="inventoryBkgr" type="TextureRect" parent="."]
+margin_right = 350.0
+margin_bottom = 411.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="bkgr" type="Panel" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 72.0
+margin_right = 327.0
+margin_bottom = 474.0
+rect_pivot_offset = Vector2( 154.132, 73.954 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,25 +46,27 @@ __meta__ = {
 }
 
 [node name="grid" type="GridContainer" parent="bkgr/scroll"]
-custom_constants/vseparation = 128
-custom_constants/hseparation = 128
+custom_constants/vseparation = 96
+custom_constants/hseparation = 96
 columns = 3
 
 [node name="addSlots" type="TextureButton" parent="."]
-margin_left = 334.074
-margin_top = 609.992
-margin_right = 381.074
-margin_bottom = 651.992
+margin_left = 148.075
+margin_top = 477.477
+margin_right = 195.075
+margin_bottom = 519.477
+rect_pivot_offset = Vector2( -17.4745, -268.64 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 338.787
-margin_top = -32.5195
-margin_right = 385.787
-margin_bottom = 9.48045
+margin_left = 296.569
+margin_top = 15.558
+margin_right = 343.569
+margin_bottom = 57.558
+rect_pivot_offset = Vector2( -58.9923, 105.684 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

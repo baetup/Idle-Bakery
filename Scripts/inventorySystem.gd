@@ -1,7 +1,7 @@
 extends Control
 
 var invSlot = load("res://Scenes/inventorySlot.tscn") #loading the inventory slot into this scene to instantiate it according to the number of inventorySlots
-var inventorySlots = 14 # current available slots in the inventory ( can be increased)
+var inventorySlots = 16 # current available slots in the inventory ( can be increased)
 var availableitems =[] # holds the items that exist (have product count > 0)
 var inventorySlotIndexes=[] #holds the references for the children in the scene tree
 
@@ -45,12 +45,14 @@ func setItems():
 	for i in availableitems:
 		inventorySlotIndexes[temp].setProductCount(availableitems[temp].productCount)
 		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].productIcon)
+		inventorySlotIndexes[temp].setProductName(availableitems[temp].productName)
 		temp += 1
 	if availableitems.size() < inventorySlotIndexes.size():
 		while (temp2 + availableitems.size()) < inventorySlotIndexes.size():
 			for x in (inventorySlotIndexes.size()-availableitems.size()):
 				inventorySlotIndexes[temp2+availableitems.size()].setProductCount("")
 				inventorySlotIndexes[temp2+availableitems.size()].removeProductIcon()
+				inventorySlotIndexes[temp2+availableitems.size()].setProductName("")
 				temp2 += 1
 
 func removeItem():
@@ -60,6 +62,7 @@ func removeItem():
 			availableitems.remove(temp)
 			inventorySlotIndexes[temp].removeProductIcon()
 			inventorySlotIndexes[temp].setProductCount("")
+			inventorySlotIndexes[temp].setProductName("")
 			checkAvailableItems()
 			setItems()
 		temp += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/product.gd" type="Script" id=1]
 [ext_resource path="res://Image-assets/product-frame.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Shaders/outline_shader.shader" type="Shader" id=11]
 [ext_resource path="res://Image-assets/product-frame-outline.png" type="Texture" id=12]
 [ext_resource path="res://Image-assets/round-frame.png" type="Texture" id=13]
+[ext_resource path="res://Image-assets/breadIcon.png" type="Texture" id=14]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -145,6 +146,18 @@ margin_top = 15.3585
 margin_right = 71.0
 margin_bottom = 85.3585
 texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productIcon" type="TextureRect" parent="productIcon"]
+margin_left = 12.0
+margin_top = 11.0
+margin_right = 52.0
+margin_bottom = 51.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
