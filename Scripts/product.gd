@@ -45,6 +45,9 @@ func _on_bakeTimer_timeout():
 	if hasSupervisor == true:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
+		if globals.get(targetProduct).productCount > 0:
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
 	else:
 		$bakeTimer.stop()
 		$progressTimer.stop()

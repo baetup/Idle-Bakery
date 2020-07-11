@@ -1,13 +1,15 @@
 extends Control
 
 var invSlot = load("res://Scenes/inventorySlot.tscn") #loading the inventory slot into this scene to instantiate it according to the number of inventorySlots
-var inventorySlots = 16 # current available slots in the inventory ( can be increased)
+var inventorySlots = 18 # current available slots in the inventory ( can be increased)
 var availableitems =[] # holds the items that exist (have product count > 0)
 var inventorySlotIndexes=[] #holds the references for the children in the scene tree
+var addNewSlots = 4
+var addNewSlotsCost = 10
 
 
 func _ready():
-	addSlots()
+	addDefaultSlots()
 	checkAvailableItems()
 	setIndexes()
 	setItems()
@@ -24,7 +26,7 @@ func checkAvailableItems():
 
 
 #Creating the available inventory slots
-func addSlots():
+func addDefaultSlots():
 	for x in inventorySlots:
 		$bkgr/scroll/grid.add_child(invSlot.instance())
 
@@ -69,4 +71,18 @@ func removeItem():
 
 func _on_close_pressed():
 	$".".visible = 0
+
+
+
+
+func _on_addSlotsGold_pressed():
+	if globals.money >= addNewSlotsCost : 
+		globals.subFromMoney(addNewSlotsCost)
+		for x in $bkgr/scroll/grid.get_children() :
+			$bkgr/scroll/grid.remove_child(x)
+			x.queue_free()
+		inventorySlots = inventorySlots + addNewSlots
+		addDefaultSlots()
+		setIndexes()
+		setItems()
 
