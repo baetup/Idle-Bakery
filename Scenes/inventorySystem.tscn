@@ -53,11 +53,11 @@ custom_constants/hseparation = 96
 columns = 3
 
 [node name="addSlots" type="TextureButton" parent="."]
-margin_left = 148.075
+margin_left = 68.075
 margin_top = 477.477
-margin_right = 195.075
+margin_right = 115.075
 margin_bottom = 519.477
-rect_pivot_offset = Vector2( -17.4745, -268.64 )
+rect_pivot_offset = Vector2( 11.6485, 20.9332 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,6 +153,17 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="deleteItems" type="TextureButton" parent="."]
+margin_left = 157.321
+margin_top = 479.906
+margin_right = 304.321
+margin_bottom = 508.906
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="addSlots" to="." method="_on_addSlots_pressed"]
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="addSlotsPanel/addSlotsGold" to="." method="_on_addSlotsGold_pressed"]
+[connection signal="pressed" from="deleteItems" to="." method="_on_deleteItems_pressed"]

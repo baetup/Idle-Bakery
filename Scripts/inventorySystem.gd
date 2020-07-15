@@ -1,11 +1,12 @@
 extends Control
 
 var invSlot = load("res://Scenes/inventorySlot.tscn") #loading the inventory slot into this scene to instantiate it according to the number of inventorySlots
-var inventorySlots = 24 # current available slots in the inventory ( can be increased)
+var inventorySlots = 9 # current available slots in the inventory ( can be increased only by multiple of 3 )
 var availableitems =[] # holds the items that exist (have product count > 0)
 var inventorySlotIndexes=[] #holds the references for the children in the scene tree
 var addNewSlots = 3
 var addNewSlotsCost = 10
+var deleteMode = false
 
 
 func _ready():
@@ -23,7 +24,6 @@ func checkAvailableItems():
 		temp =+ 1
 	
 
-
 #Creating the available inventory slots
 func addDefaultSlots():
 	for x in inventorySlots:
@@ -38,8 +38,7 @@ func setIndexes():
 		inventorySlotIndexes[temp2].setIndex(temp2)
 		inventorySlotIndexes[temp2].set_name("inventorySlot" + str(temp2))
 		temp2 += 1
-	inventorySlotIndexes.resize(inventorySlots-3)
-	print(inventorySlotIndexes.size())
+	inventorySlotIndexes.resize(inventorySlots-3) # Resizing because the scroll container doesn't display the last row
 
 #Adding the actual items in the inventory
 func setItems():
@@ -70,9 +69,11 @@ func removeItem():
 			setItems()
 		temp += 1
 
+#Closing the whole inventory
 func _on_close_pressed():
 	$".".visible = 0
 
+#Adding new slots paying with gold
 func _on_addSlotsGold_pressed():
 	if globals.money >= addNewSlotsCost : 
 		globals.subFromMoney(addNewSlotsCost)
@@ -83,6 +84,25 @@ func _on_addSlotsGold_pressed():
 	setIndexes()
 	setItems()
 
-
+#Pressing the add slots button that opens the addSlotsPanel
 func _on_addSlots_pressed():
 	$addSlotsPanel.visible = 1
+
+func setDeleteCheckBoxVisibility():
+	var temp = 0
+	if deleteMode :
+		for i in availableitems:
+			inventorySlotIndexes[temp].setCheckboxVisibility(true)
+			temp =+ 1
+	else:
+		for i in availableitems:
+			inventorySlotIndexes[temp].setCheckboxVisibility(false)
+			temp =+ 1
+
+func _on_deleteItems_pressed():
+	if deleteMode:
+		setDeleteCheckBoxVisibility()
+		deleteMode = false
+	else:
+		setDeleteCheckBoxVisibility()
+		deleteMode = true

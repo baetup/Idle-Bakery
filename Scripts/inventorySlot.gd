@@ -1,6 +1,7 @@
 extends Control
 
 export var inventoryIndex : int
+var isSelected : bool
 
 func setIndex(index):
 	inventoryIndex = index
@@ -17,5 +18,6 @@ func setProductCount(count):
 func setProductName(name):
 	$slotBkgr/productName.text = name
 
-func _on_checkUi_timeout():
-	pass # Replace with function body.
+func setCheckboxVisibility(boolean):
+	print("test")
+	$deleteCheckbox.visible = boolean

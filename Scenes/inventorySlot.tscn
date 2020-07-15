@@ -65,7 +65,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="checkUi" type="Timer" parent="."]
-wait_time = 0.002
-autostart = true
-[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
+[node name="deleteCheckbox" type="CheckBox" parent="."]
+visible = false
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_left = 64.1835
+margin_top = 1.24344
+margin_right = 64.1835
+margin_bottom = 1.24344
+rect_scale = Vector2( 1.2, 1.2 )
