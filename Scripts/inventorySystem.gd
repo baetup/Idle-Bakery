@@ -1,7 +1,7 @@
 extends Control
 
 var invSlot = load("res://Scenes/inventorySlot.tscn") #loading the inventory slot into this scene to instantiate it according to the number of inventorySlots
-var inventorySlots = 9 # current available slots in the inventory ( can be increased only by multiple of 3 )
+var inventorySlots = 18 # current available slots in the inventory ( can be increased only by multiple of 3 )
 var availableitems =[] # holds the items that exist (have product count > 0)
 var inventorySlotIndexes=[] #holds the references for the children in the scene tree
 var addNewSlots = 3
@@ -94,6 +94,7 @@ func setDeleteCheckBoxVisibility():
 		for i in availableitems:
 			inventorySlotIndexes[temp].setCheckboxVisibility(true)
 			temp =+ 1
+		
 	else:
 		for i in availableitems:
 			inventorySlotIndexes[temp].setCheckboxVisibility(false)
@@ -101,8 +102,55 @@ func setDeleteCheckBoxVisibility():
 
 func _on_deleteItems_pressed():
 	if deleteMode:
-		setDeleteCheckBoxVisibility()
 		deleteMode = false
-	else:
 		setDeleteCheckBoxVisibility()
+		$checkUi.stop()
+		$checkUi.autostart = 0
+		if $deleteItems/garbageLabel.text == "Throw items":
+			$deleteItems/garbageLabel.text = "Garbage"
+			print(availableitems.size())
+			var temp = 0
+			for i in availableitems :
+				if inventorySlotIndexes[temp].getCheckboxState() == true:
+					availableitems[temp].productCount  = 0
+					availableitems.remove(temp)
+					inventorySlotIndexes[temp].removeProductIcon()
+					inventorySlotIndexes[temp].setProductCount("")
+					inventorySlotIndexes[temp].setProductName("")
+				print(temp)
+				temp = temp + 1
+			checkAvailableItems()
+			setItems()
+			var temp2 = 0
+			for i in availableitems :
+				inventorySlotIndexes[temp2].setCheckboxState(false)
+				temp2 = temp2 + 1
+
+		
+	else:
 		deleteMode = true
+		setDeleteCheckBoxVisibility()
+		$checkUi.start()
+		$checkUi.autostart = 1
+		
+
+func _on_checkUi_timeout():
+	var temp = 0
+	var countItemsSelected = 0
+	for i in availableitems :
+		if inventorySlotIndexes[temp].getCheckboxState():
+			countItemsSelected = countItemsSelected + 1
+		temp = temp + 1
+	if countItemsSelected > 0:
+		$deleteItems/garbageLabel.text = "Throw items"
+	else:
+		$deleteItems/garbageLabel.text = "Garbage"
+
+
+
+
+
+
+
+
+

@@ -74,3 +74,4 @@ margin_top = 1.24344
 margin_right = 64.1835
 margin_bottom = 1.24344
 rect_scale = Vector2( 1.2, 1.2 )
+[connection signal="toggled" from="deleteCheckbox" to="." method="_on_deleteCheckbox_toggled"]

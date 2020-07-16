@@ -19,5 +19,17 @@ func setProductName(name):
 	$slotBkgr/productName.text = name
 
 func setCheckboxVisibility(boolean):
-	print("test")
 	$deleteCheckbox.visible = boolean
+	
+
+func _on_deleteCheckbox_toggled(button_pressed):
+	if isSelected == true :
+		isSelected = false
+	else:
+		isSelected = true
+
+func getCheckboxState():
+	return isSelected
+	
+func setCheckboxState(state):
+	$deleteCheckbox.pressed = state
