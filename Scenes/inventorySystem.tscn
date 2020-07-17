@@ -157,7 +157,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="close" type="TextureButton" parent="addSlotsPanel"]
+[node name="closeAddSlotsPanel" type="TextureButton" parent="addSlotsPanel"]
 margin_left = 219.0
 margin_top = 7.0
 margin_right = 256.0
@@ -190,5 +190,6 @@ wait_time = 0.002
 [connection signal="pressed" from="addSlots" to="." method="_on_addSlots_pressed"]
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="addSlotsPanel/addSlotsGold" to="." method="_on_addSlotsGold_pressed"]
+[connection signal="pressed" from="addSlotsPanel/closeAddSlotsPanel" to="." method="_on_closeAddSlotsPanel_pressed"]
 [connection signal="pressed" from="deleteItems" to="." method="_on_deleteItems_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

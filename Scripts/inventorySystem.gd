@@ -34,7 +34,7 @@ func setIndexes():
 	var temp2 = 0
 	for i in inventorySlots:
 		var gridChildren = $bkgr/scroll/grid.get_children()
-		inventorySlotIndexes.append(gridChildren[temp2])
+		inventorySlotIndexes.push_back(gridChildren[temp2])
 		inventorySlotIndexes[temp2].setIndex(temp2)
 		inventorySlotIndexes[temp2].set_name("inventorySlot" + str(temp2))
 		temp2 += 1
@@ -80,6 +80,7 @@ func _on_addSlotsGold_pressed():
 		for x in addNewSlots:
 			$bkgr/scroll/grid.add_child(invSlot.instance())
 		inventorySlots = inventorySlots + addNewSlots
+	inventorySlotIndexes.clear()
 	checkAvailableItems()
 	setIndexes()
 	setItems()
@@ -109,18 +110,19 @@ func _on_deleteItems_pressed():
 
 		if $deleteItems/garbageLabel.text == "Throw items":
 			var temp = 0
-			var tempItemCounter = availableitems.size() - 1
+			var tempItemCounter = availableitems.size()
+			var removedItems = 0
 			for i in tempItemCounter :
-				print("test")
 				if inventorySlotIndexes[temp].getCheckboxState() == true:
-					availableitems[temp].productCount  = 0
+					availableitems[temp - removedItems].productCount  = 0
 					#print(availableitems[temp].productCount)
 					inventorySlotIndexes[temp].removeProductIcon()
 					inventorySlotIndexes[temp].setProductCount("")
 					inventorySlotIndexes[temp].setProductName("")
-					availableitems.remove(temp)
+					availableitems.remove(temp - removedItems)
+					removedItems = removedItems + 1
+					
 				temp = temp + 1
-				
 			checkAvailableItems()
 			setItems()
 			var temp2 = 0
@@ -150,10 +152,5 @@ func _on_checkUi_timeout():
 		$deleteItems/garbageLabel.text = "Garbage"
 
 
-
-
-
-
-
-
-
+func _on_closeAddSlotsPanel_pressed():
+	$addSlotsPanel.visible = 0
