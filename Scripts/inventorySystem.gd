@@ -106,27 +106,28 @@ func _on_deleteItems_pressed():
 		setDeleteCheckBoxVisibility()
 		$checkUi.stop()
 		$checkUi.autostart = 0
+
 		if $deleteItems/garbageLabel.text == "Throw items":
-			$deleteItems/garbageLabel.text = "Garbage"
-			print(availableitems.size())
+
 			var temp = 0
 			for i in availableitems :
 				if inventorySlotIndexes[temp].getCheckboxState() == true:
 					availableitems[temp].productCount  = 0
-					availableitems.remove(temp)
 					inventorySlotIndexes[temp].removeProductIcon()
 					inventorySlotIndexes[temp].setProductCount("")
 					inventorySlotIndexes[temp].setProductName("")
-				print(temp)
+					availableitems.remove(temp)
 				temp = temp + 1
+
 			checkAvailableItems()
 			setItems()
 			var temp2 = 0
 			for i in availableitems :
 				inventorySlotIndexes[temp2].setCheckboxState(false)
 				temp2 = temp2 + 1
+			$deleteItems/garbageLabel.text = "Garbage"
 
-		
+
 	else:
 		deleteMode = true
 		setDeleteCheckBoxVisibility()
