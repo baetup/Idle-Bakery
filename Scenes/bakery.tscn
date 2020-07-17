@@ -14,11 +14,9 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=2]
 use_filter = true
 font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -28,7 +26,9 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="Theme" id=7]
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="Theme" id=8]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -36,7 +36,7 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 6 )
+VScrollBar/styles/scroll = SubResource( 7 )
 VScrollBar/styles/scroll_focus = null
 
 [node name="bakeryAvalonia" type="Panel"]
@@ -56,6 +56,7 @@ position = Vector2( 217.356, 314.904 )
 texture = ExtResource( 10 )
 
 [node name="greyContainer" type="Sprite" parent="."]
+visible = false
 position = Vector2( 306.248, 59.4764 )
 texture = ExtResource( 5 )
 
@@ -104,7 +105,7 @@ margin_left = 29.5626
 margin_top = 5.00816
 margin_right = 108.563
 margin_bottom = 23.0082
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Supervisors"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,10 +116,10 @@ margin_left = 217.0
 margin_top = 38.0
 margin_right = 397.0
 margin_bottom = 77.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -138,7 +139,7 @@ margin_left = 57.0
 margin_top = 114.0
 margin_right = 375.0
 margin_bottom = 569.0
-theme = SubResource( 7 )
+theme = SubResource( 8 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false

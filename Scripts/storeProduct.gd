@@ -1,5 +1,6 @@
 extends Panel
 
+onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 onready var storeNodePath = get_node("/root/GameManager/villageAvalonia/UiCanvas/store")
 export var targetProduct = "breadAvalonia"
 var isSellingPossible = false
@@ -26,6 +27,7 @@ func _on_saleProduct_pressed():
 		globals.get(targetProduct).addStoreProductLevel(1)
 		globals.subFromMoney(globals.get(targetProduct).storeLevelCost)
 		globals.get(targetProduct).setStoreLevelCost(0.25)
+
 	UpdateUI()
 
 func _on_saleTimer_timeout():
@@ -33,6 +35,10 @@ func _on_saleTimer_timeout():
 	if globals.get(targetProduct).productCount > 0 && isSellingPossible == true :
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
+		inventoryNodePath.removeItem()
+		inventoryNodePath.checkAvailableItems()
+		inventoryNodePath.setItems()
+			
 	else:
 		isSellingPossible = false
 		$progressTimer.stop()
@@ -41,6 +47,7 @@ func _on_saleTimer_timeout():
 		isSellingPossible = true
 		$progressTimer.start()
 		$saleTimer.start()
+
 	UpdateUI()
 
 func _on_progressTimer_timeout():

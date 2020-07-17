@@ -84,3 +84,6 @@ func _on_zoomOut_pressed():
 func _on_zoomIn_pressed():
 	if $Camera2D.zoom.x >= 1.0:
 		$Camera2D.zoom -= cameraZoomRate
+
+func _on_inventoryButton_pressed():
+	$UiCanvas/inventorySystem.visible = 1
