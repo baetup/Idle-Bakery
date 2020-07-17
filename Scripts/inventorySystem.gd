@@ -8,7 +8,6 @@ var addNewSlots = 3
 var addNewSlotsCost = 10
 var deleteMode = false
 
-
 func _ready():
 	addDefaultSlots()
 	checkAvailableItems()
@@ -126,7 +125,7 @@ func _on_deleteItems_pressed():
 			checkAvailableItems()
 			setItems()
 			var temp2 = 0
-			for i in availableitems :
+			for i in inventorySlotIndexes :
 				inventorySlotIndexes[temp2].setCheckboxState(false)
 				temp2 = temp2 + 1
 			$deleteItems/garbageLabel.text = "Garbage"
