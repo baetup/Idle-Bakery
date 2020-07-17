@@ -14,7 +14,8 @@ var intStat : int = 0
 var invStat : int = 0
 
 var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 5, 0 ,15, 1, 0.2, 2, 0.2, 2, 2, 1, 0, 15,true) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
-var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 2, 0, 250, 1,0.2, 5, 0.2, 2, 5, 1, 0, 300,false)
+var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 8, 0, 250, 1,0.2, 5, 0.2, 2, 5, 1, 0, 300,false)
+var crap = product.new("crap", "res://Image-assets/cookieIcon.png", 6, 0, 250, 1,0.2, 5, 0.2, 2, 5, 1, 0, 300,false)
 
 
 var breadBakAvaS = supervisor.new(false, 100, "breadAvalonia", "bakery") #isHired, price, targetProduct, type
@@ -22,7 +23,7 @@ var cookieBakAvaS = supervisor.new(false, 3, "cookieAvalonia", "bakery")
 var breadStorAvaS = supervisor.new(false, 5, "breadAvalonia", "store")
 var cookieStorAvaS = supervisor.new(false, 6, "cookieAvalonia", "store")
 
-var arrayOfProducts = [breadAvalonia, cookieAvalonia]
+var arrayOfProducts = [breadAvalonia, cookieAvalonia, crap]
 
 
 func setUsername(name):

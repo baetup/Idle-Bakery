@@ -21,7 +21,7 @@ func checkAvailableItems():
 	for x in globals.arrayOfProducts:
 		if globals.arrayOfProducts[temp].productCount > 0 && (availableitems.has(globals.arrayOfProducts[temp]) == false):
 			availableitems.push_back(globals.arrayOfProducts[temp])
-		temp =+ 1
+		temp += 1
 	
 
 #Creating the available inventory slots
@@ -93,12 +93,12 @@ func setDeleteCheckBoxVisibility():
 	if deleteMode :
 		for i in availableitems:
 			inventorySlotIndexes[temp].setCheckboxVisibility(true)
-			temp =+ 1
+			temp += 1
 		
 	else:
 		for i in availableitems:
 			inventorySlotIndexes[temp].setCheckboxVisibility(false)
-			temp =+ 1
+			temp += 1
 
 func _on_deleteItems_pressed():
 	if deleteMode:
@@ -108,17 +108,19 @@ func _on_deleteItems_pressed():
 		$checkUi.autostart = 0
 
 		if $deleteItems/garbageLabel.text == "Throw items":
-
 			var temp = 0
-			for i in availableitems :
+			var tempItemCounter = availableitems.size() - 1
+			for i in tempItemCounter :
+				print("test")
 				if inventorySlotIndexes[temp].getCheckboxState() == true:
 					availableitems[temp].productCount  = 0
+					#print(availableitems[temp].productCount)
 					inventorySlotIndexes[temp].removeProductIcon()
 					inventorySlotIndexes[temp].setProductCount("")
 					inventorySlotIndexes[temp].setProductName("")
 					availableitems.remove(temp)
 				temp = temp + 1
-
+				
 			checkAvailableItems()
 			setItems()
 			var temp2 = 0
@@ -141,7 +143,7 @@ func _on_checkUi_timeout():
 	for i in availableitems :
 		if inventorySlotIndexes[temp].getCheckboxState():
 			countItemsSelected = countItemsSelected + 1
-		temp = temp + 1
+		temp += 1
 	if countItemsSelected > 0:
 		$deleteItems/garbageLabel.text = "Throw items"
 	else:
