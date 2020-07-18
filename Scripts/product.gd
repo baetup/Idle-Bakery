@@ -70,9 +70,10 @@ func _on_research_pressed():
 		globals.subFromMoney(globals.get(targetProduct).bakeryLevelCost)
 		globals.get(targetProduct).setBakeryLevelCost(0.25)
 		globals.get(targetProduct).setProduceAmount(2)
+		setBakeSpeed()
 	UpdateUI()
 
-func speedBake():
+func setBakeSpeed():
 		$bakeTimer.wait_time = $bakeTimer.wait_time - ($bakeTimer.wait_time * globals.get(targetProduct).bakeSpeed)
 		globals.get(targetProduct).setBakeSpeed(0.01)
 

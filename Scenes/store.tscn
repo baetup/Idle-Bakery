@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/storeProduct.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://Scripts/store.gd" type="Script" id=4]
 [ext_resource path="res://Image-assets/shop-bkgr.png" type="Texture" id=5]
 [ext_resource path="res://Image-assets/title blue-no-text.png" type="Texture" id=6]
-[ext_resource path="res://Image-assets/wooden-plank.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/supervisorPanel.tscn" type="PackedScene" id=9]
-
-
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -107,9 +104,9 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_left = 51.0
-margin_top = 294.0
+margin_top = 190.0
 margin_right = 344.0
-margin_bottom = 611.0
+margin_bottom = 608.0
 theme = SubResource( 3 )
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -123,25 +120,21 @@ custom_constants/separation = 105
 [node name="breadControl" type="Control" parent="ScrollContainer/VBoxContainer"]
 
 [node name="breadAvalonia" parent="ScrollContainer/VBoxContainer/breadControl" instance=ExtResource( 1 )]
-margin_left = -58.044
-margin_top = -35.2098
-margin_right = -58.044
-margin_bottom = -35.2098
+margin_left = -2.044
+margin_top = -3.2098
+margin_right = -2.044
+margin_bottom = -3.2098
 
 [node name="cookieControl" type="Control" parent="ScrollContainer/VBoxContainer"]
 margin_top = 105.0
 margin_bottom = 105.0
 
 [node name="cookieAvalonia" parent="ScrollContainer/VBoxContainer/cookieControl" instance=ExtResource( 1 )]
-margin_left = -58.044
-margin_top = -35.2098
-margin_right = -58.044
-margin_bottom = -35.2098
+margin_left = -2.044
+margin_top = -3.20981
+margin_right = -2.044
+margin_bottom = -3.20981
 targetProduct = "cookieAvalonia"
-
-[node name="wooden-plank" type="Sprite" parent="."]
-position = Vector2( 193.954, 276.727 )
-texture = ExtResource( 8 )
 
 [node name="supervisorPanel" parent="." instance=ExtResource( 9 )]
 visible = false

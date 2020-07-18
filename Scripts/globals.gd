@@ -91,7 +91,7 @@ class product:
 	var sellTime : float
 	var sellPrice : int
 	var sellAmount : int
-	var storeLevelCount : int
+	var storeProductLevelCount : int
 	var storeLevelCost : float
 	
 	var isUnlocked : bool
@@ -109,7 +109,7 @@ class product:
 		sellTime = setSellTime
 		sellPrice = setSellPrice
 		sellAmount = setSellAmount
-		storeLevelCount = setStoreLevelCount
+		storeProductLevelCount = setStoreLevelCount
 		storeLevelCost = setStoreLevelCost
 		isUnlocked = setIsUnlocked
 
@@ -129,13 +129,13 @@ class product:
 		bakeSpeed = bakeSpeed * tinyFloat
 
 	func addStoreProductLevel(amount : int):
-		storeLevelCount += amount
+		storeProductLevelCount += amount
 
 	func setStoreLevelCost(percentage : float):
 		storeLevelCost = storeLevelCost + (storeLevelCost * percentage)
 
-	func setSellAmount(amount : int):
-		sellAmount = sellAmount * amount
+	func setSellSpeed(tinyFloat : float):
+		sellSpeed = sellSpeed * tinyFloat
 
 	func removeFromProductCount(amount : int):
 		productCount = productCount - amount
