@@ -7,6 +7,7 @@ var hasSupervisor = false
 
 
 func _ready():
+	$saleTimer.wait_time = globals.get(targetProduct).sellTime
 	UpdateUI()
 
 func UpdateUI():
@@ -61,6 +62,10 @@ func _on_saleTimer_timeout():
 			inventoryNodePath.removeItem()
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
+		else:
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
+
 
 	elif hasSupervisor == false && globals.get(targetProduct).productCount > 0 && isSellingPossible == true:
 		$saleTimer.stop()
@@ -73,14 +78,29 @@ func _on_saleTimer_timeout():
 			inventoryNodePath.removeItem()
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
-	else:
+		else:
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
+		
+	elif !(globals.get(targetProduct).productCount > 0):
 		isSellingPossible = false
 		$progressTimer.stop()
 
+
 	if isSellingPossible == false && globals.get(targetProduct).productCount > 0 :
+		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
+		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		isSellingPossible = true
+		if globals.get(targetProduct).productCount == 0:
+			inventoryNodePath.removeItem()
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
+		else:
+			inventoryNodePath.checkAvailableItems()
+			inventoryNodePath.setItems()
 		$progressTimer.start()
 		$saleTimer.start()
+
 
 	UpdateUI()
 
@@ -110,6 +130,7 @@ func _on_research_pressed():
 	UpdateUI()
 
 func setSellSpeed():
-		$saleTimer.wait_time = $saleTimer.wait_time - ($saleTimer.wait_time * globals.get(targetProduct).sellSpeed)
-		globals.get(targetProduct).setSellSpeed(0.01)
+	globals.get(targetProduct).setSellTime()
+	$saleTimer.wait_time = globals.get(targetProduct).sellTime
+
 

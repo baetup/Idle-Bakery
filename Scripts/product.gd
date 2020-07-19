@@ -6,6 +6,7 @@ var hasSupervisor = false
 var unlockCost = globals.money * 0.9
 
 func _ready():
+	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
 	UpdateUI()
 
 func UpdateUI():
@@ -74,8 +75,9 @@ func _on_research_pressed():
 	UpdateUI()
 
 func setBakeSpeed():
-		$bakeTimer.wait_time = $bakeTimer.wait_time - ($bakeTimer.wait_time * globals.get(targetProduct).bakeSpeed)
-		globals.get(targetProduct).setBakeSpeed(0.01)
+	globals.get(targetProduct).setBakeTime()
+	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
+
 
 func onHiredSupervisor():
 	hasSupervisor = true

@@ -152,4 +152,8 @@ supervisor = "cookieStorAvaS"
 [connection signal="pressed" from="openSupervisors" to="." method="_on_openSupervisors_pressed"]
 [connection signal="pressed" from="upgradesBtn" to="." method="_on_upgradesBtn_pressed"]
 
+[editable path="ScrollContainer/VBoxContainer/breadControl/breadAvalonia"]
+
 [editable path="supervisorPanel"]
+
+[editable path="supervisorPanel/GridContainer/supervisor"]
