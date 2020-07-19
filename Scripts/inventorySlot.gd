@@ -22,6 +22,7 @@ func setCheckboxVisibility(boolean):
 	$deleteCheckbox.visible = boolean
 	
 
+# warning-ignore:unused_argument
 func _on_deleteCheckbox_toggled(button_pressed):
 	if isSelected == true :
 		isSelected = false
