@@ -11,7 +11,7 @@ func _ready():
 
 func UpdateUI():
 	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).productIcon))
-	$productCountLabel.text= str(globals.get(targetProduct).productCount)
+	$productCountLabel.text= str(globals.get(targetProduct).quantity)
 	$levelCount.text = str(globals.get(targetProduct).bakeryProductLevel)
 	$durationLabel.text = "%.1f" % ($bakeTimer.time_left) + "s"
 	$progressBar/amount.text = str(globals.get(targetProduct).produceAmount)
@@ -46,7 +46,7 @@ func _on_bakeTimer_timeout():
 	if hasSupervisor == true:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
-		if globals.get(targetProduct).productCount > 0:
+		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
 	else:
@@ -55,7 +55,7 @@ func _on_bakeTimer_timeout():
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		$productIcon.disabled = 0 
-		if globals.get(targetProduct).productCount > 0:
+		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
 	UpdateUI()

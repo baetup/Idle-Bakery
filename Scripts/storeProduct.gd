@@ -12,7 +12,7 @@ func _ready():
 
 func UpdateUI():
 	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).productIcon))
-	$productCountLabel.text= str(globals.get(targetProduct).productCount)
+	$productCountLabel.text= str(globals.get(targetProduct).quantity)
 	$levelCount.text = str(globals.get(targetProduct).storeProductLevelCount)
 	$durationLabel.text = "%.1f" % ($saleTimer.time_left) + "s"
 	$research/upgradeCost.text = "%.2f" % (globals.get(targetProduct).storeLevelCost)
@@ -22,7 +22,7 @@ func UpdateUI():
 	else:
 		$unlockPanel.visible = 0
 
-	if hasSupervisor == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).productCount > 0:
+	if hasSupervisor == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).quantity > 0:
 		$productIcon/Particles2D.visible = 1
 	else:
 		$productIcon/Particles2D.visible = 0 
@@ -44,7 +44,7 @@ func _on_checkUi_timeout():
 
 
 func _on_productIcon_pressed():
-	if globals.get(targetProduct).productCount > 0:
+	if globals.get(targetProduct).quantity > 0:
 		$saleTimer.start()
 		$progressTimer.start()
 		$saleTimer.autostart = 0
@@ -54,11 +54,11 @@ func _on_productIcon_pressed():
 
 
 func _on_saleTimer_timeout():
-	if hasSupervisor == true && globals.get(targetProduct).productCount > 0 && isSellingPossible == true:
+	if hasSupervisor == true && globals.get(targetProduct).quantity > 0 && isSellingPossible == true:
 		$progressBar.set("value", 0.00)
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
-		if globals.get(targetProduct).productCount == 0:
+		if globals.get(targetProduct).quantity == 0:
 			inventoryNodePath.removeItem()
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
@@ -67,14 +67,14 @@ func _on_saleTimer_timeout():
 			inventoryNodePath.setItems()
 
 
-	elif hasSupervisor == false && globals.get(targetProduct).productCount > 0 && isSellingPossible == true:
+	elif hasSupervisor == false && globals.get(targetProduct).quantity > 0 && isSellingPossible == true:
 		$saleTimer.stop()
 		$progressTimer.stop()
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		$productIcon.disabled = 0 
-		if globals.get(targetProduct).productCount == 0:
+		if globals.get(targetProduct).quantity == 0:
 			inventoryNodePath.removeItem()
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
@@ -82,16 +82,16 @@ func _on_saleTimer_timeout():
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
 		
-	elif !(globals.get(targetProduct).productCount > 0):
+	elif !(globals.get(targetProduct).quantity > 0):
 		isSellingPossible = false
 		$progressTimer.stop()
 
 
-	if isSellingPossible == false && globals.get(targetProduct).productCount > 0 :
+	if isSellingPossible == false && globals.get(targetProduct).quantity > 0 :
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		isSellingPossible = true
-		if globals.get(targetProduct).productCount == 0:
+		if globals.get(targetProduct).quantity == 0:
 			inventoryNodePath.removeItem()
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()

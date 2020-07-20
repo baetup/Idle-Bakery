@@ -23,7 +23,7 @@ var cookieBakAvaS = supervisor.new(false, 3, "cookieAvalonia", "bakery")
 var breadStorAvaS = supervisor.new(false, 5, "breadAvalonia", "store")
 var cookieStorAvaS = supervisor.new(false, 6, "cookieAvalonia", "store")
 
-var arrayOfProducts = [breadAvalonia, cookieAvalonia]
+var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.get("flour")]
 
 
 func setUsername(name):
@@ -80,7 +80,7 @@ class supervisor:
 class product:
 	var productName : String
 	var productIcon : String
-	var productCount : int
+	var quantity : int
 	var bakeryProductLevel : int
 	var bakeryLevelCost : float
 	var produceAmount : int
@@ -99,7 +99,7 @@ class product:
 	func _init(name : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool):
 		productName = name
 		productIcon = setProductIcon
-		productCount = setProductCount
+		quantity = setProductCount
 		bakeryProductLevel = setBakeryProductLevel
 		bakeryLevelCost = setBakeryLevelCost
 		produceAmount = setProduceAmount
@@ -114,7 +114,7 @@ class product:
 		isUnlocked = setIsUnlocked
 
 	func addToProductCount(amount : int):
-		productCount += amount
+		quantity += amount
 
 	func addBakeryProductLevel(amount : int):
 		bakeryProductLevel += amount
@@ -138,7 +138,7 @@ class product:
 		sellTime = sellTime- (sellTime * sellSpeedMultiplier)
 
 	func removeFromProductCount(amount : int):
-		productCount = productCount - amount
+		quantity = quantity - amount
 		
 	func setIsUnlocked(answer:bool):
 		isUnlocked = answer
