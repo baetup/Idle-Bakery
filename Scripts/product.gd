@@ -28,6 +28,7 @@ func UpdateUI():
 		if globals.get(targetProduct).ingredients[temp].quantity > 0:
 			$productIcon.disabled = 0
 			isProducingPossible = true
+			temp = temp + 1
 		else:
 			isProducingPossible = false
 			$productIcon.disabled = 1
@@ -65,6 +66,7 @@ func _on_bakeTimer_timeout():
 				inventoryNodePath.removeItem()
 				inventoryNodePath.checkAvailableItems()
 				inventoryNodePath.setItems()
+			temp = temp + 1
 		
 		#Updating inventory for producing
 		if globals.get(targetProduct).quantity > 0:
@@ -87,6 +89,7 @@ func _on_bakeTimer_timeout():
 				inventoryNodePath.removeItem()
 				inventoryNodePath.checkAvailableItems()
 				inventoryNodePath.setItems()
+			temp = temp + 1
 
 		#Updating inventory
 		if globals.get(targetProduct).quantity > 0:
