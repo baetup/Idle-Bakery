@@ -4,15 +4,15 @@ extends Node
 var flour = ingredient.new("res://Image-assets/flourIcon.png", "Flour", 3, 1, 5 )
 
 class ingredient :
-	var productIcon
-	var productName
+	var icon
+	var name
 	var quantity
 	var produceTime
 	var produceAmount
 
 	func _init(setIcon : String, setName : String, setCount : int, setProduceTime : float, setProduceAmount : float):
-		productIcon = setIcon
-		productName = setName
+		icon = setIcon
+		name = setName
 		quantity = setCount
 		produceTime = setProduceTime
 		produceAmount = setProduceAmount

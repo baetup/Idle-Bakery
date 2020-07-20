@@ -10,7 +10,7 @@ func _ready():
 	UpdateUI()
 
 func UpdateUI():
-	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).productIcon))
+	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).icon))
 	$productCountLabel.text= str(globals.get(targetProduct).quantity)
 	$levelCount.text = str(globals.get(targetProduct).bakeryProductLevel)
 	$durationLabel.text = "%.1f" % ($bakeTimer.time_left) + "s"
@@ -28,7 +28,7 @@ func UpdateUI():
 		$productIcon/Particles2D.visible = 0 
 	
 	$unlockPanel/costLabel.text = str(unlockCost)
-	$unlockPanel/productName.text = globals.get(targetProduct).productName
+	$unlockPanel/productName.text = globals.get(targetProduct).name
 	
 
 

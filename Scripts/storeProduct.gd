@@ -11,7 +11,7 @@ func _ready():
 	UpdateUI()
 
 func UpdateUI():
-	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).productIcon))
+	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).icon))
 	$productCountLabel.text= str(globals.get(targetProduct).quantity)
 	$levelCount.text = str(globals.get(targetProduct).storeProductLevelCount)
 	$durationLabel.text = "%.1f" % ($saleTimer.time_left) + "s"
@@ -27,7 +27,7 @@ func UpdateUI():
 	else:
 		$productIcon/Particles2D.visible = 0 
 
-	$unlockPanel/productName.text = globals.get(targetProduct).productName
+	$unlockPanel/productName.text = globals.get(targetProduct).name
 
 func inLineTimer(time):
 	yield(get_tree().create_timer(time), "timeout")

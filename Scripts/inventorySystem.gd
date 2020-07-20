@@ -45,8 +45,8 @@ func setItems():
 	var temp2 = 0
 	for i in availableitems:
 		inventorySlotIndexes[temp].setProductCount(availableitems[temp].quantity)
-		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].productIcon)
-		inventorySlotIndexes[temp].setProductName(availableitems[temp].productName)
+		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].icon)
+		inventorySlotIndexes[temp].setProductName(availableitems[temp].name)
 		temp += 1
 	if availableitems.size() < inventorySlotIndexes.size():
 		while (temp2 + availableitems.size()) < inventorySlotIndexes.size():
