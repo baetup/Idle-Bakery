@@ -13,8 +13,8 @@ var chrStat : int = 0
 var intStat : int = 0
 var invStat : int = 0
 
-var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
-var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 0, 0, 250, 1,0.01, 5, 0.02, 2, 5, 1, 0, 300,false)
+var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true, [ingredients.flour]) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
+var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 0, 0, 250, 1,0.01, 5, 0.02, 2, 5, 1, 0, 300,false, [ingredients.flour])
 
 
 
@@ -95,8 +95,9 @@ class product:
 	var storeLevelCost : float
 	
 	var isUnlocked : bool
+	var ingredients : Array
 
-	func _init(setName : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool):
+	func _init(setName : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool,setIngredients : Array):
 		name = setName
 		icon = setProductIcon
 		quantity = setProductCount
@@ -112,6 +113,7 @@ class product:
 		storeProductLevelCount = setStoreLevelCount
 		storeLevelCost = setStoreLevelCost
 		isUnlocked = setIsUnlocked
+		ingredients = setIngredients
 
 	func addToProductCount(amount : int):
 		quantity += amount
@@ -121,9 +123,6 @@ class product:
 
 	func setBakeryLevelCost(percentage : float):
 		bakeryLevelCost = bakeryLevelCost + (bakeryLevelCost * percentage)
-
-	func setProduceAmount(amount : int):
-		produceAmount = produceAmount * amount
 
 	func setBakeTime():
 		bakeTime = bakeTime - (bakeTime * bakeSpeedMultiplier)

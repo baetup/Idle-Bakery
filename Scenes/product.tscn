@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/product.gd" type="Script" id=1]
 [ext_resource path="res://Image-assets/product-frame.png" type="Texture" id=2]
@@ -66,12 +66,6 @@ texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 178, 11 )
 
 [sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="DynamicFont" id=12]
-size = 15
-outline_size = 1
-outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 15
@@ -181,23 +175,6 @@ margin_bottom = 49.0
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )
 max_value = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="amount" type="Label" parent="progressBar"]
-margin_left = 58.0
-margin_top = -2.0
-margin_right = 115.0
-margin_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_pivot_offset = Vector2( 119.68, -64.1705 )
-custom_fonts/font = SubResource( 12 )
-text = "[amount]"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

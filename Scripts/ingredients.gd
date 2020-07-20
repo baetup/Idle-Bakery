@@ -1,7 +1,7 @@
 extends Node
 
 
-var flour = ingredient.new("res://Image-assets/flourIcon.png", "Flour", 3, 1, 5 )
+var flour = ingredient.new("res://Image-assets/flourIcon.png", "Flour", 2, 1, 5 )
 
 class ingredient :
 	var icon
@@ -17,8 +17,11 @@ class ingredient :
 		produceTime = setProduceTime
 		produceAmount = setProduceAmount
 		
-	func addToCount(amount : int):
+	func addQuantity(amount : int):
 		quantity = quantity + amount
+	
+	func removeQuantity(amount : int):
+		quantity = quantity - amount
 	
 	func setProduceTime():
 		produceTime = produceTime - (produceTime * 0.02)
