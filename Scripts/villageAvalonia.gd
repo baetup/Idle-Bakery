@@ -42,6 +42,12 @@ func checkIfUnlockable(buildingCost, path):
 	else:
 		path.disabled = true
 
+func _on_getFarmOpen_pressed():
+	$UiCanvas/farm.visible = 1
+
 func _on_buyBuilding1_pressed():
 	gameManagerNodePath.setPrestigeLevel(building1Cost, building1Exp)
 	$unlockableBuildingsBtns/buyBuilding1.visible = 0
+
+
+

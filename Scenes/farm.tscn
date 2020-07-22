@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Image-assets/farm.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/farmProduct.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Image-assets/button-five-pressed.png" type="Texture" id=8]
 [ext_resource path="res://Image-assets/button-five-disabled.png" type="Texture" id=9]
 [ext_resource path="res://Image-assets/button-five.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/farm.gd" type="Script" id=11]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -37,6 +38,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 
 [node name="farm" type="Node2D"]
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_vertical_guides_": [ 85.2642 ]
 }
@@ -153,18 +155,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="staffHappines" type="ProgressBar" parent="staffPanel"]
-margin_left = -129.0
-margin_top = -1.0
-margin_right = 141.0
-margin_bottom = 13.0
-rect_pivot_offset = Vector2( 154.178, -8.97562 )
-value = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="staffMood" type="Label" parent="staffPanel"]
+[node name="staffMoodLabel" type="Label" parent="staffPanel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -290,10 +281,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slider" type="HSlider" parent="paymentLabel"]
+[node name="paySlider" type="HSlider" parent="paymentLabel"]
 margin_top = 22.0
 margin_right = 270.0
 margin_bottom = 38.0
+max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+[connection signal="pressed" from="staffPanel/hireStaffBtn" to="." method="_on_hireStaffBtn_pressed"]
+[connection signal="value_changed" from="paymentLabel/paySlider" to="." method="_on_paySlider_value_changed"]
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

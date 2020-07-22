@@ -14,6 +14,7 @@ func UpdateUI():
 	$farmTimer.wait_time = ingredients.get(targetIngredient).produceTime
 	$durationLabel.text = "%.1f" % ($farmTimer.time_left) + "s"
 	$research/upgradeCost.text = "%.2f" % (ingredients.get(targetIngredient).levelCost)
+
 	
 	if ingredients.get(targetIngredient).levelCost > globals.money:
 		$research.disabled = 1
