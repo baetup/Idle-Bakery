@@ -57,8 +57,10 @@ func moodLeave():
 			count = count - mustLeave
 
 func payday():
+	#if I got money to pay all, pay all farmers
 	if globals.money >= totalSalary:
 		globals.subFromMoney(totalSalary)
+	#if I dont have money to pay all the workers, pay only how many I can
 	elif globals.money < totalSalary:
 		var negativeDifference = totalSalary - globals.money
 		var unpaidFarmers = negativeDifference / salary
@@ -66,55 +68,51 @@ func payday():
 		globals.subFromMoney(paidFarmers * salary)
 			
 
+#the case when I dont have money to pay all the farmers, some leave
 func paymentLeave():
-	print("test1")
+
+
 	if count > 0 :
-		var differenceSum = globals.money - totalSalary
-		if differenceSum > 0:
-			print("test differenceSum > 0")
+		var differenceSum = globals.money - totalSalary # checking how much money I miss
+		if differenceSum > 0: # if I dont miss any money, set that all workers have been payed today
 			var temp = 0
 			for x in farmerArray:
-				farmerArray[temp].dayOne = 0
+				farmerArray[temp].paidYestarday = 0
 				temp += 1
 		
+		#if I miss some money, check how many I can't pay and set that they have not been payed today
 		if differenceSum < 0:
-			print("test difference < 0")
 			differenceSum = differenceSum * (-1)
 			unpaidFarmersToday = differenceSum / salary
 			var temp = 0
 			var temp2 = 0
 			var removedFarmers = 0
 		
+			#remove those that haven't been yestarday + today
 			for x in unpaidFarmersToday:
-				if farmerArray[temp].dayOne == 1:
-					print("farmer has day one checked")
+				if farmerArray[temp].paidYestarday == 1:
 					farmerArray.remove(temp)
 					removeCount(1)
 					setTotalSalary(count)
 					removedFarmers += 1
 					unpaidFarmersToday = unpaidFarmersToday - 1
 				
-			
+			#tell how many haven't been payed today
 			for x in unpaidFarmersToday - removedFarmers:
-				print("test set day one to unpaid")
-				farmerArray[temp2].dayOne = 1
-				print(farmerArray[temp2].dayOne)
+				farmerArray[temp2].paidYestarday = 1
+				print(farmerArray[temp2].paidYestarday)
 				temp2 += 1
 			
+			#reset 
 			unpaidFarmersToday = 0
 	
 
 class farmer:
 	
-	var consecDaysUnpaid : int
-	var dayOne : int
-	var dayTwo : int
+	var paidYestarday : int
 
-
-	func _init(setDays, setDOne, setDTwo):
-		consecDaysUnpaid = setDays
-		dayOne = setDOne
-		dayTwo = setDTwo
+	func _init(setDOne):
+		paidYestarday = setDOne
 		
 
 

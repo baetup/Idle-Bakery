@@ -30,7 +30,7 @@ func _on_paySlider_value_changed(value):
 
 func _on_hireStaffBtn_pressed():
 	if globals.money >= S_farmers.hireCost:
-		S_farmers.farmerArray.push_back(S_farmers.farmer.new(0,0,0))
+		S_farmers.farmerArray.push_back(S_farmers.farmer.new(0))
 		S_farmers.addCount(1)
 		S_farmers.setTotalSalary(S_farmers.count)
 		globals.subFromMoney(S_farmers.hireCost)
