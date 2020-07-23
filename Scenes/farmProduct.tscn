@@ -70,10 +70,12 @@ __meta__ = {
 
 [node name="quantity" type="Label" parent="."]
 margin_left = 267.575
-margin_top = 8.26134
+margin_top = 7.52626
 margin_right = 283.575
-margin_bottom = 22.2613
+margin_bottom = 21.5263
+grow_horizontal = 0
 text = "[q]"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

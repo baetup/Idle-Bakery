@@ -1,12 +1,8 @@
 extends Node
 
 
-
-
-
 var flour = ingredient.new("res://Image-assets/flourIcon.png", "Flour", 2, 1, 5, 1, 5)
 var sugar = ingredient.new("res://Image-assets/flourIcon.png", "Sugar", 3, 1, 5, 1, 10)
-
 
 
 class ingredient :
@@ -26,19 +22,19 @@ class ingredient :
 		produceAmount = setProduceAmount
 		level = setLevel
 		levelCost = setLevelCost
-		
+
 	func addQuantity(amount : int):
 		quantity = quantity + amount
-	
+
 	func removeQuantity(amount : int):
 		quantity = quantity - amount
-	
+
 	func setProduceTime():
 		produceTime = produceTime - (produceTime * 0.02)
-		
+
 	func setProduceAmount(amount):
 		produceAmount += amount
-	
+
 	func setLevelCost(tinyFloat : float):
 		levelCost = levelCost + (levelCost * tinyFloat )
 

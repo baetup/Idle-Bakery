@@ -53,7 +53,7 @@ func _on_checkUi_timeout():
 
 
 func _on_bakeTimer_timeout():
-	if hasSupervisor == true:
+	if hasSupervisor == true && isProducingPossible:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		

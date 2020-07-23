@@ -28,12 +28,12 @@ func setPrestigeLevel(buildingCost, buildingExp):
 		globals.prestigeLevel += 1
 		globals.charPoints += 1
 		charPanelNodePath.checkForCharPoints()
-		
+
 		globals.neededExp = globals.neededExp * 2
 		prestigeBarNodePath.max_value = globals.neededExp
 		prestigeLevelNodePath.text = str(globals.prestigeLevel)
 		charPointsNodePath.text = str(globals.charPoints)
-		
+
 	else: # Didnt level UP
 		globals.curExp = globals.curExp + buildingExp
 		prestigeBarNodePath.value = globals.curExp
