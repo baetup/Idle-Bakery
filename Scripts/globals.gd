@@ -1,7 +1,7 @@
 extends Node
 
 var day = 1
-var money = 99999999
+var money = 500
 var username : String = ""
 var avatar : String= ""
 var prestigeLevel : int = 0

@@ -145,3 +145,25 @@ func _on_unlockBtn_pressed():
 	globals.subFromMoney(unlockCost)
 	globals.get(targetProduct).setIsUnlocked(true)
 	$unlockPanel.visible = 0
+
+func _on_info_pressed():
+	$ingredientPop.popup()
+	
+	for x in globals.get(targetProduct).ingredients.size() :
+		$ingredientPop/vbox.add_child(Label.new())
+		
+	var labelsCount = $ingredientPop/vbox.get_children()
+	var temp = 0
+	for x in labelsCount:
+		labelsCount[temp].set_text(globals.get(targetProduct).ingredients[temp].name)
+		temp += 1
+	
+	$ingredientPop.set_position(($ingredientPop.get_position() + Vector2(0, $".".rect_position.y)))
+
+
+func _on_ingredientPop_popup_hide():
+	print("test1")
+	for x in $ingredientPop/vbox.get_children():
+		$ingredientPop/vbox.remove_child(x)
+		x.queue_free()
+
