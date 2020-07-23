@@ -15,6 +15,11 @@ func UpdateUI():
 	$durationLabel.text = "%.1f" % ($farmTimer.time_left) + "s"
 	$research/upgradeCost.text = str(shortenMoney.shortenMoney(ingredients.get(targetIngredient).levelCost))
 
+	if S_farmers.count > 0:
+		$produceIcon.disabled = 0
+	else:
+		$produceIcon.disabled = 1
+
 	if ingredients.get(targetIngredient).levelCost > globals.money:
 		$research.disabled = 1
 	else:

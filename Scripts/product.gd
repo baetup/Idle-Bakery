@@ -17,6 +17,7 @@ func UpdateUI():
 	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
 	$research/upgradeCost.text = "%.2f" % (globals.get(targetProduct).bakeryLevelCost)
 	
+	#disable upgrade button if not enough money
 	if globals.money < globals.get(targetProduct).bakeryLevelCost:
 		$research.disabled = 1
 	else:
@@ -27,17 +28,27 @@ func UpdateUI():
 	for x in globals.get(targetProduct).ingredients:
 		if globals.get(targetProduct).ingredients[temp].quantity > 0:
 			$productIcon.disabled = 0
-			isProducingPossible = true
 			temp = temp + 1
+			isProducingPossible = true
 		else:
 			isProducingPossible = false
+			$bakeTimer.set_paused(true)
+			$progressTimer.set_paused(true)
 			$productIcon.disabled = 1
 	
+	#restart baking process after ingredients become available again
+	if isProducingPossible && $bakeTimer.is_paused():
+		$bakeTimer.set_paused(false)
+		$progressTimer.set_paused(false)
+
+		
+	#checking if the product is unlocked
 	if globals.get(targetProduct).isUnlocked == false:
 		$unlockPanel.visible = 1
 	else:
 		$unlockPanel.visible = 0
-		
+	
+	#checking when to show particles on product
 	if hasSupervisor == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
 		$productIcon/Particles2D.visible = 1
 	else:
@@ -53,7 +64,7 @@ func _on_checkUi_timeout():
 
 
 func _on_bakeTimer_timeout():
-	if hasSupervisor == true && isProducingPossible:
+	if hasSupervisor && isProducingPossible:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		
