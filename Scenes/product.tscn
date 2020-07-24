@@ -331,6 +331,7 @@ margin_bottom = 60.6342
 text = "[cost]"
 
 [node name="ingredientPop" type="Button" parent="."]
+visible = false
 margin_right = 318.0
 margin_bottom = 94.0
 focus_mode = 0

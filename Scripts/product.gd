@@ -149,15 +149,30 @@ func _on_unlockBtn_pressed():
 func _on_info_pressed():
 	$ingredientPop.visible = 1
 	
-	for x in globals.get(targetProduct).ingredients.size() :
-		$ingredientPop/vbox.add_child(Label.new())
-		
-	var labelsCount = $ingredientPop/vbox.get_children()
+	for x in globals.get(targetProduct).ingredients:
+		$ingredientPop/vbox.add_child(TextureRect.new())
+	
+	for child in $ingredientPop/vbox.get_children():
+		child.add_child(Label.new())
+	
 	var temp = 0
-	for x in labelsCount:
-		labelsCount[temp].set_text(globals.get(targetProduct).ingredients[temp].name)
+	for child in $ingredientPop/vbox.get_children():
+		child.set_texture(load(globals.get(targetProduct).ingredients[temp].icon))
+		
+		var tempHolder = child.get_children()
+		for y in tempHolder:
+			y.set_text(globals.get(targetProduct).ingredients[temp].name)
+			y.anchor_left = 0.5
+			y.anchor_top = 1
+			y.anchor_right = 0.5
+			y.anchor_bottom = 1
+			y.margin_left = -20
+			y.margin_top = 0
+			y.margin_right = 19
+			y.margin_bottom = 16
 		temp += 1
-
+		
+		
 
 func _on_ingredientPop_pressed():
 	for x in $ingredientPop/vbox.get_children():
