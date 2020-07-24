@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/product.gd" type="Script" id=1]
 [ext_resource path="res://Image-assets/product-frame.png" type="Texture" id=2]
@@ -90,17 +90,27 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0784314, 0.0470588, 0.0156863, 0.878431 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.678431, 0.431373, 0.113725, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="product" type="Panel"]
-margin_left = 57.0
-margin_top = 206.0
-margin_right = 375.0
-margin_bottom = 300.0
+anchor_left = 0.131944
+anchor_top = 0.268229
+anchor_right = 0.868056
+anchor_bottom = 0.390625
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 291.058, 246.638, 451.813, 491.928 ],
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 58.0673, 367.518, 139.289, 362.849 ]
+"_edit_use_anchors_": false
 }
 targetProduct = ""
 
@@ -320,24 +330,42 @@ margin_right = 186.555
 margin_bottom = 60.6342
 text = "[cost]"
 
-[node name="ingredientPop" type="PopupPanel" parent="."]
-visible = true
-margin_left = 60.0
-margin_top = 229.0
-margin_right = 360.0
-margin_bottom = 304.0
+[node name="ingredientPop" type="Button" parent="."]
+margin_right = 318.0
+margin_bottom = 94.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vbox" type="VBoxContainer" parent="ingredientPop"]
+[node name="bkgr" type="Panel" parent="ingredientPop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 15.0
-margin_right = -20.0
-margin_bottom = -16.0
-custom_constants/separation = 10
+custom_styles/panel = SubResource( 15 )
+
+[node name="ingredientsLabel" type="Label" parent="ingredientPop"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.5
+margin_top = 5.0
+margin_right = 40.5
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 87.6581, 26.0693 )
+text = "Ingredients:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="HBoxContainer" parent="ingredientPop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 22.0
+margin_right = -15.0
+margin_bottom = -18.0
+custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -348,4 +376,4 @@ __meta__ = {
 [connection signal="pressed" from="info" to="." method="_on_info_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 [connection signal="pressed" from="unlockPanel/unlockBtn" to="." method="_on_unlockBtn_pressed"]
-[connection signal="popup_hide" from="ingredientPop" to="." method="_on_ingredientPop_popup_hide"]
+[connection signal="pressed" from="ingredientPop" to="." method="_on_ingredientPop_pressed"]

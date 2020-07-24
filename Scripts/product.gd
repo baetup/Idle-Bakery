@@ -147,7 +147,7 @@ func _on_unlockBtn_pressed():
 	$unlockPanel.visible = 0
 
 func _on_info_pressed():
-	$ingredientPop.popup()
+	$ingredientPop.visible = 1
 	
 	for x in globals.get(targetProduct).ingredients.size() :
 		$ingredientPop/vbox.add_child(Label.new())
@@ -157,13 +157,10 @@ func _on_info_pressed():
 	for x in labelsCount:
 		labelsCount[temp].set_text(globals.get(targetProduct).ingredients[temp].name)
 		temp += 1
-	
-	$ingredientPop.set_position(($ingredientPop.get_position() + Vector2(0, $".".rect_position.y)))
 
 
-func _on_ingredientPop_popup_hide():
-	print("test1")
+func _on_ingredientPop_pressed():
 	for x in $ingredientPop/vbox.get_children():
 		$ingredientPop/vbox.remove_child(x)
 		x.queue_free()
-
+	$ingredientPop.visible = 0

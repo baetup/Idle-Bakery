@@ -8,7 +8,7 @@ export var targetBakery = "avaloniaBakery"
 
 
 func _on_close_pressed():
-	bakeryNodePath.visible = 0
+	$".".visible = 0
 	var tempBoolean = false
 	cameraNodePath.setBakeryState(tempBoolean)
 

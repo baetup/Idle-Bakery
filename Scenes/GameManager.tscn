@@ -299,7 +299,7 @@ wait_time = 0.001
 autostart = true
 
 [node name="dayCounter" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 6.0
 autostart = true
 [connection signal="pressed" from="UiCanvas/achivementsButton" to="." method="_on_achivementsButton_pressed"]
 [connection signal="pressed" from="UiCanvas/inventoryButton" to="." method="_on_inventoryButton_pressed"]

@@ -61,9 +61,7 @@ func payday():
 		globals.subFromMoney(totalSalary)
 	#if I dont have money to pay all the workers, pay only how many I can
 	elif globals.money < totalSalary:
-		var negativeDifference = totalSalary - globals.money
-		var unpaidFarmers = negativeDifference / salary
-		var paidFarmers = count - unpaidFarmers
+		var paidFarmers= int(floor(globals.money / salary))
 		globals.subFromMoney(paidFarmers * salary)
 
 #the case when I dont have money to pay all the farmers, some leave
@@ -78,8 +76,7 @@ func paymentLeave():
 
 		#if I miss some money, check how many I can't pay and set that they have not been payed today
 		if differenceSum < 0:
-			differenceSum = differenceSum * (-1)
-			unpaidFarmersToday = differenceSum / salary
+			unpaidFarmersToday = count - int(floor(globals.money / salary))
 			var temp = 0
 			var temp2 = 0
 			var removedFarmers = 0
@@ -96,7 +93,6 @@ func paymentLeave():
 			#tell how many haven't been payed today
 			for x in unpaidFarmersToday - removedFarmers:
 				farmerArray[temp2].paidYestarday = 1
-				print(farmerArray[temp2].paidYestarday)
 				temp2 += 1
 
 			#reset 
