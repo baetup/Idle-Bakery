@@ -297,6 +297,10 @@ margin_bottom = -246.0
 [node name="updateUi" type="Timer" parent="."]
 wait_time = 0.001
 autostart = true
+
+[node name="dayCounter" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
 [connection signal="pressed" from="UiCanvas/achivementsButton" to="." method="_on_achivementsButton_pressed"]
 [connection signal="pressed" from="UiCanvas/inventoryButton" to="." method="_on_inventoryButton_pressed"]
 [connection signal="pressed" from="UiCanvas/worldMapBtn" to="." method="_on_worldMapBtn_pressed"]
@@ -305,6 +309,7 @@ autostart = true
 [connection signal="pressed" from="UiCanvas/zoomOut" to="." method="_on_zoomOut_pressed"]
 [connection signal="pressed" from="UiCanvas/zoomIn" to="." method="_on_zoomIn_pressed"]
 [connection signal="timeout" from="updateUi" to="." method="_on_updateUi_timeout"]
+[connection signal="timeout" from="dayCounter" to="." method="_on_dayCounter_timeout"]
 
 [editable path="villageAvalonia"]
 

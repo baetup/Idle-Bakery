@@ -28,12 +28,12 @@ func setPrestigeLevel(buildingCost, buildingExp):
 		globals.prestigeLevel += 1
 		globals.charPoints += 1
 		charPanelNodePath.checkForCharPoints()
-		
+
 		globals.neededExp = globals.neededExp * 2
 		prestigeBarNodePath.max_value = globals.neededExp
 		prestigeLevelNodePath.text = str(globals.prestigeLevel)
 		charPointsNodePath.text = str(globals.charPoints)
-		
+
 	else: # Didnt level UP
 		globals.curExp = globals.curExp + buildingExp
 		prestigeBarNodePath.value = globals.curExp
@@ -72,7 +72,6 @@ func _on_worldMapBtn_pressed():
 	t2.start()
 	yield(t2, "timeout")
 	
-	
 	$villageAvalonia.visible = 0
 	$worldMap.visible = 1
 	$worldMap.villageExitClouds = false
@@ -87,3 +86,9 @@ func _on_zoomIn_pressed():
 
 func _on_inventoryButton_pressed():
 	$UiCanvas/inventorySystem.visible = 1
+
+func _on_dayCounter_timeout():
+	globals.day += 1
+	S_farmers.checkDayPassed(true)
+
+

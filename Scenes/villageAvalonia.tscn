@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
+[ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
 [ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
@@ -195,11 +196,16 @@ custom_styles/panel = SubResource( 7 )
 visible = false
 custom_styles/panel = SubResource( 8 )
 
+[node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 0, 17 )
+
 [node name="checkUi" type="Timer" parent="."]
 wait_time = 0.002
 autostart = true
 [connection signal="pressed" from="unlockableBuildingsBtns/buyBuilding1" to="." method="_on_buyBuilding1_pressed"]
 [connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
 [connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
+[connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

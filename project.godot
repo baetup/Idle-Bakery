@@ -21,8 +21,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-mainTheme="*res://Scenes/mainThemeSound.tscn"
+ingredients="*res://Scripts/ingredients.gd"
 globals="*res://Scripts/globals.gd"
+S_farmers="*res://Scripts/S_farmers.gd"
+mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
 
 [display]

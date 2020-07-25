@@ -17,9 +17,9 @@ func _ready():
 #Checking what products have > 0 productCount
 func checkAvailableItems():
 	var temp = 0
-	for x in globals.arrayOfProducts:
-		if globals.arrayOfProducts[temp].productCount > 0 && (availableitems.has(globals.arrayOfProducts[temp]) == false):
-			availableitems.push_back(globals.arrayOfProducts[temp])
+	for x in globals.arrayOfItems:
+		if globals.arrayOfItems[temp].quantity > 0 && (availableitems.has(globals.arrayOfItems[temp]) == false):
+			availableitems.push_back(globals.arrayOfItems[temp])
 		temp += 1
 	
 
@@ -44,9 +44,9 @@ func setItems():
 	var temp = 0
 	var temp2 = 0
 	for i in availableitems:
-		inventorySlotIndexes[temp].setProductCount(availableitems[temp].productCount)
-		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].productIcon)
-		inventorySlotIndexes[temp].setProductName(availableitems[temp].productName)
+		inventorySlotIndexes[temp].setProductCount(availableitems[temp].quantity)
+		inventorySlotIndexes[temp].setProductIcon(availableitems[temp].icon)
+		inventorySlotIndexes[temp].setProductName(availableitems[temp].name)
 		temp += 1
 	if availableitems.size() < inventorySlotIndexes.size():
 		while (temp2 + availableitems.size()) < inventorySlotIndexes.size():
@@ -59,7 +59,7 @@ func setItems():
 func removeItem():
 	var temp = 0
 	for x in availableitems:
-		if availableitems[temp].productCount == 0:
+		if availableitems[temp].quantity == 0:
 			availableitems.remove(temp)
 			inventorySlotIndexes[temp].removeProductIcon()
 			inventorySlotIndexes[temp].setProductCount("")
@@ -113,8 +113,8 @@ func _on_deleteItems_pressed():
 			var removedItems = 0
 			for i in tempItemCounter :
 				if inventorySlotIndexes[temp].getCheckboxState() == true:
-					availableitems[temp - removedItems].productCount  = 0
-					#print(availableitems[temp].productCount)
+					availableitems[temp - removedItems].quantity  = 0
+
 					inventorySlotIndexes[temp].removeProductIcon()
 					inventorySlotIndexes[temp].setProductCount("")
 					inventorySlotIndexes[temp].setProductName("")

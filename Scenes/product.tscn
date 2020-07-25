@@ -74,17 +74,11 @@ outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=13]
-size = 15
-outline_size = 1
-outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=14]
 size = 13
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.113725, 0.0745098, 0.054902, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -96,17 +90,27 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0784314, 0.0470588, 0.0156863, 0.878431 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.678431, 0.431373, 0.113725, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="product" type="Panel"]
-margin_left = 57.0
-margin_top = 206.0
-margin_right = 375.0
-margin_bottom = 300.0
+anchor_left = 0.131944
+anchor_top = 0.268229
+anchor_right = 0.868056
+anchor_bottom = 0.390625
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 291.058 ],
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 58.0673, 367.518, 139.289 ]
+"_edit_use_anchors_": false
 }
 targetProduct = ""
 
@@ -181,23 +185,6 @@ margin_bottom = 49.0
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )
 max_value = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="amount" type="Label" parent="progressBar"]
-margin_left = 58.0
-margin_top = -2.0
-margin_right = 115.0
-margin_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_pivot_offset = Vector2( 119.68, -64.1705 )
-custom_fonts/font = SubResource( 12 )
-text = "[amount]"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -215,7 +202,7 @@ margin_right = 46.7194
 margin_bottom = 85.9979
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 text = "[0]"
 align = 1
 valign = 1
@@ -255,7 +242,7 @@ margin_top = 8.0
 margin_right = 142.0
 margin_bottom = 24.0
 grow_horizontal = 0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 text = "[cost]"
@@ -298,7 +285,7 @@ margin_left = 5.0
 margin_top = 8.0
 margin_right = 302.0
 margin_bottom = 86.0
-custom_styles/panel = SubResource( 15 )
+custom_styles/panel = SubResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -342,9 +329,52 @@ margin_top = 46.6342
 margin_right = 186.555
 margin_bottom = 60.6342
 text = "[cost]"
+
+[node name="ingredientPop" type="Button" parent="."]
+visible = false
+margin_right = 318.0
+margin_bottom = 94.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bkgr" type="Panel" parent="ingredientPop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 15 )
+
+[node name="ingredientsLabel" type="Label" parent="ingredientPop"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.5
+margin_top = 5.0
+margin_right = 40.5
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 87.6581, 26.0693 )
+text = "Ingredients:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="HBoxContainer" parent="ingredientPop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 22.0
+margin_right = -15.0
+margin_bottom = -18.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="productIcon" to="." method="_on_productIcon_pressed"]
 [connection signal="timeout" from="bakeTimer" to="." method="_on_bakeTimer_timeout"]
 [connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
 [connection signal="pressed" from="research" to="." method="_on_research_pressed"]
+[connection signal="pressed" from="info" to="." method="_on_info_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 [connection signal="pressed" from="unlockPanel/unlockBtn" to="." method="_on_unlockBtn_pressed"]
+[connection signal="pressed" from="ingredientPop" to="." method="_on_ingredientPop_pressed"]

@@ -1,0 +1,201 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Image-assets/metal-frame.png" type="Texture" id=1]
+[ext_resource path="res://Image-assets/button-five-pressed.png" type="Texture" id=2]
+[ext_resource path="res://Image-assets/button-five-disabled.png" type="Texture" id=3]
+[ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Image-assets/filler.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/charPanelFont_2.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scripts/farmProduct.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 178, 11 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="farmProduct" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -142.0
+margin_bottom = -688.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 7.86742, 23.6619, 70.4052, 80.1316 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 290.534, 13.0849, 92.5173 ]
+}
+
+[node name="produceIcon" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 71.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="produceIcon"]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 55.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="."]
+margin_left = 87.329
+margin_top = 9.00752
+margin_right = 131.329
+margin_bottom = 23.0075
+text = "[name]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quantity" type="Label" parent="."]
+margin_left = 267.575
+margin_top = 7.52626
+margin_right = 283.575
+margin_bottom = 21.5263
+grow_horizontal = 0
+text = "[q]"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="farmTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="progressTimer" type="Timer" parent="."]
+wait_time = 0.001
+
+[node name="research" type="TextureButton" parent="."]
+margin_left = 88.2892
+margin_top = 56.4007
+margin_right = 235.289
+margin_bottom = 85.4007
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="buttonLabel" type="Label" parent="research"]
+margin_left = 2.68173
+margin_top = 4.6658
+margin_right = 45.6817
+margin_bottom = 24.6658
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+text = "Upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgradeCost" type="Label" parent="research"]
+margin_left = 114.0
+margin_top = 8.0
+margin_right = 142.0
+margin_bottom = 24.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+text = "[cost]"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCount" type="Label" parent="."]
+margin_left = 31.0023
+margin_top = 72.8658
+margin_right = 47.0023
+margin_bottom = 91.8658
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "[0]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="durationLabel" type="Label" parent="."]
+margin_left = 246.637
+margin_top = 64.899
+margin_right = 276.637
+margin_bottom = 78.899
+grow_horizontal = 2
+grow_vertical = 2
+text = "[sec]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBarBody" type="TextureRect" parent="."]
+margin_left = 88.0
+margin_top = 28.0
+margin_right = 284.0
+margin_bottom = 44.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="progressBar" type="ProgressBar" parent="progressBarBody"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 196.0
+margin_bottom = 15.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 0.576471, 0.333333, 0.0196078, 0.368627 )
+margin_left = 1.0
+margin_top = 94.0
+margin_right = 289.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.002
+autostart = true
+[connection signal="pressed" from="produceIcon" to="." method="_on_produceIcon_pressed"]
+[connection signal="timeout" from="farmTimer" to="." method="_on_farmTimer_timeout"]
+[connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
+[connection signal="pressed" from="research" to="." method="_on_research_pressed"]
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
