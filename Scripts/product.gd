@@ -1,6 +1,7 @@
 extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+onready var gameManagerPath = get_node("/root/GameManager")
 export var targetProduct = "breadAvalonia"
 var hasSupervisor = false
 var unlockCost = globals.money * 0.9
@@ -106,6 +107,10 @@ func _on_bakeTimer_timeout():
 		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
+			
+	#sending signal to notification Panel
+	if isProducingPossible == false:
+		gameManagerPath.addNotifications()
 	UpdateUI()
 
 func _on_progressTimer_timeout():

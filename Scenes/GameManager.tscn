@@ -19,7 +19,7 @@
 [ext_resource path="res://Image-assets/optionsBtn.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/ingameOptions.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/inventorySystem.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=20]
+[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
@@ -324,6 +324,7 @@ margin_top = 128.0
 margin_bottom = -246.0
 
 [node name="notificationsPanel" type="Panel" parent="UiCanvas"]
+visible = false
 margin_left = 22.6702
 margin_top = 170.67
 margin_right = 409.67
@@ -341,19 +342,17 @@ margin_left = 37.6336
 margin_top = 37.3168
 margin_right = 341.634
 margin_bottom = 496.317
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect" type="TextureRect" parent="UiCanvas/notificationsPanel/bkgr/vbox"]
-margin_right = 304.0
-margin_bottom = 64.0
-texture = ExtResource( 20 )
-
-[node name="Label" type="Label" parent="UiCanvas/notificationsPanel/bkgr/vbox/TextureRect"]
-margin_left = 83.0
-margin_top = 14.0
-margin_right = 216.0
-margin_bottom = 53.0
-text = "The production of [product] halted
-due to lack of ingredients."
+[node name="closeNotifications" type="TextureButton" parent="UiCanvas/notificationsPanel"]
+margin_left = 339.0
+margin_top = -1.0
+margin_right = 386.0
+margin_bottom = 41.0
+texture_normal = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -369,12 +368,13 @@ wait_time = 6.0
 autostart = true
 [connection signal="pressed" from="UiCanvas/achivementsButton" to="." method="_on_achivementsButton_pressed"]
 [connection signal="pressed" from="UiCanvas/inventoryButton" to="." method="_on_inventoryButton_pressed"]
-[connection signal="pressed" from="UiCanvas/messagerButton" to="." method="_on_inventoryButton_pressed"]
+[connection signal="pressed" from="UiCanvas/messagerButton" to="." method="_on_messagerButton_pressed"]
 [connection signal="pressed" from="UiCanvas/worldMapBtn" to="." method="_on_worldMapBtn_pressed"]
 [connection signal="pressed" from="UiCanvas/charPanelBtn" to="." method="_on_charPanelBtn_pressed"]
 [connection signal="pressed" from="UiCanvas/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UiCanvas/zoomOut" to="." method="_on_zoomOut_pressed"]
 [connection signal="pressed" from="UiCanvas/zoomIn" to="." method="_on_zoomIn_pressed"]
+[connection signal="pressed" from="UiCanvas/notificationsPanel/closeNotifications" to="." method="_on_closeNotifications_pressed"]
 [connection signal="timeout" from="updateUi" to="." method="_on_updateUi_timeout"]
 [connection signal="timeout" from="dayCounter" to="." method="_on_dayCounter_timeout"]
 

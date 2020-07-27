@@ -91,4 +91,15 @@ func _on_dayCounter_timeout():
 	globals.day += 1
 	S_farmers.checkDayPassed(true)
 
+func _on_closeNotifications_pressed():
+	$UiCanvas/notificationsPanel.visible = 0
 
+func _on_messagerButton_pressed():
+	$UiCanvas/notificationsPanel.visible  = 1
+	
+func addNotifications():
+	for x in globals.notificationsArray:
+		$UiCanvas/notificationsPanel/bkgr/vbox.add_child(TextureRect.new())
+		
+	for notificationsWarnings in $UiCanvas/notificationsPanel/bkgr/vbox.get_children():
+		notificationsWarnings.add_child(Label.new())
