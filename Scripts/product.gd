@@ -182,22 +182,21 @@ func _on_ingredientPop_pressed():
 	$ingredientPop.visible = 0
 
 
+#timer to show when an alert should appear
 func _on_showNotifications_timeout():
-	
 	if globals.get(targetProduct).isUnlocked && isProducingPossible == false:
 		notification = globals.notification.new("bakery", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
 		globals.notificationArray.append(notification)
 		notificationsPath.addNotifications()
 		notificationsPath.setNotifications()
-		
+
 		$showNotifications.autostart = 0
 		$showNotifications.stop()
 		$hideNotifications.start()
 		$hideNotifications.autostart = 1
 
-
+#timer to hide when alerts dissapear
 func _on_hideNotifications_timeout():
-	
 	if isProducingPossible:
 		var temp = 0
 		for x in globals.notificationArray:
@@ -206,7 +205,7 @@ func _on_hideNotifications_timeout():
 			temp += 1
 			notificationsPath.addNotifications()
 			notificationsPath.setNotifications()
-		
+
 		$hideNotifications.autostart = 0
 		$hideNotifications.stop()
 		$showNotifications.start()
