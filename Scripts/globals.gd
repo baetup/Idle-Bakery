@@ -16,8 +16,8 @@ var notificationArray = []
 
 
 
-var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true, [ingredients.flour]) #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
-var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 0, 0, 250, 1,0.01, 5, 0.02, 2, 5, 1, 0, 300,false, [ingredients.flour, ingredients.sugar])
+var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true, [ingredients.flour], "villageAvalonia") #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
+var cookieAvalonia = product.new("cookie", "res://Image-assets/cookieIcon.png", 0, 0, 250, 1,0.01, 5, 0.02, 2, 5, 1, 0, 300,false, [ingredients.flour, ingredients.sugar],"villageAvalonia")
 
 
 var breadBakAvaS = supervisor.new(false, 100, "breadAvalonia", "bakery") #isHired, price, targetProduct, type
@@ -101,8 +101,9 @@ class product:
 
 	var isUnlocked : bool
 	var ingredients : Array
+	var originBakery : String
 
-	func _init(setName : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool,setIngredients : Array):
+	func _init(setName : String, setProductIcon : String, setProductCount : int, setBakeryProductLevel : int, setBakeryLevelCost : float, setProduceAmount : int, setBakeSpeed : float, setBakeTime : float, setSellSpeed : float, setSellTime : float, setSellPrice : int, setSellAmount : int, setStoreLevelCount : int, setStoreLevelCost : float, setIsUnlocked:bool,setIngredients : Array, setBakery):
 		name = setName
 		icon = setProductIcon
 		quantity = setProductCount
@@ -119,6 +120,7 @@ class product:
 		storeLevelCost = setStoreLevelCost
 		isUnlocked = setIsUnlocked
 		ingredients = setIngredients
+		originBakery = setBakery
 
 	func addToProductCount(amount : int):
 		quantity += amount

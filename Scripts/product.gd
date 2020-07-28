@@ -185,10 +185,10 @@ func _on_ingredientPop_pressed():
 func _on_showNotifications_timeout():
 	
 	if globals.get(targetProduct).isUnlocked && isProducingPossible == false:
-		notification = globals.notification.new("bakery", "avalonia", globals.get(targetProduct).name, true)
+		notification = globals.notification.new("bakery", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
 		globals.notificationArray.append(notification)
 		notificationsPath.addNotifications()
-		notificationsPath.setNotifications(globals.get(targetProduct).name)
+		notificationsPath.setNotifications()
 		
 		$showNotifications.autostart = 0
 		$showNotifications.stop()
@@ -203,7 +203,9 @@ func _on_hideNotifications_timeout():
 		for x in globals.notificationArray:
 			if globals.notificationArray[temp].type == "bakery" && globals.notificationArray[temp].target == notification.target:
 				globals.notificationArray.remove(temp)
+			temp += 1
 			notificationsPath.addNotifications()
+			notificationsPath.setNotifications()
 		
 		$hideNotifications.autostart = 0
 		$hideNotifications.stop()

@@ -33,6 +33,7 @@ margin_left = -161.0
 margin_top = -177.5
 margin_right = 161.0
 margin_bottom = 187.5
+custom_constants/separation = 15
 
 [node name="closeNotifications" type="TextureButton" parent="."]
 margin_left = 326.578
@@ -40,4 +41,7 @@ margin_top = 3.68321
 margin_right = 373.578
 margin_bottom = 45.6832
 texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="closeNotifications" to="." method="_on_closeNotifications_pressed"]
