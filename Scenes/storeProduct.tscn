@@ -291,8 +291,17 @@ text = "Unlock item in bakery !"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="showNotifications" type="Timer" parent="."]
+wait_time = 0.005
+autostart = true
+
+[node name="hideNotifications" type="Timer" parent="."]
+wait_time = 0.005
 [connection signal="pressed" from="productIcon" to="." method="_on_productIcon_pressed"]
 [connection signal="timeout" from="saleTimer" to="." method="_on_saleTimer_timeout"]
 [connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
 [connection signal="pressed" from="research" to="." method="_on_research_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
+[connection signal="timeout" from="showNotifications" to="." method="_on_showNotifications_timeout"]
+[connection signal="timeout" from="hideNotifications" to="." method="_on_hideNotifications_timeout"]

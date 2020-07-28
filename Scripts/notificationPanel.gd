@@ -1,7 +1,7 @@
 extends Panel
 
 onready var vbox = $bkgr/vbox
-var villagesDict = {"villageAvalonia" : "villageAvalonia", "villageAlbion" : "villageAlbion"} # I need a dict so I know where to redirect the notification click
+var villagesDict = {"villageAvalonia" : "villageAvalonia"} # I need a dict so I know where to redirect the notification click
 
 
 func _on_closeNotifications_pressed():
@@ -42,9 +42,9 @@ func setNotifications():
 	for child in vbox.get_children():
 		child.set_normal_texture(load("res://Image-assets/notificationAlert.png"))
 		if globals.notificationArray[temp].type == "bakery":
-			get_node("bkgr/vbox/icon" + str(temp) + "/label").set_text("The production of " + globals.notificationArray[temp].target + " halted due to lack of some ingredients")
+			get_node("bkgr/vbox/icon" + str(temp) + "/label").set_text("The automated production of " + globals.notificationArray[temp].target.to_upper() + " halted due to lack of ingredients")
 		elif globals.notificationArray[temp].type == "store":
-			get_node("bkgr/vbox/icon" + str(temp) + "/label").set_text("The selling of " + globals.notificationArray[temp].target + " halted due to lack of some products")
+			get_node("bkgr/vbox/icon" + str(temp) + "/label").set_text("The automated selling of " + globals.notificationArray[temp].target.to_upper() + " halted due to lack of products")
 		temp += 1
 	createLinks()
 	
@@ -63,7 +63,7 @@ func interceptLinks(type, village):
 	#set all other villages to not visible
 	villagesDict.erase("villageAvalonia")
 	for x in villagesDict :
-		get_node("/root/GameManager" + x).visible = 0
+		get_node("/root/GameManager/" + x).visible = 0
 	
 	#set the type visible
 	get_node("/root/GameManager/" + village +"/UiCanvas/" + type).visible = 1

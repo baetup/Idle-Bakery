@@ -184,7 +184,7 @@ func _on_ingredientPop_pressed():
 
 #timer to show when an alert should appear
 func _on_showNotifications_timeout():
-	if globals.get(targetProduct).isUnlocked && isProducingPossible == false:
+	if globals.get(targetProduct).isUnlocked && isProducingPossible == false && hasSupervisor:
 		notification = globals.notification.new("bakery", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
 		globals.notificationArray.append(notification)
 		notificationsPath.addNotifications()
