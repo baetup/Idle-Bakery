@@ -34,6 +34,9 @@ func _on_ClickMoneyButton_pressed():
 func _on_checkUi_timeout():
 	#Checking if user has money to buy buildings to disable or not the button
 	checkIfUnlockable(building1Cost, $unlockableBuildingsBtns/buyBuilding1)
+	
+	#checking for production stops
+	checkProductionStops()
 
 #Function created not to repeat the if statement in checkUi func
 func checkIfUnlockable(buildingCost, path):
@@ -49,5 +52,19 @@ func _on_buyBuilding1_pressed():
 	gameManagerNodePath.setPrestigeLevel(building1Cost, building1Exp)
 	$unlockableBuildingsBtns/buyBuilding1.visible = 0
 
-
+func checkProductionStops():
+	var counter = 0
+	var stopsFound = 0
+	for product in globals.arrayOfProducts:
+		var counter2 = 0
+		for ingredients in globals.arrayOfProducts[counter].ingredients :
+			if globals.arrayOfProducts[counter].ingredients[counter2].quantity < 1 && globals.arrayOfProducts[counter].isUnlocked:
+				stopsFound += 1
+			counter2 += 1
+		counter += 1
+	
+	if stopsFound > 0:
+		$bakeryLabel/warning.visible = 1
+	else:
+		$bakeryLabel/warning.visible = 0
 

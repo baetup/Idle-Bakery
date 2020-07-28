@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
 [ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
@@ -20,6 +21,8 @@ outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
+
+[sub_resource type="ShaderMaterial" id=10]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
@@ -84,6 +87,19 @@ margin_right = 39.2327
 margin_bottom = 158.219
 custom_fonts/font = SubResource( 2 )
 text = "bakery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="warning" type="TextureRect" parent="bakeryLabel"]
+visible = false
+material = SubResource( 10 )
+margin_left = 76.2294
+margin_top = -6.15585
+margin_right = 98.2294
+margin_bottom = 15.8441
+texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -209,3 +225,5 @@ autostart = true
 [connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
+
+[editable path="UiCanvas/bakery"]

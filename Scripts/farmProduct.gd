@@ -39,6 +39,9 @@ func _on_farmTimer_timeout():
 	$progressTimer.stop()
 	ingredients.get(targetIngredient).addQuantity(S_farmers.count * ingredients.get(targetIngredient).produceAmount)
 	$produceIcon.disabled = 0
+	
+
+	
 	UpdateUI()
 
 func _on_produceIcon_pressed():

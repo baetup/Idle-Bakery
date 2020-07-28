@@ -2,7 +2,7 @@ extends Node
 
 
 var flour = ingredient.new("res://Image-assets/flourIcon.png", "Flour", 2, 1, 5, 1, 5)
-var sugar = ingredient.new("res://Image-assets/flourIcon.png", "Sugar", 3, 1, 5, 1, 10)
+var sugar = ingredient.new("res://Image-assets/flourIcon.png", "Sugar", 0, 1, 5, 1, 10)
 
 
 class ingredient :

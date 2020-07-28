@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/product.gd" type="Script" id=1]
 [ext_resource path="res://Image-assets/product-frame.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Fonts/charPanelFont_2.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Image-assets/button-five-disabled.png" type="Texture" id=9]
 [ext_resource path="res://Image-assets/info.png" type="Texture" id=10]
+[ext_resource path="res://Image-assets/notificationStop.png" type="Texture" id=11]
 [ext_resource path="res://Image-assets/round-frame.png" type="Texture" id=13]
 [ext_resource path="res://Image-assets/breadIcon.png" type="Texture" id=14]
 
@@ -143,6 +144,15 @@ margin_bottom = 51.0
 texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productionStop" type="TextureRect" parent="productIcon/productIcon"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -370,6 +380,13 @@ custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="showNotifications" type="Timer" parent="."]
+wait_time = 0.005
+autostart = true
+
+[node name="hideNotifications" type="Timer" parent="."]
+wait_time = 0.005
 [connection signal="pressed" from="productIcon" to="." method="_on_productIcon_pressed"]
 [connection signal="timeout" from="bakeTimer" to="." method="_on_bakeTimer_timeout"]
 [connection signal="timeout" from="progressTimer" to="." method="_on_progressTimer_timeout"]
@@ -378,3 +395,5 @@ __meta__ = {
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 [connection signal="pressed" from="unlockPanel/unlockBtn" to="." method="_on_unlockBtn_pressed"]
 [connection signal="pressed" from="ingredientPop" to="." method="_on_ingredientPop_pressed"]
+[connection signal="timeout" from="showNotifications" to="." method="_on_showNotifications_timeout"]
+[connection signal="timeout" from="hideNotifications" to="." method="_on_hideNotifications_timeout"]

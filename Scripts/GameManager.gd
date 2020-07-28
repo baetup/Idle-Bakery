@@ -9,6 +9,7 @@ onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
 
+
 func _ready():
 	UpdateUI()
 
@@ -91,4 +92,5 @@ func _on_dayCounter_timeout():
 	globals.day += 1
 	S_farmers.checkDayPassed(true)
 
-
+func _on_notifications_pressed():
+	$UiCanvas/notificationPanel.visible = 1

@@ -1,9 +1,11 @@
 extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+onready var notificationsPath = get_node("/root/GameManager/UiCanvas/notificationPanel")
 export var targetProduct = "breadAvalonia"
 var isSellingPossible = false
 var hasSupervisor = false
+var notification
 
 
 func _ready():
@@ -130,4 +132,31 @@ func setSellSpeed():
 	globals.get(targetProduct).setSellTime()
 	$saleTimer.wait_time = globals.get(targetProduct).sellTime
 
+#timer to show when an alert should appear
+func _on_showNotifications_timeout():
+	if globals.get(targetProduct).isUnlocked && isSellingPossible == false && hasSupervisor:
+		notification = globals.notification.new("store", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
+		globals.notificationArray.append(notification)
+		notificationsPath.addNotifications()
+		notificationsPath.setNotifications()
 
+		$showNotifications.autostart = 0
+		$showNotifications.stop()
+		$hideNotifications.start()
+		$hideNotifications.autostart = 1
+
+
+func _on_hideNotifications_timeout():
+	if isSellingPossible:
+		var temp = 0
+		for x in globals.notificationArray:
+			if globals.notificationArray[temp].type == "store" && globals.notificationArray[temp].target == notification.target:
+				globals.notificationArray.remove(temp)
+			temp += 1
+			notificationsPath.addNotifications()
+			notificationsPath.setNotifications()
+
+		$hideNotifications.autostart = 0
+		$hideNotifications.stop()
+		$showNotifications.start()
+		$showNotifications.autostart = 1
