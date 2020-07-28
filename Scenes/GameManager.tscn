@@ -19,7 +19,7 @@
 [ext_resource path="res://Image-assets/optionsBtn.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/ingameOptions.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/inventorySystem.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/notificationPanel.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
@@ -143,31 +143,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="messagerButton" type="TextureButton" parent="UiCanvas"]
+[node name="notifications" type="TextureButton" parent="UiCanvas"]
 material = SubResource( 1 )
 margin_left = 383.059
-margin_top = 421.487
+margin_top = 414.487
 margin_right = 433.059
-margin_bottom = 471.487
-rect_pivot_offset = Vector2( 262.941, 105.829 )
+margin_bottom = 464.487
+rect_pivot_offset = Vector2( 46.391, 60.513 )
 texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ribbonViolet" type="Sprite" parent="UiCanvas/messagerButton"]
-modulate = Color( 0.239216, 0.929412, 0.329412, 1 )
+[node name="ribbonViolet" type="Sprite" parent="UiCanvas/notifications"]
+modulate = Color( 0.356863, 0.929412, 0.239216, 1 )
 position = Vector2( -50.3639, 22.4264 )
 scale = Vector2( 1.40387, 0.863468 )
 texture = ExtResource( 12 )
 
-[node name="messagerLabel" type="Label" parent="UiCanvas/messagerButton"]
-margin_left = -80.0
-margin_top = 11.0
-margin_bottom = 25.0
+[node name="notificationLabel" type="Label" parent="UiCanvas/notifications"]
+margin_left = -79.9583
+margin_top = 11.216
+margin_right = 3.04166
+margin_bottom = 25.216
 custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "THE MESSAGER"
+text = "NOTIFICATIONS"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -323,39 +324,8 @@ visible = false
 margin_top = 128.0
 margin_bottom = -246.0
 
-[node name="notificationsPanel" type="Panel" parent="UiCanvas"]
+[node name="notificationPanel" parent="UiCanvas" instance=ExtResource( 20 )]
 visible = false
-margin_left = 22.6702
-margin_top = 170.67
-margin_right = 409.67
-margin_bottom = 720.67
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bkgr" type="TextureRect" parent="UiCanvas/notificationsPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="vbox" type="VBoxContainer" parent="UiCanvas/notificationsPanel/bkgr"]
-margin_left = 37.6336
-margin_top = 37.3168
-margin_right = 341.634
-margin_bottom = 496.317
-custom_constants/separation = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="closeNotifications" type="TextureButton" parent="UiCanvas/notificationsPanel"]
-margin_left = 339.0
-margin_top = -1.0
-margin_right = 386.0
-margin_bottom = 41.0
-texture_normal = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -368,13 +338,12 @@ wait_time = 6.0
 autostart = true
 [connection signal="pressed" from="UiCanvas/achivementsButton" to="." method="_on_achivementsButton_pressed"]
 [connection signal="pressed" from="UiCanvas/inventoryButton" to="." method="_on_inventoryButton_pressed"]
-[connection signal="pressed" from="UiCanvas/messagerButton" to="." method="_on_messagerButton_pressed"]
+[connection signal="pressed" from="UiCanvas/notifications" to="." method="_on_notifications_pressed"]
 [connection signal="pressed" from="UiCanvas/worldMapBtn" to="." method="_on_worldMapBtn_pressed"]
 [connection signal="pressed" from="UiCanvas/charPanelBtn" to="." method="_on_charPanelBtn_pressed"]
 [connection signal="pressed" from="UiCanvas/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UiCanvas/zoomOut" to="." method="_on_zoomOut_pressed"]
 [connection signal="pressed" from="UiCanvas/zoomIn" to="." method="_on_zoomIn_pressed"]
-[connection signal="pressed" from="UiCanvas/notificationsPanel/closeNotifications" to="." method="_on_closeNotifications_pressed"]
 [connection signal="timeout" from="updateUi" to="." method="_on_updateUi_timeout"]
 [connection signal="timeout" from="dayCounter" to="." method="_on_dayCounter_timeout"]
 

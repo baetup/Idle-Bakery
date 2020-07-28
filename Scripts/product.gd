@@ -1,11 +1,12 @@
 extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
-onready var gameManagerPath = get_node("/root/GameManager")
+onready var notificationsPath = get_node("/root/GameManager/UiCanvas/notificationPanel")
 export var targetProduct = "breadAvalonia"
 var hasSupervisor = false
 var unlockCost = globals.money * 0.9
 var isProducingPossible = false
+var notification
 
 func _ready():
 	UpdateUI()
@@ -31,38 +32,39 @@ func UpdateUI():
 			$productIcon.disabled = 0
 			temp = temp + 1
 			isProducingPossible = true
+			$productIcon/productIcon/productionStop.visible = 0
 		else:
 			isProducingPossible = false
 			$bakeTimer.set_paused(true)
 			$progressTimer.set_paused(true)
 			$productIcon.disabled = 1
+			$productIcon/productIcon/productionStop.visible = 1
 	
 	#restart baking process after ingredients become available again
 	if isProducingPossible && $bakeTimer.is_paused():
 		$bakeTimer.set_paused(false)
 		$progressTimer.set_paused(false)
 
-		
 	#checking if the product is unlocked
 	if globals.get(targetProduct).isUnlocked == false:
 		$unlockPanel.visible = 1
 	else:
 		$unlockPanel.visible = 0
-	
+
 	#checking when to show particles on product
 	if hasSupervisor == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
 		$productIcon/Particles2D.visible = 1
+
 	else:
-		$productIcon/Particles2D.visible = 0 
-	
+		$productIcon/Particles2D.visible = 0
+
+
 	$unlockPanel/costLabel.text = str(unlockCost)
 	$unlockPanel/productName.text = globals.get(targetProduct).name
 	unlockCost = globals.money * 0.9
 
-
 func _on_checkUi_timeout():
 	UpdateUI()
-
 
 func _on_bakeTimer_timeout():
 	if hasSupervisor && isProducingPossible:
@@ -107,10 +109,7 @@ func _on_bakeTimer_timeout():
 		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
-			
-	#sending signal to notification Panel
-	if isProducingPossible == false:
-		gameManagerPath.addNotifications()
+
 	UpdateUI()
 
 func _on_progressTimer_timeout():
@@ -129,7 +128,6 @@ func _on_research_pressed():
 func setBakeSpeed():
 	globals.get(targetProduct).setBakeTime()
 	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
-
 
 func onHiredSupervisor():
 	hasSupervisor = true
@@ -176,11 +174,39 @@ func _on_info_pressed():
 			y.margin_right = 19
 			y.margin_bottom = 16
 		temp += 1
-		
-		
 
 func _on_ingredientPop_pressed():
 	for x in $ingredientPop/vbox.get_children():
 		$ingredientPop/vbox.remove_child(x)
 		x.queue_free()
 	$ingredientPop.visible = 0
+
+
+func _on_showNotifications_timeout():
+	
+	if globals.get(targetProduct).isUnlocked && isProducingPossible == false:
+		notification = globals.notification.new("bakery", "avalonia", globals.get(targetProduct).name, true)
+		globals.notificationArray.append(notification)
+		notificationsPath.addNotifications()
+		notificationsPath.setNotifications(globals.get(targetProduct).name)
+		
+		$showNotifications.autostart = 0
+		$showNotifications.stop()
+		$hideNotifications.start()
+		$hideNotifications.autostart = 1
+
+
+func _on_hideNotifications_timeout():
+	
+	if isProducingPossible:
+		var temp = 0
+		for x in globals.notificationArray:
+			if globals.notificationArray[temp].type == "bakery" && globals.notificationArray[temp].target == notification.target:
+				globals.notificationArray.remove(temp)
+			notificationsPath.addNotifications()
+		
+		$hideNotifications.autostart = 0
+		$hideNotifications.stop()
+		$showNotifications.start()
+		$showNotifications.autostart = 1
+
