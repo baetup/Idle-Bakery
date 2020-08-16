@@ -1,8 +1,13 @@
 extends Node2D
 
+#The texture buttons names containing the avatar should not be changed !
+
 var username = "test"
 var avatar = ""
 var isOk = false
+
+func _ready():
+	setAvatarConnections()
 
 func _on_introText2_gui_input(event):
 	if event is InputEventScreenTouch:
@@ -21,10 +26,6 @@ func _on_input_text_changed(new_text):
 	else:
 		$paper/thirdStep/error.text = "Nickname too short"
 
-func _on_TextureButton2_pressed():
-	avatar = "res://Image-assets/charPanel-female.png"
-	globals.setAvatar(avatar)
-
 func _on_next_pressed():
 	$paper/secondStep.visible = 0
 	$paper/thirdStep.visible = 1
@@ -34,3 +35,22 @@ func _on_next2_pressed():
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/GameManager.tscn")
 		globals.setUsername(username)
+
+func setAvatarConnections():
+	for x in $paper/secondStep/GridContainer.get_children():
+		x.connect("pressed", self, "setAvatar",[x.get_normal_texture(), x.get_name()])
+
+
+func setAvatar(avatarPath, name):
+	
+	#set player gender
+	if "mas" in name: #mas from masculin
+		S_castle.setPlayerGender("male")
+	elif "fem" in name: #fem from feminin
+		S_castle.setPlayerGender("female")
+	else:
+		S_castle.setPlayerGender("other")
+	
+	#set avatar image
+	avatar = avatarPath.get_load_path()
+	globals.setAvatar(avatar)
