@@ -1,10 +1,10 @@
 extends Node2D
 
-#The texture buttons names containing the avatar should not be changed !
+# !!! The texture buttons names containing the avatar should not be changed !
 
 var username = "test"
 var avatar = ""
-var isOk = false
+var isOk = false #just a username length checker
 
 func _ready():
 	setAvatarConnections()
@@ -42,6 +42,10 @@ func setAvatarConnections():
 
 
 func setAvatar(avatarPath, name):
+	
+	for x in $paper/secondStep/GridContainer.get_children():
+		if x.get_name() != name:
+			x.pressed = false
 	
 	#set player gender
 	if "mas" in name: #mas from masculin
