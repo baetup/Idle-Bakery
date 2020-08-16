@@ -22,28 +22,28 @@ outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=3]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 outline_size = 1
 outline_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
 use_filter = true
 font_data = ExtResource( 20 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
-
-[sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
@@ -93,7 +93,7 @@ __meta__ = {
 
 [node name="warning" type="TextureRect" parent="bakeryLabel"]
 visible = false
-material = SubResource( 10 )
+material = SubResource( 3 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -157,8 +157,31 @@ margin_left = 553.949
 margin_top = 540.444
 margin_right = 595.949
 margin_bottom = 562.444
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Farm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getCastleOpen" type="Button" parent="."]
+margin_left = 408.432
+margin_top = 176.0
+margin_right = 765.432
+margin_bottom = 432.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="castleLabel" type="Label" parent="."]
+margin_left = 417.949
+margin_top = 132.444
+margin_right = 459.949
+margin_bottom = 154.444
+custom_fonts/font = SubResource( 4 )
+text = "CASTLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,7 +204,7 @@ margin_top = 669.273
 margin_right = 132.628
 margin_bottom = 686.273
 rect_rotation = -15.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Click Money"
 align = 1
 valign = 1
@@ -195,22 +218,22 @@ __meta__ = {
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="upgradesBakery" parent="UiCanvas" instance=ExtResource( 16 )]
 visible = false
 margin_top = 103.0
 margin_bottom = 799.0
 rect_pivot_offset = Vector2( 216.996, 68.9989 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="upgradesStore" parent="UiCanvas" instance=ExtResource( 18 )]
 visible = false
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 9 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false
@@ -223,6 +246,7 @@ autostart = true
 [connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
 [connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
 [connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
+[connection signal="pressed" from="getCastleOpen" to="." method="_on_getCastleOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 

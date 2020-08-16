@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Image-assets/paper.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Image-assets/charPanel-female.png" type="Texture" id=5]
 [ext_resource path="res://Image-assets/check-mark.png" type="Texture" id=6]
 [ext_resource path="res://Image-assets/charPanel-male1-checked.png" type="Texture" id=7]
+[ext_resource path="res://Image-assets/charPanel-other1.png" type="Texture" id=8]
+[ext_resource path="res://Image-assets/charPanel-other1-checked.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -82,8 +84,8 @@ margin_left = 228.0
 margin_right = 338.0
 margin_bottom = 110.0
 toggle_mode = true
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
 
 [node name="mas2" type="TextureButton" parent="paper/secondStep/GridContainer"]
 margin_top = 114.0

@@ -68,3 +68,6 @@ func checkProductionStops():
 	else:
 		$bakeryLabel/warning.visible = 0
 
+
+func _on_getCastleOpen_pressed():
+	get_node("/root/GameManager/UiCanvas/castle").visible = 1

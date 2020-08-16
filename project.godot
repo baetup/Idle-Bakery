@@ -26,7 +26,6 @@ globals="*res://Scripts/globals.gd"
 S_farmers="*res://Scripts/S_farmers.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
-S_castle="*res://Scripts/S_castle.gd"
 
 [display]
 

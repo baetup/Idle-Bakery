@@ -36,25 +36,28 @@ func _on_next2_pressed():
 		get_tree().change_scene("res://Scenes/GameManager.tscn")
 		globals.setUsername(username)
 
+
 func setAvatarConnections():
+	#connection button signals
 	for x in $paper/secondStep/GridContainer.get_children():
 		x.connect("pressed", self, "setAvatar",[x.get_normal_texture(), x.get_name()])
 
 
 func setAvatar(avatarPath, name):
 	
-	for x in $paper/secondStep/GridContainer.get_children():
-		if x.get_name() != name:
-			x.pressed = false
-	
+	#allowing only one avatar to be selected
+	for eachChild in $paper/secondStep/GridContainer.get_children():
+		if eachChild.get_name() != name:
+			eachChild.pressed = false
+
 	#set player gender
 	if "mas" in name: #mas from masculin
-		S_castle.setPlayerGender("male")
+		globals.setPlayerGender("male")
 	elif "fem" in name: #fem from feminin
-		S_castle.setPlayerGender("female")
+		globals.setPlayerGender("female")
 	else:
-		S_castle.setPlayerGender("other")
-	
+		globals.setPlayerGender("other")
+
 	#set avatar image
 	avatar = avatarPath.get_load_path()
 	globals.setAvatar(avatar)

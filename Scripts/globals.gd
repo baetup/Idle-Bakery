@@ -13,7 +13,8 @@ var chrStat : int = 0
 var intStat : int = 0
 var invStat : int = 0
 var notificationArray = []
-
+var castleFirstOpen = true
+var avatarPlayerGender = "male"
 
 
 var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true, [ingredients.flour], "villageAvalonia") #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime
@@ -42,6 +43,8 @@ func addToMoney(amount):
 func subFromMoney(amount):
 	money = money - amount
 
+func setPlayerGender(gender):
+	avatarPlayerGender = gender
 
 class bakery:
 	var productsDict = {}

@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Image-assets/metal-frame.png" type="Texture" id=1]
 [ext_resource path="res://Image-assets/button-one.png" type="Texture" id=2]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/S_castle.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/castle.gd" type="Script" id=4]
+[ext_resource path="res://Image-assets/king_portrait_idle.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="castle" type="Control"]
 anchor_right = 1.0
@@ -15,9 +29,10 @@ __meta__ = {
 
 [node name="castlePanel" type="Panel" parent="."]
 margin_left = 26.0
-margin_top = 89.0
+margin_top = 225.0
 margin_right = 408.0
-margin_bottom = 466.0
+margin_bottom = 602.0
+rect_pivot_offset = Vector2( 418.022, 212.429 )
 
 [node name="bkgr" type="TextureRect" parent="castlePanel"]
 anchor_right = 1.0
@@ -214,7 +229,115 @@ text = "[action]"
 
 [node name="close" type="TextureButton" parent="."]
 margin_left = 365.651
-margin_top = 90.8587
-margin_right = 405.651
-margin_bottom = 130.859
+margin_top = 226.859
+margin_right = 412.651
+margin_bottom = 268.859
+rect_pivot_offset = Vector2( 78.3712, 210.57 )
 texture_normal = ExtResource( 3 )
+
+[node name="kingDialog1" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kingDialogBkgr" type="Panel" parent="kingDialog1"]
+modulate = Color( 1, 1, 1, 0.729412 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="king_portrait_idle" type="Sprite" parent="kingDialog1"]
+position = Vector2( 46.3137, 625.025 )
+scale = Vector2( 0.557045, 0.557045 )
+texture = ExtResource( 5 )
+
+[node name="dialogBox" type="Panel" parent="kingDialog1"]
+modulate = Color( 0.266667, 0.192157, 0.192157, 1 )
+margin_left = 143.0
+margin_top = 381.0
+margin_right = 414.0
+margin_bottom = 499.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text1" type="Label" parent="kingDialog1"]
+margin_left = 159.765
+margin_top = 400.16
+margin_right = 232.765
+margin_bottom = 414.16
+text = "I know you merchant. No need for 
+introductions ! Your name is all over
+the streets lately, my spies told me 
+of you."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next1" type="TextureButton" parent="kingDialog1/text1"]
+margin_left = 178.0
+margin_top = 67.0
+margin_right = 241.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnLabel" type="Label" parent="kingDialog1/text1/next1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -7.0
+margin_right = 15.0
+margin_bottom = 7.0
+text = "Next"
+
+[node name="text2" type="Label" parent="kingDialog1"]
+visible = false
+margin_left = 159.765
+margin_top = 400.16
+margin_right = 232.765
+margin_bottom = 414.16
+text = "Ahh, of course, merchant. You think
+you are here in a position of power as
+your bussiness grow, but remember
+I can take it all from you !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next2" type="TextureButton" parent="kingDialog1/text2"]
+margin_left = 178.0
+margin_top = 67.0
+margin_right = 241.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnLabel" type="Label" parent="kingDialog1/text2/next2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -7.0
+margin_right = 17.5
+margin_bottom = 7.0
+text = "Close"
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="kingDialog1/text1/next1" to="." method="_on_next1_pressed"]
+[connection signal="pressed" from="kingDialog1/text2/next2" to="." method="_on_next2_pressed"]
