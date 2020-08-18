@@ -33,7 +33,7 @@ var wasLLAlbion = false
 
 func _ready():
 	set_process_input(true)
-	$".". zoom = Vector2(villageMaxZoom,villageMaxZoom)
+	$".". zoom = Vector2(1.5,1.5)
 
 #Zooming and panning feature
 func _unhandled_input(event):

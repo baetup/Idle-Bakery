@@ -29,6 +29,14 @@ func _on_getStoreOpen_pressed():
 # Receive money when you click the click money building
 func _on_ClickMoneyButton_pressed():
 	globals.addToMoney(clickMoney)
+	$ClickMoneyButton/coin.one_shot = false
+	var t = Timer.new()
+	t.set_wait_time(0.8)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	$ClickMoneyButton/coin.one_shot = true
 
 #Updating UI elements
 func _on_checkUi_timeout():
