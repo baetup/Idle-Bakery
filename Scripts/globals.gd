@@ -4,7 +4,7 @@ var day = 1
 var money = 500
 var username : String = ""
 var avatar : String= ""
-var prestigeLevel : int = 0
+var prestigeLevel : int = 50
 var charPoints : int = 5
 var neededExp : int = 10 #For level 1
 var curExp : int = 0
@@ -15,6 +15,7 @@ var invStat : int = 0
 var notificationArray = []
 var castleFirstOpen = true
 var avatarPlayerGender = "male"
+var isPlayerMarried = false
 
 
 var breadAvalonia = product.new("bread", "res://Image-assets/breadIcon.png", 0, 0 ,15, 1, 0.01, 2, 0.02, 2, 2, 1, 0, 15,true, [ingredients.flour], "villageAvalonia") #name, count, level, levelCost, prod.amount, bakeSpeed, bakeTime

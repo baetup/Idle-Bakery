@@ -79,3 +79,4 @@ func checkProductionStops():
 
 func _on_getCastleOpen_pressed():
 	get_node("/root/GameManager/UiCanvas/castle").visible = 1
+	get_node("/root/GameManager/UiCanvas/castle").checkStatus()

@@ -16,25 +16,23 @@ func _on_introText2_gui_input(event):
 
 func _on_input_text_changed(new_text):
 	if new_text.length() > 2:
-		$paper/thirdStep/error.text = ""
+		$paper/secondStep/error.text = ""
 		if new_text.length() < 13 :
-			$paper/thirdStep/error.text = ""
+			$paper/secondStep/error.text = ""
 			username = new_text
 			isOk = true
 		else:
-			$paper/thirdStep/error.text = "Nickname too long"
+			$paper/secondStep/error.text = "Nickname too long"
 	else:
-		$paper/thirdStep/error.text = "Nickname too short"
+		$paper/secondStep/error.text = "Nickname too short"
 
 func _on_next_pressed():
 	$paper/secondStep.visible = 0
-	$paper/thirdStep.visible = 1
-
-func _on_next2_pressed():
 	if isOk == true:
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/GameManager.tscn")
 		globals.setUsername(username)
+
 
 
 func setAvatarConnections():

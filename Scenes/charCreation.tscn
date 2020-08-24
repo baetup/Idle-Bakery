@@ -131,48 +131,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="thirdStep" type="Node2D" parent="paper"]
-visible = false
-
-[node name="avatarSelectionLabel2" type="RichTextLabel" parent="paper/thirdStep"]
-margin_left = -139.977
-margin_top = -171.613
-margin_right = 19.0225
-margin_bottom = -150.613
+[node name="avatarSelectionLabel2" type="RichTextLabel" parent="paper/secondStep"]
+margin_left = -150.526
+margin_top = 113.197
+margin_right = 8.47398
+margin_bottom = 134.197
 text = "You will be called:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="next2" type="TextureButton" parent="paper/thirdStep"]
-margin_left = 107.31
-margin_top = 165.801
-margin_right = 147.31
-margin_bottom = 205.801
-texture_normal = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="input" type="LineEdit" parent="paper/thirdStep"]
-margin_left = -138.0
-margin_top = -141.0
-margin_right = 32.0
-margin_bottom = -117.0
+[node name="input" type="LineEdit" parent="paper/secondStep"]
+margin_left = -148.549
+margin_top = 143.81
+margin_right = 21.4515
+margin_bottom = 167.81
 max_length = 13
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error" type="Label" parent="paper/thirdStep"]
-margin_left = -138.0
-margin_top = -110.0
-margin_right = 32.0
-margin_bottom = -94.0
+[node name="error" type="Label" parent="paper/secondStep"]
+margin_left = -148.549
+margin_top = 174.81
+margin_right = 21.4515
+margin_bottom = 190.81
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="gui_input" from="paper/firstStep/introText2" to="." method="_on_introText2_gui_input"]
 [connection signal="pressed" from="paper/secondStep/next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="paper/thirdStep/next2" to="." method="_on_next2_pressed"]
-[connection signal="text_changed" from="paper/thirdStep/input" to="." method="_on_input_text_changed"]
+[connection signal="text_changed" from="paper/secondStep/input" to="." method="_on_input_text_changed"]
