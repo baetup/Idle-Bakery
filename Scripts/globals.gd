@@ -13,9 +13,8 @@ var chrStat : int = 0
 var intStat : int = 0
 var invStat : int = 0
 var notificationArray = []
-var castleFirstOpen = true
 var avatarPlayerGender = "male"
-var isPlayerMarried = false
+
 
 
 
@@ -32,6 +31,7 @@ var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
+var mainCastle = castle.new(false,false,"") #there should only be one castle instance
 
 func setUsername(name):
 	username = name
@@ -167,3 +167,20 @@ class notification :
 		target = setTarget
 		isActive = setActive
 		
+class castle:
+	var isFirstOpen : bool
+	var isPlayerMarried : bool
+	var playerPartner : String
+
+	
+	func _init(setIsFirstOpen, setIsPlayerMarried,setPlayerParner):
+		isFirstOpen = setIsFirstOpen
+		isPlayerMarried = setIsPlayerMarried
+		playerPartner = setPlayerParner
+	
+	func setPlayerPartner(partnerName):
+		playerPartner = partnerName
+	
+	
+	
+	
