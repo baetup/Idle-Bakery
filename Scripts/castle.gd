@@ -57,8 +57,9 @@ func checkStatus():
 #If condition has been met to marry and first btn is pressed:
 func _on_actionFirst_pressed():
 
-	globals.castle.isPlayerMarried = true
-	
+	globals.mainCastle.isPlayerMarried = true
+
+
 	#setting player partner
 	if globals.avatarPlayerGender == "male":
 		globals.mainCastle.setPlayerPartner("Monoke")
@@ -66,7 +67,8 @@ func _on_actionFirst_pressed():
 		globals.mainCastle.setPlayerPartner("Arthur")
 	else:
 		globals.mainCastle.setPlayerPartner("Suqoo")
-	
+		
+	checkPlayerPartner()
 	
 	$castlePanel/bkgr/vbox/portrait0/actualStatus.text = "Married"
 	
@@ -80,18 +82,20 @@ func _on_actionFirst_pressed():
 func _on_actionSecond_pressed():
 
 	globals.isPlayerMarried = true
-	
-		#setting player partner
+
+
+	#setting player partner
 	if globals.avatarPlayerGender == "male":
 		globals.mainCastle.setPlayerPartner("Ary")
 	elif globals.avatarPlayerGender == "female":
 		globals.mainCastle.setPlayerPartner("Casmo")
 	else:
 		globals.mainCastle.setPlayerPartner("Cebus")
-	
-	
+
+	checkPlayerPartner()
+
 	$castlePanel/bkgr/vbox/portrait1/actualStatus.text = "Married"
-	
+
 	#disconnecting the existing signal to assign the region
 	$castlePanel/bkgr/vbox/portrait1/actionSecond.disconnect("pressed",self,"_on_actionSecond_pressed")
 	# warning-ignore:return_value_discarded
@@ -130,7 +134,7 @@ func _on_info_pressed():
 	$castlePanel/bkgr/infoDisket.visible = 1
 	if globals.avatarPlayerGender == "male":
 		$castlePanel/bkgr/infoDisket/desc.bbcode_text = "[color=yellow]Monoke[/color] is known to the public as the older and adventurous daughter of the King. She's always trying something new."
-		$castlePanel/bkgr/infoDisket/traits.bbcode_text = "Main traits:\n- Charistmatic\n- Adventurous\n- [color=yellow] Might enhance your selling price[/color]\n- [color=red]Jealous[/color]"
+		$castlePanel/bkgr/infoDisket/traits.bbcode_text = "Main traits:\n- Charistmatic\n- Adventurous\n- [color=yellow]Entrepreneur[/color]\n- [color=red]Jealous[/color]"
 	elif globals.avatarPlayerGender == "female":
 		$castlePanel/bkgr/infoDisket/desc.bbcode_text = "[color=yellow]Arthur[/color] is not the Prince you expect him to be. He enjoys being in war and staying in the barracks with other soldiers."
 		$castlePanel/bkgr/infoDisket/traits.bbcode_text = "Main traits:\n- Brave\n- [color=yellow]Will stand up to uprising[/color]\n - [color=red]Weak fighting skills[/color]"
@@ -152,7 +156,7 @@ func _on_info2_pressed():
 		$castlePanel/bkgr/infoDisket2/traits.bbcode_text = "Main traits:\n- Ruler of the people\n- [color=yellow]Listens to the people's needs[/color]\n- [color=red]Has hidden ambitioun[/color] "
 	else:
 		$castlePanel/bkgr/infoDisket2/desc.bbcode_text = "[color=yellow]Cebus[/color] does not agree the peasants that look at him in disgrace, he will punish anyone."
-		$castlePanel/bkgr/infoDisket2/traits.bbcode_text = "Main traits:\n- Fierce\n- [color=yellow]Might enchance your selling price[/color]\n- [color=red]Peasants don't like him[/color]"
+		$castlePanel/bkgr/infoDisket2/traits.bbcode_text = "Main traits:\n- Fierce\n- [color=yellow]Entrepreneur[/color]\n- [color=red]Peasants don't like him[/color]"
 
 func _on_infoDisket2_pressed():
 	$castlePanel/bkgr/infoDisket2.visible = 0
@@ -167,3 +171,33 @@ func _on_closeInfoDiske2t_pressed():
 
 func _on_closeInfoDisket_pressed():
 	$castlePanel/bkgr/infoDisket.visible = 0
+
+func checkPlayerPartner():
+	if globals.mainCastle.playerPartner == "Monoke":
+		setMarriageBonus("Monoke")
+		
+func setMarriageBonus(partner):
+	if partner == "Monoke":
+
+		#set sell price bonus for each existing product
+		for product in globals.arrayOfProducts:
+			product.addToSellPrice(product.sellPrice * 0.2)
+
+		
+	if partner == "Ary":
+		pass
+
+#For example: If you marry Monoke, you take Monoke's Bonus but also take
+#Ary's curse/disadvantage
+func setMarriageRivalCurse(rival):
+	if rival == "Monoke":
+		pass # Add Monoke's Jelous curse
+
+func monokeCurse():
+	if globals.day >= 15:
+		pass
+	
+	
+	
+	
+	

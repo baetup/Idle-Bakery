@@ -31,7 +31,7 @@ var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
-var mainCastle = castle.new(false,false,"") #there should only be one castle instance
+var mainCastle = castle.new(false,false,"", Timer.new()) #there should only be one castle instance
 
 func setUsername(name):
 	username = name
@@ -99,7 +99,7 @@ class product:
 
 	var sellSpeedMultiplier : float
 	var sellTime : float
-	var sellPrice : int
+	var sellPrice : float
 	var sellAmount : int
 	var storeProductLevelCount : int
 	var storeLevelCost : float
@@ -138,6 +138,9 @@ class product:
 
 	func setBakeTime():
 		bakeTime = bakeTime - (bakeTime * bakeSpeedMultiplier)
+	
+	func addToSellPrice(amount):
+		sellPrice = sellPrice + amount
 
 	func addStoreProductLevel(amount : int):
 		storeProductLevelCount += amount
@@ -171,16 +174,26 @@ class castle:
 	var isFirstOpen : bool
 	var isPlayerMarried : bool
 	var playerPartner : String
+	var monokeCurseTimer : Timer
 
 	
-	func _init(setIsFirstOpen, setIsPlayerMarried,setPlayerParner):
+	func _init(setIsFirstOpen, setIsPlayerMarried,setPlayerParner,setMonokeCurseTimer):
 		isFirstOpen = setIsFirstOpen
 		isPlayerMarried = setIsPlayerMarried
 		playerPartner = setPlayerParner
+		monokeCurseTimer = setMonokeCurseTimer
+		
 	
 	func setPlayerPartner(partnerName):
 		playerPartner = partnerName
 	
+	func setMonokeCurseWaitTime(waitTime):
+		monokeCurseTimer.wait_time = waitTime
 	
+	func setMonokeCurseOneshot(boolean):
+		monokeCurseTimer.one_shot = boolean
+	
+	func setMonokeCurseAutostart(boolean):
+		monokeCurseTimer.autostart = boolean
 	
 	

@@ -44,27 +44,27 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFontData" id=14]
+[sub_resource type="DynamicFontData" id=5]
 font_path = "res://Fonts/Breathe Fire.otf"
 
-[sub_resource type="DynamicFont" id=15]
-font_data = SubResource( 14 )
+[sub_resource type="DynamicFont" id=6]
+font_data = SubResource( 5 )
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=7]
 font_path = "res://Fonts/Breathe Fire.otf"
 
-[sub_resource type="DynamicFont" id=13]
-font_data = SubResource( 12 )
+[sub_resource type="DynamicFont" id=8]
+font_data = SubResource( 7 )
 
-[sub_resource type="DynamicFontData" id=16]
+[sub_resource type="DynamicFontData" id=9]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=17]
-font_data = SubResource( 16 )
+[sub_resource type="DynamicFont" id=10]
+font_data = SubResource( 9 )
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=11]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=12]
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -283,11 +283,11 @@ margin_left = 19.7738
 margin_top = 16.0
 margin_right = -20.2262
 margin_bottom = -151.0
-custom_fonts/bold_font = SubResource( 15 )
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/bold_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "sddsfs"
-text = "sdfsd"
+text = "sddsfs"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -299,7 +299,7 @@ margin_left = 19.0
 margin_top = 95.0
 margin_right = -21.0
 margin_bottom = -6.0
-custom_fonts/normal_font = SubResource( 17 )
+custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -361,8 +361,8 @@ margin_left = 19.7738
 margin_top = 16.0
 margin_right = -20.2262
 margin_bottom = -151.0
-custom_fonts/bold_font = SubResource( 15 )
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/bold_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "sddsfs"
 text = "sddsfs"
@@ -377,7 +377,7 @@ margin_left = 19.0
 margin_top = 95.0
 margin_right = -21.0
 margin_bottom = -6.0
-custom_fonts/normal_font = SubResource( 17 )
+custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -428,7 +428,7 @@ texture_normal = ExtResource( 3 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -452,7 +452,7 @@ margin_left = 143.0
 margin_top = 381.0
 margin_right = 414.0
 margin_bottom = 499.0
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
