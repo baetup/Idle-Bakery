@@ -527,6 +527,109 @@ margin_top = -7.0
 margin_right = 17.5
 margin_bottom = 7.0
 text = "Close"
+
+[node name="kingDialog2" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kingDialogBkgr" type="Panel" parent="kingDialog2"]
+modulate = Color( 1, 1, 1, 0.729412 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="king_portrait_idle" type="Sprite" parent="kingDialog2"]
+position = Vector2( 46.3137, 625.025 )
+scale = Vector2( 0.557045, 0.557045 )
+texture = ExtResource( 5 )
+
+[node name="dialogBox" type="Panel" parent="kingDialog2"]
+modulate = Color( 0.266667, 0.192157, 0.192157, 1 )
+margin_left = 143.0
+margin_top = 381.0
+margin_right = 414.0
+margin_bottom = 499.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text1" type="Label" parent="kingDialog2"]
+margin_left = 159.765
+margin_top = 400.16
+margin_right = 232.765
+margin_bottom = 414.16
+text = "MY DAUGHTER. MY ARY IS DEAD.
+You did this merchant ? Maids say 
+they saw Monoke pour something
+in her drink..but...but.."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next3" type="TextureButton" parent="kingDialog2/text1"]
+margin_left = 178.0
+margin_top = 67.0
+margin_right = 241.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnLabel" type="Label" parent="kingDialog2/text1/next3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -7.0
+margin_right = 15.0
+margin_bottom = 7.0
+text = "Next"
+
+[node name="text2" type="Label" parent="kingDialog2"]
+visible = false
+margin_left = 158.765
+margin_top = 400.16
+margin_right = 410.765
+margin_bottom = 448.16
+text = "I will retreat in my chamber for 
+a while now, you are not allowed to
+leave the castle !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next4" type="TextureButton" parent="kingDialog2/text2"]
+margin_left = 178.0
+margin_top = 67.0
+margin_right = 241.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnLabel" type="Label" parent="kingDialog2/text2/next4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -7.0
+margin_right = 17.5
+margin_bottom = 7.0
+text = "Close"
 [connection signal="pressed" from="castlePanel/bkgr/vbox/portrait0/actionFirst" to="." method="_on_actionFirst_pressed"]
 [connection signal="pressed" from="castlePanel/bkgr/vbox/portrait1/actionSecond" to="." method="_on_actionSecond_pressed"]
 [connection signal="pressed" from="castlePanel/bkgr/info" to="." method="_on_info_pressed"]
@@ -538,3 +641,5 @@ text = "Close"
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="kingDialog1/text1/next1" to="." method="_on_next1_pressed"]
 [connection signal="pressed" from="kingDialog1/text2/next2" to="." method="_on_next2_pressed"]
+[connection signal="pressed" from="kingDialog2/text1/next3" to="." method="_on_next3_pressed"]
+[connection signal="pressed" from="kingDialog2/text2/next4" to="." method="_on_next4_pressed"]

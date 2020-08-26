@@ -31,7 +31,7 @@ var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
-var mainCastle = castle.new(false,false,"", Timer.new()) #there should only be one castle instance
+var mainCastle = castle.new(false,false,"", Timer.new(), false) #there should only be one castle instance
 
 func setUsername(name):
 	username = name
@@ -175,13 +175,15 @@ class castle:
 	var isPlayerMarried : bool
 	var playerPartner : String
 	var monokeCurseTimer : Timer
+	var monokeCurseOn : bool
 
 	
-	func _init(setIsFirstOpen, setIsPlayerMarried,setPlayerParner,setMonokeCurseTimer):
+	func _init(setIsFirstOpen, setIsPlayerMarried,setPlayerParner,setMonokeCurseTimer, isMonokeCurseOn):
 		isFirstOpen = setIsFirstOpen
 		isPlayerMarried = setIsPlayerMarried
 		playerPartner = setPlayerParner
 		monokeCurseTimer = setMonokeCurseTimer
+		monokeCurseOn = isMonokeCurseOn
 		
 	
 	func setPlayerPartner(partnerName):
@@ -196,4 +198,6 @@ class castle:
 	func setMonokeCurseAutostart(boolean):
 		monokeCurseTimer.autostart = boolean
 	
+	func setMonokeCurseState(state):
+		monokeCurseOn = state
 	

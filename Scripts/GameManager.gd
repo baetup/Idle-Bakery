@@ -16,6 +16,7 @@ func _ready():
 func UpdateUI():
 	$UiCanvas/charPanelBtn/charNameBkgr/charName.text = globals.username
 	$UiCanvas/charPanelBtn.set_normal_texture(load(avatar))
+	
 
 func _on_updateUi_timeout():
 	moneyLabel = shortenMoney.shortenMoney(globals.money)
@@ -94,3 +95,6 @@ func _on_dayCounter_timeout():
 
 func _on_notifications_pressed():
 	$UiCanvas/notificationPanel.visible = 1
+
+func reopenWindows(window):
+	get_node(window).visible = 1

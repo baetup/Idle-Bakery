@@ -1,10 +1,17 @@
 extends Control
 
+onready var gameManager = get_node("/root/GameManager")
 
 func _ready():
 	firstOpen()
 	setNames()
 	checkStatus()
+	UpdateUi()
+	
+func UpdateUi():
+	#Checking if Monoke's curse is on to remove dead ary from screen
+	if globals.mainCastle.playerPartner == "Ary" && globals.mainCastle.monokeCurse:
+		$castlePanel/bkgr/vbox/portrait1.visible = 0
 
 #Setting the names of the characters
 func setNames():
@@ -81,7 +88,7 @@ func _on_actionFirst_pressed():
 #If condition has been met to marry and second btn is pressed:
 func _on_actionSecond_pressed():
 
-	globals.isPlayerMarried = true
+	globals.mainCastle.isPlayerMarried = true
 
 
 	#setting player partner
@@ -175,29 +182,48 @@ func _on_closeInfoDisket_pressed():
 func checkPlayerPartner():
 	if globals.mainCastle.playerPartner == "Monoke":
 		setMarriageBonus("Monoke")
-		
-func setMarriageBonus(partner):
-	if partner == "Monoke":
+	if globals.mainCastle.playerPartner == "Ary":
+		setMarriageBonus("Ary")
 
+
+func setMarriageBonus(partner):
+	
+	if partner == "Monoke":
 		#set sell price bonus for each existing product
 		for product in globals.arrayOfProducts:
 			product.addToSellPrice(product.sellPrice * 0.2)
 
-		
 	if partner == "Ary":
-		pass
+		setMarriageRivalCurse("Monoke")
 
 #For example: If you marry Monoke, you take Monoke's Bonus but also take
 #Ary's curse/disadvantage
 func setMarriageRivalCurse(rival):
 	if rival == "Monoke":
-		pass # Add Monoke's Jelous curse
+		#Monoke's curse is called by a timer built into the castle object
+		globals.mainCastle.setMonokeCurseAutostart(false)
+		globals.mainCastle.setMonokeCurseWaitTime(10)
+		globals.mainCastle.setMonokeCurseOneshot(true)
+		globals.mainCastle.monokeCurseTimer.connect("timeout",self,"monokeCurse")
+		self.add_child(globals.mainCastle.monokeCurseTimer)
+		globals.mainCastle.monokeCurseTimer.start()
 
+#Called by a timer timeout signal built into the castle object
 func monokeCurse():
-	if globals.day >= 15:
-		pass
-	
-	
-	
-	
-	
+	gameManager.reopenWindows("/root/GameManager/UiCanvas/castle")
+	$kingDialog2.visible = 1
+	$castlePanel/bkgr/vbox/portrait1.visible = 0
+	globals.mainCastle.isPlayerMarried = false
+	globals.mainCastle.setMonokeCurseState(true)
+
+
+
+func _on_next3_pressed():
+	#Second dialogue with the King : Box1
+	$kingDialog2/text1.visible = 0
+	$kingDialog2/text2.visible = 1
+
+
+func _on_next4_pressed():
+	$kingDialog2.visible = 0
+
