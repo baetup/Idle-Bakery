@@ -9,5 +9,5 @@ name = "Sugar"
 quantity = 0
 produceTime = 2.0
 produceAmount = 2
-level = 0
+level = 1
 levelCost = 30.0

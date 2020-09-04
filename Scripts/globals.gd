@@ -13,9 +13,7 @@ var cunStat : int = 0
 var chrStat : int = 0
 var intStat : int = 0
 var invStat : int = 0
-var notificationArray = []
 var avatarPlayerGender = "male"
-
 
 
 
@@ -32,7 +30,7 @@ var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
-var mainCastle = castle.new(false,false,"", Timer.new(), false) #there should only be one castle instance
+var mainCastle =load("res://misc_objects/mainCastle.tres")
 
 
 func setUsername(name):
@@ -51,47 +49,4 @@ func setPlayerGender(gender):
 	avatarPlayerGender = gender
 
 
-class notification :
-	
-	var type : String
-	var village: String
-	var target : String
-	var isActive : bool
-	
-	func _init(setType='', setVillage='', setTarget='',setActive=''):
-		type = setType
-		village = setVillage
-		target = setTarget
-		isActive = setActive
-		
-class castle:
-	var isFirstOpen : bool
-	var isPlayerMarried : bool
-	var playerPartner : String
-	var monokeCurseTimer : Timer
-	var monokeCurseOn : bool
 
-	
-	func _init(setIsFirstOpen='', setIsPlayerMarried='',setPlayerParner='',setMonokeCurseTimer='', isMonokeCurseOn=''):
-		isFirstOpen = setIsFirstOpen
-		isPlayerMarried = setIsPlayerMarried
-		playerPartner = setPlayerParner
-		monokeCurseTimer = setMonokeCurseTimer
-		monokeCurseOn = isMonokeCurseOn
-		
-	
-	func setPlayerPartner(partnerName):
-		playerPartner = partnerName
-	
-	func setMonokeCurseWaitTime(waitTime):
-		monokeCurseTimer.wait_time = waitTime
-	
-	func setMonokeCurseOneshot(boolean):
-		monokeCurseTimer.one_shot = boolean
-	
-	func setMonokeCurseAutostart(boolean):
-		monokeCurseTimer.autostart = boolean
-	
-	func setMonokeCurseState(state):
-		monokeCurseOn = state
-	

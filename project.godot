@@ -10,9 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "castle",
+"language": "GDScript",
+"path": "res://Scripts/castle_object.gd"
+}, {
+"base": "Resource",
 "class": "ingredient",
 "language": "GDScript",
 "path": "res://Scripts/ingredients_object.gd"
+}, {
+"base": "Resource",
+"class": "notification",
+"language": "GDScript",
+"path": "res://Scripts/notification_object.gd"
 }, {
 "base": "Resource",
 "class": "productObject",
@@ -25,7 +35,9 @@ _global_script_classes=[ {
 "path": "res://Scripts/supervisor_object.gd"
 } ]
 _global_script_class_icons={
+"castle": "",
 "ingredient": "",
+"notification": "",
 "productObject": "",
 "supervisor": ""
 }
@@ -40,7 +52,6 @@ config/icon="res://icon.png"
 
 ingredients="*res://Scripts/ingredients.gd"
 globals="*res://Scripts/globals.gd"
-S_farmers="*res://Scripts/S_farmers.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
 save_load="*res://Scripts/save_load.gd"

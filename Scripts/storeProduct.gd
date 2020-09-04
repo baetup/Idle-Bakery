@@ -1,11 +1,8 @@
 extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
-onready var notificationsPath = get_node("/root/GameManager/UiCanvas/notificationPanel")
 export var targetProduct = "breadAvalonia"
 var isSellingPossible = false
-var hasSupervisor = false
-var notification
 
 
 func _ready():
@@ -26,7 +23,7 @@ func UpdateUI():
 		$unlockPanel.visible = 0
 
 	#checking when to show particles on product
-	if hasSupervisor == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).quantity > 0:
+	if globals.get(targetProduct)._get_has_supervisor() == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).quantity > 0:
 		$productIcon/Particles2D.visible = 1
 	else:
 		$productIcon/Particles2D.visible = 0 
@@ -75,7 +72,7 @@ func _on_productIcon_pressed():
 
 
 func _on_saleTimer_timeout():
-	if hasSupervisor && isSellingPossible:
+	if globals.get(targetProduct)._get_has_supervisor() && isSellingPossible:
 		$progressBar.set("value", 0.00)
 		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
 		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
@@ -112,7 +109,7 @@ func _on_close_pressed():
 	$".".visible = 0
 
 func onHiredSupervisor():
-	hasSupervisor = true
+	globals.get(targetProduct).set_has_supervisor(true)
 	$saleTimer.start()
 	$progressTimer.start()
 	$saleTimer.autostart = 1
@@ -132,31 +129,3 @@ func setSellSpeed():
 	globals.get(targetProduct).setSellTime()
 	$saleTimer.wait_time = globals.get(targetProduct).sellTime
 
-#timer to show when an alert should appear
-func _on_showNotifications_timeout():
-	if globals.get(targetProduct).isUnlocked && isSellingPossible == false && hasSupervisor:
-		notification = globals.notification.new("store", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
-		globals.notificationArray.append(notification)
-		notificationsPath.addNotifications()
-		notificationsPath.setNotifications()
-
-		$showNotifications.autostart = 0
-		$showNotifications.stop()
-		$hideNotifications.start()
-		$hideNotifications.autostart = 1
-
-
-func _on_hideNotifications_timeout():
-	if isSellingPossible:
-		var temp = 0
-		for x in globals.notificationArray:
-			if globals.notificationArray[temp].type == "store" && globals.notificationArray[temp].target == notification.target:
-				globals.notificationArray.remove(temp)
-			temp += 1
-			notificationsPath.addNotifications()
-			notificationsPath.setNotifications()
-
-		$hideNotifications.autostart = 0
-		$hideNotifications.stop()
-		$showNotifications.start()
-		$showNotifications.autostart = 1

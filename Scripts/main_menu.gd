@@ -1,7 +1,6 @@
 extends Node
 
 func _ready():
-	print(save_load.preConditions['playedBefore'])
 	playedBeforeCheck()
 
 func _on_play_pressed():

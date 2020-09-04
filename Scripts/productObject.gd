@@ -21,6 +21,7 @@ export var storeLevelCost : float
 export var isUnlocked : bool
 export var ingredients : Array
 export var originBakery : String
+export var hasSupervisor : bool
 
 
 func addToProductCount(amount : int):
@@ -52,3 +53,9 @@ func removeFromProductCount(amount : int):
 		
 func setIsUnlocked(answer:bool):
 	isUnlocked = answer
+
+func set_has_supervisor(value : bool):
+	hasSupervisor = value
+	
+func _get_has_supervisor() -> bool:
+	return hasSupervisor

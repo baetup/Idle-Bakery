@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-isSupervisorHired = false
+isSupervisorHired = true
 supervisorCost = 3
-supervisorType = "cookieAvalonia"
-supervisorTarget = "store"
+supervisorType = "store"
+supervisorTarget = "cookieAvalonia"

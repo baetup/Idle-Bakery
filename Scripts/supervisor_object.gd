@@ -2,10 +2,11 @@ extends Resource
 
 
 class_name supervisor
+
 export var isSupervisorHired : bool
 export var supervisorCost : int
 export var supervisorType : String #bakery or store for different path nodes
-export var supervisorTarget : String
+export var supervisorTarget : String # the product which I m reffering to
 
 
 func setSupervisorHired(state:bool):

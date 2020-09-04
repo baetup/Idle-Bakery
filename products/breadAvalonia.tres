@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 name = "Bread"
 icon = "res://Image-assets/breadIcon.png"
-quantity = 16
+quantity = 36
 bakeryProductLevel = 2
 bakeryLevelCost = 57.2205
 produceAmount = 2
@@ -22,3 +22,4 @@ storeLevelCost = 2.0
 isUnlocked = true
 ingredients = [ ExtResource( 2 ) ]
 originBakery = "avalonia"
+hasSupervisor = true

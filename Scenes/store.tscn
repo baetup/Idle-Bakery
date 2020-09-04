@@ -141,6 +141,7 @@ margin_left = -2.044
 margin_top = -3.2098
 margin_right = -2.044
 margin_bottom = -3.2098
+targetProduct = "breadAvalonia"
 
 [node name="cookieControl" type="Control" parent="ScrollContainer/VBoxContainer"]
 margin_top = 105.0

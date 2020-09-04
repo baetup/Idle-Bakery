@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 isSupervisorHired = true
 supervisorCost = 100
-supervisorType = "breadAvalonia"
-supervisorTarget = "bakery"
+supervisorType = "bakery"
+supervisorTarget = "breadAvalonia"

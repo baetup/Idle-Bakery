@@ -22,6 +22,7 @@ func save_resources():
 	ResourceSaver.save("res://supervisors/cookieBakAvaS.tres", globals.cookieBakAvaS)
 	ResourceSaver.save("res://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
 	ResourceSaver.save("res://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
+	ResourceSaver.save("res://misc_objects/mainCastle.tres", globals.mainCastle)
 
 
 func save_data():
@@ -38,7 +39,6 @@ func save_data():
 		'chrStat' : globals.chrStat,
 		'intStat' : globals.intStat,
 		'invStat' : globals.invStat,
-		'notifcationArray' : globals.notificationArray,
 		'avatarPlayerGender' : globals.avatarPlayerGender
 	}
 	
@@ -99,7 +99,6 @@ func assign_data():
 	globals.chrStat = data['chrStat']
 	globals.intStat = data['intStat']
 	globals.invStat = data['invStat']
-	globals.notificationArray = data['notificationArray']
 	globals.avatarPlayerGender = data['avatarPlayerGender']
 	
 	

@@ -1,14 +1,12 @@
 extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
-onready var notificationsPath = get_node("/root/GameManager/UiCanvas/notificationPanel")
 export var targetProduct = "breadAvalonia"
-var hasSupervisor = false
 var unlockCost = globals.money * 0.9
 var isProducingPossible = false
-var notification
 
 func _ready():
+	restartProductionOnLoad()
 	UpdateUI()
 
 func UpdateUI():
@@ -52,7 +50,7 @@ func UpdateUI():
 		$unlockPanel.visible = 0
 
 	#checking when to show particles on product
-	if hasSupervisor == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
+	if globals.get(targetProduct)._get_has_supervisor() == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
 		$productIcon/Particles2D.visible = 1
 
 	else:
@@ -67,7 +65,7 @@ func _on_checkUi_timeout():
 	UpdateUI()
 
 func _on_bakeTimer_timeout():
-	if hasSupervisor && isProducingPossible:
+	if globals.get(targetProduct)._get_has_supervisor() && isProducingPossible:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		
@@ -110,7 +108,6 @@ func _on_bakeTimer_timeout():
 		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
-	print(globals.breadAvalonia.quantity)
 	UpdateUI()
 
 func _on_progressTimer_timeout():
@@ -131,7 +128,8 @@ func setBakeSpeed():
 	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
 
 func onHiredSupervisor():
-	hasSupervisor = true
+	globals.get(targetProduct).set_has_supervisor(true)
+	print("test")
 	$bakeTimer.start()
 	$progressTimer.start()
 	$bakeTimer.autostart = 1
@@ -181,34 +179,12 @@ func _on_ingredientPop_pressed():
 		$ingredientPop/vbox.remove_child(x)
 		x.queue_free()
 	$ingredientPop.visible = 0
-
-
-#timer to show when an alert should appear
-func _on_showNotifications_timeout():
-	if globals.get(targetProduct).isUnlocked && isProducingPossible == false && hasSupervisor:
-		notification = globals.notification.new("bakery", globals.get(targetProduct).originBakery, globals.get(targetProduct).name, true)
-		globals.notificationArray.append(notification)
-		notificationsPath.addNotifications()
-		notificationsPath.setNotifications()
-
-		$showNotifications.autostart = 0
-		$showNotifications.stop()
-		$hideNotifications.start()
-		$hideNotifications.autostart = 1
-
-#timer to hide when alerts dissapear
-func _on_hideNotifications_timeout():
-	if isProducingPossible:
-		var temp = 0
-		for x in globals.notificationArray:
-			if globals.notificationArray[temp].type == "bakery" && globals.notificationArray[temp].target == notification.target:
-				globals.notificationArray.remove(temp)
-			temp += 1
-			notificationsPath.addNotifications()
-			notificationsPath.setNotifications()
-
-		$hideNotifications.autostart = 0
-		$hideNotifications.stop()
-		$showNotifications.start()
-		$showNotifications.autostart = 1
+	
+func restartProductionOnLoad():
+	if globals.get(targetProduct)._get_has_supervisor():
+		$bakeTimer.start()
+		$progressTimer.start()
+		$bakeTimer.autostart = 1
+		$progressTimer.autostart = 1
+		$productIcon.disabled = 1
 

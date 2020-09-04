@@ -98,7 +98,6 @@ func _on_inventoryButton_pressed():
 
 func _on_dayCounter_timeout():
 	globals.day += 1
-	S_farmers.checkDayPassed(true)
 
 func _on_notifications_pressed():
 	$UiCanvas/notificationPanel.visible = 1
