@@ -6,9 +6,11 @@ onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 
 export var targetBakery = "avaloniaBakery"
 
+func _ready():
+	pass
 
-func _on_close_pressed():
-	$".".visible = 0
+func _on_close_bakery_pressed():
+	bakeryNodePath.visible = 0
 	var tempBoolean = false
 	cameraNodePath.setBakeryState(tempBoolean)
 

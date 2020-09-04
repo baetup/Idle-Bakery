@@ -87,6 +87,7 @@ func _on_bakeTimer_timeout():
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
 
+
 	else: #the case when manually pressing the production icon
 		$bakeTimer.stop()
 		$progressTimer.stop()
@@ -109,7 +110,7 @@ func _on_bakeTimer_timeout():
 		if globals.get(targetProduct).quantity > 0:
 			inventoryNodePath.checkAvailableItems()
 			inventoryNodePath.setItems()
-
+	print(globals.breadAvalonia.quantity)
 	UpdateUI()
 
 func _on_progressTimer_timeout():

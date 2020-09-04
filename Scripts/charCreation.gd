@@ -32,6 +32,8 @@ func _on_next_pressed():
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/GameManager.tscn")
 		globals.setUsername(username)
+	save_load.preConditions['playedBefore'] = true
+	save_load.savePreconditions()
 
 
 

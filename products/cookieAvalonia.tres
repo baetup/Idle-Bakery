@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/productObject.gd" type="Script" id=1]
+[ext_resource path="res://ingredients/flour.tres" type="Resource" id=2]
+[ext_resource path="res://ingredients/sugar.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Cookie"
+icon = "res://Image-assets/cookieIcon.png"
+quantity = 4
+bakeryProductLevel = 0
+bakeryLevelCost = 2.0
+produceAmount = 2
+bakeSpeedMultiplier = 0.0
+bakeTime = 2.0
+sellSpeedMultiplier = 2.0
+sellTime = 2.0
+sellPrice = 2.0
+sellAmount = 0
+storeProductLevelCount = 0
+storeLevelCost = 2.0
+isUnlocked = true
+ingredients = [ ExtResource( 2 ), ExtResource( 3 ) ]
+originBakery = ""

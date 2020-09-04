@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/productObject.gd" type="Script" id=1]
+[ext_resource path="res://ingredients/flour.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bread"
+icon = "res://Image-assets/breadIcon.png"
+quantity = 16
+bakeryProductLevel = 2
+bakeryLevelCost = 57.2205
+produceAmount = 2
+bakeSpeedMultiplier = 0.02
+bakeTime = 1.77169
+sellSpeedMultiplier = 2.0
+sellTime = 2.0
+sellPrice = 2.0
+sellAmount = 2
+storeProductLevelCount = 0
+storeLevelCost = 2.0
+isUnlocked = true
+ingredients = [ ExtResource( 2 ) ]
+originBakery = "avalonia"

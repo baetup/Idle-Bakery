@@ -123,7 +123,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="close" type="TextureButton" parent="."]
+[node name="close_bakery" type="TextureButton" parent="."]
 margin_left = 371.953
 margin_top = -13.2315
 margin_right = 418.953
@@ -179,7 +179,7 @@ margin_right = 401.261
 margin_bottom = 583.344
 [connection signal="pressed" from="openSupervisors" to="." method="_on_openSupervisors_pressed"]
 [connection signal="pressed" from="upgradesButton" to="." method="_on_upgradesButton_pressed"]
-[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="close_bakery" to="." method="_on_close_bakery_pressed"]
 
 [editable path="productScroll/VBoxContainer/breadControl/breadAvalonia"]
 

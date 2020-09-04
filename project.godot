@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ingredient",
+"language": "GDScript",
+"path": "res://Scripts/ingredients_object.gd"
+}, {
+"base": "Resource",
+"class": "productObject",
+"language": "GDScript",
+"path": "res://Scripts/productObject.gd"
+}, {
+"base": "Resource",
+"class": "supervisor",
+"language": "GDScript",
+"path": "res://Scripts/supervisor_object.gd"
+} ]
 _global_script_class_icons={
-
+"ingredient": "",
+"productObject": "",
+"supervisor": ""
 }
 
 [application]
@@ -26,6 +43,7 @@ globals="*res://Scripts/globals.gd"
 S_farmers="*res://Scripts/S_farmers.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
+save_load="*res://Scripts/save_load.gd"
 
 [display]
 
