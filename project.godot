@@ -56,6 +56,11 @@ mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
 save_load="*res://Scripts/save_load.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=432

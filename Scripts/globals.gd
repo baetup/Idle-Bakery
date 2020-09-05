@@ -1,6 +1,6 @@
 extends Node
 
-
+var resource_path = "res://"
 var day = 1
 var money = 500
 var username : String = ""
@@ -17,20 +17,20 @@ var avatarPlayerGender = "male"
 
 
 
-var breadAvalonia = load("res://products/breadAvalonia.tres")
-var cookieAvalonia = load("res://products/cookieAvalonia.tres")
+var breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
+var cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
 
 
-var breadBakAvaS = load("res://supervisors/breadBakAvaS.tres")
-var cookieBakAvaS = load("res://supervisors/cookieBakAvaS.tres")
-var breadStorAvaS = load("res://supervisors/breadStorAvaS.tres")
-var cookieStorAvaS = load("res://supervisors/cookieStorAvaS.tres")
+var breadBakAvaS = load(resource_path +  "supervisors/breadBakAvaS.tres")
+var cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
+var breadStorAvaS = load(resource_path + "supervisors/breadStorAvaS.tres")
+var cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
 
 var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
-var mainCastle =load("res://misc_objects/mainCastle.tres")
+var mainCastle =load(resource_path +  "misc_objects/mainCastle.tres")
 
 
 func setUsername(name):
@@ -48,5 +48,13 @@ func subFromMoney(amount):
 func setPlayerGender(gender):
 	avatarPlayerGender = gender
 
+func loadResource():
+	breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
+	cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
 
-
+	breadBakAvaS = load(resource_path +  "supervisors/breadBakAvaS.tres")
+	cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
+	breadStorAvaS = load(resource_path + "supervisors/breadStorAvaS.tres")
+	cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
+	
+	mainCastle =load(resource_path +  "misc_objects/mainCastle.tres")

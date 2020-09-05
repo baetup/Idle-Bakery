@@ -6,6 +6,10 @@ var preConditions = {
 
 var data = {}
 
+const INGREDIENT_DIR = "user://ingredients/"
+const MISC_OBJ_DIR = "user://misc_objects/"
+const PRODUCTS_DIR = "user://products/"
+const SUPERVISOR_DIR = "user://supervisors"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -14,15 +18,33 @@ func _ready():
 	loadPreconditions()
 
 func save_resources():
-	ResourceSaver.save("res://products/breadAvalonia.tres", globals.breadAvalonia)
-	ResourceSaver.save("res://products/cookieAvalonia.tres", globals.cookieAvalonia)
-	ResourceSaver.save("res://ingredients/flour.tres", ingredients.flour)
-	ResourceSaver.save("res://ingredients/sugar.tres", ingredients.sugar)
-	ResourceSaver.save("res://supervisors/breadBakAvaS.tres", globals.breadBakAvaS)
-	ResourceSaver.save("res://supervisors/cookieBakAvaS.tres", globals.cookieBakAvaS)
-	ResourceSaver.save("res://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
-	ResourceSaver.save("res://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
-	ResourceSaver.save("res://misc_objects/mainCastle.tres", globals.mainCastle)
+	var dir_ingredient = Directory.new()
+	if !dir_ingredient.dir_exists(INGREDIENT_DIR):
+		dir_ingredient.make_dir(INGREDIENT_DIR)
+	
+	var dir_misc_obj = Directory.new()
+	if !dir_misc_obj.dir_exists(MISC_OBJ_DIR):
+		dir_misc_obj.make_dir(MISC_OBJ_DIR)
+		
+	var dir_products = Directory.new()
+	if !dir_products.dir_exists(PRODUCTS_DIR):
+		dir_products.make_dir(PRODUCTS_DIR)
+	
+	var dir_supervisors = Directory.new()
+	if !dir_supervisors.dir_exists(SUPERVISOR_DIR):
+		dir_supervisors.make_dir(SUPERVISOR_DIR)
+		
+	
+	
+	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
+	ResourceSaver.save("user://products/cookieAvalonia.tres", globals.cookieAvalonia)
+	ResourceSaver.save("user://ingredients/flour.tres", ingredients.flour)
+	ResourceSaver.save("user://ingredients/sugar.tres", ingredients.sugar)
+	ResourceSaver.save("user://supervisors/breadBakAvaS.tres", globals.breadBakAvaS)
+	ResourceSaver.save("user://supervisors/cookieBakAvaS.tres", globals.cookieBakAvaS)
+	ResourceSaver.save("user://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
+	ResourceSaver.save("user://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
+	ResourceSaver.save("user://misc_objects/mainCastle.tres", globals.mainCastle)
 
 
 func save_data():
@@ -67,7 +89,7 @@ func load_data():
 
 func savePreconditions():
 	
-		var data = preConditions 
+		data = preConditions 
 		var dir = Directory.new()
 		if !dir.dir_exists(SAVE_DIR):
 			dir.make_dir(SAVE_DIR)

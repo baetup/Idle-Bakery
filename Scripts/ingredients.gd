@@ -1,8 +1,11 @@
 extends Node
 
+var resource_path = "res://"
 
-var flour = load("res://ingredients/flour.tres")
-var sugar = load("res://ingredients/sugar.tres")
+var flour = load(resource_path + "ingredients/flour.tres")
+var sugar = load(resource_path + "ingredients/sugar.tres")
 
-
+func loadResource():
+	flour = load(resource_path + "ingredients/flour.tres")
+	sugar = load(resource_path + "ingredients/sugar.tres")
 

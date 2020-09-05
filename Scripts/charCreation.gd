@@ -34,6 +34,10 @@ func _on_next_pressed():
 		globals.setUsername(username)
 	save_load.preConditions['playedBefore'] = true
 	save_load.savePreconditions()
+	
+	save_load.save_resources()
+	globals.resource_path = "user://"
+	ingredients.resource_path = "user://"
 
 
 

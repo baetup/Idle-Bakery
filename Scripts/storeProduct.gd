@@ -10,6 +10,7 @@ func _ready():
 	UpdateUI()
 
 func UpdateUI():
+	$productName.text = globals.get(targetProduct).name
 	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).icon))
 	$productCountLabel.text= str(globals.get(targetProduct).quantity)
 	$levelCount.text = str(globals.get(targetProduct).storeProductLevelCount)

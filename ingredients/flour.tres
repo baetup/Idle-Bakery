@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 icon = "res://Image-assets/flourIcon.png"
 name = "Flour"
-quantity = 17
+quantity = 9
 produceTime = 1.0
 produceAmount = 5
 level = 1
