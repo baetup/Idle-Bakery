@@ -33,7 +33,7 @@ var wasLLAlbion = false
 
 func _ready():
 	set_process_input(true)
-	$".". zoom = Vector2(villageMaxZoom,villageMaxZoom)
+	$".". zoom = Vector2(1.5,1.5)
 
 #Zooming and panning feature
 func _unhandled_input(event):
@@ -88,10 +88,10 @@ func setCameraLimits(currentLocation):
 		cameraNodePath.limit_right = 3397
 		cameraNodePath.limit_bottom = 3435
 	elif currentLocation == "avalonia":
-		cameraNodePath.limit_left = -1400
-		cameraNodePath.limit_top = -1300
-		cameraNodePath.limit_right = 2200
-		cameraNodePath.limit_bottom = 1900
+		cameraNodePath.limit_left = -2377
+		cameraNodePath.limit_top = -865
+		cameraNodePath.limit_right = 1463
+		cameraNodePath.limit_bottom = 1295
 
 #Needed for setting camera position on current screen
 func getRootScreen(rootSceneString):

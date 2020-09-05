@@ -1,8 +1,8 @@
 extends Panel
 
-onready var playBtnNodePath = get_node("/root/main_menu/play")
-onready var optionsBtnNodePath = get_node("/root/main_menu/options")
-onready var exitBtnNodePath = get_node("/root/main_menu/exit")
+onready var playBtnNodePath = get_node("/root/main_menu/vbox/play")
+onready var optionsBtnNodePath = get_node("/root/main_menu/vbox/options")
+onready var exitBtnNodePath = get_node("/root/main_menu/vbox/exit")
 onready var optionsNodePath = get_node("/root/main_menu/optionsModal")
 
 func _ready():

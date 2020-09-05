@@ -1,60 +1,529 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
+[ext_resource path="res://Image-assets/avaloniaBackground.jpg" type="Texture" id=3]
+[ext_resource path="res://Tile-sets/village-assets/Archery_range_300x300.png" type="Texture" id=4]
+[ext_resource path="res://Tile-sets/village-assets/Alchemists_house_300x300.png" type="Texture" id=5]
+[ext_resource path="res://Tile-sets/village-assets/Barracks_300x300.png" type="Texture" id=6]
+[ext_resource path="res://Tile-sets/village-assets/Castle_1_550x550.png" type="Texture" id=7]
+[ext_resource path="res://Tile-sets/village-assets/Castle_2_555x550.png" type="Texture" id=8]
+[ext_resource path="res://Tile-sets/village-assets/Castle_3_555x550.png" type="Texture" id=9]
+[ext_resource path="res://Tile-sets/village-assets/Cottage_1_300x300.png" type="Texture" id=10]
+[ext_resource path="res://Tile-sets/village-assets/Cottage_2_300x300.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
 [ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
+[ext_resource path="res://Tile-sets/village-assets/Cottage_3_300x300.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/upgradesBakery.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/store.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/upgradesStore.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/bakery.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=20]
+[ext_resource path="res://Tile-sets/village-assets/Dragons_den_300x300.png" type="Texture" id=21]
 [ext_resource path="res://Image-assets/button-four-disabled.png" type="Texture" id=22]
-[ext_resource path="res://Image-assets/world-map3.jpg" type="Texture" id=24]
+[ext_resource path="res://Tile-sets/village-assets/Elven_house_300x300.png" type="Texture" id=23]
+[ext_resource path="res://Tile-sets/village-assets/Farm2_300x300.png" type="Texture" id=24]
+[ext_resource path="res://Tile-sets/village-assets/Farm_300x300.png" type="Texture" id=25]
+[ext_resource path="res://Tile-sets/village-assets/Fortress_tower2_300x300.png" type="Texture" id=26]
+[ext_resource path="res://Tile-sets/village-assets/Fortress_towerv2_300x300.png" type="Texture" id=27]
+[ext_resource path="res://Tile-sets/village-assets/Fortress_tower_300x300.png" type="Texture" id=28]
+[ext_resource path="res://Tile-sets/village-assets/Gate_closed_300x300.png" type="Texture" id=29]
+[ext_resource path="res://Tile-sets/village-assets/Gate_opened_300x300.png" type="Texture" id=30]
+[ext_resource path="res://Tile-sets/village-assets/Goldmine_300x300.png" type="Texture" id=31]
+[ext_resource path="res://Tile-sets/village-assets/Horror_house1_300x300.png" type="Texture" id=32]
+[ext_resource path="res://Tile-sets/village-assets/Horror_house2_300x300.png" type="Texture" id=33]
+[ext_resource path="res://Tile-sets/village-assets/Horror_house3_300x300.png" type="Texture" id=34]
+[ext_resource path="res://Tile-sets/village-assets/Horror_house4_300x300.png" type="Texture" id=35]
+[ext_resource path="res://Tile-sets/village-assets/House_1_300x300.png" type="Texture" id=36]
+[ext_resource path="res://Tile-sets/village-assets/House_2_300x300.png" type="Texture" id=37]
+[ext_resource path="res://Tile-sets/village-assets/House_3_300x300.png" type="Texture" id=38]
+[ext_resource path="res://Tile-sets/village-assets/House_group_1.png" type="Texture" id=39]
+[ext_resource path="res://Tile-sets/village-assets/House_group_2.png" type="Texture" id=40]
+[ext_resource path="res://Tile-sets/village-assets/Mystical_house_300x300.png" type="Texture" id=41]
+[ext_resource path="res://Tile-sets/village-assets/Sawmill_300x300.png" type="Texture" id=42]
+[ext_resource path="res://Tile-sets/village-assets/Stables_300x300.png" type="Texture" id=43]
+[ext_resource path="res://Tile-sets/village-assets/Stonemill_300x300.png" type="Texture" id=44]
+[ext_resource path="res://Tile-sets/village-assets/Stonemine_300x300.png" type="Texture" id=45]
+[ext_resource path="res://Tile-sets/village-assets/Wall1_300x300.png" type="Texture" id=46]
+[ext_resource path="res://Tile-sets/village-assets/Wall1_tower_link_300x300.png" type="Texture" id=47]
+[ext_resource path="res://Tile-sets/village-assets/Wall_300x300.png" type="Texture" id=48]
+[ext_resource path="res://Tile-sets/village-assets/Windmill_300x300.png" type="Texture" id=49]
+[ext_resource path="res://Tile-sets/village-assets/Wizards_tower_300x300.png" type="Texture" id=50]
+[ext_resource path="res://Tile-sets/village-assets/Woodcutters_300x300.png" type="Texture" id=51]
+[ext_resource path="res://Tile-sets/villageAvalonia.tres" type="TileSet" id=52]
+[ext_resource path="res://Image-assets/single_coin.png" type="Texture" id=67]
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 20 )
+[sub_resource type="TileSet" id=1]
+0/name = "Alchemists_house_300x300.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 32, 224, 288 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Archery_range_300x300.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 32, 256, 288 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "Barracks_300x300.png 2"
+2/texture = ExtResource( 6 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 64, 288, 256 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Castle_1_550x550.png 3"
+3/texture = ExtResource( 7 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 32, 576, 448 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [  ]
+3/z_index = 0
+4/name = "Castle_2_555x550.png 4"
+4/texture = ExtResource( 8 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 32, 0, 512, 512 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Castle_3_555x550.png 5"
+5/texture = ExtResource( 9 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 544, 544 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shapes = [  ]
+5/z_index = 0
+6/name = "Cottage_1_300x300.png 6"
+6/texture = ExtResource( 10 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 32, 128, 224, 192 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shapes = [  ]
+6/z_index = 0
+7/name = "Cottage_2_300x300.png 7"
+7/texture = ExtResource( 11 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 64, 128, 192, 192 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shapes = [  ]
+7/z_index = 0
+8/name = "Cottage_3_300x300.png 8"
+8/texture = ExtResource( 15 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 32, 64, 224, 256 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shapes = [  ]
+8/z_index = 0
+9/name = "Dragons_den_300x300.png 9"
+9/texture = ExtResource( 21 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 32, 288, 288 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shapes = [  ]
+9/z_index = 0
+10/name = "Elven_house_300x300.png 10"
+10/texture = ExtResource( 23 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 32, 64, 256, 256 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shapes = [  ]
+10/z_index = 0
+11/name = "Farm2_300x300.png 11"
+11/texture = ExtResource( 24 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 64, 320, 256 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shapes = [  ]
+11/z_index = 0
+12/name = "Farm_300x300.png 12"
+12/texture = ExtResource( 25 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 96, 288, 224 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shapes = [  ]
+12/z_index = 0
+13/name = "Fortress_tower2_300x300.png 13"
+13/texture = ExtResource( 26 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 96, 32, 128, 256 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shapes = [  ]
+13/z_index = 0
+14/name = "Fortress_towerv2_300x300.png 14"
+14/texture = ExtResource( 27 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 96, 64, 128, 224 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shapes = [  ]
+14/z_index = 0
+15/name = "Fortress_tower_300x300.png 15"
+15/texture = ExtResource( 28 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 64, 64, 192, 256 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shapes = [  ]
+15/z_index = 0
+16/name = "Gate_closed_300x300.png 16"
+16/texture = ExtResource( 29 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 64, 0, 192, 256 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shapes = [  ]
+16/z_index = 0
+17/name = "Gate_opened_300x300.png 17"
+17/texture = ExtResource( 30 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 64, 0, 192, 256 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shapes = [  ]
+17/z_index = 0
+18/name = "Goldmine_300x300.png 18"
+18/texture = ExtResource( 31 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 96, 288, 224 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shapes = [  ]
+18/z_index = 0
+19/name = "Horror_house1_300x300.png 19"
+19/texture = ExtResource( 32 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 32, 96, 256, 192 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shapes = [  ]
+19/z_index = 0
+20/name = "Horror_house2_300x300.png 20"
+20/texture = ExtResource( 33 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 32, 64, 224, 224 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shapes = [  ]
+20/z_index = 0
+21/name = "Horror_house3_300x300.png 21"
+21/texture = ExtResource( 34 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 32, 128, 224, 192 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shapes = [  ]
+21/z_index = 0
+22/name = "Horror_house4_300x300.png 22"
+22/texture = ExtResource( 35 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 0, 64, 288, 224 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shapes = [  ]
+22/z_index = 0
+23/name = "House_1_300x300.png 23"
+23/texture = ExtResource( 36 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 32, 64, 224, 256 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shapes = [  ]
+23/z_index = 0
+24/name = "House_2_300x300.png 24"
+24/texture = ExtResource( 37 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 32, 32, 224, 288 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shapes = [  ]
+24/z_index = 0
+25/name = "House_3_300x300.png 25"
+25/texture = ExtResource( 38 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 32, 0, 256, 320 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shapes = [  ]
+25/z_index = 0
+26/name = "House_group_1.png 26"
+26/texture = ExtResource( 39 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 0, 64, 320, 256 )
+26/tile_mode = 0
+26/occluder_offset = Vector2( 0, 0 )
+26/navigation_offset = Vector2( 0, 0 )
+26/shapes = [  ]
+26/z_index = 0
+27/name = "House_group_2.png 27"
+27/texture = ExtResource( 40 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 0, 64, 320, 256 )
+27/tile_mode = 0
+27/occluder_offset = Vector2( 0, 0 )
+27/navigation_offset = Vector2( 0, 0 )
+27/shapes = [  ]
+27/z_index = 0
+28/name = "Mystical_house_300x300.png 28"
+28/texture = ExtResource( 41 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 64, 320, 256 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shapes = [  ]
+28/z_index = 0
+29/name = "Sawmill_300x300.png 29"
+29/texture = ExtResource( 42 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 32, 288, 288 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shapes = [  ]
+29/z_index = 0
+30/name = "Stables_300x300.png 30"
+30/texture = ExtResource( 43 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 0, 64, 320, 256 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shapes = [  ]
+30/z_index = 0
+31/name = "Stonemill_300x300.png 31"
+31/texture = ExtResource( 44 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 96, 288, 224 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shapes = [  ]
+31/z_index = 0
+32/name = "Stonemine_300x300.png 32"
+32/texture = ExtResource( 45 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 32, 96, 256, 224 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shapes = [  ]
+32/z_index = 0
+33/name = "Wall1_300x300.png 33"
+33/texture = ExtResource( 46 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 96, 128, 128, 160 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shapes = [  ]
+33/z_index = 0
+34/name = "Wall1_tower_link_300x300.png 34"
+34/texture = ExtResource( 47 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 96, 128, 128, 160 )
+34/tile_mode = 0
+34/occluder_offset = Vector2( 0, 0 )
+34/navigation_offset = Vector2( 0, 0 )
+34/shapes = [  ]
+34/z_index = 0
+35/name = "Wall_300x300.png 35"
+35/texture = ExtResource( 48 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 96, 128, 128, 160 )
+35/tile_mode = 0
+35/occluder_offset = Vector2( 0, 0 )
+35/navigation_offset = Vector2( 0, 0 )
+35/shapes = [  ]
+35/z_index = 0
+36/name = "Windmill_300x300.png 36"
+36/texture = ExtResource( 49 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 0, 288, 320 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shapes = [  ]
+36/z_index = 0
+37/name = "Wizards_tower_300x300.png 37"
+37/texture = ExtResource( 50 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 32, 0, 256, 320 )
+37/tile_mode = 0
+37/occluder_offset = Vector2( 0, 0 )
+37/navigation_offset = Vector2( 0, 0 )
+37/shapes = [  ]
+37/z_index = 0
+38/name = "Woodcutters_300x300.png 38"
+38/texture = ExtResource( 51 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 32, 96, 224, 224 )
+38/tile_mode = 0
+38/occluder_offset = Vector2( 0, 0 )
+38/navigation_offset = Vector2( 0, 0 )
+38/shapes = [  ]
+38/z_index = 0
 
 [sub_resource type="DynamicFont" id=2]
-outline_size = 1
-outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
-use_filter = true
-font_data = ExtResource( 12 )
-
-[sub_resource type="ShaderMaterial" id=10]
-
-[sub_resource type="DynamicFont" id=3]
-size = 20
-outline_size = 1
-outline_color = Color( 0.207843, 0.133333, 0.0980392, 1 )
-use_filter = true
 font_data = ExtResource( 20 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
+size = 29
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="ShaderMaterial" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="CanvasItemMaterial" id=5]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+min_value = 81.92
+max_value = 274.07
+_data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+trail_size_modifier = SubResource( 9 )
+emission_shape = 2
+emission_box_extents = Vector3( 20, 20, 20 )
+flag_disable_z = true
+direction = Vector3( 2, 1, 5 )
+spread = 25.0
+gravity = Vector3( 0, -90, 0 )
+initial_velocity = 35.71
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -65.82
+linear_accel_random = 0.24
+scale = 1.5
+scale_random = 0.41
+scale_curve = SubResource( 7 )
+color = Color( 1, 1, 0, 1 )
+hue_variation = -0.05
+anim_speed = 18.29
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 1949.95, -1300.83 ],
-"_edit_vertical_guides_": [ -1392.0, 2176.8 ]
-}
 
-[node name="world-map2" type="Sprite" parent="."]
-position = Vector2( -700, -1663.24 )
-texture = ExtResource( 24 )
+[node name="avaloniaBackground" type="Sprite" parent="."]
+position = Vector2( -456.764, 214.656 )
+texture = ExtResource( 3 )
+
+[node name="objects" type="TileMap" parent="."]
+tile_set = ExtResource( 52 )
+format = 1
+tile_data = PoolIntArray( -983030, 22, 0, -917501, 20, 0, -917499, 20, 0, -917498, 23, 0, -917495, 22, 0, -917493, 22, 0, -917492, 20, 0, -917490, 21, 0, -917487, 21, 0, -786448, 1, 0, -786437, 0, 0, -786434, 19, 0, -851968, 22, 0, -851966, 1, 0, -851961, 23, 0, -851948, 0, 0, -786430, 26, 0, -786426, 22, 0, -786419, 21, 0, -786417, 20, 0, -786416, 3, 0, -786411, 2, 0, -655363, 19, 0, -720892, 26, 0, -720889, 20, 0, -720887, 4, 0, -720885, 21, 0, -720878, 20, 0, -720877, 20, 0, -720875, 0, 0, -589849, 9, 0, -589827, 0, 0, -655358, 22, 0, -655351, 21, 0, -655345, 20, 0, -655339, 21, 0, -524290, 1, 0, -589823, 4, 0, -589821, 4, 0, -589819, 1, 0, -589807, 3, 0, -589806, 20, 0, -458778, 1, 0, -458752, 1, 0, -458746, 4, 0, -458735, 1, 0, -458731, 2, 0, -327661, 1, 0, -327659, 5, 0, -262142, 1, 0, -262128, 7, 0, -262126, 4, 0, -131087, 9, 0, -196589, 1, 0, -131062, 3, 0, -131060, 5, 0, -131058, 1, 0, -131055, 1, 0, -131051, 18, 0, -65534, 13, 0, -65520, 5, 0, -65516, 19, 0, -65515, 19, 0, 65546, 18, 0, 262123, 12, 0, 262131, 8, 0, 327662, 8, 0, 524305, 3, 0, 720873, 9, 0, 917477, 10, 0, 917496, 11, 0 )
+
+[node name="buildings" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 128, 0, 0, 128, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -1703950, 14, 0, -1572898, 0, 0, -1441834, 10, 0, -1376302, 10, 0, -1441776, 4, 0, -917557, 14, 0, -851956, 14, 0, -720966, 19, 0, -655422, 18, 0, -524310, 23, 0, -524270, 14, 0, -327732, 2, 0, -327706, 23, 0, -327697, 23, 0, -262212, 6, 0, -131110, 27, 0, -131093, 23, 0, -65600, 6, 0, -68, 6, 0, 65463, 6, 0, 131020, 30, 0, 196648, 14, 0, 327607, 6, 0, 327613, 6, 0, 393160, 1, 0, 458740, 8, 0, 393216, 26, 0, 524254, 9, 0, 524321, 29, 0, 655292, 7, 0, 720889, 24, 0, 720905, 23, 0, 851920, 8, 0, 1048508, 14, 0, 1048522, 8, 0, 1114128, 11, 0, 1245124, 8, 0, 1179672, 12, 0, 1376216, 7, 0, 1572820, 7, 0, 1572829, 7, 0, 1769433, 7, 0, 1835026, 25, 0, 2031554, 31, 0, 2162696, 14, 0, 2293709, 14, 0 )
 
 [node name="unlockableBuildingsBtns" type="Node2D" parent="."]
 
@@ -74,26 +543,28 @@ margin_left = 17.9471
 margin_top = 5.97775
 margin_right = 100.947
 margin_bottom = 23.9778
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "BUY INN - 1K"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bakeryLabel" type="Label" parent="."]
-margin_left = -31.7673
-margin_top = 139.219
-margin_right = 39.2327
-margin_bottom = 158.219
-custom_fonts/font = SubResource( 2 )
-text = "bakery"
+margin_left = 86.751
+margin_top = 159.576
+margin_right = 213.751
+margin_bottom = 189.576
+custom_fonts/font = SubResource( 3 )
+text = "BAKERY"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="warning" type="TextureRect" parent="bakeryLabel"]
 visible = false
-material = SubResource( 10 )
+material = SubResource( 4 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -105,22 +576,45 @@ __meta__ = {
 }
 
 [node name="shopLabel" type="Label" parent="."]
-margin_left = 213.307
-margin_top = 499.48
-margin_right = 261.307
-margin_bottom = 516.48
-custom_fonts/font = SubResource( 2 )
-text = "Shop"
+margin_left = 318.57
+margin_top = 356.543
+margin_right = 403.57
+margin_bottom = 386.543
+custom_fonts/font = SubResource( 3 )
+text = "SHOP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickMoneyLabel" type="Label" parent="."]
+margin_left = -182.197
+margin_top = 357.742
+margin_right = -32.1974
+margin_bottom = 387.742
+rect_pivot_offset = Vector2( -250.777, 260.384 )
+custom_fonts/font = SubResource( 3 )
+text = "ESTATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="farmLabel" type="Label" parent="."]
+margin_left = 561.683
+margin_top = 536.343
+margin_right = 666.683
+margin_bottom = 566.343
+rect_pivot_offset = Vector2( 199.156, 117.202 )
+custom_fonts/font = SubResource( 3 )
+text = "FARM"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="getBakeryOpen" type="Button" parent="."]
-margin_left = -162.0
-margin_top = 231.0
-margin_right = 34.0
-margin_bottom = 372.0
-rect_rotation = -29.1
+margin_left = 13.0
+margin_top = 166.0
+margin_right = 296.0
+margin_bottom = 385.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -129,10 +623,10 @@ __meta__ = {
 }
 
 [node name="getStoreOpen" type="Button" parent="."]
-margin_left = 209.96
-margin_top = 531.213
-margin_right = 403.96
-margin_bottom = 669.213
+margin_left = 321.0
+margin_top = 359.0
+margin_right = 498.0
+margin_bottom = 563.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -141,10 +635,10 @@ __meta__ = {
 }
 
 [node name="getFarmOpen" type="Button" parent="."]
-margin_left = 544.432
+margin_left = 544.0
 margin_top = 584.0
-margin_right = 901.432
-margin_bottom = 840.0
+margin_right = 1033.0
+margin_bottom = 783.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -152,22 +646,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="farmLabel" type="Label" parent="."]
-margin_left = 553.949
-margin_top = 540.444
-margin_right = 595.949
-margin_bottom = 562.444
-custom_fonts/font = SubResource( 3 )
-text = "Farm"
+[node name="getCastleOpen" type="Button" parent="."]
+margin_left = 408.432
+margin_top = 176.0
+margin_right = 765.432
+margin_bottom = 432.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ClickMoneyButton" type="Button" parent="."]
-margin_left = -1.0
-margin_top = 696.0
-margin_right = 218.0
-margin_bottom = 929.0
+margin_left = -183.0
+margin_top = 333.0
+margin_right = -21.0
+margin_bottom = 575.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -175,16 +670,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClickMoneyLabel" type="Label" parent="."]
-margin_left = 11.6271
-margin_top = 669.273
-margin_right = 132.628
-margin_bottom = 686.273
-rect_rotation = -15.5
-custom_fonts/font = SubResource( 4 )
-text = "Click Money"
-align = 1
-valign = 1
+[node name="coin" type="Particles2D" parent="ClickMoneyButton"]
+material = SubResource( 5 )
+position = Vector2( 71.8272, 41.394 )
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 10 )
+texture = ExtResource( 67 )
+
+[node name="castleLabel" type="Label" parent="."]
+margin_left = 504.59
+margin_top = -598.979
+margin_right = 651.59
+margin_bottom = -568.979
+rect_pivot_offset = Vector2( 370.222, -122.827 )
+custom_fonts/font = SubResource( 3 )
+text = "CASTLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -195,22 +700,22 @@ __meta__ = {
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 11 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 12 )
 
 [node name="upgradesBakery" parent="UiCanvas" instance=ExtResource( 16 )]
 visible = false
 margin_top = 103.0
 margin_bottom = 799.0
 rect_pivot_offset = Vector2( 216.996, 68.9989 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 13 )
 
 [node name="upgradesStore" parent="UiCanvas" instance=ExtResource( 18 )]
 visible = false
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 14 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false
@@ -223,6 +728,7 @@ autostart = true
 [connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
 [connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
 [connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
+[connection signal="pressed" from="getCastleOpen" to="." method="_on_getCastleOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 

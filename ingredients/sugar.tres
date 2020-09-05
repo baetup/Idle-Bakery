@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ingredients_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+icon = "res://Image-assets/flourIcon.png"
+name = "Sugar"
+quantity = 0
+produceTime = 2.0
+produceAmount = 2
+level = 1
+levelCost = 30.0

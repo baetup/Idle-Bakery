@@ -12,13 +12,13 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 use_filter = true
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=4]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -26,7 +26,7 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 2 )
+VScrollBar/styles/scroll = SubResource( 3 )
 VScrollBar/styles/scroll_focus = null
 
 [node name="storeAvalonia" type="Panel"]
@@ -92,7 +92,7 @@ margin_left = 29.5626
 margin_top = 5.00816
 margin_right = 108.563
 margin_bottom = 23.0082
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "Supervisors"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -124,7 +124,7 @@ margin_left = 51.0
 margin_top = 190.0
 margin_right = 344.0
 margin_bottom = 608.0
-theme = SubResource( 3 )
+theme = SubResource( 4 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,6 +141,7 @@ margin_left = -2.044
 margin_top = -3.2098
 margin_right = -2.044
 margin_bottom = -3.2098
+targetProduct = "breadAvalonia"
 
 [node name="cookieControl" type="Control" parent="ScrollContainer/VBoxContainer"]
 margin_top = 105.0

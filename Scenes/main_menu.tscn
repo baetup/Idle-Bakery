@@ -13,45 +13,60 @@ script = ExtResource( 4 )
 position = Vector2( 216, 384 )
 texture = ExtResource( 1 )
 
-[node name="play" type="TextureButton" parent="."]
-margin_left = 146.015
-margin_top = 342.0
-margin_right = 291.015
-margin_bottom = 392.0
+[node name="vbox" type="VBoxContainer" parent="."]
+margin_left = 144.0
+margin_top = 369.0
+margin_right = 289.0
+margin_bottom = 559.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="TextureButton" parent="vbox"]
+margin_right = 145.0
+margin_bottom = 50.0
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playLabel" type="Label" parent="play"]
-margin_left = 56.3623
-margin_top = 14.4401
-margin_right = 88.3623
-margin_bottom = 28.4401
+[node name="playLabel" type="Label" parent="vbox/play"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_top = -10.0
+margin_right = 29.0
+margin_bottom = 4.0
 custom_fonts/font = ExtResource( 2 )
-text = "PLAYY"
+text = "PLAY"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="options" type="TextureButton" parent="."]
-margin_left = 142.857
-margin_top = 406.0
-margin_right = 287.857
-margin_bottom = 456.0
+[node name="options" type="TextureButton" parent="vbox"]
+margin_top = 70.0
+margin_right = 145.0
+margin_bottom = 120.0
 rect_pivot_offset = Vector2( 116.772, 15.2478 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="optionsLabel" type="Label" parent="options"]
-margin_left = 47.8181
-margin_top = 14.4401
-margin_right = 98.8181
-margin_bottom = 28.4401
+[node name="optionsLabel" type="Label" parent="vbox/options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.5
+margin_top = -10.0
+margin_right = 25.5
+margin_bottom = 4.0
 custom_fonts/font = ExtResource( 2 )
 text = "OPTIONS"
 align = 1
@@ -60,22 +75,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="exit" type="TextureButton" parent="."]
-margin_left = 142.857
-margin_top = 470.0
-margin_right = 287.857
-margin_bottom = 520.0
+[node name="exit" type="TextureButton" parent="vbox"]
+margin_top = 140.0
+margin_right = 145.0
+margin_bottom = 190.0
 rect_pivot_offset = Vector2( 158.672, -44.5622 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="exitLabel" type="Label" parent="exit"]
-margin_left = 56.3623
-margin_top = 14.4401
-margin_right = 82.3623
-margin_bottom = 28.4401
+[node name="exitLabel" type="Label" parent="vbox/exit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = -10.0
+margin_right = 13.0
+margin_bottom = 4.0
 custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 __meta__ = {
@@ -88,6 +106,6 @@ margin_left = 47.6559
 margin_top = 320.403
 margin_right = 385.656
 margin_bottom = 608.403
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="vbox/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="vbox/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="vbox/exit" to="." method="_on_exit_pressed"]

@@ -1,14 +1,35 @@
 extends Node
 
+func _ready():
+	playedBeforeCheck()
+
 func _on_play_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/charCreation.tscn")
 
 func _on_options_pressed():
-	$play.visible = 0
-	$options.visible = 0
-	$exit.visible = 0
+	$vbox/play.visible = 0
+	$vbox/options.visible = 0
+	$vbox/exit.visible = 0
 	$optionsModal.visible = 1
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+func playedBeforeCheck() -> void:
+	if save_load.preConditions['playedBefore'] == true:
+		$vbox/play/playLabel.text = "Continue".to_upper()
+		$vbox/play.disconnect("pressed", self, "_on_play_pressed")
+		$vbox/play.connect("pressed",self,"_on_continue_pressed")
+		
+func _on_continue_pressed():
+	save_load.load_data()
+	globals.resource_path = "user://"
+	ingredients.resource_path = "user://"
+	
+	ingredients.loadResource()
+	globals.loadResource()
+
+	
+	get_tree().change_scene("res://Scenes/GameManager.tscn")
+	

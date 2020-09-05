@@ -4,6 +4,9 @@ onready var vbox = $bkgr/vbox
 var villagesDict = {"villageAvalonia" : "villageAvalonia"} # I need a dict so I know where to redirect the notification click
 
 
+func _ready():
+	pass
+
 func _on_closeNotifications_pressed():
 	visible = 0
 

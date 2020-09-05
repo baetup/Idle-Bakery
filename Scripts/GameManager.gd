@@ -13,9 +13,17 @@ var avatar = globals.avatar
 func _ready():
 	UpdateUI()
 
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT || what == MainLoop.NOTIFICATION_CRASH || what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST || what == NOTIFICATION_EXIT_TREE || what == NOTIFICATION_WM_QUIT_REQUEST :
+		save_load.save_data()
+		save_load.save_resources()
+
+
 func UpdateUI():
 	$UiCanvas/charPanelBtn/charNameBkgr/charName.text = globals.username
 	$UiCanvas/charPanelBtn.set_normal_texture(load(avatar))
+	
 
 func _on_updateUi_timeout():
 	moneyLabel = shortenMoney.shortenMoney(globals.money)
@@ -90,7 +98,11 @@ func _on_inventoryButton_pressed():
 
 func _on_dayCounter_timeout():
 	globals.day += 1
-	S_farmers.checkDayPassed(true)
 
 func _on_notifications_pressed():
 	$UiCanvas/notificationPanel.visible = 1
+
+func reopenWindows(window):
+	get_node(window).visible = 1
+
+

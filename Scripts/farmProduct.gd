@@ -15,11 +15,6 @@ func UpdateUI():
 	$durationLabel.text = "%.1f" % ($farmTimer.time_left) + "s"
 	$research/upgradeCost.text = str(shortenMoney.shortenMoney(ingredients.get(targetIngredient).levelCost))
 
-	if S_farmers.count > 0:
-		$produceIcon.disabled = 0
-	else:
-		$produceIcon.disabled = 1
-
 	if ingredients.get(targetIngredient).levelCost > globals.money:
 		$research.disabled = 1
 	else:
@@ -37,11 +32,8 @@ func _on_farmTimer_timeout():
 	$progressBarBody/progressBar.set("value", 0.00)
 	$farmTimer.stop()
 	$progressTimer.stop()
-	ingredients.get(targetIngredient).addQuantity(S_farmers.count * ingredients.get(targetIngredient).produceAmount)
+	ingredients.get(targetIngredient).addQuantity(ingredients.get(targetIngredient).level * ingredients.get(targetIngredient).produceAmount)
 	$produceIcon.disabled = 0
-	
-
-	
 	UpdateUI()
 
 func _on_produceIcon_pressed():
