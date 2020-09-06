@@ -6,11 +6,14 @@ onready var prestigeBarNodePath = get_node("/root/GameManager/UiCanvas/charPanel
 onready var prestigeLevelNodePath = get_node("/root/GameManager/UiCanvas/charPanel/prestigeLevelLabel/prestigeLevel")
 onready var charPointsNodePath = get_node("/root/GameManager/UiCanvas/charPanel/charPointsLabel/charPoints")
 onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
+onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
 
 
 func _ready():
+	inventoryNodePath.checkAvailableItems()
+	inventoryNodePath.setItems()
 	UpdateUI()
 
 

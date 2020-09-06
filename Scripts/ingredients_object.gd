@@ -7,8 +7,10 @@ export var name	: String
 export var quantity : int 
 export var produceTime : float
 export var produceAmount : int
+export var produceTimeMult : float
 export var level : int
 export var levelCost : float
+export var levelCostMult : float
 
 
 func addQuantity(amount : int):
@@ -18,10 +20,13 @@ func removeQuantity(amount : int):
 	quantity = quantity - amount
 
 func setProduceTime():
-	produceTime = produceTime - (produceTime * 0.02)
+	produceTime = produceTime - (produceTime * pow(produceTimeMult, level))
 
-func setProduceAmount(amount):
-	produceAmount += amount
+func setProduceAmount():
+	produceAmount = produceAmount + level
 
-func setLevelCost(tinyFloat : float):
-	levelCost = levelCost + (levelCost * tinyFloat )
+func setLevelCost():
+	levelCost = levelCost * pow(levelCostMult,level)
+
+func setProduceTimeMult(value : float):
+	produceTimeMult = value

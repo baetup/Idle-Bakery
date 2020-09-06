@@ -23,9 +23,9 @@ func playedBeforeCheck() -> void:
 		$vbox/play.connect("pressed",self,"_on_continue_pressed")
 		
 func _on_continue_pressed():
-	save_load.load_data()
 	globals.resource_path = "user://"
 	ingredients.resource_path = "user://"
+	save_load.load_data()
 	
 	ingredients.loadResource()
 	globals.loadResource()

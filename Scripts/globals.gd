@@ -30,7 +30,7 @@ var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
 var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
 
-var mainCastle =load(resource_path +  "misc_objects/mainCastle.tres")
+var mainCastle = load(resource_path +  "misc_objects/mainCastle.tres")
 
 
 func setUsername(name):
@@ -50,11 +50,19 @@ func setPlayerGender(gender):
 
 func loadResource():
 	breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
+	breadAvalonia.ingredients[0] = ingredients.flour
+	
 	cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
-
+	cookieAvalonia.ingredients[0] = ingredients.flour
+	cookieAvalonia.ingredients[1] = ingredients.sugar
+			
 	breadBakAvaS = load(resource_path +  "supervisors/breadBakAvaS.tres")
 	cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
 	breadStorAvaS = load(resource_path + "supervisors/breadStorAvaS.tres")
 	cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
 	
 	mainCastle =load(resource_path +  "misc_objects/mainCastle.tres")
+
+	arrayOfIngredients = [ingredients.flour, ingredients.sugar]
+	arrayOfProducts = [breadAvalonia, cookieAvalonia]
+	arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
