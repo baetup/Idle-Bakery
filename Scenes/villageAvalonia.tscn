@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://Tile-sets/village-assets/Wizards_tower_300x300.png" type="Texture" id=50]
 [ext_resource path="res://Tile-sets/village-assets/Woodcutters_300x300.png" type="Texture" id=51]
 [ext_resource path="res://Tile-sets/villageAvalonia.tres" type="TileSet" id=52]
+[ext_resource path="res://Scenes/workshop.tscn" type="PackedScene" id=53]
 [ext_resource path="res://Image-assets/single_coin.png" type="Texture" id=67]
 
 [sub_resource type="TileSet" id=1]
@@ -523,7 +524,7 @@ tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 128, 0, 0, 128, 0, 0 )
 format = 1
-tile_data = PoolIntArray( -1703950, 14, 0, -1572898, 0, 0, -1441834, 10, 0, -1376302, 10, 0, -1441776, 4, 0, -917557, 14, 0, -851956, 14, 0, -720966, 19, 0, -655422, 18, 0, -524310, 23, 0, -524270, 14, 0, -327732, 2, 0, -327706, 23, 0, -327697, 23, 0, -262212, 6, 0, -131110, 27, 0, -131093, 23, 0, -65600, 6, 0, -68, 6, 0, 65463, 6, 0, 131020, 30, 0, 196648, 14, 0, 327607, 6, 0, 327613, 6, 0, 393160, 1, 0, 458740, 8, 0, 393216, 26, 0, 524254, 9, 0, 524321, 29, 0, 655292, 7, 0, 720889, 24, 0, 720905, 23, 0, 851920, 8, 0, 1048508, 14, 0, 1048522, 8, 0, 1114128, 11, 0, 1245124, 8, 0, 1179672, 12, 0, 1376216, 7, 0, 1572820, 7, 0, 1572829, 7, 0, 1769433, 7, 0, 1835026, 25, 0, 2031554, 31, 0, 2162696, 14, 0, 2293709, 14, 0 )
+tile_data = PoolIntArray( -1703950, 14, 0, -1572898, 0, 0, -1441834, 10, 0, -1376302, 10, 0, -1441776, 4, 0, -917557, 14, 0, -851956, 14, 0, -720966, 19, 0, -655422, 18, 0, -524310, 23, 0, -458761, 27, 0, -524270, 14, 0, -327732, 2, 0, -327706, 23, 0, -327697, 23, 0, -262212, 6, 0, -131110, 27, 0, -131093, 23, 0, -65600, 6, 0, -68, 6, 0, 65463, 6, 0, 131020, 30, 0, 196648, 14, 0, 327607, 6, 0, 327613, 6, 0, 393160, 1, 0, 458740, 8, 0, 393216, 26, 0, 524254, 9, 0, 524321, 29, 0, 655292, 7, 0, 720889, 24, 0, 720905, 23, 0, 851920, 8, 0, 1048508, 14, 0, 1048522, 8, 0, 1114128, 11, 0, 1245124, 8, 0, 1179672, 12, 0, 1376216, 7, 0, 1572820, 7, 0, 1572829, 7, 0, 1769433, 7, 0, 1835026, 25, 0, 2031554, 31, 0, 2162696, 14, 0, 2293709, 14, 0 )
 
 [node name="unlockableBuildingsBtns" type="Node2D" parent="."]
 
@@ -610,6 +611,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="workshopLabel" type="Label" parent="."]
+margin_left = -234.917
+margin_top = -260.225
+margin_right = -35.9171
+margin_bottom = -230.225
+rect_pivot_offset = Vector2( 199.156, 117.202 )
+custom_fonts/font = SubResource( 3 )
+text = "WORKSHOP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="getBakeryOpen" type="Button" parent="."]
 margin_left = 13.0
 margin_top = 166.0
@@ -647,10 +660,22 @@ __meta__ = {
 }
 
 [node name="getCastleOpen" type="Button" parent="."]
-margin_left = 408.432
-margin_top = 176.0
-margin_right = 765.432
-margin_bottom = 432.0
+margin_left = 517.0
+margin_top = -629.0
+margin_right = 998.0
+margin_bottom = -217.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getWorkshopOpen" type="Button" parent="."]
+margin_left = -276.0
+margin_top = -269.0
+margin_right = -4.0
+margin_bottom = -26.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -721,6 +746,12 @@ custom_styles/panel = SubResource( 14 )
 visible = false
 position = Vector2( 0, 17 )
 
+[node name="workshop" parent="UiCanvas" instance=ExtResource( 53 )]
+visible = false
+margin_top = 56.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 415.173, 194.324 )
+
 [node name="checkUi" type="Timer" parent="."]
 wait_time = 0.002
 autostart = true
@@ -729,6 +760,7 @@ autostart = true
 [connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
 [connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
 [connection signal="pressed" from="getCastleOpen" to="." method="_on_getCastleOpen_pressed"]
+[connection signal="pressed" from="getWorkshopOpen" to="." method="_on_getWorkshopOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 

@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Image-assets/charPanel-other1.png" type="Texture" id=1]
+[ext_resource path="res://Image-assets/button-one.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/upgrade.gd" type="Script" id=3]
+[ext_resource path="res://Image-assets/button-one-disabled.png" type="Texture" id=5]
+
+[node name="upgrade" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -155.0
+margin_top = -52.0
+margin_right = 155.0
+margin_bottom = 18.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 337.016 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 131.962, 295.219 ]
+}
+
+[node name="panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="panel"]
+margin_top = 1.0
+margin_right = 70.0
+margin_bottom = 71.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="panel"]
+margin_left = 77.9258
+margin_top = 5.63391
+margin_right = 117.926
+margin_bottom = 19.6339
+text = "[title]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="panel"]
+margin_left = 78.0
+margin_top = 29.0
+margin_right = 234.0
+margin_bottom = 67.0
+text = "Increase selling speed
+of bread by 5%"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buy" type="TextureButton" parent="panel"]
+margin_left = 239.479
+margin_top = 8.3981
+margin_right = 301.479
+margin_bottom = 37.3981
+texture_normal = ExtResource( 2 )
+texture_disabled = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buyLabel" type="Label" parent="panel/buy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -7.0
+margin_right = 12.0
+margin_bottom = 7.0
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost" type="Label" parent="."]
+margin_left = 249.993
+margin_top = 41.8121
+margin_right = 289.993
+margin_bottom = 55.8121
+text = "[cost]"
+[connection signal="pressed" from="panel/buy" to="." method="_on_buy_pressed"]

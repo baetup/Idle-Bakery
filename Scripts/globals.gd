@@ -2,7 +2,7 @@ extends Node
 
 var resource_path = "res://"
 var day = 1
-var money = 500
+var money = 920
 var username : String = ""
 var avatar : String= ""
 var prestigeLevel : int = 50

@@ -30,3 +30,12 @@ func setLevelCost():
 
 func setProduceTimeMult(value : float):
 	produceTimeMult = value
+
+func upgradeProduceTime(value : float):
+	produceTime = produceTime - (produceTime * value)
+	
+func upgradeProduceAmount(value : int):
+	produceAmount = produceAmount + value
+	
+func upgradeLevelCost(value : float):
+	levelCost = levelCost -( levelCost * value)

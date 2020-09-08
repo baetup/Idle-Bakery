@@ -9,7 +9,8 @@ var data = {}
 const INGREDIENT_DIR = "user://ingredients/"
 const MISC_OBJ_DIR = "user://misc_objects/"
 const PRODUCTS_DIR = "user://products/"
-const SUPERVISOR_DIR = "user://supervisors"
+const SUPERVISOR_DIR = "user://supervisors/"
+const UPGRADES_DIR = "user://upgrades/"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -34,7 +35,9 @@ func save_resources():
 	if !dir_supervisors.dir_exists(SUPERVISOR_DIR):
 		dir_supervisors.make_dir(SUPERVISOR_DIR)
 		
-	
+	var dir_upgrades = Directory.new()
+	if !dir_upgrades.dir_exists(UPGRADES_DIR):
+		dir_upgrades.make_dir(UPGRADES_DIR)
 	
 	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
 	ResourceSaver.save("user://products/cookieAvalonia.tres", globals.cookieAvalonia)
@@ -45,7 +48,8 @@ func save_resources():
 	ResourceSaver.save("user://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
 	ResourceSaver.save("user://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
 	ResourceSaver.save("user://misc_objects/mainCastle.tres", globals.mainCastle)
-
+	ResourceSaver.save("user://upgrades/B_iBS1.tres", s_upgrades.B_iBS1)
+	ResourceSaver.save("user://upgrades/S_iSP1.tres", s_upgrades.S_iSP1)
 
 func save_data():
 	data = {

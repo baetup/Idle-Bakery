@@ -75,3 +75,19 @@ func setBakeTimeMult(value : float):
 
 func setSellTimeMult(value : float):
 	sellTimeMult = value
+
+func upgradeBakingTime(value : float):
+	bakeTime = bakeTime - (bakeTime * value)
+
+func upgradeSellingTime(value : float):
+	sellTime = sellTime - (sellTime * value)
+	
+func upgradeBakeryLevelCost(value : float):
+	bakeryLevelCost = bakeryLevelCost - (bakeryLevelCost * value)
+	
+func upgradeStoreLevelCost(value : float):
+	storeLevelCost = storeLevelCost - (storeLevelCost * value)
+	
+func upgradeSellPrice(value : float):
+	sellPrice = sellPrice + (sellPrice * value)
+	
