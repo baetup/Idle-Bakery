@@ -17,6 +17,7 @@ var avatarPlayerGender = "male"
 
 
 
+
 var breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
 var cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
 
@@ -26,9 +27,11 @@ var cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
 var breadStorAvaS = load(resource_path + "supervisors/breadStorAvaS.tres")
 var cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
 
+
+
 var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
-var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
+var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish]
 
 var mainCastle = load(resource_path +  "misc_objects/mainCastle.tres")
 
@@ -47,6 +50,8 @@ func subFromMoney(amount):
 
 func setPlayerGender(gender):
 	avatarPlayerGender = gender
+	
+
 
 func loadResource():
 	breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
@@ -55,6 +60,8 @@ func loadResource():
 	cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
 	cookieAvalonia.ingredients[0] = ingredients.flour
 	cookieAvalonia.ingredients[1] = ingredients.sugar
+	
+
 			
 	breadBakAvaS = load(resource_path +  "supervisors/breadBakAvaS.tres")
 	cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
@@ -65,4 +72,4 @@ func loadResource():
 
 	arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 	arrayOfProducts = [breadAvalonia, cookieAvalonia]
-	arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar]
+	arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish]

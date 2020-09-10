@@ -11,6 +11,7 @@ const MISC_OBJ_DIR = "user://misc_objects/"
 const PRODUCTS_DIR = "user://products/"
 const SUPERVISOR_DIR = "user://supervisors/"
 const UPGRADES_DIR = "user://upgrades/"
+const FISH_DIR = "user://fish/"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -38,6 +39,10 @@ func save_resources():
 	var dir_upgrades = Directory.new()
 	if !dir_upgrades.dir_exists(UPGRADES_DIR):
 		dir_upgrades.make_dir(UPGRADES_DIR)
+		
+	var dir_fish = Directory.new()
+	if !dir_fish.dir_exists(FISH_DIR):
+		dir_fish.make_dir(FISH_DIR)
 	
 	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
 	ResourceSaver.save("user://products/cookieAvalonia.tres", globals.cookieAvalonia)
@@ -50,6 +55,11 @@ func save_resources():
 	ResourceSaver.save("user://misc_objects/mainCastle.tres", globals.mainCastle)
 	ResourceSaver.save("user://upgrades/B_iBS1.tres", s_upgrades.B_iBS1)
 	ResourceSaver.save("user://upgrades/S_iSP1.tres", s_upgrades.S_iSP1)
+	ResourceSaver.save("user://fish/cod.tres", s_fish.codFish)
+	ResourceSaver.save("user://fish/herring.tres", s_fish.herringFish)
+	ResourceSaver.save("user://fish/trout.tres", s_fish.troutFish)
+	
+	
 
 func save_data():
 	data = {
@@ -65,7 +75,12 @@ func save_data():
 		'chrStat' : globals.chrStat,
 		'intStat' : globals.intStat,
 		'invStat' : globals.invStat,
-		'avatarPlayerGender' : globals.avatarPlayerGender
+		'avatarPlayerGender' : globals.avatarPlayerGender,
+		'fishingLevel' : s_fish.fishingLevel,
+		'fishingTime' : s_fish.fishingTime,
+		'fishingTimeMult' : s_fish.fishingTimeMult,
+		'fishingLevelCost' : s_fish.fishingLevelCost,
+		'fishingLevelMult' : s_fish.fishingLevelMult
 	}
 	
 	var dir = Directory.new()
@@ -126,7 +141,9 @@ func assign_data():
 	globals.intStat = data['intStat']
 	globals.invStat = data['invStat']
 	globals.avatarPlayerGender = data['avatarPlayerGender']
-	
-	
-	
-	
+	s_fish.fishingLevel = data['fishingLevel']
+	s_fish.fishingTime = data['fishingTime']
+	s_fish.fishingTimeMult = data['fishingTimeMult']
+	s_fish.fishingLevelCost = data['fishingLevelCost']
+	s_fish.fishingLevelMult = data['fishingLevelMult']
+

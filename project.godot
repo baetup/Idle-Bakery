@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/castle_object.gd"
 }, {
 "base": "Resource",
+"class": "fish",
+"language": "GDScript",
+"path": "res://Scripts/fish_object.gd"
+}, {
+"base": "Resource",
 "class": "ingredient",
 "language": "GDScript",
 "path": "res://Scripts/ingredients_object.gd"
@@ -41,6 +46,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "castle": "",
+"fish": "",
 "ingredient": "",
 "notification": "",
 "productObject": "",
@@ -57,6 +63,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ingredients="*res://Scripts/ingredients.gd"
+s_fish="*res://Scripts/s_fish.gd"
 globals="*res://Scripts/globals.gd"
 s_upgrades="*res://Scripts/s_upgrades.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"

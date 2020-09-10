@@ -5,8 +5,6 @@ var primary_touch = false
 onready var isBakeryVisible = get_node("/root/GameManager/villageAvalonia/UiCanvas/bakery").visible
 onready var isAchievementsVisible = get_node("/root/GameManager/UiCanvas/achivements").visible
 onready var isStoreVisible = get_node("/root/GameManager/villageAvalonia/UiCanvas/store").visible
-onready var isUpgradesBakeryVisible = get_node("/root/GameManager/villageAvalonia/UiCanvas/upgradesBakery").visible
-onready var isUpgradesStoreVisible = get_node("/root/GameManager/villageAvalonia/UiCanvas/upgradesStore").visible
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var tweenNodePath = get_node("/root/GameManager/Tween")
 
@@ -37,7 +35,7 @@ func _ready():
 
 #Zooming and panning feature
 func _unhandled_input(event):
-	if isBakeryVisible != true && isStoreVisible != true && isAchievementsVisible != true && isUpgradesBakeryVisible != true && isUpgradesStoreVisible != true:
+	if isBakeryVisible != true && isStoreVisible != true && isAchievementsVisible != true:
 		if event is InputEventScreenTouch:
 			$".".smoothing_enabled = true
 			if event.pressed:
@@ -45,7 +43,7 @@ func _unhandled_input(event):
 			else:
 				events.erase(event.index)
 
-	if isBakeryVisible != true && isStoreVisible != true && isAchievementsVisible != true && isUpgradesBakeryVisible != true && isUpgradesStoreVisible != true:
+	if isBakeryVisible != true && isStoreVisible != true && isAchievementsVisible != true:
 		if event is InputEventScreenDrag:
 			events[event.index] = event
 			if events.size() == 1:
@@ -73,12 +71,6 @@ func setAchievementsState(state):
 
 func setStoreState(state):
 	isStoreVisible = state
-	
-func setUpgradesBakeryState(state):
-	isUpgradesBakeryVisible = state
-	
-func setUpgradesStoreState(state):
-	isUpgradesStoreVisible = state
 
 #Set camera limits according to current location
 func setCameraLimits(currentLocation):

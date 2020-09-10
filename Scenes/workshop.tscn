@@ -32,10 +32,10 @@ __meta__ = {
 }
 
 [node name="bakeryUpgrades" type="VBoxContainer" parent="panel"]
-margin_left = 10.0
-margin_top = 210.0
-margin_right = 352.0
-margin_bottom = 300.0
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 212.0
 rect_pivot_offset = Vector2( 194.501, 128.301 )
 custom_constants/separation = 90
 __meta__ = {
@@ -49,7 +49,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 0.0
 targetUpgrade = "B_iBS1"
 
@@ -60,16 +60,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 90.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 90.0
 targetUpgrade = "B_iBS1"
 
 [node name="storeUpgrades" type="VBoxContainer" parent="panel"]
-visible = false
-margin_left = 10.0
-margin_top = 210.0
-margin_right = 352.0
-margin_bottom = 300.0
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 212.0
 custom_constants/separation = 90
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,16 +81,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 0.0
 targetUpgrade = "S_iSP1"
 
 [node name="farmUpgrades" type="VBoxContainer" parent="panel"]
-visible = false
-margin_left = 10.0
-margin_top = 210.0
-margin_right = 352.0
-margin_bottom = 300.0
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 302.0
 custom_constants/separation = 90
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,7 +102,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 0.0
 targetUpgrade = "B_iBS1"
 
@@ -115,7 +113,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 90.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 90.0
 targetUpgrade = "B_iBS1"
 
@@ -126,7 +124,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 180.0
-margin_right = 342.0
+margin_right = 305.0
 margin_bottom = 180.0
 targetUpgrade = "B_iBS1"
 
@@ -142,10 +140,12 @@ __meta__ = {
 
 [node name="dropdown_bot" type="TextureRect" parent="panel"]
 visible = false
-margin_left = 99.0
-margin_top = 55.0
-margin_right = 246.0
-margin_bottom = 157.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -73.5
+margin_top = 40.0
+margin_right = 73.5
+margin_bottom = 142.0
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
@@ -186,10 +186,12 @@ flat = true
 align = 0
 
 [node name="dropdown_top" type="TextureButton" parent="panel"]
-margin_left = 99.3555
-margin_top = 40.3389
-margin_right = 246.355
-margin_bottom = 69.3389
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -73.5
+margin_top = 32.0
+margin_right = 73.5
+margin_bottom = 61.0
 texture_normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

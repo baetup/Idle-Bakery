@@ -1,23 +1,29 @@
 extends Panel
 
-onready var storeNodePath = get_node("/root/GameManager/villageAvalonia/UiCanvas/store")
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
-onready var upgradesNodePath = get_node("/root/GameManager/villageAvalonia/UiCanvas/upgradesStore")
+onready var shopBtn = $shopBtn
+onready var supervisorBtn = $supervisorsBtn
+
 
 func _on_close_pressed():
-	storeNodePath.visible = 0
-	var tempBoolean = false
-	cameraNodePath.setStoreState(tempBoolean)
+	$".".visible = 0
+	cameraNodePath.setStoreState(false)
 
-func _on_upgradesBtn_pressed():
-	storeNodePath.visible = 0
-	upgradesNodePath.visible = 1
+func _on_supervisorsBtn_pressed():
+	$supervisorPanel.show()
+	$ScrollContainer.hide()
+	setButtonState("enable", supervisorBtn)
+	setButtonState("disabled", shopBtn)
 
-	#Sending boolean var to camera to stop panning
-	var tmp = false
-	cameraNodePath.setStoreState(tmp)
-	var tmp2 = true
-	cameraNodePath.setUpgradesStoreState(tmp2)
 
-func _on_openSupervisors_pressed():
-	$supervisorPanel.visible = 1
+func _on_shopBtn_pressed():
+	$supervisorPanel.hide()
+	$ScrollContainer.show()
+	setButtonState("enable", shopBtn)
+	setButtonState("disable", supervisorBtn)
+
+func setButtonState(state : String, button : TextureButton):
+	if state == "enable":
+		button.set_normal_texture(load("res://Image-assets/title blue-no-text.png"))
+	else:
+		button.set_normal_texture(load("res://Image-assets/title grey-no-text.png"))
