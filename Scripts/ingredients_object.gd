@@ -45,3 +45,6 @@ func upgradeLevelCost(value : float):
 
 func setFishMaxAmount():
 	maxAmount += s_fish.fishingLevel
+
+func setMeatMaxAmount():
+	maxAmount += s_hunting.huntingLevel

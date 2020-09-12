@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 
 ingredients="*res://Scripts/ingredients.gd"
 s_fish="*res://Scripts/s_fish.gd"
+s_hunting="*res://Scripts/s_hunting.gd"
 globals="*res://Scripts/globals.gd"
 s_upgrades="*res://Scripts/s_upgrades.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"

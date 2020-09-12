@@ -1,7 +1,5 @@
 extends Node
 
-#Fishes in one village can't be found in the other village
-
 var resource_path = "res://"
 
 var fishingTime : float = 3.00

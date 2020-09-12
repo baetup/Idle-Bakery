@@ -31,7 +31,7 @@ var cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
 
 var arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 var arrayOfProducts = [breadAvalonia, cookieAvalonia]
-var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish]
+var arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish, s_hunting.meatBoar,s_hunting.meatDeer,s_hunting.meatWildChicken]
 
 var mainCastle = load(resource_path +  "misc_objects/mainCastle.tres")
 
@@ -69,4 +69,4 @@ func loadResource():
 
 	arrayOfIngredients = [ingredients.flour, ingredients.sugar]
 	arrayOfProducts = [breadAvalonia, cookieAvalonia]
-	arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish]
+	arrayOfItems = [breadAvalonia, cookieAvalonia, ingredients.flour, ingredients.sugar, s_fish.codFish, s_fish.herringFish, s_fish.troutFish, s_hunting.meatBoar, s_hunting.meatDeer, s_hunting.meatWildChicken]

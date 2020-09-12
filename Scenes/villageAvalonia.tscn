@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
@@ -57,7 +57,14 @@
 [ext_resource path="res://Image-assets/fishing-icon.png" type="Texture" id=55]
 [ext_resource path="res://Image-assets/hunting-fishing-upgrade.png" type="Texture" id=56]
 [ext_resource path="res://Scripts/fishery.gd" type="Script" id=57]
+[ext_resource path="res://Scripts/huntingCabin.gd" type="Script" id=58]
+[ext_resource path="res://Image-assets/hunting-icon.png" type="Texture" id=59]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=60]
 [ext_resource path="res://Image-assets/single_coin.png" type="Texture" id=67]
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = ExtResource( 60 )
+shader_param/grayscale = false
 
 [sub_resource type="TileSet" id=1]
 0/name = "Alchemists_house_300x300.png 0"
@@ -143,6 +150,7 @@
 8/name = "Cottage_3_300x300.png 8"
 8/texture = ExtResource( 15 )
 8/tex_offset = Vector2( 0, 0 )
+8/material = SubResource( 19 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 32, 64, 224, 256 )
 8/tile_mode = 0
@@ -451,40 +459,40 @@
 38/shapes = [  ]
 38/z_index = 0
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=20]
 font_data = ExtResource( 20 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=21]
 size = 29
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=22]
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=23]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=24]
 _data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=25]
+curve = SubResource( 24 )
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=26]
 min_value = 81.92
 max_value = 274.07
 _data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=9]
-curve = SubResource( 8 )
+[sub_resource type="CurveTexture" id=27]
+curve = SubResource( 26 )
 
-[sub_resource type="ParticlesMaterial" id=10]
-trail_size_modifier = SubResource( 9 )
+[sub_resource type="ParticlesMaterial" id=28]
+trail_size_modifier = SubResource( 27 )
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 20 )
 flag_disable_z = true
@@ -498,44 +506,44 @@ linear_accel = -65.82
 linear_accel_random = 0.24
 scale = 1.5
 scale_random = 0.41
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 25 )
 color = Color( 1, 1, 0, 1 )
 hue_variation = -0.05
 anim_speed = 18.29
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFontData" id=29]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=30]
 size = 35
 outline_size = 3
 outline_color = Color( 0.101961, 0.054902, 0.0392157, 1 )
-font_data = SubResource( 11 )
+font_data = SubResource( 29 )
 
-[sub_resource type="DynamicFontData" id=13]
+[sub_resource type="DynamicFontData" id=31]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=32]
 size = 24
 outline_size = 2
 outline_color = Color( 0.078476, 0.0850815, 0.144531, 1 )
-font_data = SubResource( 13 )
+font_data = SubResource( 31 )
 
-[sub_resource type="StyleBoxTexture" id=15]
+[sub_resource type="StyleBoxTexture" id=33]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 178, 11 )
 
-[sub_resource type="StyleBoxEmpty" id=16]
+[sub_resource type="StyleBoxEmpty" id=34]
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=35]
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=36]
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
 
 [node name="avaloniaBackground" type="Sprite" parent="."]
-position = Vector2( -456.764, 213.49 )
+position = Vector2( -456.764, 215.16 )
 texture = ExtResource( 3 )
 
 [node name="objects" type="TileMap" parent="."]
@@ -568,7 +576,7 @@ margin_left = 17.9471
 margin_top = 5.97775
 margin_right = 100.947
 margin_bottom = 23.9778
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 20 )
 text = "BUY INN - 1K"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -579,8 +587,8 @@ margin_left = 86.751
 margin_top = 159.576
 margin_right = 213.751
 margin_bottom = 189.576
-custom_fonts/font = SubResource( 3 )
-text = "BAKERY"
+custom_fonts/font = SubResource( 21 )
+text = "Bakery"
 align = 1
 valign = 1
 __meta__ = {
@@ -589,7 +597,7 @@ __meta__ = {
 
 [node name="warning" type="TextureRect" parent="bakeryLabel"]
 visible = false
-material = SubResource( 4 )
+material = SubResource( 22 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -602,23 +610,23 @@ __meta__ = {
 
 [node name="shopLabel" type="Label" parent="."]
 margin_left = 318.57
-margin_top = 356.543
-margin_right = 403.57
-margin_bottom = 386.543
-custom_fonts/font = SubResource( 3 )
-text = "SHOP"
+margin_top = 354.873
+margin_right = 414.57
+margin_bottom = 384.873
+custom_fonts/font = SubResource( 21 )
+text = "Shop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ClickMoneyLabel" type="Label" parent="."]
-margin_left = -182.197
-margin_top = 357.742
-margin_right = -32.1974
-margin_bottom = 387.742
+margin_left = -182.0
+margin_top = 358.0
+margin_right = -62.0
+margin_bottom = 388.0
 rect_pivot_offset = Vector2( -250.777, 260.384 )
-custom_fonts/font = SubResource( 3 )
-text = "ESTATE"
+custom_fonts/font = SubResource( 21 )
+text = "Estate"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -629,8 +637,8 @@ margin_top = 536.343
 margin_right = 666.683
 margin_bottom = 566.343
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 3 )
-text = "FARM"
+custom_fonts/font = SubResource( 21 )
+text = "Farm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -641,8 +649,8 @@ margin_top = -260.225
 margin_right = -35.9171
 margin_bottom = -230.225
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 3 )
-text = "WORKSHOP"
+custom_fonts/font = SubResource( 21 )
+text = "Workshop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -720,7 +728,7 @@ __meta__ = {
 }
 
 [node name="coin" type="Particles2D" parent="ClickMoneyButton"]
-material = SubResource( 5 )
+material = SubResource( 23 )
 position = Vector2( 71.8272, 41.394 )
 emitting = false
 amount = 12
@@ -728,7 +736,7 @@ lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 28 )
 texture = ExtResource( 67 )
 
 [node name="castleLabel" type="Label" parent="."]
@@ -737,8 +745,32 @@ margin_top = -598.979
 margin_right = 651.59
 margin_bottom = -568.979
 rect_pivot_offset = Vector2( 370.222, -122.827 )
-custom_fonts/font = SubResource( 3 )
-text = "CASTLE"
+custom_fonts/font = SubResource( 21 )
+text = "Castle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fisheryLabel" type="Label" parent="."]
+margin_left = -405.0
+margin_top = 722.01
+margin_right = -251.0
+margin_bottom = 752.01
+rect_pivot_offset = Vector2( 384.49, 571.588 )
+custom_fonts/font = SubResource( 21 )
+text = "Fishery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="huntingCabinLabel" type="Label" parent="."]
+margin_left = 573.0
+margin_top = 831.36
+margin_right = 818.0
+margin_bottom = 861.36
+rect_pivot_offset = Vector2( 384.49, 571.588 )
+custom_fonts/font = SubResource( 21 )
+text = "Hunting Cabin"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -786,7 +818,7 @@ margin_top = -3.36243
 margin_right = 97.8275
 margin_bottom = 39.6376
 grow_horizontal = 2
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 30 )
 text = "cost"
 align = 1
 valign = 1
@@ -805,7 +837,7 @@ margin_right = 14.5
 margin_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 32 )
 text = "lvl"
 align = 1
 valign = 1
@@ -847,8 +879,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 15 )
-custom_styles/bg = SubResource( 16 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -859,17 +891,133 @@ __meta__ = {
 [node name="progressTimer" type="Timer" parent="fishery"]
 wait_time = 0.001
 
+[node name="huntingCabin" type="Control" parent="."]
+margin_left = 572.61
+margin_top = 855.0
+margin_right = 833.61
+margin_bottom = 1061.0
+script = ExtResource( 58 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="huntingBtn" type="TextureButton" parent="huntingCabin"]
+margin_left = 80.1658
+margin_top = 30.4111
+margin_right = 164.166
+margin_bottom = 114.411
+texture_normal = ExtResource( 59 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelBkgr" type="TextureRect" parent="huntingCabin/huntingBtn"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -96.0
+margin_top = 63.0
+margin_right = -32.0
+margin_bottom = 127.0
+texture = ExtResource( 54 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCost" type="Label" parent="huntingCabin/huntingBtn/levelBkgr"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 28.8275
+margin_top = -3.36243
+margin_right = 97.8275
+margin_bottom = 39.6376
+grow_horizontal = 2
+custom_fonts/font = SubResource( 30 )
+text = "cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCount" type="Label" parent="huntingCabin/huntingBtn/levelBkgr"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -14.5
+margin_top = -11.0
+margin_right = 14.5
+margin_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 32 )
+text = "lvl"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgrade-hunting" type="TextureButton" parent="huntingCabin/huntingBtn"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 33.0
+margin_top = 64.0
+margin_right = 95.0
+margin_bottom = 126.0
+texture_normal = ExtResource( 56 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBarBody" type="TextureRect" parent="huntingCabin/huntingBtn"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.4181
+margin_top = -108.474
+margin_right = 91.5819
+margin_bottom = -92.4738
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="progressBar" type="ProgressBar" parent="huntingCabin/huntingBtn/progressBarBody"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 181.0
+margin_bottom = 16.0
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="huntingTimer" type="Timer" parent="huntingCabin"]
+
+[node name="progressTimer" type="Timer" parent="huntingCabin"]
+wait_time = 0.001
+
 [node name="UiCanvas" type="CanvasLayer" parent="."]
 
 [node name="bakery" parent="UiCanvas" instance=ExtResource( 19 )]
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 35 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 36 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false
@@ -895,6 +1043,10 @@ autostart = true
 [connection signal="pressed" from="fishery/fisheryBtn/upgrade-fishery" to="fishery" method="_on_upgradefishery_pressed"]
 [connection signal="timeout" from="fishery/fishTimer" to="fishery" method="_on_fishTimer_timeout"]
 [connection signal="timeout" from="fishery/progressTimer" to="fishery" method="_on_progressTimer_timeout"]
+[connection signal="pressed" from="huntingCabin/huntingBtn" to="huntingCabin" method="_on_huntingBtn_pressed"]
+[connection signal="pressed" from="huntingCabin/huntingBtn/upgrade-hunting" to="huntingCabin" method="_on_upgradehunting_pressed"]
+[connection signal="timeout" from="huntingCabin/huntingTimer" to="huntingCabin" method="_on_huntingTimer_timeout"]
+[connection signal="timeout" from="huntingCabin/progressTimer" to="huntingCabin" method="_on_progressTimer_timeout"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]
 
 [editable path="UiCanvas/bakery"]

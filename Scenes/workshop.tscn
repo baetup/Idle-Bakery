@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/upgrade.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
@@ -6,6 +6,15 @@
 [ext_resource path="res://Image-assets/button-five.png" type="Texture" id=4]
 [ext_resource path="res://Image-assets/charPanelBkgr.png" type="Texture" id=5]
 [ext_resource path="res://Image-assets/check-mark.png" type="Texture" id=6]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/grayscale = false
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/grayscale = false
 
 [node name="workshop" type="Control"]
 anchor_right = 1.0
@@ -53,6 +62,9 @@ margin_right = 305.0
 margin_bottom = 0.0
 targetUpgrade = "B_iBS1"
 
+[node name="icon" parent="panel/bakeryUpgrades/B_iBS1/panel" index="0"]
+material = SubResource( 1 )
+
 [node name="upgrade2" parent="panel/bakeryUpgrades" instance=ExtResource( 1 )]
 anchor_left = 0.0
 anchor_top = 0.0
@@ -65,6 +77,7 @@ margin_bottom = 90.0
 targetUpgrade = "B_iBS1"
 
 [node name="storeUpgrades" type="VBoxContainer" parent="panel"]
+visible = false
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 331.0
@@ -85,7 +98,11 @@ margin_right = 305.0
 margin_bottom = 0.0
 targetUpgrade = "S_iSP1"
 
+[node name="icon" parent="panel/storeUpgrades/S_iSP1/panel" index="0"]
+material = SubResource( 2 )
+
 [node name="farmUpgrades" type="VBoxContainer" parent="panel"]
+visible = false
 margin_left = 26.0
 margin_top = 122.0
 margin_right = 331.0
@@ -221,3 +238,7 @@ __meta__ = {
 [connection signal="pressed" from="panel/dropdown_bot/vbox/farmBtn" to="." method="_on_farmBtn_pressed"]
 [connection signal="pressed" from="panel/dropdown_bot/vbox/bakeryBtn" to="." method="_on_bakeryBtn_pressed"]
 [connection signal="pressed" from="panel/dropdown_top" to="." method="_on_dropdown_top_pressed"]
+
+[editable path="panel/bakeryUpgrades/B_iBS1"]
+
+[editable path="panel/storeUpgrades/S_iSP1"]

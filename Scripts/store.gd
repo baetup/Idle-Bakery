@@ -4,6 +4,9 @@ onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var shopBtn = $shopBtn
 onready var supervisorBtn = $supervisorsBtn
 
+func _ready():
+	supervisorBtn.material.set_shader_param('grayscale', true)
+
 
 func _on_close_pressed():
 	$".".visible = 0
@@ -12,18 +15,14 @@ func _on_close_pressed():
 func _on_supervisorsBtn_pressed():
 	$supervisorPanel.show()
 	$ScrollContainer.hide()
-	setButtonState("enable", supervisorBtn)
-	setButtonState("disabled", shopBtn)
+	supervisorBtn.material.set_shader_param('grayscale', false)
+	shopBtn.material.set_shader_param('grayscale', true)
+
 
 
 func _on_shopBtn_pressed():
 	$supervisorPanel.hide()
 	$ScrollContainer.show()
-	setButtonState("enable", shopBtn)
-	setButtonState("disable", supervisorBtn)
+	shopBtn.material.set_shader_param('grayscale', false)
+	supervisorBtn.material.set_shader_param('grayscale', true)
 
-func setButtonState(state : String, button : TextureButton):
-	if state == "enable":
-		button.set_normal_texture(load("res://Image-assets/title blue-no-text.png"))
-	else:
-		button.set_normal_texture(load("res://Image-assets/title grey-no-text.png"))

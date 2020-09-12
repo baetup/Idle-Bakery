@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=1]
 [ext_resource path="res://Image-assets/title blue-no-text.png" type="Texture" id=3]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=4]
-[ext_resource path="res://Image-assets/title grey-no-text.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/product.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/supervisorPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Image-assets/main-frame-bottom-split.png" type="Texture" id=9]
@@ -11,6 +11,14 @@
 [ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=12]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/grayscale = false
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/grayscale = false
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -42,6 +50,7 @@ position = Vector2( 217.356, 314.904 )
 texture = ExtResource( 10 )
 
 [node name="bakeryBtn" type="TextureButton" parent="."]
+material = SubResource( 4 )
 margin_left = 27.9174
 margin_top = 36.8285
 margin_right = 214.917
@@ -68,11 +77,12 @@ __meta__ = {
 }
 
 [node name="supervisorsBtn" type="TextureButton" parent="."]
+material = SubResource( 5 )
 margin_left = 212.461
 margin_top = 37.0006
 margin_right = 399.461
 margin_bottom = 81.0006
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

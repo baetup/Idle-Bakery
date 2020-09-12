@@ -50,5 +50,6 @@ func _on_buy_pressed():
 			workshop.upgradePurchased("farmUpgrades", s_upgrades.get(targetUpgrade).upgradeIdentifier)
 			
 		buyBtn.disabled = true
+		icon.material.set_shader_param('grayscale', true)
 		s_upgrades.get(targetUpgrade).set_isBought(true)
 
