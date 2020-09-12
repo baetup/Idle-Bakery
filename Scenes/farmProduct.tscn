@@ -38,7 +38,6 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 290.534, 13.0849, 92.5173 ]
 }
-targetIngredient = ""
 
 [node name="produceIcon" type="TextureButton" parent="."]
 margin_left = 8.0

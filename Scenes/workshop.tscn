@@ -1,0 +1,244 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/upgrade.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/workshop.gd" type="Script" id=3]
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/charPanelBkgr.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/check-mark.png" type="Texture" id=6]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/grayscale = false
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/grayscale = false
+
+[node name="workshop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="."]
+margin_left = 37.0
+margin_top = 87.0
+margin_right = 398.0
+margin_bottom = 647.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bkgr" type="TextureRect" parent="panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bakeryUpgrades" type="VBoxContainer" parent="panel"]
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 212.0
+rect_pivot_offset = Vector2( 194.501, 128.301 )
+custom_constants/separation = 90
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B_iBS1" parent="panel/bakeryUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 305.0
+margin_bottom = 0.0
+targetUpgrade = "B_iBS1"
+
+[node name="icon" parent="panel/bakeryUpgrades/B_iBS1/panel" index="0"]
+material = SubResource( 1 )
+
+[node name="upgrade2" parent="panel/bakeryUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 90.0
+margin_right = 305.0
+margin_bottom = 90.0
+targetUpgrade = "B_iBS1"
+
+[node name="storeUpgrades" type="VBoxContainer" parent="panel"]
+visible = false
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 212.0
+custom_constants/separation = 90
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S_iSP1" parent="panel/storeUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 305.0
+margin_bottom = 0.0
+targetUpgrade = "S_iSP1"
+
+[node name="icon" parent="panel/storeUpgrades/S_iSP1/panel" index="0"]
+material = SubResource( 2 )
+
+[node name="farmUpgrades" type="VBoxContainer" parent="panel"]
+visible = false
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 331.0
+margin_bottom = 302.0
+custom_constants/separation = 90
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgrade" parent="panel/farmUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 305.0
+margin_bottom = 0.0
+targetUpgrade = "B_iBS1"
+
+[node name="upgrade2" parent="panel/farmUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 90.0
+margin_right = 305.0
+margin_bottom = 90.0
+targetUpgrade = "B_iBS1"
+
+[node name="upgrade3" parent="panel/farmUpgrades" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 180.0
+margin_right = 305.0
+margin_bottom = 180.0
+targetUpgrade = "B_iBS1"
+
+[node name="closeWorkshop" type="TextureButton" parent="panel"]
+margin_left = 327.851
+margin_top = -9.52264
+margin_right = 374.851
+margin_bottom = 32.4774
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dropdown_bot" type="TextureRect" parent="panel"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -73.5
+margin_top = 40.0
+margin_right = 73.5
+margin_bottom = 142.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="panel/dropdown_bot"]
+margin_left = 11.0
+margin_top = 23.0
+margin_right = 135.0
+margin_bottom = 91.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="storeBtn" type="Button" parent="panel/dropdown_bot/vbox"]
+margin_right = 124.0
+margin_bottom = 20.0
+text = "Store"
+flat = true
+align = 0
+
+[node name="farmBtn" type="Button" parent="panel/dropdown_bot/vbox"]
+margin_top = 24.0
+margin_right = 124.0
+margin_bottom = 44.0
+text = "Farm"
+flat = true
+align = 0
+
+[node name="bakeryBtn" type="Button" parent="panel/dropdown_bot/vbox"]
+visible = false
+margin_top = 48.0
+margin_right = 124.0
+margin_bottom = 68.0
+text = "Bakery"
+flat = true
+align = 0
+
+[node name="dropdown_top" type="TextureButton" parent="panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -73.5
+margin_top = 32.0
+margin_right = 73.5
+margin_bottom = 61.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="currentlySelected" type="Label" parent="panel/dropdown_top"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = -7.0
+margin_right = 74.0
+margin_bottom = 7.0
+text = "currentlyv"
+
+[node name="dropdownArrow" type="TextureRect" parent="panel/dropdown_top"]
+margin_left = 120.944
+margin_top = 5.36444
+margin_right = 136.944
+margin_bottom = 21.3644
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="panel/closeWorkshop" to="." method="_on_closeWorkshop_pressed"]
+[connection signal="pressed" from="panel/dropdown_bot/vbox/storeBtn" to="." method="_on_storeBtn_pressed"]
+[connection signal="pressed" from="panel/dropdown_bot/vbox/farmBtn" to="." method="_on_farmBtn_pressed"]
+[connection signal="pressed" from="panel/dropdown_bot/vbox/bakeryBtn" to="." method="_on_bakeryBtn_pressed"]
+[connection signal="pressed" from="panel/dropdown_top" to="." method="_on_dropdown_top_pressed"]
+
+[editable path="panel/bakeryUpgrades/B_iBS1"]
+
+[editable path="panel/storeUpgrades/S_iSP1"]

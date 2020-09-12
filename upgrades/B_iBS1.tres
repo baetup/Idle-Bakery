@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/upgrade_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+upgradeIdentifier = "B_iBS1"
+isBought = false
+icon = "res://icon.png"
+title = "Brick Bread Ovens"
+description = "Increase baking speed of bread by 2%"
+cost = 600.0
+village = "villageAvalonia"
+destination = "bakery"
+target = "breadAvalonia"
+type = "increaseBakingSpeed"
+increaseSellSpeed = 0.0
+increaseBakeSpeed = 0.02
+decreaseLevelCost = 0.0
+increaseProduceAmount = 0.0
+increaseSellPrice = 0.0

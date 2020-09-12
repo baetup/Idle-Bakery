@@ -2,8 +2,8 @@ extends Panel
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 export var targetProduct = "breadAvalonia"
-var unlockCost = globals.money * 0.9
-var isProducingPossible = false
+var unlockCost = globals.money * 0.8
+export var isProducingPossible = true
 
 func _ready():
 	restartProductionOnLoad()
@@ -16,6 +16,7 @@ func UpdateUI():
 	$durationLabel.text = "%.1f" % ($bakeTimer.time_left) + "s"
 	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
 	$research/upgradeCost.text = "%.2f" % (globals.get(targetProduct).bakeryLevelCost)
+	unlockCost = globals.money * 0.8
 	
 	#disable upgrade button if not enough money
 	if globals.money < globals.get(targetProduct).bakeryLevelCost:
@@ -23,21 +24,20 @@ func UpdateUI():
 	else:
 		$research.disabled = 0
 		
-	#Checking if we have needed ingredients
-	var temp = 0
-	for x in globals.get(targetProduct).ingredients:
-		if globals.get(targetProduct).ingredients[temp].quantity > 0:
-			$productIcon.disabled = 0
-			temp = temp + 1
-			isProducingPossible = true
-			$productIcon/productIcon/productionStop.visible = 0
-		else:
-			isProducingPossible = false
-			$bakeTimer.set_paused(true)
-			$progressTimer.set_paused(true)
-			$productIcon.disabled = 1
-			$productIcon/productIcon/productionStop.visible = 1
-	
+
+	#Checking if we have needed ingredients	
+	if globals.get(targetProduct).ingredients[0].quantity > 0:
+
+		$productIcon.disabled = 0
+		isProducingPossible = true
+		$productIcon/productIcon/productionStop.visible = 0
+	else:
+		isProducingPossible = false
+		$bakeTimer.set_paused(true)
+		$progressTimer.set_paused(true)
+		$productIcon.disabled = 1
+		$productIcon/productIcon/productionStop.visible = 1
+		
 	#restart baking process after ingredients become available again
 	if isProducingPossible && $bakeTimer.is_paused():
 		$bakeTimer.set_paused(false)
@@ -50,7 +50,7 @@ func UpdateUI():
 		$unlockPanel.visible = 0
 
 	#checking when to show particles on product
-	if globals.get(targetProduct)._get_has_supervisor() == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
+	if globals.get(targetProduct)._get_has_bakery_supervisor() == false && !($bakeTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && isProducingPossible:
 		$productIcon/Particles2D.visible = 1
 
 	else:
@@ -65,7 +65,7 @@ func _on_checkUi_timeout():
 	UpdateUI()
 
 func _on_bakeTimer_timeout():
-	if globals.get(targetProduct)._get_has_supervisor() && isProducingPossible:
+	if globals.get(targetProduct)._get_has_bakery_supervisor() && isProducingPossible:
 		$progressBar.set("value", 0.00)
 		globals.get(targetProduct).addToProductCount(globals.get(targetProduct).produceAmount)
 		
@@ -117,19 +117,25 @@ func _on_progressTimer_timeout():
 
 func _on_research_pressed():
 	if globals.money >= globals.get(targetProduct).bakeryLevelCost :
-		globals.get(targetProduct).addBakeryProductLevel(1)
+		if globals.get(targetProduct).bakeryProductLevel == 8:
+			globals.get(targetProduct).setBakeTimeMult(0.69)
+		if globals.get(targetProduct).bakeryProductLevel == 22:
+			globals.get(targetProduct).setBakeTimeMult(0.82)
+		if globals.get(targetProduct).bakeryProductLevel == 35:
+			globals.get(targetProduct).setBakeTimeMult(0.95)
+	
+		globals.get(targetProduct).addBakeryProductLevel()
 		globals.subFromMoney(globals.get(targetProduct).bakeryLevelCost)
-		globals.get(targetProduct).setBakeryLevelCost(0.25)
+		globals.get(targetProduct).setBakeryLevelCost()
+		globals.get(targetProduct).setBakeTime()
 		setBakeSpeed()
 	UpdateUI()
 
 func setBakeSpeed():
-	globals.get(targetProduct).setBakeTime()
 	$bakeTimer.wait_time = globals.get(targetProduct).bakeTime
 
-func onHiredSupervisor():
-	globals.get(targetProduct).set_has_supervisor(true)
-	print("test")
+func onBakeryHiredSupervisor():
+	globals.get(targetProduct).set_has_bakery_supervisor(true)
 	$bakeTimer.start()
 	$progressTimer.start()
 	$bakeTimer.autostart = 1
@@ -181,7 +187,7 @@ func _on_ingredientPop_pressed():
 	$ingredientPop.visible = 0
 	
 func restartProductionOnLoad():
-	if globals.get(targetProduct)._get_has_supervisor():
+	if globals.get(targetProduct)._get_has_bakery_supervisor():
 		$bakeTimer.start()
 		$progressTimer.start()
 		$bakeTimer.autostart = 1

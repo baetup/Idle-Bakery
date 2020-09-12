@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "supervisor",
 "language": "GDScript",
 "path": "res://Scripts/supervisor_object.gd"
+}, {
+"base": "Resource",
+"class": "upgrade",
+"language": "GDScript",
+"path": "res://Scripts/upgrade_object.gd"
 } ]
 _global_script_class_icons={
 "castle": "",
 "ingredient": "",
 "notification": "",
 "productObject": "",
-"supervisor": ""
+"supervisor": "",
+"upgrade": ""
 }
 
 [application]
@@ -51,7 +57,10 @@ config/icon="res://icon.png"
 [autoload]
 
 ingredients="*res://Scripts/ingredients.gd"
+s_fish="*res://Scripts/s_fish.gd"
+s_hunting="*res://Scripts/s_hunting.gd"
 globals="*res://Scripts/globals.gd"
+s_upgrades="*res://Scripts/s_upgrades.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
 save_load="*res://Scripts/save_load.gd"

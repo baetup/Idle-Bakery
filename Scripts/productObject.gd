@@ -7,55 +7,87 @@ export var icon : String
 export var quantity : int
 export var bakeryProductLevel : int
 export var bakeryLevelCost : float
+export var bakeryLevelCostMult : float
 export var produceAmount : int
-export var bakeSpeedMultiplier : float
+export var bakeTimeMult : float
 export var bakeTime : float
 
-export var sellSpeedMultiplier : float
+export var sellTimeMult : float
 export var sellTime : float
 export var sellPrice : float
+export var sellPriceMult: float
 export var sellAmount : int
-export var storeProductLevelCount : int
+export var storeProductLevel : int
 export var storeLevelCost : float
+export var storeLevelCostMult : float
 
 export var isUnlocked : bool
 export var ingredients : Array
 export var originBakery : String
-export var hasSupervisor : bool
+export var hasBakerySupervisor : bool
+export var hasStoreSupervisor : bool
 
 
 func addToProductCount(amount : int):
 	quantity += amount
 
-func addBakeryProductLevel(amount : int):
-	bakeryProductLevel += amount
+func addBakeryProductLevel():
+	bakeryProductLevel += 1
 
-func setBakeryLevelCost(percentage : float):
-	bakeryLevelCost = bakeryLevelCost + (bakeryLevelCost * percentage)
+func setBakeryLevelCost():
+	bakeryLevelCost = bakeryLevelCost * pow(bakeryLevelCostMult, bakeryProductLevel)
 
 func setBakeTime():
-	bakeTime = bakeTime - (bakeTime * bakeSpeedMultiplier)
+	bakeTime = bakeTime - (bakeTime *pow(bakeTimeMult,bakeryProductLevel))
 	
-func addToSellPrice(amount):
-	sellPrice = sellPrice + amount
+func addToSellPrice():
+	sellPrice = sellPrice + pow(sellPriceMult,storeProductLevel)
 
-func addStoreProductLevel(amount : int):
-	storeProductLevelCount += amount
+func addStoreProductLevel():
+	storeProductLevel += 1
 
-func setStoreLevelCost(percentage : float):
-	storeLevelCost = storeLevelCost + (storeLevelCost * percentage)
+func setStoreLevelCost():
+	storeLevelCost = storeLevelCost * pow(storeLevelCostMult, storeProductLevel)
 
 func setSellTime():
-	sellTime = sellTime- (sellTime * sellSpeedMultiplier)
+	sellTime = sellTime - (sellTime * pow(sellTimeMult, storeProductLevel))
 
-func removeFromProductCount(amount : int):
-	quantity = quantity - amount
+func removeFromProductCount():
+	quantity -= 1
 		
 func setIsUnlocked(answer:bool):
 	isUnlocked = answer
 
-func set_has_supervisor(value : bool):
-	hasSupervisor = value
+func set_has_bakery_supervisor(value : bool):
+	hasBakerySupervisor = value
+
+func set_has_store_supervisor(value : bool):
+	hasStoreSupervisor = value
+
+func _get_has_bakery_supervisor() -> bool:
+	return hasBakerySupervisor
 	
-func _get_has_supervisor() -> bool:
-	return hasSupervisor
+func _get_has_store_supervisor() -> bool:
+	return hasStoreSupervisor
+
+func setBakeTimeMult(value : float):
+	bakeTimeMult = value
+
+func setSellTimeMult(value : float):
+	sellTimeMult = value
+
+func upgradeBakingTime(value : float):
+	bakeTime = bakeTime - (bakeTime * value)
+
+func upgradeSellingTime(value : float):
+	sellTime = sellTime - (sellTime * value)
+	
+func upgradeBakeryLevelCost(value : float):
+	bakeryLevelCost = bakeryLevelCost - (bakeryLevelCost * value)
+	
+func upgradeStoreLevelCost(value : float):
+	storeLevelCost = storeLevelCost - (storeLevelCost * value)
+	
+func upgradeSellPrice(value : float):
+	sellPrice = sellPrice + (sellPrice * value)
+	

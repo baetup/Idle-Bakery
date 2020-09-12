@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/upgrade_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+upgradeIdentifier = "S_iSP1"
+isBought = false
+icon = "res://Image-assets/charPanel-other1.png"
+title = "Improve Bread Recipe"
+description = "Increase selling price by 50%"
+cost = 300.0
+village = "villageAvalonia"
+destination = "store"
+target = "breadAvalonia"
+type = "increaseSellPrice"
+increaseSellSpeed = 0.0
+increaseBakeSpeed = 0.0
+decreaseLevelCost = 0.0
+increaseProduceAmount = 0.0
+increaseSellPrice = 0.5

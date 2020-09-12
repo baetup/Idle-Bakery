@@ -6,16 +6,19 @@ var isSellingPossible = false
 
 
 func _ready():
-	$saleTimer.wait_time = globals.get(targetProduct).sellTime
+	restartProductionOnLoad()
 	UpdateUI()
+
 
 func UpdateUI():
 	$productName.text = globals.get(targetProduct).name
 	$productIcon/productIcon.set_texture(load(globals.get(targetProduct).icon))
 	$productCountLabel.text= str(globals.get(targetProduct).quantity)
-	$levelCount.text = str(globals.get(targetProduct).storeProductLevelCount)
+	$levelCount.text = str(globals.get(targetProduct).storeProductLevel)
+	$saleTimer.wait_time = globals.get(targetProduct).sellTime
 	$durationLabel.text = "%.1f" % ($saleTimer.time_left) + "s"
-	$research/upgradeCost.text = "%.2f" % (globals.get(targetProduct).storeLevelCost)
+	$research/upgradeCost.text = "%.1f" % (globals.get(targetProduct).storeLevelCost)
+
 
 	#disable upgrade button if not enough money
 	if globals.get(targetProduct).isUnlocked == false:
@@ -24,7 +27,7 @@ func UpdateUI():
 		$unlockPanel.visible = 0
 
 	#checking when to show particles on product
-	if globals.get(targetProduct)._get_has_supervisor() == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).quantity > 0:
+	if globals.get(targetProduct)._get_has_store_supervisor() == false && !($saleTimer.time_left > 0) && !(globals.get(targetProduct).isUnlocked == false) && globals.get(targetProduct).quantity > 0:
 		$productIcon/Particles2D.visible = 1
 	else:
 		$productIcon/Particles2D.visible = 0 
@@ -57,8 +60,6 @@ func inLineTimer(time):
 
 
 func _on_checkUi_timeout():
-
-
 	UpdateUI()
 
 
@@ -73,10 +74,10 @@ func _on_productIcon_pressed():
 
 
 func _on_saleTimer_timeout():
-	if globals.get(targetProduct)._get_has_supervisor() && isSellingPossible:
+	if globals.get(targetProduct)._get_has_store_supervisor() && isSellingPossible:
 		$progressBar.set("value", 0.00)
-		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
-		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
+		globals.addToMoney(globals.get(targetProduct).sellPrice)
+		globals.get(targetProduct).removeFromProductCount()
 
 	#the case when manually pressing the production icon
 	else:
@@ -84,8 +85,8 @@ func _on_saleTimer_timeout():
 		$progressTimer.stop()
 		$progressBar.set("value", 0.00)
 		$productIcon.disabled = 0 
-		globals.get(targetProduct).removeFromProductCount(globals.get(targetProduct).sellAmount)
-		globals.addToMoney(globals.get(targetProduct).sellPrice * globals.get(targetProduct).sellAmount)
+		globals.get(targetProduct).removeFromProductCount()
+		globals.addToMoney(globals.get(targetProduct).sellPrice)
 
 
 	#removing product from inventory
@@ -109,8 +110,8 @@ func _on_progressTimer_timeout():
 func _on_close_pressed():
 	$".".visible = 0
 
-func onHiredSupervisor():
-	globals.get(targetProduct).set_has_supervisor(true)
+func onStoreHiredSupervisor():
+	globals.get(targetProduct).set_has_store_supervisor(true)
 	$saleTimer.start()
 	$progressTimer.start()
 	$saleTimer.autostart = 1
@@ -120,13 +121,28 @@ func onHiredSupervisor():
 
 func _on_research_pressed():
 	if globals.money >= globals.get(targetProduct).storeLevelCost :
-		globals.get(targetProduct).addStoreProductLevel(1)
+		if globals.get(targetProduct).storeProductLevel == 8:
+			globals.get(targetProduct).setSellTimeMult(0.69)
+		if globals.get(targetProduct).storeProductLevel == 22:
+			globals.get(targetProduct).setSellTimeMult(0.82)
+		if globals.get(targetProduct).storeProductLevel == 35:
+			globals.get(targetProduct).setSellTimeMult(0.95)
+	
+		globals.get(targetProduct).addStoreProductLevel()
 		globals.subFromMoney(globals.get(targetProduct).storeLevelCost)
-		globals.get(targetProduct).setStoreLevelCost(0.25)
+		globals.get(targetProduct).setStoreLevelCost()
+		globals.get(targetProduct).setSellTime()
+		globals.get(targetProduct).addToSellPrice()
 		setSellSpeed()
 	UpdateUI()
 
 func setSellSpeed():
-	globals.get(targetProduct).setSellTime()
 	$saleTimer.wait_time = globals.get(targetProduct).sellTime
 
+func restartProductionOnLoad():
+	if globals.get(targetProduct)._get_has_store_supervisor():
+		$saleTimer.start()
+		$progressTimer.start()
+		$saleTimer.autostart = 1
+		$progressTimer.autostart = 1
+		$productIcon.disabled = 1

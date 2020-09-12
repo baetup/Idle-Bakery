@@ -1,6 +1,7 @@
 extends Control
 
-export var targetIngredient = "flour"
+onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+export var targetIngredient = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +36,10 @@ func _on_farmTimer_timeout():
 	ingredients.get(targetIngredient).addQuantity(ingredients.get(targetIngredient).level * ingredients.get(targetIngredient).produceAmount)
 	$produceIcon.disabled = 0
 	UpdateUI()
+	
+	#Updating inventory for producing
+	inventoryNodePath.checkAvailableItems()
+	inventoryNodePath.setItems()
 
 func _on_produceIcon_pressed():
 	$farmTimer.start()
@@ -44,8 +49,18 @@ func _on_produceIcon_pressed():
 
 func _on_research_pressed():
 	if globals.money >= ingredients.get(targetIngredient).levelCost:
+		
+		#modifying the produce time multiplier to decrease faster
+		if ingredients.get(targetIngredient).level == 8:
+			ingredients.get(targetIngredient).setProduceTimeMult(0.69)
+		if ingredients.get(targetIngredient).level == 22:
+			ingredients.get(targetIngredient).setProduceTimeMult(0.82)
+		if ingredients.get(targetIngredient).level == 35:
+			ingredients.get(targetIngredient).setProduceTimeMult(0.95)
+	
 		ingredients.get(targetIngredient).level += 1
 		globals.subFromMoney(ingredients.get(targetIngredient).levelCost)
-		ingredients.get(targetIngredient).setLevelCost(0.7)
+		ingredients.get(targetIngredient).setProduceAmount()
+		ingredients.get(targetIngredient).setLevelCost()
 		ingredients.get(targetIngredient).setProduceTime()
-		ingredients.get(targetIngredient).setProduceAmount(ingredients.get(targetIngredient).level)
+		

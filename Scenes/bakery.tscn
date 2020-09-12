@@ -1,10 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Image-assets/title-blue-small.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=1]
 [ext_resource path="res://Image-assets/title blue-no-text.png" type="Texture" id=3]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=4]
-[ext_resource path="res://Image-assets/title grey-no-text.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/product.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/supervisorPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Image-assets/main-frame-bottom-split.png" type="Texture" id=9]
@@ -14,21 +12,17 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=2]
-use_filter = true
-font_data = ExtResource( 2 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/grayscale = false
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/grayscale = false
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="Theme" id=8]
+[sub_resource type="Theme" id=3]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -36,7 +30,7 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 7 )
+VScrollBar/styles/scroll = SubResource( 2 )
 VScrollBar/styles/scroll_focus = null
 
 [node name="bakeryAvalonia" type="Panel"]
@@ -55,72 +49,58 @@ __meta__ = {
 position = Vector2( 217.356, 314.904 )
 texture = ExtResource( 10 )
 
-[node name="greyContainer" type="Sprite" parent="."]
-position = Vector2( 306.248, 59.4764 )
-texture = ExtResource( 5 )
+[node name="bakeryBtn" type="TextureButton" parent="."]
+material = SubResource( 4 )
+margin_left = 27.9174
+margin_top = 36.8285
+margin_right = 214.917
+margin_bottom = 80.8285
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="blueContainer" type="Sprite" parent="."]
-position = Vector2( 122.02, 59.4036 )
-texture = ExtResource( 3 )
-
-[node name="bakeryLabel" type="Label" parent="."]
-margin_left = 91.2855
-margin_top = 47.6268
-margin_right = 143.285
-margin_bottom = 62.6268
-rect_pivot_offset = Vector2( -52.4324, -85.4318 )
+[node name="label" type="Label" parent="bakeryBtn"]
+anchor_left = 0.254011
+anchor_top = 0.238636
+anchor_right = 0.745989
+anchor_bottom = 0.625
+margin_left = -3.8147e-06
+rect_pivot_offset = Vector2( 101.016, -35.2296 )
 custom_fonts/font = ExtResource( 12 )
 text = "BAKERY"
 align = 1
+valign = 1
 __meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="supervisorsBtn" type="TextureButton" parent="."]
+material = SubResource( 5 )
+margin_left = 212.461
+margin_top = 37.0006
+margin_right = 399.461
+margin_bottom = 81.0006
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="upgradesLabel" type="Label" parent="."]
-margin_left = 273.286
-margin_top = 47.6268
-margin_right = 338.286
-margin_bottom = 62.6268
+[node name="label" type="Label" parent="supervisorsBtn"]
+anchor_left = 0.254011
+anchor_top = 0.238636
+anchor_right = 0.745989
+anchor_bottom = 0.625
+margin_left = -3.8147e-06
 rect_pivot_offset = Vector2( 101.016, -35.2296 )
 custom_fonts/font = ExtResource( 12 )
-text = "UPGRADES"
+text = "SUPERVISORS"
 align = 1
+valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="openSupervisors" type="TextureButton" parent="."]
-margin_left = 145.128
-margin_top = 83.7064
-margin_right = 285.128
-margin_bottom = 113.706
-texture_normal = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="supervisorsLabel" type="Label" parent="openSupervisors"]
-margin_left = 29.5626
-margin_top = 5.00816
-margin_right = 108.563
-margin_bottom = 23.0082
-custom_fonts/font = SubResource( 2 )
-text = "Supervisors"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="upgradesButton" type="Button" parent="."]
-margin_left = 217.0
-margin_top = 38.0
-margin_right = 397.0
-margin_bottom = 77.0
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="close_bakery" type="TextureButton" parent="."]
@@ -138,7 +118,7 @@ margin_left = 57.0
 margin_top = 114.0
 margin_right = 375.0
 margin_bottom = 569.0
-theme = SubResource( 8 )
+theme = SubResource( 3 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,8 +157,18 @@ margin_left = 23.2608
 margin_top = 74.3438
 margin_right = 401.261
 margin_bottom = 583.344
-[connection signal="pressed" from="openSupervisors" to="." method="_on_openSupervisors_pressed"]
-[connection signal="pressed" from="upgradesButton" to="." method="_on_upgradesButton_pressed"]
+
+[node name="supervisor" parent="supervisorPanel/GridContainer/vbox" index="0"]
+supervisor = "breadBakAvaS"
+productControl = "breadControl"
+targetVillage = "villageAvalonia"
+
+[node name="supervisor2" parent="supervisorPanel/GridContainer/vbox" index="1"]
+supervisor = "cookieBakAvaS"
+productControl = "cookieControl"
+targetVillage = "villageAvalonia"
+[connection signal="pressed" from="bakeryBtn" to="." method="_on_bakeryBtn_pressed"]
+[connection signal="pressed" from="supervisorsBtn" to="." method="_on_supervisorsBtn_pressed"]
 [connection signal="pressed" from="close_bakery" to="." method="_on_close_bakery_pressed"]
 
 [editable path="productScroll/VBoxContainer/breadControl/breadAvalonia"]

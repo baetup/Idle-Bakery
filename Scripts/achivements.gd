@@ -12,6 +12,7 @@ var isR3Claimed = false
 
 func _ready():pass
 
+
 func _on_checkAchivements_timeout():
 	if globals.money >= 100 && !isR1Claimed:
 		$ScrollContainer/VBoxContainer/a1/a1.disabled = 0

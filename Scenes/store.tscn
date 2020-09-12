@@ -2,23 +2,18 @@
 
 [ext_resource path="res://Scenes/storeProduct.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
-[ext_resource path="res://Image-assets/title grey-no-text.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=3]
 [ext_resource path="res://Scripts/store.gd" type="Script" id=4]
 [ext_resource path="res://Image-assets/shop-bkgr.png" type="Texture" id=5]
 [ext_resource path="res://Image-assets/title blue-no-text.png" type="Texture" id=6]
-[ext_resource path="res://Image-assets/title-blue-small.png" type="Texture" id=7]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://Fonts/main_font.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Scenes/supervisorPanel.tscn" type="PackedScene" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=2]
-use_filter = true
-font_data = ExtResource( 8 )
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=3]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -26,8 +21,16 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 3 )
+VScrollBar/styles/scroll = SubResource( 2 )
 VScrollBar/styles/scroll_focus = null
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/grayscale = false
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 3 )
+shader_param/grayscale = false
 
 [node name="storeAvalonia" type="Panel"]
 margin_left = 15.0
@@ -48,73 +51,10 @@ texture = ExtResource( 5 )
 
 [node name="close" type="TextureButton" parent="."]
 margin_left = 349.433
-margin_top = 160.296
+margin_top = 96.296
 margin_right = 396.433
-margin_bottom = 202.296
+margin_bottom = 138.296
 texture_normal = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="shopBtn" type="TextureButton" parent="."]
-margin_left = 11.6688
-margin_top = 108.772
-margin_right = 198.669
-margin_bottom = 152.772
-texture_normal = ExtResource( 6 )
-texture_disabled = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="shopLabel" type="Label" parent="shopBtn"]
-margin_left = 68.227
-margin_top = 13.1406
-margin_right = 108.227
-margin_bottom = 27.1406
-text = "Shop"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="openSupervisors" type="TextureButton" parent="."]
-margin_left = 128.128
-margin_top = 154.706
-margin_right = 268.128
-margin_bottom = 184.706
-texture_normal = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="supervisorsLabel" type="Label" parent="openSupervisors"]
-margin_left = 29.5626
-margin_top = 5.00816
-margin_right = 108.563
-margin_bottom = 23.0082
-custom_fonts/font = SubResource( 2 )
-text = "Supervisors"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="upgradesBtn" type="TextureButton" parent="."]
-margin_left = 195.669
-margin_top = 108.772
-margin_right = 382.669
-margin_bottom = 152.772
-rect_pivot_offset = Vector2( 238.656, -3.38788 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="upgradesLabel" type="Label" parent="upgradesBtn"]
-margin_left = 68.227
-margin_top = 13.1406
-margin_right = 108.227
-margin_bottom = 27.1406
-text = "Upgrades"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,7 +64,7 @@ margin_left = 51.0
 margin_top = 190.0
 margin_right = 344.0
 margin_bottom = 608.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,6 +82,10 @@ margin_top = -3.2098
 margin_right = -2.044
 margin_bottom = -3.2098
 targetProduct = "breadAvalonia"
+
+[node name="productName" parent="ScrollContainer/VBoxContainer/breadControl/breadAvalonia" index="0"]
+margin_left = 82.0973
+margin_right = 170.467
 
 [node name="cookieControl" type="Control" parent="ScrollContainer/VBoxContainer"]
 margin_top = 105.0
@@ -161,17 +105,82 @@ margin_top = 162.2
 margin_right = 392.05
 margin_bottom = 671.2
 
-[node name="supervisor" parent="supervisorPanel/GridContainer" index="0"]
+[node name="supervisor" parent="supervisorPanel/GridContainer/vbox" index="0"]
 supervisor = "breadStorAvaS"
+productControl = "breadControl"
+targetVillage = "villageAvalonia"
 
-[node name="supervisor2" parent="supervisorPanel/GridContainer" index="1"]
+[node name="descriptionLabel" parent="supervisorPanel/GridContainer/vbox/supervisor" index="2"]
+text = "Automate the selling of bread"
+
+[node name="supervisor2" parent="supervisorPanel/GridContainer/vbox" index="1"]
 supervisor = "cookieStorAvaS"
+productControl = "cookieControl"
+targetVillage = "villageAvalonia"
+
+[node name="descriptionLabel" parent="supervisorPanel/GridContainer/vbox/supervisor2" index="2"]
+text = "Automate the selling of cookies"
+
+[node name="supervisorsBtn" type="TextureButton" parent="."]
+material = SubResource( 4 )
+margin_left = 195.669
+margin_top = 140.772
+margin_right = 382.669
+margin_bottom = 184.772
+rect_pivot_offset = Vector2( 238.656, -3.38788 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="supervisorLabel" type="Label" parent="supervisorsBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.0
+margin_top = -10.5
+margin_right = 46.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 7 )
+text = "SUPERVISORS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shopBtn" type="TextureButton" parent="."]
+material = SubResource( 5 )
+margin_left = 11.6688
+margin_top = 140.772
+margin_right = 198.669
+margin_bottom = 184.772
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shopLabel" type="Label" parent="shopBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -10.5
+margin_right = 18.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 7 )
+text = "SHOP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="openSupervisors" to="." method="_on_openSupervisors_pressed"]
-[connection signal="pressed" from="upgradesBtn" to="." method="_on_upgradesBtn_pressed"]
+[connection signal="pressed" from="supervisorsBtn" to="." method="_on_supervisorsBtn_pressed"]
+[connection signal="pressed" from="shopBtn" to="." method="_on_shopBtn_pressed"]
 
 [editable path="ScrollContainer/VBoxContainer/breadControl/breadAvalonia"]
 
 [editable path="supervisorPanel"]
 
-[editable path="supervisorPanel/GridContainer/supervisor"]
+[editable path="supervisorPanel/GridContainer/vbox/supervisor"]
+
+[editable path="supervisorPanel/GridContainer/vbox/supervisor2"]

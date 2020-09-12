@@ -14,33 +14,33 @@
 [ext_resource path="res://Image-assets/round-frame.png" type="Texture" id=13]
 [ext_resource path="res://Image-assets/breadIcon.png" type="Texture" id=14]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=17]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=18]
 font_data = ExtResource( 3 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=19]
 colors = PoolColorArray( 0.9375, 0.157013, 0.0292969, 1, 0.980469, 0.965867, 0.0459595, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=21]
 _data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=23]
 min_value = 81.92
 max_value = 274.07
 _data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
 
-[sub_resource type="ParticlesMaterial" id=9]
-trail_size_modifier = SubResource( 8 )
+[sub_resource type="ParticlesMaterial" id=25]
+trail_size_modifier = SubResource( 24 )
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 20 )
 flag_disable_z = true
@@ -56,30 +56,30 @@ linear_accel_random = 0.24
 damping = 5.06
 scale = 3.0
 scale_random = 0.41
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
 hue_variation = -0.2
 hue_variation_random = 0.16
 anim_speed = 14.58
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 178, 11 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=26]
 size = 15
 outline_size = 1
 outline_color = Color( 0.160784, 0.129412, 0.129412, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=27]
 size = 13
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=28]
 bg_color = Color( 0.113725, 0.0745098, 0.054902, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -91,7 +91,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=29]
 bg_color = Color( 0.0784314, 0.0470588, 0.0156863, 0.878431 )
 border_width_left = 1
 border_width_top = 1
@@ -108,7 +108,7 @@ anchor_left = 0.131944
 anchor_top = 0.268229
 anchor_right = 0.868056
 anchor_bottom = 0.390625
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 17 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -120,7 +120,7 @@ margin_left = 81.634
 margin_top = 12.6981
 margin_right = 170.004
 margin_bottom = 32.6981
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 18 )
 text = "[product NAME]"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,7 +163,7 @@ position = Vector2( 31.8272, 41.394 )
 amount = 12
 lifetime = 1.5
 explosiveness = 0.14
-process_material = SubResource( 9 )
+process_material = SubResource( 25 )
 
 [node name="productCountLabel" type="Label" parent="."]
 margin_left = 250.0
@@ -192,8 +192,8 @@ margin_left = 84.0
 margin_top = 37.0
 margin_right = 263.0
 margin_bottom = 49.0
-custom_styles/fg = SubResource( 10 )
-custom_styles/bg = SubResource( 11 )
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -212,7 +212,7 @@ margin_right = 46.7194
 margin_bottom = 85.9979
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 26 )
 text = "[0]"
 align = 1
 valign = 1
@@ -252,7 +252,7 @@ margin_top = 8.0
 margin_right = 142.0
 margin_bottom = 24.0
 grow_horizontal = 0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 27 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 text = "[cost]"
@@ -295,7 +295,7 @@ margin_left = 5.0
 margin_top = 8.0
 margin_right = 302.0
 margin_bottom = 86.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -354,7 +354,7 @@ __meta__ = {
 [node name="bkgr" type="Panel" parent="ingredientPop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 15 )
+custom_styles/panel = SubResource( 29 )
 
 [node name="ingredientsLabel" type="Label" parent="ingredientPop"]
 anchor_left = 0.5

@@ -26,9 +26,8 @@ func _on_buyInvisible_pressed():
 		globals.get(supervisor).setSupervisorHired(true)
 		if globals.get(supervisor).supervisorType == "bakery":
 			productPath = "/root/GameManager/" + targetVillage + "/UiCanvas/bakery/productScroll/VBoxContainer/"+productControl+ "/"+str(globals.get(supervisor).supervisorTarget)
-			print(productPath)
-			get_node(productPath).onHiredSupervisor()
+			get_node(productPath).onBakeryHiredSupervisor()
 		elif globals.get(supervisor).supervisorType == "store":
 			productPath	 = "/root/GameManager/" + targetVillage+"/UiCanvas/store/ScrollContainer/VBoxContainer/"+productControl+"/"+str(globals.get(supervisor).supervisorTarget)
-			get_node(productPath).onHiredSupervisor()
+			get_node(productPath).onStoreHiredSupervisor()
 	UpdateUi()
