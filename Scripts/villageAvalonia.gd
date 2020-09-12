@@ -6,7 +6,6 @@ onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var gameManagerNodePath = get_node("/root/GameManager")
 
 
-
 var clickMoney = 10
 var building1Exp = 11
 var building1Cost = 1000

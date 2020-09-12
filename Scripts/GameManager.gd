@@ -98,6 +98,8 @@ func _on_zoomIn_pressed():
 
 func _on_inventoryButton_pressed():
 	$UiCanvas/inventorySystem.visible = 1
+	inventoryNodePath.checkAvailableItems()
+	inventoryNodePath.setItems()
 
 func _on_dayCounter_timeout():
 	globals.day += 1

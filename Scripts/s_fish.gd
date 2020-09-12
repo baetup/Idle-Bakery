@@ -10,11 +10,11 @@ var fishingLevel : int = 1
 var fishingLevelCost : float = 5.00
 var fishingLevelMult : float = 1.07
 
-var troutFish = load(resource_path + "fish/trout.tres")
-var herringFish = load(resource_path + "fish/herring.tres")
-var codFish = load(resource_path + "fish/cod.tres")
+var troutFish = load(resource_path + "ingredients/fish_trout.tres")
+var herringFish = load(resource_path + "ingredients/fish_herring.tres")
+var codFish = load(resource_path + "ingredients/fish_cod.tres")
 
-var fishArray = [troutFish, herringFish, codFish]
+var avaloniaFishArr = [troutFish, herringFish, codFish]
 
 func setFishingLevelCost():
 	fishingLevelCost = fishingLevelCost * pow(fishingLevelMult, fishingLevel)
@@ -29,6 +29,8 @@ func set_fishing_time_mult(value : float):
 	fishingTimeMult = value
 
 func loadResource():
-	troutFish = load(resource_path + "res://fish/trout.tres")
-	herringFish = load(resource_path + "res://fish/herring.tres")
-	codFish = load(resource_path + "res://fish/cod.tres")
+	troutFish = load(resource_path + "ingredients/fish_trout.tres")
+	herringFish = load(resource_path + "ingredients/fish_herring.tres")
+	codFish = load(resource_path + "ingredients/fish_cod.tres")
+	
+	avaloniaFishArr = [troutFish, herringFish, codFish]

@@ -40,6 +40,7 @@ func _on_next_pressed():
 		globals.resource_path = "user://"
 		ingredients.resource_path = "user://"
 		s_upgrades.resource_path = "user://"
+		s_fish.resource_path = "user://"
 	else:
 		$paper/secondStep/error.text = "Nickname too short or \n avatar not selected"
 

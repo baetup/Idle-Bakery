@@ -12,9 +12,9 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="Theme" id=7]
+[sub_resource type="Theme" id=3]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -22,7 +22,7 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 6 )
+VScrollBar/styles/scroll = SubResource( 2 )
 VScrollBar/styles/scroll_focus = null
 
 [node name="bakeryAvalonia" type="Panel"]
@@ -108,7 +108,7 @@ margin_left = 57.0
 margin_top = 114.0
 margin_right = 375.0
 margin_bottom = 569.0
-theme = SubResource( 7 )
+theme = SubResource( 3 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -147,6 +147,16 @@ margin_left = 23.2608
 margin_top = 74.3438
 margin_right = 401.261
 margin_bottom = 583.344
+
+[node name="supervisor" parent="supervisorPanel/GridContainer/vbox" index="0"]
+supervisor = "breadBakAvaS"
+productControl = "breadControl"
+targetVillage = "villageAvalonia"
+
+[node name="supervisor2" parent="supervisorPanel/GridContainer/vbox" index="1"]
+supervisor = "cookieBakAvaS"
+productControl = "cookieControl"
+targetVillage = "villageAvalonia"
 [connection signal="pressed" from="bakeryBtn" to="." method="_on_bakeryBtn_pressed"]
 [connection signal="pressed" from="supervisorsBtn" to="." method="_on_supervisorsBtn_pressed"]
 [connection signal="pressed" from="close_bakery" to="." method="_on_close_bakery_pressed"]

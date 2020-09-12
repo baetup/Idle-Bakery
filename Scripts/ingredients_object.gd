@@ -12,6 +12,9 @@ export var level : int
 export var levelCost : float
 export var levelCostMult : float
 
+#For fishery and hunting ingredients
+export var minAmount : int
+export var maxAmount : int
 
 func addQuantity(amount : int):
 	quantity = quantity + amount
@@ -39,3 +42,6 @@ func upgradeProduceAmount(value : int):
 	
 func upgradeLevelCost(value : float):
 	levelCost = levelCost -( levelCost * value)
+
+func setFishMaxAmount():
+	maxAmount += s_fish.fishingLevel

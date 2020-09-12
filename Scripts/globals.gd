@@ -50,24 +50,21 @@ func subFromMoney(amount):
 
 func setPlayerGender(gender):
 	avatarPlayerGender = gender
-	
 
 
 func loadResource():
 	breadAvalonia = load(resource_path + "products/breadAvalonia.tres")
 	breadAvalonia.ingredients[0] = ingredients.flour
-	
+
 	cookieAvalonia = load(resource_path +  "products/cookieAvalonia.tres")
 	cookieAvalonia.ingredients[0] = ingredients.flour
 	cookieAvalonia.ingredients[1] = ingredients.sugar
-	
 
-			
 	breadBakAvaS = load(resource_path +  "supervisors/breadBakAvaS.tres")
 	cookieBakAvaS = load(resource_path +  "supervisors/cookieBakAvaS.tres")
 	breadStorAvaS = load(resource_path + "supervisors/breadStorAvaS.tres")
 	cookieStorAvaS = load(resource_path +  "supervisors/cookieStorAvaS.tres")
-	
+
 	mainCastle =load(resource_path +  "misc_objects/mainCastle.tres")
 
 	arrayOfIngredients = [ingredients.flour, ingredients.sugar]

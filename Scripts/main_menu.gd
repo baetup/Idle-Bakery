@@ -26,11 +26,14 @@ func _on_continue_pressed():
 	globals.resource_path = "user://"
 	ingredients.resource_path = "user://"
 	s_upgrades.resource_path = "user://"
+	s_fish.resource_path = "user://"
 	save_load.load_data()
 	
+	s_fish.loadResource()
 	ingredients.loadResource()
 	globals.loadResource()
 	s_upgrades.loadResource()
+
 
 	
 	get_tree().change_scene("res://Scenes/GameManager.tscn")

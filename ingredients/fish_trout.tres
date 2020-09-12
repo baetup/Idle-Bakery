@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ingredients_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+icon = "res://Image-assets/fish/fish-trout-icon.png"
+name = "Trout"
+quantity = 0
+produceTime = 0.0
+produceAmount = 0
+produceTimeMult = 0.0
+level = 0
+levelCost = 0.0
+levelCostMult = 0.0
+minAmount = 1
+maxAmount = 9

@@ -97,6 +97,22 @@ margin_top = 162.2
 margin_right = 392.05
 margin_bottom = 671.2
 
+[node name="supervisor" parent="supervisorPanel/GridContainer/vbox" index="0"]
+supervisor = "breadStorAvaS"
+productControl = "breadControl"
+targetVillage = "villageAvalonia"
+
+[node name="descriptionLabel" parent="supervisorPanel/GridContainer/vbox/supervisor" index="2"]
+text = "Automate the selling of bread"
+
+[node name="supervisor2" parent="supervisorPanel/GridContainer/vbox" index="1"]
+supervisor = "cookieStorAvaS"
+productControl = "cookieControl"
+targetVillage = "villageAvalonia"
+
+[node name="descriptionLabel" parent="supervisorPanel/GridContainer/vbox/supervisor2" index="2"]
+text = "Automate the selling of cookies"
+
 [node name="supervisorsBtn" type="TextureButton" parent="."]
 margin_left = 195.669
 margin_top = 140.772
@@ -154,3 +170,7 @@ __meta__ = {
 [editable path="ScrollContainer/VBoxContainer/breadControl/breadAvalonia"]
 
 [editable path="supervisorPanel"]
+
+[editable path="supervisorPanel/GridContainer/vbox/supervisor"]
+
+[editable path="supervisorPanel/GridContainer/vbox/supervisor2"]

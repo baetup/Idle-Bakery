@@ -33,15 +33,25 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
-supervisor = "breadBakAvaS"
-productControl = "breadControl"
-targetVillage = "villageAvalonia"
+
+[node name="titleLabel" parent="GridContainer/vbox/supervisor" index="1"]
+text = "Bread Supervisor"
+
+[node name="descriptionLabel" parent="GridContainer/vbox/supervisor" index="2"]
+text = "Automate the production of bread"
 
 [node name="supervisor2" parent="GridContainer/vbox" instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 100.0
 margin_right = 0.0
 margin_bottom = 100.0
-supervisor = "cookieBakAvaS"
-productControl = "cookieControl"
-targetVillage = "villageAvalonia"
+
+[node name="titleLabel" parent="GridContainer/vbox/supervisor2" index="1"]
+text = "Cookie Supervisor"
+
+[node name="descriptionLabel" parent="GridContainer/vbox/supervisor2" index="2"]
+text = "Automate the production of cookies"
+
+[editable path="GridContainer/vbox/supervisor"]
+
+[editable path="GridContainer/vbox/supervisor2"]
