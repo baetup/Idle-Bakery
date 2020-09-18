@@ -62,39 +62,30 @@ func _on_options_pressed():
 	$UiCanvas/ingameOptions.visible = 1
 
 func _on_worldMapBtn_pressed():
-	var getLL1 = true
-	var getLL2 = false
-	$Camera2D.getLastLocation(getLL2, getLL1)
-	var temp = "worldMap"
-	$Camera2D.getRootScreen(temp)
-	$Camera2D.setCameraLimits("worldMap")
-	$Camera2D.zoom_out_worldMap()
-	$worldMap.villageExitClouds = true
+	$UiCanvas/ColorRect.visible = true
+	$UiCanvas/ColorRect/AnimationPlayer.play("fade-in")
 	var t = Timer.new()
-	t.set_wait_time(0.8)
+	t.set_wait_time(0.4)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	$worldMap.moveClouds()
+	$Camera2D.getLastLocation(false, true)
+	$Camera2D.getRootScreen("worldMap")
+	$Camera2D.setCameraLimits("worldMap")
+	$villageAvalonia.visible = 0
+	$worldMap.visible = 1
+	$UiCanvas/ColorRect/AnimationPlayer.play("fade-out")
 	var t2 = Timer.new()
-	t.set_wait_time(2)
-	t.set_one_shot(true)
+	t2.set_wait_time(0.5)
+	t2.set_one_shot(true)
 	self.add_child(t2)
 	t2.start()
 	yield(t2, "timeout")
-	
-	$villageAvalonia.visible = 0
-	$worldMap.visible = 1
-	$worldMap.villageExitClouds = false
+	$UiCanvas/ColorRect.visible = false
 
-func _on_zoomOut_pressed():
-	if $Camera2D.zoom.x <= 1.8:
-		$Camera2D.zoom += cameraZoomRate
 
-func _on_zoomIn_pressed():
-	if $Camera2D.zoom.x >= 1.0:
-		$Camera2D.zoom -= cameraZoomRate
+
 
 func _on_inventoryButton_pressed():
 	$UiCanvas/inventorySystem.visible = 1
@@ -109,5 +100,3 @@ func _on_notifications_pressed():
 
 func reopenWindows(window):
 	get_node(window).visible = 1
-
-

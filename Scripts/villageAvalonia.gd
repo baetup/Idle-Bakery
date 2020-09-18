@@ -5,11 +5,11 @@ onready var storeNodePath = get_node("/root/GameManager/villageAvalonia/UiCanvas
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var gameManagerNodePath = get_node("/root/GameManager")
 
+var canOpenUi = true
 
 var clickMoney = 10
 var building1Exp = 11
 var building1Cost = 1000
-
 
 
 func _on_getBakeryOpen_pressed():
