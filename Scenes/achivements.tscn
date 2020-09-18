@@ -8,8 +8,6 @@
 [ext_resource path="res://Image-assets/title_brown.png" type="Texture" id=6]
 [ext_resource path="res://Image-assets/achievementBkgr_split.png" type="Texture" id=7]
 
-
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
