@@ -96,6 +96,7 @@ position = Vector2( 215.099, 376.988 )
 texture = ExtResource( 2 )
 
 [node name="firstStep" type="Node2D" parent="center/paper"]
+visible = false
 position = Vector2( -144, -202 )
 
 [node name="introText" type="RichTextLabel" parent="center/paper/firstStep"]
@@ -137,7 +138,6 @@ __meta__ = {
 }
 
 [node name="secondStep" type="Control" parent="center/paper"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

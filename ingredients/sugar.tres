@@ -13,3 +13,5 @@ produceTimeMult = 0.34
 level = 1
 levelCost = 30.0
 levelCostMult = 1.09
+minAmount = 0
+maxAmount = 0

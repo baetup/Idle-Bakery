@@ -153,7 +153,13 @@ func assign_data():
 	globals.fatherMerchant = data['fatherMerchant']
 	globals.fatherHunter = data['fatherHunter']
 	globals.fatherThief = data['fatherThief']
-	globals.fatherAngler 	
+	globals.fatherAngler = data['fatherAngler']
+	globals.fatherFarmer = data['fatherFarmer']
+	
+	globals.youthApprentice = data['youthApprentice']
+	globals.youthServant = data['youthServant']
+	globals.youthStreetThief = data['youthStreetThief']
+	globals.youthCircusTrainee = data['youthCircusTrainee']
 	
 	
 	
