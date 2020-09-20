@@ -77,7 +77,17 @@ func save_data():
 		'fishingTime' : s_fish.fishingTime,
 		'fishingTimeMult' : s_fish.fishingTimeMult,
 		'fishingLevelCost' : s_fish.fishingLevelCost,
-		'fishingLevelMult' : s_fish.fishingLevelMult
+		'fishingLevelMult' : s_fish.fishingLevelMult,
+		'fatherNoble' : globals.fatherNoble,
+		'fatherMerchant' : globals.fatherMerchant,
+		'fatherHunter' : globals.fatherHunter,
+		'fatherThief' : globals.fatherFarmer,
+		'fatherAngler': globals.fatherAngler,
+		'fatherFarmer' : globals.fatherFarmer,
+		'youthApprentice' : globals.youthApprentice,
+		'youthServant' : globals.youthServant,
+		'youthStreetThief' : globals.youthStreetThief,
+		'youthCircusTrainee' : globals.youthCircusTrainee
 	}
 
 	var dir = Directory.new()
@@ -138,3 +148,19 @@ func assign_data():
 	s_fish.fishingTimeMult = data['fishingTimeMult']
 	s_fish.fishingLevelCost = data['fishingLevelCost']
 	s_fish.fishingLevelMult = data['fishingLevelMult']
+	
+	globals.fatherNoble = data['fatherNoble']
+	globals.fatherMerchant = data['fatherMerchant']
+	globals.fatherHunter = data['fatherHunter']
+	globals.fatherThief = data['fatherThief']
+	globals.fatherAngler 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

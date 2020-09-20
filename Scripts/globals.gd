@@ -15,7 +15,17 @@ var intStat : int = 0
 var invStat : int = 0
 var avatarPlayerGender = "male"
 
+var fatherNoble = false
+var fatherMerchant = false
+var fatherHunter = false
+var fatherThief = false
+var fatherAngler = false
+var fatherFarmer = false
 
+var youthApprentice = false
+var youthServant = false
+var youthStreetThief = false
+var youthCircusTrainee = false
 
 
 var breadAvalonia = load(resource_path + "products/breadAvalonia.tres")

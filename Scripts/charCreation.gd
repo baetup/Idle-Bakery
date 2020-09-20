@@ -10,27 +10,22 @@ var isAvatarSelected = false
 func _ready():
 	setAvatarConnections()
 
-func _on_introText2_gui_input(event):
-	if event is InputEventScreenTouch:
-		$paper/firstStep.visible = 0
-		$paper/secondStep.visible = 1
-
 func _on_input_text_changed(new_text):
 	if new_text.length() > 2:
-		$paper/secondStep/error.text = ""
-		if new_text.length() < 13 :
-			$paper/secondStep/error.text = ""
+		$center/paper/fourthStep/error.text = ""
+		if new_text.length() < 17 :
+			$center/paper/fourthStep/error.text = ""
 			username = new_text
 			isOk = true
 		else:
-			$paper/secondStep/error.text = "Nickname too long"
+			$center/paper/fourthStep/error.text = "Nickname too long"
 	else:
-		$paper/secondStep/error.text = "Nickname too short"
+		$center/paper/fourthStep/error.text = "Nickname too short"
 
 func _on_next_pressed():
 	
 	if isOk && isAvatarSelected:
-		$paper/secondStep.visible = 0
+		$center/paper/fourthStep.visible = 0
 		get_tree().change_scene("res://Scenes/GameManager.tscn")
 		username.to_upper()
 		globals.setUsername(username)
@@ -43,16 +38,11 @@ func _on_next_pressed():
 		s_fish.resource_path = "user://"
 		s_hunting.resource_path = "user://"
 	else:
-		$paper/secondStep/error.text = "Nickname too short or \n avatar not selected"
-
-	
-
-
-
+		$center/paper/fourthStep/error.text = "Nickname too short or avatar not selected"
 
 func setAvatarConnections():
 	#connection button signals
-	for x in $paper/secondStep/GridContainer.get_children():
+	for x in $center/paper/fourthStep/GridContainer.get_children():
 		x.connect("pressed", self, "setAvatar",[x.get_normal_texture(), x.get_name()])
 
 
@@ -60,7 +50,7 @@ func setAvatar(avatarPath, name):
 	
 	isAvatarSelected = true
 	#allowing only one avatar to be selected
-	for eachChild in $paper/secondStep/GridContainer.get_children():
+	for eachChild in $center/paper/fourthStep/GridContainer.get_children():
 		if eachChild.get_name() != name:
 			eachChild.pressed = false
 
@@ -75,3 +65,58 @@ func setAvatar(avatarPath, name):
 	#set avatar image
 	avatar = avatarPath.get_load_path()
 	globals.setAvatar(avatar)
+
+
+func _on_firstNext_pressed():
+	$center/paper/secondStep.show()
+	$center/paper/firstStep.hide()
+
+
+func _on_aNoble_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_aMerchant_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_aHunter_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_aThief_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_aFisher_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_aFarmer_pressed():
+	$center/paper/secondStep.hide()
+	$center/paper/thirdStep.show()
+
+
+func _on_apprentice_pressed():
+	$center/paper/thirdStep.hide()
+	$center/paper/fourthStep.show()
+
+
+func _on_servant_pressed():
+	$center/paper/thirdStep.hide()
+	$center/paper/fourthStep.show()
+
+
+func _on_streetThief_pressed():
+	$center/paper/thirdStep.hide()
+	$center/paper/fourthStep.show()
+
+
+func _on_circusTrainee_pressed():
+	$center/paper/thirdStep.hide()
+	$center/paper/fourthStep.show()
