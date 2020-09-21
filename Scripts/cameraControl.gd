@@ -72,7 +72,6 @@ func _unhandled_input(event):
 	if event is InputEventScreenTouch and event.pressed == false:
 		_touches.erase(event.index)
 	if event is InputEventScreenDrag:
-		villageNode.canOpenUi = false
 		if not event.index in _touches:
 			_touches[event.index] = {"start":event, "current":event}
 		_touches[event.index]["current"] = event

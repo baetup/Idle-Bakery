@@ -5,9 +5,9 @@ onready var storeNodePath = get_node("/root/GameManager/villageAvalonia/UiCanvas
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var gameManagerNodePath = get_node("/root/GameManager")
 
-var canOpenUi = true
-
 var clickMoney = 10
+
+
 var building1Exp = 11
 var building1Cost = 1000
 
@@ -17,7 +17,6 @@ func _on_getBakeryOpen_pressed():
 	#Sending a boolean to the cameraNode to stop the camera from panning
 	var tempBoolean = true
 	cameraNodePath.setBakeryState(tempBoolean)
-
 
 func _on_getStoreOpen_pressed():
 	storeNodePath.visible = 1
@@ -39,25 +38,11 @@ func _on_ClickMoneyButton_pressed():
 
 #Updating UI elements
 func _on_checkUi_timeout():
-	#Checking if user has money to buy buildings to disable or not the button
-	checkIfUnlockable(building1Cost, $unlockableBuildingsBtns/buyBuilding1)
-	
 	#checking for production stops
 	checkProductionStops()
 
-#Function created not to repeat the if statement in checkUi func
-func checkIfUnlockable(buildingCost, path):
-	if globals.money >= buildingCost:
-		path.disabled = false
-	else:
-		path.disabled = true
-
 func _on_getFarmOpen_pressed():
 	$UiCanvas/farm.visible = 1
-
-func _on_buyBuilding1_pressed():
-	gameManagerNodePath.setPrestigeLevel(building1Cost, building1Exp)
-	$unlockableBuildingsBtns/buyBuilding1.visible = 0
 
 func checkProductionStops():
 	var counter = 0
@@ -75,11 +60,10 @@ func checkProductionStops():
 	else:
 		$bakeryLabel/warning.visible = 0
 
-
 func _on_getCastleOpen_pressed():
 	get_node("/root/GameManager/UiCanvas/castle").visible = 1
 	get_node("/root/GameManager/UiCanvas/castle").checkStatus()
 
-
 func _on_getWorkshopOpen_pressed():
 	$UiCanvas/workshop.show()
+

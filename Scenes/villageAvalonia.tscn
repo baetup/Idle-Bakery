@@ -13,15 +13,13 @@
 [ext_resource path="res://Tile-sets/village-assets/Cottage_2_300x300.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
-[ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/buttonsCollider.gd" type="Script" id=14]
 [ext_resource path="res://Tile-sets/village-assets/Cottage_3_300x300.png" type="Texture" id=15]
 [ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/store.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Image-assets/filler.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/bakery.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=20]
 [ext_resource path="res://Tile-sets/village-assets/Dragons_den_300x300.png" type="Texture" id=21]
-[ext_resource path="res://Image-assets/button-four-disabled.png" type="Texture" id=22]
 [ext_resource path="res://Tile-sets/village-assets/Elven_house_300x300.png" type="Texture" id=23]
 [ext_resource path="res://Tile-sets/village-assets/Farm2_300x300.png" type="Texture" id=24]
 [ext_resource path="res://Tile-sets/village-assets/Farm_300x300.png" type="Texture" id=25]
@@ -459,40 +457,40 @@ shader_param/grayscale = false
 38/shapes = [  ]
 38/z_index = 0
 
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 20 )
+[sub_resource type="CircleShape2D" id=19]
+radius = 77.7271
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 29
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=4]
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=5]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=8]
 min_value = 81.92
 max_value = 274.07
 _data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=11]
-trail_size_modifier = SubResource( 10 )
+[sub_resource type="ParticlesMaterial" id=10]
+trail_size_modifier = SubResource( 9 )
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 20 )
 flag_disable_z = true
@@ -506,44 +504,51 @@ linear_accel = -65.82
 linear_accel_random = 0.24
 scale = 1.5
 scale_random = 0.41
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 7 )
 color = Color( 1, 1, 0, 1 )
 hue_variation = -0.05
 anim_speed = 18.29
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=11]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=12]
 size = 35
 outline_size = 3
 outline_color = Color( 0.101961, 0.054902, 0.0392157, 1 )
-font_data = SubResource( 12 )
+font_data = SubResource( 11 )
 
-[sub_resource type="DynamicFontData" id=14]
+[sub_resource type="DynamicFontData" id=13]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=14]
 size = 24
 outline_size = 2
 outline_color = Color( 0.078476, 0.0850815, 0.144531, 1 )
-font_data = SubResource( 14 )
+font_data = SubResource( 13 )
 
-[sub_resource type="StyleBoxTexture" id=16]
+[sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 178, 11 )
+
+[sub_resource type="StyleBoxEmpty" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="DynamicFontData" id=20]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=21]
+size = 60
+font_data = SubResource( 20 )
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
 __meta__ = {
-"_edit_horizontal_guides_": [ -863.676, 1285.96 ],
-"_edit_vertical_guides_": [ -2367.93, 1451.75 ]
+"_edit_horizontal_guides_": [ -863.129, 1285.96, 201.0 ],
+"_edit_vertical_guides_": [ -2361.64, 1451.75, 52.9996 ]
 }
 
 [node name="avaloniaBackground" type="Sprite" parent="."]
@@ -562,36 +567,24 @@ cell_custom_transform = Transform2D( 128, 0, 0, 128, 0, 0 )
 format = 1
 tile_data = PoolIntArray( -1703950, 14, 0, -1572898, 0, 0, -1441834, 10, 0, -1376302, 10, 0, -1441776, 4, 0, -917557, 14, 0, -851956, 14, 0, -720966, 19, 0, -655422, 18, 0, -524310, 23, 0, -458761, 27, 0, -524270, 14, 0, -327732, 2, 0, -327706, 23, 0, -327697, 23, 0, -262212, 6, 0, -131110, 27, 0, -131093, 23, 0, -65600, 6, 0, -68, 6, 0, 65463, 6, 0, 131020, 30, 0, 196648, 14, 0, 327607, 6, 0, 327613, 6, 0, 393160, 1, 0, 458740, 8, 0, 393216, 26, 0, 524254, 9, 0, 524321, 29, 0, 655292, 7, 0, 720889, 24, 0, 720905, 23, 0, 851920, 8, 0, 1048508, 14, 0, 1048522, 8, 0, 1114128, 11, 0, 1245124, 8, 0, 1179672, 12, 0, 1376216, 7, 0, 1572820, 7, 0, 1572829, 7, 0, 1769433, 7, 0, 1769459, 6, 0, 1835026, 25, 0, 2031554, 31, 0, 2162696, 14, 0, 2293709, 14, 0 )
 
-[node name="unlockableBuildingsBtns" type="Node2D" parent="."]
+[node name="buttonsCollider" type="Node2D" parent="."]
+script = ExtResource( 14 )
 
-[node name="buyBuilding1" type="TextureButton" parent="unlockableBuildingsBtns"]
-margin_left = -347.057
-margin_top = 296.79
-margin_right = -218.057
-margin_bottom = 324.79
-texture_normal = ExtResource( 14 )
-texture_disabled = ExtResource( 22 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="mainBuildings" type="Node2D" parent="buttonsCollider"]
 
-[node name="buyLabel" type="Label" parent="unlockableBuildingsBtns/buyBuilding1"]
-margin_left = 17.9471
-margin_top = 5.97775
-margin_right = 100.947
-margin_bottom = 23.9778
-custom_fonts/font = SubResource( 3 )
-text = "BUY INN - 1K"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="bakeryBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/bakeryBtn"]
+position = Vector2( 140.828, 291.715 )
+shape = SubResource( 19 )
 
 [node name="bakeryLabel" type="Label" parent="."]
 margin_left = 86.751
 margin_top = 159.576
 margin_right = 213.751
 margin_bottom = 189.576
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Bakery"
 align = 1
 valign = 1
@@ -601,7 +594,7 @@ __meta__ = {
 
 [node name="warning" type="TextureRect" parent="bakeryLabel"]
 visible = false
-material = SubResource( 5 )
+material = SubResource( 4 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -617,7 +610,7 @@ margin_left = 318.57
 margin_top = 354.873
 margin_right = 414.57
 margin_bottom = 384.873
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Shop"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -629,7 +622,7 @@ margin_top = 358.0
 margin_right = -62.0
 margin_bottom = 388.0
 rect_pivot_offset = Vector2( -250.777, 260.384 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Estate"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -641,7 +634,7 @@ margin_top = 536.343
 margin_right = 666.683
 margin_bottom = 566.343
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Farm"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -653,19 +646,35 @@ margin_top = -260.225
 margin_right = -35.9171
 margin_bottom = -230.225
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Workshop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="getWorkshopOpen" type="Button" parent="."]
+margin_left = -276.0
+margin_top = -269.0
+margin_right = -4.0
+margin_bottom = -26.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="getBakeryOpen" type="Button" parent="."]
+visible = false
 margin_left = 13.0
 margin_top = 166.0
 margin_right = 296.0
 margin_bottom = 382.0
 focus_mode = 0
 mouse_filter = 1
+shortcut_in_tooltip = false
+action_mode = 0
+button_mask = 0
 enabled_focus_mode = 0
 flat = true
 __meta__ = {
@@ -708,21 +717,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="getWorkshopOpen" type="Button" parent="."]
-margin_left = -276.0
-margin_top = -269.0
-margin_right = -4.0
-margin_bottom = -26.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ClickMoneyButton" type="Button" parent="."]
-margin_left = -183.0
-margin_top = 333.0
+margin_left = -169.0
+margin_top = 354.0
 margin_right = -21.0
 margin_bottom = 575.0
 focus_mode = 0
@@ -733,7 +730,7 @@ __meta__ = {
 }
 
 [node name="coin" type="Particles2D" parent="ClickMoneyButton"]
-material = SubResource( 6 )
+material = SubResource( 5 )
 position = Vector2( 71.8272, 41.394 )
 emitting = false
 amount = 12
@@ -741,7 +738,7 @@ lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 11 )
+process_material = SubResource( 10 )
 texture = ExtResource( 67 )
 
 [node name="castleLabel" type="Label" parent="."]
@@ -750,7 +747,7 @@ margin_top = -598.979
 margin_right = 651.59
 margin_bottom = -568.979
 rect_pivot_offset = Vector2( 370.222, -122.827 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Castle"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -762,7 +759,7 @@ margin_top = 722.01
 margin_right = -251.0
 margin_bottom = 752.01
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Fishery"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -774,7 +771,7 @@ margin_top = 831.36
 margin_right = 818.0
 margin_bottom = 861.36
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Hunting Cabin"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -823,7 +820,7 @@ margin_top = -3.36243
 margin_right = 97.8275
 margin_bottom = 39.6376
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 text = "cost"
 align = 1
 valign = 1
@@ -842,7 +839,7 @@ margin_right = 14.5
 margin_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 14 )
 text = "lvl"
 align = 1
 valign = 1
@@ -884,8 +881,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -939,7 +936,7 @@ margin_top = -3.36243
 margin_right = 97.8275
 margin_bottom = 39.6376
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 text = "cost"
 align = 1
 valign = 1
@@ -958,7 +955,7 @@ margin_right = 14.5
 margin_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 14 )
 text = "lvl"
 align = 1
 valign = 1
@@ -1000,8 +997,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1018,11 +1015,11 @@ wait_time = 0.001
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 17 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 18 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false
@@ -1037,12 +1034,24 @@ rect_pivot_offset = Vector2( 415.173, 194.324 )
 [node name="checkUi" type="Timer" parent="."]
 wait_time = 0.002
 autostart = true
-[connection signal="pressed" from="unlockableBuildingsBtns/buyBuilding1" to="." method="_on_buyBuilding1_pressed"]
-[connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
+
+[node name="dragTimer" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 21 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="getWorkshopOpen" to="." method="_on_getWorkshopOpen_pressed"]
+[connection signal="gui_input" from="getBakeryOpen" to="getBakeryOpen" method="_on_getBakeryOpen_gui_input"]
 [connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
 [connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
 [connection signal="pressed" from="getCastleOpen" to="." method="_on_getCastleOpen_pressed"]
-[connection signal="pressed" from="getWorkshopOpen" to="." method="_on_getWorkshopOpen_pressed"]
 [connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="pressed" from="fishery/fisheryBtn" to="fishery" method="_on_fisheryBtn_pressed"]
 [connection signal="pressed" from="fishery/fisheryBtn/upgrade-fishery" to="fishery" method="_on_upgradefishery_pressed"]
