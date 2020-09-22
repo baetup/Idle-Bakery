@@ -57,6 +57,9 @@ var _wait_for_anim = false
 func _ready():
 	setCameraLimits("avalonia")
 	$".". zoom = Vector2(1.5,1.5)
+	set_h_drag_enabled(false)
+	set_v_drag_enabled(false)
+	set_enable_follow_smoothing(true)
 
 func _input(event):
 	if _enable_input == false:
@@ -204,6 +207,17 @@ func update_pinch_gesture():
 	var new_dist = ((_touches_info["target"] - (vp_size / 2.0))*zoom)
 	var cam_need_move = old_dist - new_dist
 	self.position += cam_need_move
+	
+		# Limit position to avoid getting stuck in corner
+	var size = get_viewport().get_visible_rect ().size * get_zoom().x
+	if global_position.x + size.x/2 >= limit_right:
+		global_position.x = limit_right - size.x/2
+	if global_position.y + size.y/2 >= limit_bottom:
+		global_position.y = limit_bottom - size.y/2
+	if global_position.x - size.x/2 <= limit_left:
+		global_position.x = limit_left + size.x/2
+	if global_position.y - size.y/2 <= limit_top:
+		global_position.y = limit_top + size.y/2
 	
 func reset_smooth():
 	_last_cam_pos = self.position

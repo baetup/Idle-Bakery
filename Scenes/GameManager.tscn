@@ -123,9 +123,6 @@ z_index = 1
 
 [node name="villageAvalonia" parent="." instance=ExtResource( 4 )]
 
-[node name="farmBtn" parent="villageAvalonia/buttonsCollider/mainBuildings" index="2"]
-visible = true
-
 [node name="UiCanvas" type="CanvasLayer" parent="."]
 layer = 0
 
