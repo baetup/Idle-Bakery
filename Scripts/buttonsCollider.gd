@@ -45,7 +45,8 @@ func indentifyNode(nodeValue : String):
 		get_node("/root/GameManager/villageAvalonia/huntingCabin")._on_upgradehunting_pressed()
 	elif nodeValue == "castleBtn":
 		get_node("/root/GameManager/villageAvalonia")._on_getCastleOpen_pressed()
-	
+	elif nodeValue == "estateBtn":
+		get_node("/root/GameManager/villageAvalonia")._on_ClickMoneyButton_pressed()
 	
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
@@ -58,7 +58,6 @@
 [ext_resource path="res://Scripts/huntingCabin.gd" type="Script" id=58]
 [ext_resource path="res://Image-assets/hunting-icon.png" type="Texture" id=59]
 [ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=60]
-[ext_resource path="res://Image-assets/single_coin.png" type="Texture" id=67]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 60 )
@@ -457,18 +456,6 @@ shader_param/grayscale = false
 38/shapes = [  ]
 38/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 129.022, 97.8149 )
-
-[sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 88.5998, 99.3618 )
-
-[sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 234.201, 89.6799 )
-
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 133.73, 102.529 )
-
 [sub_resource type="CircleShape2D" id=23]
 radius = 43.5626
 
@@ -489,46 +476,6 @@ use_filter = true
 font_data = ExtResource( 12 )
 
 [sub_resource type="ShaderMaterial" id=5]
-
-[sub_resource type="CanvasItemMaterial" id=6]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id=7]
-_data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
-
-[sub_resource type="Curve" id=9]
-min_value = 81.92
-max_value = 274.07
-_data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
-
-[sub_resource type="ParticlesMaterial" id=11]
-trail_size_modifier = SubResource( 10 )
-emission_shape = 2
-emission_box_extents = Vector3( 20, 20, 20 )
-flag_disable_z = true
-direction = Vector3( 2, 1, 5 )
-spread = 25.0
-gravity = Vector3( 0, -90, 0 )
-initial_velocity = 35.71
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -65.82
-linear_accel_random = 0.24
-scale = 1.5
-scale_random = 0.41
-scale_curve = SubResource( 8 )
-color = Color( 1, 1, 0, 1 )
-hue_variation = -0.05
-anim_speed = 18.29
 
 [sub_resource type="ShaderMaterial" id=27]
 shader = ExtResource( 60 )
@@ -597,28 +544,23 @@ script = ExtResource( 14 )
 [node name="bakeryBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
 input_pickable = false
 
-[node name="bakeryCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/bakeryBtn"]
-position = Vector2( 144.628, 298.365 )
-shape = SubResource( 3 )
+[node name="bakeryCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/bakeryBtn"]
+polygon = PoolVector2Array( 56.1503, 211.85, 43.8003, 256.5, 33.3503, 233.7, 25.7502, 278.35, 9.60022, 300.2, 7.70023, 336.3, 61.8503, 365.75, 78.9503, 353.4, 93.2003, 374.3, 128.35, 374.3, 189.15, 418, 287.951, 350.55, 271.801, 339.15, 284.151, 329.65, 254.7, 247.95, 240.45, 261.25, 225.25, 226.1, 217.65, 252.7, 201.5, 218.5, 190.1, 251.75, 167.3, 199.5, 125.5, 201.4, 110.3, 233.7, 88.4503, 210.9, 72.3003, 213.75 )
 
 [node name="storeBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
-[node name="storeCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/storeBtn"]
-position = Vector2( 395.106, 470.269 )
-shape = SubResource( 20 )
+[node name="storeCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/storeBtn"]
+polygon = PoolVector2Array( 424.585, 362.116, 385.122, 389.972, 368.099, 383.008, 350.302, 398.484, 354.171, 409.317, 334.052, 423.245, 313.934, 489.79, 323.993, 492.885, 320.124, 504.492, 301.553, 519.968, 405.24, 584.965, 508.927, 518.42, 477.976, 497.528, 480.297, 479.731, 453.215, 454.196, 433.096, 385.329, 440.834, 372.175 )
 
 [node name="farmBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
-visible = false
 
-[node name="farmCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/farmBtn"]
-position = Vector2( 775.392, 678.348 )
-shape = SubResource( 21 )
+[node name="farmCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/farmBtn"]
+polygon = PoolVector2Array( 575.031, 582.801, 552.243, 640.138, 553.714, 658.515, 522.84, 683.508, 526.515, 698.21, 668.388, 782.011, 782.327, 715.117, 885.975, 775.395, 974.187, 733.495, 985.213, 742.316, 1059.46, 694.535, 1013.15, 660.72, 1020.5, 634.257, 972.716, 606.324, 964.63, 586.476, 944.048, 590.887, 913.174, 576.92, 874.214, 612.939, 874.214, 628.376, 863.188, 634.992, 851.426, 623.231, 839.665, 651.164, 800.705, 675.422, 707.348, 621.76, 681.62, 555.602, 647.805, 595.297, 634.574, 551.192, 614.726, 543.106, 597.819, 593.092 )
 
 [node name="workshopBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
-[node name="workshopCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/workshopBtn"]
-position = Vector2( -134.405, -127.943 )
-shape = SubResource( 22 )
+[node name="workshopCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/workshopBtn"]
+polygon = PoolVector2Array( -288.751, -119.728, -135.624, -24.4302, -97.3422, -31.7608, 10.9872, -95.2924, 5.28571, -122.171, -5.30289, -124.615, -34.6252, -222.355, -57.4313, -212.581, -81.0521, -241.089, -141.326, -206.88, -175.535, -228.872, -192.64, -215.025, -223.591, -232.944, -235.808, -194.662, -262.687, -171.856 )
 
 [node name="fisheryProduce" type="Area2D" parent="buttonsCollider/mainBuildings"]
 position = Vector2( -16, 136 )
@@ -649,6 +591,11 @@ shape = SubResource( 26 )
 
 [node name="castleCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/castleBtn"]
 polygon = PoolVector2Array( 527.201, -337.95, 521.501, -508, 572.801, -538.4, 605.101, -521.3, 681.101, -559.3, 683.001, -584, 708.651, -590.65, 706.751, -626.75, 713.401, -655.25, 762.801, -681.851, 807.451, -654.3, 806.501, -629.6, 815.051, -620.1, 816.001, -602.05, 835.001, -577.35, 902.451, -528.9, 950.901, -546, 1009.8, -504.2, 993.651, -479.5, 996.501, -329.4, 760.901, -190.7, 527.201, -338.9 )
+
+[node name="estateBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+
+[node name="estateCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/estateBtn"]
+polygon = PoolVector2Array( -141.544, 323.078, -102.855, 324.625, -98.2123, 344.744, -45.5952, 381.885, -17.739, 428.312, -21.6079, 481.703, -29.3458, 494.083, -27.0244, 508.012, -5.35852, 525.035, -105.176, 587.711, -165.531, 552.117, -147.734, 535.094, -164.758, 530.451, -183.328, 542.832, -212.732, 526.582, -184.102, 504.143, -182.555, 458.49, -192.614, 454.621, -173.269, 420.574, -177.138, 402.777 )
 
 [node name="bakeryLabel" type="Label" parent="."]
 margin_left = 86.751
@@ -722,30 +669,6 @@ text = "Workshop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ClickMoneyButton" type="Button" parent="."]
-margin_left = -169.0
-margin_top = 354.0
-margin_right = -21.0
-margin_bottom = 575.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="coin" type="Particles2D" parent="ClickMoneyButton"]
-material = SubResource( 6 )
-position = Vector2( 71.8272, 41.394 )
-emitting = false
-amount = 12
-lifetime = 2.0
-one_shot = true
-speed_scale = 2.0
-explosiveness = 1.0
-process_material = SubResource( 11 )
-texture = ExtResource( 67 )
 
 [node name="castleLabel" type="Label" parent="."]
 margin_left = 504.59
@@ -994,7 +917,6 @@ autostart = true
 [node name="dragTimer" type="Timer" parent="."]
 wait_time = 1.25
 one_shot = true
-[connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
 [connection signal="timeout" from="fishery/fishTimer" to="fishery" method="_on_fishTimer_timeout"]
 [connection signal="timeout" from="fishery/progressTimer" to="fishery" method="_on_progressTimer_timeout"]
 [connection signal="timeout" from="huntingCabin/huntingTimer" to="huntingCabin" method="_on_huntingTimer_timeout"]
