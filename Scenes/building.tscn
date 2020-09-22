@@ -1,0 +1,167 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=1]
+[ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=2]
+[ext_resource path="res://Image-assets/billboard.png" type="Texture" id=3]
+[ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=4]
+[ext_resource path="res://Image-assets/filler.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/small_background.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/building.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+outline_color = Color( 0.219608, 0.113725, 0.0705882, 1 )
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+outline_size = 1
+outline_color = Color( 0.211765, 0.105882, 0.0627451, 1 )
+use_filter = true
+font_data = SubResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 178, 11 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 2 )
+shader_param/grayscale = false
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+font_data = SubResource( 8 )
+
+[node name="building" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="income" type="Node2D" parent="."]
+visible = false
+
+[node name="bkgr" type="Sprite" parent="income"]
+position = Vector2( 208.366, 74.7081 )
+texture = ExtResource( 6 )
+
+[node name="name" type="Label" parent="income/bkgr"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.0
+margin_top = -35.0
+margin_right = -81.0
+margin_bottom = -13.0
+rect_scale = Vector2( 0.995325, 1.02389 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.211765, 0.105882, 0.0627451, 1 )
+text = "COTTAGE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productionRate" type="Label" parent="income/bkgr"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.0
+margin_top = -56.0
+margin_right = -23.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "222.12K / 12.02 Sec"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressBarBody" type="TextureRect" parent="income"]
+margin_left = 117.26
+margin_top = 88.8476
+margin_right = 301.26
+margin_bottom = 104.848
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="progressBar" type="ProgressBar" parent="income/progressBarBody"]
+margin_left = 2.07368
+margin_top = 0.724602
+margin_right = 181.074
+margin_bottom = 14.7246
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="produceTimer" type="Timer" parent="income"]
+wait_time = 2.0
+
+[node name="progressTimer" type="Timer" parent="income"]
+wait_time = 0.001
+
+[node name="unlockBtn" type="Node2D" parent="."]
+
+[node name="btnBkgr" type="Sprite" parent="unlockBtn"]
+material = SubResource( 7 )
+position = Vector2( 207.61, 75.8128 )
+texture = ExtResource( 1 )
+
+[node name="costLabel" type="Label" parent="unlockBtn/btnBkgr"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -73.5
+margin_top = -14.5
+margin_right = -73.5
+margin_bottom = -14.5
+custom_fonts/font = SubResource( 9 )
+text = "[cost]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="billboards" type="Node2D" parent="."]
+
+[node name="manorBill" type="Node2D" parent="billboards"]
+visible = false
+position = Vector2( 3.47964, -95.3609 )
+
+[node name="Sprite" type="Sprite" parent="billboards/manorBill"]
+position = Vector2( 210.543, 249.09 )
+scale = Vector2( 1.7465, 1.7465 )
+texture = ExtResource( 3 )
+
+[node name="cottage1Bill" type="Node2D" parent="billboards"]
+visible = false
+position = Vector2( 3.47964, -95.3609 )
+
+[node name="Sprite" type="Sprite" parent="billboards/cottage1Bill"]
+position = Vector2( 205.543, 240.09 )
+scale = Vector2( 1.7465, 1.7465 )
+texture = ExtResource( 3 )
+
+[node name="checkUi" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+[connection signal="timeout" from="income/produceTimer" to="." method="_on_produceTimer_timeout"]
+[connection signal="timeout" from="income/progressTimer" to="." method="_on_progressTimer_timeout"]
+[connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

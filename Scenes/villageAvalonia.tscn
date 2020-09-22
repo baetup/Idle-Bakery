@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scenes/store.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Image-assets/filler.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/bakery.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/building.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Tile-sets/village-assets/Dragons_den_300x300.png" type="Texture" id=21]
 [ext_resource path="res://Tile-sets/village-assets/Elven_house_300x300.png" type="Texture" id=23]
 [ext_resource path="res://Tile-sets/village-assets/Farm2_300x300.png" type="Texture" id=24]
@@ -456,62 +457,62 @@ shader_param/grayscale = false
 38/shapes = [  ]
 38/z_index = 0
 
-[sub_resource type="CircleShape2D" id=23]
+[sub_resource type="CircleShape2D" id=3]
 radius = 43.5626
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=4]
 radius = 32.3362
 
-[sub_resource type="CircleShape2D" id=25]
+[sub_resource type="CircleShape2D" id=5]
 radius = 42.0109
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=6]
 radius = 29.609
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 29
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=8]
 
-[sub_resource type="ShaderMaterial" id=27]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 60 )
 shader_param/grayscale = false
+
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 35
+outline_size = 3
+outline_color = Color( 0.101961, 0.054902, 0.0392157, 1 )
+font_data = SubResource( 10 )
 
 [sub_resource type="DynamicFontData" id=12]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=13]
-size = 35
-outline_size = 3
-outline_color = Color( 0.101961, 0.054902, 0.0392157, 1 )
-font_data = SubResource( 12 )
-
-[sub_resource type="DynamicFontData" id=14]
-font_path = "res://Fonts/BebasNeue-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=15]
 size = 24
 outline_size = 2
 outline_color = Color( 0.078476, 0.0850815, 0.144531, 1 )
-font_data = SubResource( 14 )
+font_data = SubResource( 12 )
 
-[sub_resource type="StyleBoxTexture" id=16]
+[sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 178, 11 )
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="ShaderMaterial" id=28]
+[sub_resource type="ShaderMaterial" id=16]
 shader = ExtResource( 60 )
 shader_param/grayscale = false
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=17]
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=18]
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
@@ -567,25 +568,25 @@ position = Vector2( -16, 136 )
 
 [node name="fisheryProduceCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/fisheryProduce"]
 position = Vector2( -312.026, 678.442 )
-shape = SubResource( 23 )
+shape = SubResource( 3 )
 
 [node name="fisheryUpgrade" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
 [node name="fisheryUpgradeCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/fisheryUpgrade"]
 position = Vector2( -265.262, 868.901 )
-shape = SubResource( 24 )
+shape = SubResource( 4 )
 
 [node name="huntingProduce" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
 [node name="huntingProduceCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/huntingProduce"]
 position = Vector2( 694.611, 927.694 )
-shape = SubResource( 25 )
+shape = SubResource( 5 )
 
 [node name="huntingUpgrade" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
 [node name="huntingUpgradeCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/huntingUpgrade"]
 position = Vector2( 760.003, 980.995 )
-shape = SubResource( 26 )
+shape = SubResource( 6 )
 
 [node name="castleBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
 
@@ -597,12 +598,31 @@ polygon = PoolVector2Array( 527.201, -337.95, 521.501, -508, 572.801, -538.4, 60
 [node name="estateCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/estateBtn"]
 polygon = PoolVector2Array( -141.544, 323.078, -102.855, 324.625, -98.2123, 344.744, -45.5952, 381.885, -17.739, 428.312, -21.6079, 481.703, -29.3458, 494.083, -27.0244, 508.012, -5.35852, 525.035, -105.176, 587.711, -165.531, 552.117, -147.734, 535.094, -164.758, 530.451, -183.328, 542.832, -212.732, 526.582, -184.102, 504.143, -182.555, 458.49, -192.614, 454.621, -173.269, 420.574, -177.138, 402.777 )
 
-[node name="bakeryLabel" type="Label" parent="."]
+[node name="secondaryBuildings" type="Node2D" parent="buttonsCollider"]
+
+[node name="building1" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="building1Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building1"]
+polygon = PoolVector2Array( -536.18, -80.1994, -578.08, -54.3608, -598.332, -57.1542, -599.729, -47.3774, -633.948, 5.69629, -643.724, 47.5966, -649.311, 73.4352, -556.432, 132.794, -457.966, 70.6418, -475.425, 44.8033, -483.106, 32.2332, -512.437, 4.29962 )
+
+[node name="building2" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="building2Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building2"]
+polygon = PoolVector2Array( -248.66, 236.936, -321.985, 276.043, -331.064, 295.597, -355.506, 320.038, -355.506, 366.827, -266.118, 424.789, -189.301, 336.799, -210.251, 231.349, -227.011, 216.684, -244.47, 225.064 )
+
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bakeryLabel" type="Label" parent="labels"]
 margin_left = 86.751
 margin_top = 159.576
-margin_right = 213.751
+margin_right = 217.751
 margin_bottom = 189.576
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Bakery"
 align = 1
 valign = 1
@@ -610,9 +630,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="warning" type="TextureRect" parent="bakeryLabel"]
+[node name="warning" type="TextureRect" parent="labels/bakeryLabel"]
 visible = false
-material = SubResource( 5 )
+material = SubResource( 8 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -623,84 +643,84 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="shopLabel" type="Label" parent="."]
+[node name="shopLabel" type="Label" parent="labels"]
 margin_left = 318.57
 margin_top = 354.873
 margin_right = 414.57
 margin_bottom = 384.873
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Shop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClickMoneyLabel" type="Label" parent="."]
+[node name="ClickMoneyLabel" type="Label" parent="labels"]
 margin_left = -182.0
 margin_top = 358.0
 margin_right = -62.0
 margin_bottom = 388.0
 rect_pivot_offset = Vector2( -250.777, 260.384 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Estate"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="farmLabel" type="Label" parent="."]
+[node name="farmLabel" type="Label" parent="labels"]
 margin_left = 561.683
 margin_top = 536.343
 margin_right = 666.683
 margin_bottom = 566.343
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Farm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="workshopLabel" type="Label" parent="."]
+[node name="workshopLabel" type="Label" parent="labels"]
 margin_left = -234.917
 margin_top = -260.225
 margin_right = -35.9171
 margin_bottom = -230.225
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Workshop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="castleLabel" type="Label" parent="."]
+[node name="castleLabel" type="Label" parent="labels"]
 margin_left = 504.59
 margin_top = -598.979
 margin_right = 651.59
 margin_bottom = -568.979
 rect_pivot_offset = Vector2( 370.222, -122.827 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Castle"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fisheryLabel" type="Label" parent="."]
+[node name="fisheryLabel" type="Label" parent="labels"]
 margin_left = -405.0
 margin_top = 722.01
 margin_right = -251.0
 margin_bottom = 752.01
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Fishery"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="huntingCabinLabel" type="Label" parent="."]
+[node name="huntingCabinLabel" type="Label" parent="labels"]
 margin_left = 573.0
 margin_top = 831.36
 margin_right = 818.0
 margin_bottom = 861.36
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Hunting Cabin"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -711,7 +731,7 @@ position = Vector2( -451.197, 741.491 )
 script = ExtResource( 57 )
 
 [node name="fisheryBtn" type="Sprite" parent="fishery"]
-material = SubResource( 27 )
+material = SubResource( 9 )
 position = Vector2( 122.539, 70.8541 )
 scale = Vector2( 0.449253, 0.449252 )
 texture = ExtResource( 55 )
@@ -731,7 +751,7 @@ margin_top = -34.3257
 margin_right = 69.8953
 margin_bottom = 8.67438
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 11 )
 text = "cost"
 align = 1
 valign = 1
@@ -750,7 +770,7 @@ margin_right = -13.0886
 margin_bottom = -8.33366
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 13 )
 text = "lvl"
 align = 1
 valign = 1
@@ -786,8 +806,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 14 )
+custom_styles/bg = SubResource( 15 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -803,7 +823,7 @@ position = Vector2( 695.173, 927.646 )
 script = ExtResource( 58 )
 
 [node name="huntingBtn" type="Sprite" parent="huntingCabin"]
-material = SubResource( 28 )
+material = SubResource( 16 )
 scale = Vector2( 0.431354, 0.431353 )
 texture = ExtResource( 59 )
 
@@ -822,7 +842,7 @@ margin_top = -33.4879
 margin_right = 65.292
 margin_bottom = 9.51212
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 11 )
 text = "cost"
 align = 1
 valign = 1
@@ -841,7 +861,7 @@ margin_right = -18.5436
 margin_bottom = -16.0807
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 13 )
 text = "lvl"
 align = 1
 valign = 1
@@ -877,8 +897,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 14 )
+custom_styles/bg = SubResource( 15 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -889,17 +909,27 @@ __meta__ = {
 [node name="progressTimer" type="Timer" parent="huntingCabin"]
 wait_time = 0.001
 
+[node name="incomeBuildings" type="Node2D" parent="."]
+
+[node name="building1" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -768.991, -46.5118 )
+targetBuilding = "building1"
+
+[node name="building2" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -480.991, 243.488 )
+targetBuilding = "building2"
+
 [node name="UiCanvas" type="CanvasLayer" parent="."]
 
 [node name="bakery" parent="UiCanvas" instance=ExtResource( 19 )]
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 17 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 18 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false

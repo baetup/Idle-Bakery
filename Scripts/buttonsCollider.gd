@@ -31,8 +31,8 @@ func indentifyNode(nodeValue : String):
 		get_node("/root/GameManager/villageAvalonia/UiCanvas/bakery").show()
 	elif nodeValue == "storeBtn":
 		get_node("/root/GameManager/villageAvalonia/UiCanvas/store").show()
-	#elif nodeValue == "farmBtn":
-		#get_node("/root/GameManager/villageAvalonia/UiCanvas/farm").show()
+	elif nodeValue == "farmBtn":
+		get_node("/root/GameManager/villageAvalonia/UiCanvas/farm").show()
 	elif nodeValue == "workshopBtn":
 		get_node("/root/GameManager/villageAvalonia/UiCanvas/workshop").show()
 	elif nodeValue == "fisheryProduce":
@@ -48,5 +48,9 @@ func indentifyNode(nodeValue : String):
 	elif nodeValue == "estateBtn":
 		get_node("/root/GameManager/villageAvalonia")._on_ClickMoneyButton_pressed()
 	
-	
-	
+	#secondary buildings
+	elif nodeValue == "building1":
+		get_node("/root/GameManager/villageAvalonia/incomeBuildings/building1")._on_Buy_Buildings()
+	elif nodeValue == "building2":
+		get_node("/root/GameManager/villageAvalonia/incomeBuildings/building2")._on_Buy_Buildings()
+

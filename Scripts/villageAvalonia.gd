@@ -8,10 +8,6 @@ onready var gameManagerNodePath = get_node("/root/GameManager")
 var clickMoney = 10
 
 
-var building1Exp = 11
-var building1Cost = 1000
-
-
 #Receive money when you click the click money building
 func _on_ClickMoneyButton_pressed():
 	globals.addToMoney(clickMoney)
@@ -33,9 +29,9 @@ func checkProductionStops():
 		counter += 1
 	
 	if stopsFound > 0:
-		$bakeryLabel/warning.visible = 1
+		$labels/bakeryLabel/warning.visible = 1
 	else:
-		$bakeryLabel/warning.visible = 0
+		$labels/bakeryLabel/warning.visible = 0
 
 func _on_getCastleOpen_pressed():
 	get_node("/root/GameManager/UiCanvas/castle").visible = 1

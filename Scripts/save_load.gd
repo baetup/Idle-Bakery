@@ -11,6 +11,7 @@ const MISC_OBJ_DIR = "user://misc_objects/"
 const PRODUCTS_DIR = "user://products/"
 const SUPERVISOR_DIR = "user://supervisors/"
 const UPGRADES_DIR = "user://upgrades/"
+const BUILDINGS_DIR = "user://buildings"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -38,24 +39,45 @@ func save_resources():
 	var dir_upgrades = Directory.new()
 	if !dir_upgrades.dir_exists(UPGRADES_DIR):
 		dir_upgrades.make_dir(UPGRADES_DIR)
+	
+	var dir_buildings = Directory.new()
+	if !dir_buildings.dir_exists(BUILDINGS_DIR):
+		dir_buildings.make_dir(BUILDINGS_DIR)
 
+	#products
 	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
 	ResourceSaver.save("user://products/cookieAvalonia.tres", globals.cookieAvalonia)
+	
+	#ingredients - farm
 	ResourceSaver.save("user://ingredients/flour.tres", ingredients.flour)
 	ResourceSaver.save("user://ingredients/sugar.tres", ingredients.sugar)
+	
+	#supervisors
 	ResourceSaver.save("user://supervisors/breadBakAvaS.tres", globals.breadBakAvaS)
 	ResourceSaver.save("user://supervisors/cookieBakAvaS.tres", globals.cookieBakAvaS)
 	ResourceSaver.save("user://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
 	ResourceSaver.save("user://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
+	
+	#castle
 	ResourceSaver.save("user://misc_objects/mainCastle.tres", globals.mainCastle)
+	
+	#upgrades
 	ResourceSaver.save("user://upgrades/B_iBS1.tres", s_upgrades.B_iBS1)
 	ResourceSaver.save("user://upgrades/S_iSP1.tres", s_upgrades.S_iSP1)
+	
+	#ingredients - fish
 	ResourceSaver.save("user://ingredients/fish_cod.tres", s_fish.codFish)
 	ResourceSaver.save("user://ingredients/fish_herring.tres", s_fish.herringFish)
 	ResourceSaver.save("user://ingredients/fish_trout.tres", s_fish.troutFish)
+	
+	#ingredients - hunt
 	ResourceSaver.save("user://ingredients/meatBoar.tres", s_hunting.meatBoar)
 	ResourceSaver.save("user://ingredients/meatDeer.tres", s_hunting.meatDeer)
 	ResourceSaver.save("user://ingredients/meatWildChicken.tres", s_hunting.meatWildChicken)
+	
+	#buildings
+	ResourceSaver.save("user://buildings/building1.tres", s_buildings.building1)
+	ResourceSaver.save("user://buildings/building2.tres", s_buildings.building2)
 
 
 func save_data():
