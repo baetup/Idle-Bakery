@@ -13,10 +13,7 @@ func _input(event):
 		#insert what needs to open here
 		var mouse_pos = get_global_mouse_position()
 		var node = identifyUI(mouse_pos)
-		if node == "bakeryBtn":
-			get_node("/root/GameManager/villageAvalonia/UiCanvas/bakery").show()
-		get_node("/root/GameManager/villageAvalonia/Label").text = node
-		print("mouse position: " + str(mouse_pos))
+		indentifyNode(node)
 		drag_timer.stop()
 		drag_timer.wait_time = 1
 
@@ -28,3 +25,27 @@ func identifyUI(position : Vector2):
 		return collidingNode.name
 	else:
 		return collidingNode
+
+func indentifyNode(nodeValue : String):
+	if nodeValue == "bakeryBtn":
+		get_node("/root/GameManager/villageAvalonia/UiCanvas/bakery").show()
+	elif nodeValue == "storeBtn":
+		get_node("/root/GameManager/villageAvalonia/UiCanvas/store").show()
+	#elif nodeValue == "farmBtn":
+		#get_node("/root/GameManager/villageAvalonia/UiCanvas/farm").show()
+	elif nodeValue == "workshopBtn":
+		get_node("/root/GameManager/villageAvalonia/UiCanvas/workshop").show()
+	elif nodeValue == "fisheryProduce":
+		get_node("/root/GameManager/villageAvalonia/fishery")._on_fisheryBtn_pressed()
+	elif nodeValue == "fisheryUpgrade":
+		get_node("/root/GameManager/villageAvalonia/fishery")._on_upgradefishery_pressed()
+	elif nodeValue == "huntingProduce":
+		get_node("/root/GameManager/villageAvalonia/huntingCabin")._on_huntingBtn_pressed()
+	elif nodeValue == "huntingUpgrade":
+		get_node("/root/GameManager/villageAvalonia/huntingCabin")._on_upgradehunting_pressed()
+	elif nodeValue == "castleBtn":
+		get_node("/root/GameManager/villageAvalonia")._on_getCastleOpen_pressed()
+	
+	
+	
+	

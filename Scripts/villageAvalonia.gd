@@ -12,19 +12,7 @@ var building1Exp = 11
 var building1Cost = 1000
 
 
-func _on_getBakeryOpen_pressed():
-	bakeryNodePath.visible = 1
-	#Sending a boolean to the cameraNode to stop the camera from panning
-	var tempBoolean = true
-	cameraNodePath.setBakeryState(tempBoolean)
-
-func _on_getStoreOpen_pressed():
-	storeNodePath.visible = 1
-	#Sending a boolean to the cameraNode to stop the camera from panning
-	var tempBoolean = true
-	cameraNodePath.setStoreState(tempBoolean)
-
-# Receive money when you click the click money building
+#Receive money when you click the click money building
 func _on_ClickMoneyButton_pressed():
 	globals.addToMoney(clickMoney)
 	$ClickMoneyButton/coin.one_shot = false
@@ -40,9 +28,6 @@ func _on_ClickMoneyButton_pressed():
 func _on_checkUi_timeout():
 	#checking for production stops
 	checkProductionStops()
-
-func _on_getFarmOpen_pressed():
-	$UiCanvas/farm.visible = 1
 
 func checkProductionStops():
 	var counter = 0
@@ -63,7 +48,4 @@ func checkProductionStops():
 func _on_getCastleOpen_pressed():
 	get_node("/root/GameManager/UiCanvas/castle").visible = 1
 	get_node("/root/GameManager/UiCanvas/castle").checkStatus()
-
-func _on_getWorkshopOpen_pressed():
-	$UiCanvas/workshop.show()
 
