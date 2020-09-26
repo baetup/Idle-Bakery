@@ -38,16 +38,16 @@ func _on_next2_pressed():
 	$kingDialog1.visible = 0
 
 #Checking if condition has been met to marry, triggers when
-#opening the castle, check gameManager
+#opening the castle, check village
 func checkStatus():
-
-	if globals.prestigeLevel >= 50 :
+	
+	
+	if (globals.prestigeLevel >= 45 && globals.fatherNoble) || (globals.prestigeLevel >= 43 && globals.fatherNoble && globals.youthCircusTrainee) || (globals.prestigeLevel >= 48 && globals.youthCircusTrainee) || (globals.prestigeLevel == 50):
 		$castlePanel/bkgr/vbox/portrait0/actionFirst.disabled = 0
 		$castlePanel/bkgr/vbox/portrait0/actualStatus.text = "Willing"
 		
 		$castlePanel/bkgr/vbox/portrait1/actionSecond.disabled = 0
 		$castlePanel/bkgr/vbox/portrait1/actualStatus.text = "Willing"
-
 	else:
 		$castlePanel/bkgr/vbox/portrait0/actionFirst.disabled = 1
 		$castlePanel/bkgr/vbox/portrait0/actualStatus.text = "Unwilling"

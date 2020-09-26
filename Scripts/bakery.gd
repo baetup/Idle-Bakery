@@ -3,6 +3,7 @@ extends Panel
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var bakeryBtn = $bakeryBtn
 onready var supervisorBtn = $supervisorsBtn
+onready var mainBuildingsCollider = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
 
 
 export var targetBakery = "avaloniaBakery"
@@ -13,6 +14,7 @@ func _ready():
 func _on_close_bakery_pressed():
 	$".".visible = 0
 	cameraNodePath.setBakeryState(false)
+	mainBuildingsCollider.showColliders()
 
 
 func _on_supervisorsBtn_pressed():

@@ -175,8 +175,8 @@ __meta__ = {
 }
 
 [node name="cunLabel" type="Label" parent="traitsContainer"]
-margin_right = 22.0
-margin_bottom = 20.0
+margin_right = 18.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 9 )
 text = "CUN:"
 __meta__ = {
@@ -221,9 +221,9 @@ __meta__ = {
 }
 
 [node name="chrLabel" type="Label" parent="traitsContainer"]
-margin_left = 117.0
-margin_right = 139.0
-margin_bottom = 20.0
+margin_left = 113.0
+margin_right = 130.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 9 )
 text = "CHR:"
 __meta__ = {
@@ -269,9 +269,9 @@ __meta__ = {
 }
 
 [node name="intLabel" type="Label" parent="traitsContainer"]
-margin_top = 40.0
-margin_right = 22.0
-margin_bottom = 60.0
+margin_top = 36.0
+margin_right = 18.0
+margin_bottom = 52.0
 custom_fonts/font = ExtResource( 9 )
 text = "INT:"
 __meta__ = {
@@ -317,10 +317,10 @@ __meta__ = {
 }
 
 [node name="invLabel" type="Label" parent="traitsContainer"]
-margin_left = 117.0
-margin_top = 40.0
-margin_right = 139.0
-margin_bottom = 60.0
+margin_left = 113.0
+margin_top = 36.0
+margin_right = 130.0
+margin_bottom = 52.0
 custom_fonts/font = ExtResource( 9 )
 text = "INV:"
 __meta__ = {

@@ -1,10 +1,11 @@
-extends Control
+extends Node2D
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+var isProducing = false
+
 
 func _ready():
 	ui()
-
 
 func ui():
 	$huntingTimer.wait_time = s_hunting.huntingTime
@@ -12,12 +13,14 @@ func ui():
 	$huntingBtn/levelBkgr/levelCount.text = str(s_hunting.huntingLevel)
 
 func _on_huntingBtn_pressed():
-	$huntingBtn/progressBarBody.show()
-	$huntingTimer.start()
-	$progressTimer.start()
-	$huntingTimer.autostart = 0
-	$progressTimer.autostart = 0
-	$huntingBtn.disabled = 1
+	if isProducing == false:
+		isProducing = true
+		$huntingBtn/progressBarBody.show()
+		$huntingTimer.start()
+		$progressTimer.start()
+		$huntingTimer.autostart = 0
+		$progressTimer.autostart = 0
+		$huntingBtn.material.set_shader_param('grayscale', true)
 
 func _on_progressTimer_timeout():
 	var current_progress = ($huntingTimer.wait_time - $huntingTimer.time_left) / $huntingTimer.wait_time 
@@ -26,10 +29,11 @@ func _on_progressTimer_timeout():
 
 
 func _on_huntingTimer_timeout():
+	isProducing = false
 	$huntingTimer.stop()
 	$progressTimer.stop()
 	$huntingBtn/progressBarBody/progressBar.set("value", 0.00)
-	$huntingBtn.disabled = 0
+	$huntingBtn.material.set_shader_param('grayscale', false)
 	$huntingBtn/progressBarBody.hide()
 	retrieveMeat()
 

@@ -11,6 +11,7 @@ const MISC_OBJ_DIR = "user://misc_objects/"
 const PRODUCTS_DIR = "user://products/"
 const SUPERVISOR_DIR = "user://supervisors/"
 const UPGRADES_DIR = "user://upgrades/"
+const BUILDINGS_DIR = "user://buildings"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -38,25 +39,71 @@ func save_resources():
 	var dir_upgrades = Directory.new()
 	if !dir_upgrades.dir_exists(UPGRADES_DIR):
 		dir_upgrades.make_dir(UPGRADES_DIR)
+	
+	var dir_buildings = Directory.new()
+	if !dir_buildings.dir_exists(BUILDINGS_DIR):
+		dir_buildings.make_dir(BUILDINGS_DIR)
 
+	#products
 	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
 	ResourceSaver.save("user://products/cookieAvalonia.tres", globals.cookieAvalonia)
+	
+	#ingredients - farm
 	ResourceSaver.save("user://ingredients/flour.tres", ingredients.flour)
 	ResourceSaver.save("user://ingredients/sugar.tres", ingredients.sugar)
+	
+	#supervisors
 	ResourceSaver.save("user://supervisors/breadBakAvaS.tres", globals.breadBakAvaS)
 	ResourceSaver.save("user://supervisors/cookieBakAvaS.tres", globals.cookieBakAvaS)
 	ResourceSaver.save("user://supervisors/breadStorAvaS.tres", globals.breadStorAvaS)
 	ResourceSaver.save("user://supervisors/cookieStorAvaS.tres", globals.cookieStorAvaS)
+	
+	#castle
 	ResourceSaver.save("user://misc_objects/mainCastle.tres", globals.mainCastle)
+	
+	#upgrades
 	ResourceSaver.save("user://upgrades/B_iBS1.tres", s_upgrades.B_iBS1)
 	ResourceSaver.save("user://upgrades/S_iSP1.tres", s_upgrades.S_iSP1)
+	
+	#ingredients - fish
 	ResourceSaver.save("user://ingredients/fish_cod.tres", s_fish.codFish)
 	ResourceSaver.save("user://ingredients/fish_herring.tres", s_fish.herringFish)
 	ResourceSaver.save("user://ingredients/fish_trout.tres", s_fish.troutFish)
+	
+	#ingredients - hunt
 	ResourceSaver.save("user://ingredients/meatBoar.tres", s_hunting.meatBoar)
 	ResourceSaver.save("user://ingredients/meatDeer.tres", s_hunting.meatDeer)
 	ResourceSaver.save("user://ingredients/meatWildChicken.tres", s_hunting.meatWildChicken)
-
+	
+	#buildings
+	ResourceSaver.save("user://buildings/building1.tres", s_buildings.building1)
+	ResourceSaver.save("user://buildings/building2.tres", s_buildings.building2)
+	ResourceSaver.save("user://buildings/building3.tres", s_buildings.building3)
+	ResourceSaver.save("user://buildings/building4.tres", s_buildings.building4)
+	ResourceSaver.save("user://buildings/building5.tres", s_buildings.building5)
+	ResourceSaver.save("user://buildings/building6.tres", s_buildings.building6)
+	ResourceSaver.save("user://buildings/building7.tres", s_buildings.building7)
+	ResourceSaver.save("user://buildings/building8.tres", s_buildings.building8)
+	ResourceSaver.save("user://buildings/building9.tres", s_buildings.building9)
+	ResourceSaver.save("user://buildings/building10.tres", s_buildings.building10)
+	ResourceSaver.save("user://buildings/building11.tres", s_buildings.building11)
+	ResourceSaver.save("user://buildings/building12.tres", s_buildings.building12)
+	ResourceSaver.save("user://buildings/building13.tres", s_buildings.building13)
+	ResourceSaver.save("user://buildings/building14.tres", s_buildings.building14)
+	ResourceSaver.save("user://buildings/building15.tres", s_buildings.building15)
+	ResourceSaver.save("user://buildings/building16.tres", s_buildings.building16)
+	ResourceSaver.save("user://buildings/building17.tres", s_buildings.building17)
+	ResourceSaver.save("user://buildings/building18.tres", s_buildings.building18)
+	ResourceSaver.save("user://buildings/building19.tres", s_buildings.building19)
+	ResourceSaver.save("user://buildings/building20.tres", s_buildings.building20)
+	ResourceSaver.save("user://buildings/building21.tres", s_buildings.building21)
+	ResourceSaver.save("user://buildings/building22.tres", s_buildings.building22)
+	ResourceSaver.save("user://buildings/building23.tres", s_buildings.building23)
+	ResourceSaver.save("user://buildings/building24.tres", s_buildings.building24)
+	ResourceSaver.save("user://buildings/building25.tres", s_buildings.building25)
+	ResourceSaver.save("user://buildings/building26.tres", s_buildings.building26)
+	ResourceSaver.save("user://buildings/building27.tres", s_buildings.building27)
+	ResourceSaver.save("user://buildings/building28.tres", s_buildings.building28)
 
 func save_data():
 	data = {
@@ -77,7 +124,17 @@ func save_data():
 		'fishingTime' : s_fish.fishingTime,
 		'fishingTimeMult' : s_fish.fishingTimeMult,
 		'fishingLevelCost' : s_fish.fishingLevelCost,
-		'fishingLevelMult' : s_fish.fishingLevelMult
+		'fishingLevelMult' : s_fish.fishingLevelMult,
+		'fatherNoble' : globals.fatherNoble,
+		'fatherMerchant' : globals.fatherMerchant,
+		'fatherHunter' : globals.fatherHunter,
+		'fatherThief' : globals.fatherFarmer,
+		'fatherAngler': globals.fatherAngler,
+		'fatherFarmer' : globals.fatherFarmer,
+		'youthApprentice' : globals.youthApprentice,
+		'youthServant' : globals.youthServant,
+		'youthStreetThief' : globals.youthStreetThief,
+		'youthCircusTrainee' : globals.youthCircusTrainee
 	}
 
 	var dir = Directory.new()
@@ -138,3 +195,25 @@ func assign_data():
 	s_fish.fishingTimeMult = data['fishingTimeMult']
 	s_fish.fishingLevelCost = data['fishingLevelCost']
 	s_fish.fishingLevelMult = data['fishingLevelMult']
+	
+	globals.fatherNoble = data['fatherNoble']
+	globals.fatherMerchant = data['fatherMerchant']
+	globals.fatherHunter = data['fatherHunter']
+	globals.fatherThief = data['fatherThief']
+	globals.fatherAngler = data['fatherAngler']
+	globals.fatherFarmer = data['fatherFarmer']
+	
+	globals.youthApprentice = data['youthApprentice']
+	globals.youthServant = data['youthServant']
+	globals.youthStreetThief = data['youthStreetThief']
+	globals.youthCircusTrainee = data['youthCircusTrainee']
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

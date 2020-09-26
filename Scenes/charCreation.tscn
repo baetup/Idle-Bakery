@@ -1,14 +1,22 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Image-assets/paper.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/charCreation.gd" type="Script" id=3]
 [ext_resource path="res://Image-assets/charPanel-male.png" type="Texture" id=4]
 [ext_resource path="res://Image-assets/charPanel-female.png" type="Texture" id=5]
-[ext_resource path="res://Image-assets/check-mark.png" type="Texture" id=6]
 [ext_resource path="res://Image-assets/charPanel-male1-checked.png" type="Texture" id=7]
 [ext_resource path="res://Image-assets/charPanel-other1.png" type="Texture" id=8]
 [ext_resource path="res://Image-assets/charPanel-other1-checked.png" type="Texture" id=9]
+[ext_resource path="res://Image-assets/charPanel-female1-checked.png" type="Texture" id=10]
+[ext_resource path="res://Image-assets/charPanel-female2-checked.png" type="Texture" id=11]
+[ext_resource path="res://Image-assets/charPanel-female2.png" type="Texture" id=12]
+[ext_resource path="res://Image-assets/charPanel-other2-checked.png" type="Texture" id=13]
+[ext_resource path="res://Image-assets/charPanel-other2.png" type="Texture" id=14]
+[ext_resource path="res://Image-assets/charPanel-male2-checked.png" type="Texture" id=15]
+[ext_resource path="res://Image-assets/charPanel-male2.png" type="Texture" id=16]
+[ext_resource path="res://Image-assets/button-five-pressed.png" type="Texture" id=17]
+[ext_resource path="res://Image-assets/button-five.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -16,21 +24,86 @@ outline_color = Color( 0.341176, 0.203922, 0, 1 )
 extra_spacing_top = 5
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 17
+outline_color = Color( 0.290196, 0.184314, 0.027451, 1 )
+use_filter = true
+font_data = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 11.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 11.0
+bg_color = Color( 0.266667, 0.172549, 0.0431373, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id=6]
+LineEdit/colors/clear_button_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+LineEdit/colors/cursor_color = Color( 0.94, 0.94, 0.94, 1 )
+LineEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_uneditable = Color( 0.88, 0.88, 0.88, 0.5 )
+LineEdit/colors/selection_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = null
+LineEdit/icons/clear = null
+LineEdit/styles/focus = SubResource( 4 )
+LineEdit/styles/normal = SubResource( 5 )
+LineEdit/styles/read_only = null
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+font_data = SubResource( 7 )
+
 [node name="charCreation" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="paper" type="Sprite" parent="."]
+[node name="center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+use_top_left = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paper" type="Sprite" parent="center"]
 position = Vector2( 215.099, 376.988 )
 texture = ExtResource( 2 )
 
-[node name="firstStep" type="Node2D" parent="paper"]
+[node name="firstStep" type="Node2D" parent="center/paper"]
 visible = false
 position = Vector2( -144, -202 )
 
-[node name="introText" type="RichTextLabel" parent="paper/firstStep"]
-margin_top = 1.0
-margin_right = 284.0
-margin_bottom = 172.0
+[node name="introText" type="RichTextLabel" parent="center/paper/firstStep"]
+margin_left = 3.16632
+margin_top = 2.16635
+margin_right = 287.166
+margin_bottom = 173.166
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.265625, 0.174413, 0.0415039, 1 )
 text = "Welcome to the jungle !
@@ -41,37 +114,363 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="introText2" type="RichTextLabel" parent="paper/firstStep"]
-margin_left = 2.0
-margin_top = 179.0
-margin_right = 286.0
-margin_bottom = 214.0
-custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0.265625, 0.174413, 0.0415039, 1 )
-text = "Tap on me"
+[node name="firstNext" type="TextureButton" parent="center/paper/firstStep"]
+margin_left = 48.0
+margin_top = 354.0
+margin_right = 234.0
+margin_bottom = 391.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 17 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="secondStep" type="Node2D" parent="paper"]
+[node name="nextLabel" type="Label" parent="center/paper/firstStep/firstNext"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="GridContainer" type="GridContainer" parent="paper/secondStep"]
-margin_left = -167.099
-margin_top = -131.988
-margin_right = 174.901
-margin_bottom = 120.012
+[node name="secondStep" type="Control" parent="center/paper"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fatherWasLabel" type="RichTextLabel" parent="center/paper/secondStep"]
+margin_left = -141.0
+margin_top = -200.0
+margin_right = 143.0
+margin_bottom = -148.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+text = "Your father was..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="center/paper/secondStep"]
+margin_left = -133.0
+margin_top = -126.0
+margin_right = 123.0
+margin_bottom = 178.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aNoble" type="Button" parent="center/paper/secondStep/vbox"]
+margin_right = 256.0
+margin_bottom = 38.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Noble"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aNoble"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aMerchant" type="Button" parent="center/paper/secondStep/vbox"]
+margin_top = 52.0
+margin_right = 256.0
+margin_bottom = 90.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Merchant"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aMerchant"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aHunter" type="Button" parent="center/paper/secondStep/vbox"]
+margin_top = 104.0
+margin_right = 256.0
+margin_bottom = 142.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Hunter"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aHunter"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aThief" type="Button" parent="center/paper/secondStep/vbox"]
+margin_top = 156.0
+margin_right = 256.0
+margin_bottom = 194.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Thief"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aThief"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aFisher" type="Button" parent="center/paper/secondStep/vbox"]
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 246.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    An  Angler"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aFisher"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aFarmer" type="Button" parent="center/paper/secondStep/vbox"]
+margin_top = 260.0
+margin_right = 256.0
+margin_bottom = 298.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Farmer"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/secondStep/vbox/aFarmer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="thirdStep" type="Control" parent="center/paper"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="youthLabel" type="RichTextLabel" parent="center/paper/thirdStep"]
+margin_left = -141.0
+margin_top = -200.0
+margin_right = 143.0
+margin_bottom = -148.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+text = "You spent your youth as "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="center/paper/thirdStep"]
+margin_left = -133.0
+margin_top = -126.0
+margin_right = 123.0
+margin_bottom = 178.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="apprentice" type="Button" parent="center/paper/thirdStep/vbox"]
+margin_right = 256.0
+margin_bottom = 38.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    An  Apprentice"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/thirdStep/vbox/apprentice"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="servant" type="Button" parent="center/paper/thirdStep/vbox"]
+margin_top = 52.0
+margin_right = 256.0
+margin_bottom = 90.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Servant"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/thirdStep/vbox/servant"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="streetThief" type="Button" parent="center/paper/thirdStep/vbox"]
+margin_top = 104.0
+margin_right = 256.0
+margin_bottom = 142.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Street Thief"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/thirdStep/vbox/streetThief"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="circusTrainee" type="Button" parent="center/paper/thirdStep/vbox"]
+margin_top = 156.0
+margin_right = 256.0
+margin_bottom = 194.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+enabled_focus_mode = 0
+text = "    A  Circus Trainee"
+flat = true
+align = 0
+
+[node name="dot" type="ColorRect" parent="center/paper/thirdStep/vbox/circusTrainee"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.73648
+margin_right = 13.0
+margin_bottom = 7.26352
+rect_rotation = 45.0
+color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fourthStep" type="Node2D" parent="center/paper"]
+visible = false
+
+[node name="avatarSelectionLabel" type="RichTextLabel" parent="center/paper/fourthStep"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.5
+margin_top = -219.895
+margin_right = 104.5
+margin_bottom = -183.895
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+text = "Choose your avatar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="center/paper/fourthStep"]
+margin_left = -167.0
+margin_top = -178.0
+margin_right = 175.0
+margin_bottom = 49.0
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fem1" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="fem1" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_right = 110.0
 margin_bottom = 110.0
 toggle_mode = true
 texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 10 )
 
-[node name="mas1" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="mas1" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_left = 114.0
 margin_right = 224.0
 margin_bottom = 110.0
@@ -79,7 +478,7 @@ toggle_mode = true
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
 
-[node name="other1" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="other1" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_left = 228.0
 margin_right = 338.0
 margin_bottom = 110.0
@@ -87,78 +486,113 @@ toggle_mode = true
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
 
-[node name="mas2" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="mas2" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_top = 114.0
 margin_right = 110.0
 margin_bottom = 224.0
 toggle_mode = true
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 15 )
 
-[node name="fem2" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="fem2" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_left = 114.0
 margin_top = 114.0
 margin_right = 224.0
 margin_bottom = 224.0
 toggle_mode = true
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 11 )
 
-[node name="other2" type="TextureButton" parent="paper/secondStep/GridContainer"]
+[node name="other2" type="TextureButton" parent="center/paper/fourthStep/GridContainer"]
 margin_left = 228.0
 margin_top = 114.0
 margin_right = 338.0
 margin_bottom = 224.0
 toggle_mode = true
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
 
-[node name="avatarSelectionLabel" type="RichTextLabel" parent="paper/secondStep"]
-margin_left = -139.977
-margin_top = -171.613
-margin_right = 19.0225
-margin_bottom = -150.613
-text = "Choose your avatar"
+[node name="next" type="TextureButton" parent="center/paper/fourthStep"]
+margin_left = -73.15
+margin_top = 189.0
+margin_right = 73.85
+margin_bottom = 218.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="next" type="TextureButton" parent="paper/secondStep"]
-margin_left = 107.31
-margin_top = 165.801
-margin_right = 147.31
-margin_bottom = 205.801
-texture_normal = ExtResource( 6 )
+[node name="nextLabel" type="Label" parent="center/paper/fourthStep/next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Next"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="avatarSelectionLabel2" type="RichTextLabel" parent="paper/secondStep"]
-margin_left = -150.526
-margin_top = 113.197
-margin_right = 8.47398
-margin_bottom = 134.197
-text = "You will be called:"
+[node name="userNameLabl" type="RichTextLabel" parent="center/paper/fourthStep"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.0
+margin_top = 58.0
+margin_right = 93.0
+margin_bottom = 96.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.266667, 0.172549, 0.0431373, 1 )
+text = "You are known as :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="input" type="LineEdit" parent="paper/secondStep"]
-margin_left = -148.549
-margin_top = 143.81
-margin_right = 21.4515
-margin_bottom = 167.81
+[node name="input" type="LineEdit" parent="center/paper/fourthStep"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -99.5
+margin_top = 100.5
+margin_right = 99.5
+margin_bottom = 139.5
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
+text = "testing"
 max_length = 13
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error" type="Label" parent="paper/secondStep"]
-margin_left = -148.549
-margin_top = 174.81
-margin_right = 21.4515
-margin_bottom = 190.81
+[node name="error" type="Label" parent="center/paper/fourthStep"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = 144.5
+margin_right = 143.0
+margin_bottom = 175.5
+custom_colors/font_color = Color( 0.768627, 0, 0, 1 )
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="gui_input" from="paper/firstStep/introText2" to="." method="_on_introText2_gui_input"]
-[connection signal="pressed" from="paper/secondStep/next" to="." method="_on_next_pressed"]
-[connection signal="text_changed" from="paper/secondStep/input" to="." method="_on_input_text_changed"]
+[connection signal="pressed" from="center/paper/firstStep/firstNext" to="." method="_on_firstNext_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aNoble" to="." method="_on_aNoble_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aMerchant" to="." method="_on_aMerchant_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aHunter" to="." method="_on_aHunter_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aThief" to="." method="_on_aThief_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aFisher" to="." method="_on_aFisher_pressed"]
+[connection signal="pressed" from="center/paper/secondStep/vbox/aFarmer" to="." method="_on_aFarmer_pressed"]
+[connection signal="pressed" from="center/paper/thirdStep/vbox/apprentice" to="." method="_on_apprentice_pressed"]
+[connection signal="pressed" from="center/paper/thirdStep/vbox/servant" to="." method="_on_servant_pressed"]
+[connection signal="pressed" from="center/paper/thirdStep/vbox/streetThief" to="." method="_on_streetThief_pressed"]
+[connection signal="pressed" from="center/paper/thirdStep/vbox/circusTrainee" to="." method="_on_circusTrainee_pressed"]
+[connection signal="pressed" from="center/paper/fourthStep/next" to="." method="_on_next_pressed"]
+[connection signal="text_changed" from="center/paper/fourthStep/input" to="." method="_on_input_text_changed"]

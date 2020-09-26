@@ -1,57 +1,16 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
 [ext_resource path="res://Image-assets/avaloniaBackground.jpg" type="Texture" id=3]
-[ext_resource path="res://Tile-sets/village-assets/Archery_range_300x300.png" type="Texture" id=4]
-[ext_resource path="res://Tile-sets/village-assets/Alchemists_house_300x300.png" type="Texture" id=5]
-[ext_resource path="res://Tile-sets/village-assets/Barracks_300x300.png" type="Texture" id=6]
-[ext_resource path="res://Tile-sets/village-assets/Castle_1_550x550.png" type="Texture" id=7]
-[ext_resource path="res://Tile-sets/village-assets/Castle_2_555x550.png" type="Texture" id=8]
-[ext_resource path="res://Tile-sets/village-assets/Castle_3_555x550.png" type="Texture" id=9]
-[ext_resource path="res://Tile-sets/village-assets/Cottage_1_300x300.png" type="Texture" id=10]
-[ext_resource path="res://Tile-sets/village-assets/Cottage_2_300x300.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
-[ext_resource path="res://Image-assets/button-four.png" type="Texture" id=14]
-[ext_resource path="res://Tile-sets/village-assets/Cottage_3_300x300.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/buttonsCollider.gd" type="Script" id=14]
 [ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/store.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Image-assets/filler.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/bakery.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=20]
-[ext_resource path="res://Tile-sets/village-assets/Dragons_den_300x300.png" type="Texture" id=21]
-[ext_resource path="res://Image-assets/button-four-disabled.png" type="Texture" id=22]
-[ext_resource path="res://Tile-sets/village-assets/Elven_house_300x300.png" type="Texture" id=23]
-[ext_resource path="res://Tile-sets/village-assets/Farm2_300x300.png" type="Texture" id=24]
-[ext_resource path="res://Tile-sets/village-assets/Farm_300x300.png" type="Texture" id=25]
-[ext_resource path="res://Tile-sets/village-assets/Fortress_tower2_300x300.png" type="Texture" id=26]
-[ext_resource path="res://Tile-sets/village-assets/Fortress_towerv2_300x300.png" type="Texture" id=27]
-[ext_resource path="res://Tile-sets/village-assets/Fortress_tower_300x300.png" type="Texture" id=28]
-[ext_resource path="res://Tile-sets/village-assets/Gate_closed_300x300.png" type="Texture" id=29]
-[ext_resource path="res://Tile-sets/village-assets/Gate_opened_300x300.png" type="Texture" id=30]
-[ext_resource path="res://Tile-sets/village-assets/Goldmine_300x300.png" type="Texture" id=31]
-[ext_resource path="res://Tile-sets/village-assets/Horror_house1_300x300.png" type="Texture" id=32]
-[ext_resource path="res://Tile-sets/village-assets/Horror_house2_300x300.png" type="Texture" id=33]
-[ext_resource path="res://Tile-sets/village-assets/Horror_house3_300x300.png" type="Texture" id=34]
-[ext_resource path="res://Tile-sets/village-assets/Horror_house4_300x300.png" type="Texture" id=35]
-[ext_resource path="res://Tile-sets/village-assets/House_1_300x300.png" type="Texture" id=36]
-[ext_resource path="res://Tile-sets/village-assets/House_2_300x300.png" type="Texture" id=37]
-[ext_resource path="res://Tile-sets/village-assets/House_3_300x300.png" type="Texture" id=38]
-[ext_resource path="res://Tile-sets/village-assets/House_group_1.png" type="Texture" id=39]
-[ext_resource path="res://Tile-sets/village-assets/House_group_2.png" type="Texture" id=40]
-[ext_resource path="res://Tile-sets/village-assets/Mystical_house_300x300.png" type="Texture" id=41]
-[ext_resource path="res://Tile-sets/village-assets/Sawmill_300x300.png" type="Texture" id=42]
-[ext_resource path="res://Tile-sets/village-assets/Stables_300x300.png" type="Texture" id=43]
-[ext_resource path="res://Tile-sets/village-assets/Stonemill_300x300.png" type="Texture" id=44]
-[ext_resource path="res://Tile-sets/village-assets/Stonemine_300x300.png" type="Texture" id=45]
-[ext_resource path="res://Tile-sets/village-assets/Wall1_300x300.png" type="Texture" id=46]
-[ext_resource path="res://Tile-sets/village-assets/Wall1_tower_link_300x300.png" type="Texture" id=47]
-[ext_resource path="res://Tile-sets/village-assets/Wall_300x300.png" type="Texture" id=48]
-[ext_resource path="res://Tile-sets/village-assets/Windmill_300x300.png" type="Texture" id=49]
-[ext_resource path="res://Tile-sets/village-assets/Wizards_tower_300x300.png" type="Texture" id=50]
-[ext_resource path="res://Tile-sets/village-assets/Woodcutters_300x300.png" type="Texture" id=51]
-[ext_resource path="res://Tile-sets/villageAvalonia.tres" type="TileSet" id=52]
+[ext_resource path="res://Scenes/building.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/workshop.tscn" type="PackedScene" id=53]
 [ext_resource path="res://Image-assets/round-frame.png" type="Texture" id=54]
 [ext_resource path="res://Image-assets/fishing-icon.png" type="Texture" id=55]
@@ -60,538 +19,321 @@
 [ext_resource path="res://Scripts/huntingCabin.gd" type="Script" id=58]
 [ext_resource path="res://Image-assets/hunting-icon.png" type="Texture" id=59]
 [ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=60]
-[ext_resource path="res://Image-assets/single_coin.png" type="Texture" id=67]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 60 )
-shader_param/grayscale = false
+[sub_resource type="CircleShape2D" id=1]
+radius = 43.5626
 
-[sub_resource type="TileSet" id=2]
-0/name = "Alchemists_house_300x300.png 0"
-0/texture = ExtResource( 5 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 32, 32, 224, 288 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [  ]
-0/z_index = 0
-1/name = "Archery_range_300x300.png 1"
-1/texture = ExtResource( 4 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 32, 32, 256, 288 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shapes = [  ]
-1/z_index = 0
-2/name = "Barracks_300x300.png 2"
-2/texture = ExtResource( 6 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 64, 288, 256 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shapes = [  ]
-2/z_index = 0
-3/name = "Castle_1_550x550.png 3"
-3/texture = ExtResource( 7 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 32, 576, 448 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shapes = [  ]
-3/z_index = 0
-4/name = "Castle_2_555x550.png 4"
-4/texture = ExtResource( 8 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 32, 0, 512, 512 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shapes = [  ]
-4/z_index = 0
-5/name = "Castle_3_555x550.png 5"
-5/texture = ExtResource( 9 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 544, 544 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shapes = [  ]
-5/z_index = 0
-6/name = "Cottage_1_300x300.png 6"
-6/texture = ExtResource( 10 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 32, 128, 224, 192 )
-6/tile_mode = 0
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/shapes = [  ]
-6/z_index = 0
-7/name = "Cottage_2_300x300.png 7"
-7/texture = ExtResource( 11 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 64, 128, 192, 192 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shapes = [  ]
-7/z_index = 0
-8/name = "Cottage_3_300x300.png 8"
-8/texture = ExtResource( 15 )
-8/tex_offset = Vector2( 0, 0 )
-8/material = SubResource( 1 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 32, 64, 224, 256 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shapes = [  ]
-8/z_index = 0
-9/name = "Dragons_den_300x300.png 9"
-9/texture = ExtResource( 21 )
-9/tex_offset = Vector2( 0, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 0, 32, 288, 288 )
-9/tile_mode = 0
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shapes = [  ]
-9/z_index = 0
-10/name = "Elven_house_300x300.png 10"
-10/texture = ExtResource( 23 )
-10/tex_offset = Vector2( 0, 0 )
-10/modulate = Color( 1, 1, 1, 1 )
-10/region = Rect2( 32, 64, 256, 256 )
-10/tile_mode = 0
-10/occluder_offset = Vector2( 0, 0 )
-10/navigation_offset = Vector2( 0, 0 )
-10/shapes = [  ]
-10/z_index = 0
-11/name = "Farm2_300x300.png 11"
-11/texture = ExtResource( 24 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 0, 64, 320, 256 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/shapes = [  ]
-11/z_index = 0
-12/name = "Farm_300x300.png 12"
-12/texture = ExtResource( 25 )
-12/tex_offset = Vector2( 0, 0 )
-12/modulate = Color( 1, 1, 1, 1 )
-12/region = Rect2( 0, 96, 288, 224 )
-12/tile_mode = 0
-12/occluder_offset = Vector2( 0, 0 )
-12/navigation_offset = Vector2( 0, 0 )
-12/shapes = [  ]
-12/z_index = 0
-13/name = "Fortress_tower2_300x300.png 13"
-13/texture = ExtResource( 26 )
-13/tex_offset = Vector2( 0, 0 )
-13/modulate = Color( 1, 1, 1, 1 )
-13/region = Rect2( 96, 32, 128, 256 )
-13/tile_mode = 0
-13/occluder_offset = Vector2( 0, 0 )
-13/navigation_offset = Vector2( 0, 0 )
-13/shapes = [  ]
-13/z_index = 0
-14/name = "Fortress_towerv2_300x300.png 14"
-14/texture = ExtResource( 27 )
-14/tex_offset = Vector2( 0, 0 )
-14/modulate = Color( 1, 1, 1, 1 )
-14/region = Rect2( 96, 64, 128, 224 )
-14/tile_mode = 0
-14/occluder_offset = Vector2( 0, 0 )
-14/navigation_offset = Vector2( 0, 0 )
-14/shapes = [  ]
-14/z_index = 0
-15/name = "Fortress_tower_300x300.png 15"
-15/texture = ExtResource( 28 )
-15/tex_offset = Vector2( 0, 0 )
-15/modulate = Color( 1, 1, 1, 1 )
-15/region = Rect2( 64, 64, 192, 256 )
-15/tile_mode = 0
-15/occluder_offset = Vector2( 0, 0 )
-15/navigation_offset = Vector2( 0, 0 )
-15/shapes = [  ]
-15/z_index = 0
-16/name = "Gate_closed_300x300.png 16"
-16/texture = ExtResource( 29 )
-16/tex_offset = Vector2( 0, 0 )
-16/modulate = Color( 1, 1, 1, 1 )
-16/region = Rect2( 64, 0, 192, 256 )
-16/tile_mode = 0
-16/occluder_offset = Vector2( 0, 0 )
-16/navigation_offset = Vector2( 0, 0 )
-16/shapes = [  ]
-16/z_index = 0
-17/name = "Gate_opened_300x300.png 17"
-17/texture = ExtResource( 30 )
-17/tex_offset = Vector2( 0, 0 )
-17/modulate = Color( 1, 1, 1, 1 )
-17/region = Rect2( 64, 0, 192, 256 )
-17/tile_mode = 0
-17/occluder_offset = Vector2( 0, 0 )
-17/navigation_offset = Vector2( 0, 0 )
-17/shapes = [  ]
-17/z_index = 0
-18/name = "Goldmine_300x300.png 18"
-18/texture = ExtResource( 31 )
-18/tex_offset = Vector2( 0, 0 )
-18/modulate = Color( 1, 1, 1, 1 )
-18/region = Rect2( 0, 96, 288, 224 )
-18/tile_mode = 0
-18/occluder_offset = Vector2( 0, 0 )
-18/navigation_offset = Vector2( 0, 0 )
-18/shapes = [  ]
-18/z_index = 0
-19/name = "Horror_house1_300x300.png 19"
-19/texture = ExtResource( 32 )
-19/tex_offset = Vector2( 0, 0 )
-19/modulate = Color( 1, 1, 1, 1 )
-19/region = Rect2( 32, 96, 256, 192 )
-19/tile_mode = 0
-19/occluder_offset = Vector2( 0, 0 )
-19/navigation_offset = Vector2( 0, 0 )
-19/shapes = [  ]
-19/z_index = 0
-20/name = "Horror_house2_300x300.png 20"
-20/texture = ExtResource( 33 )
-20/tex_offset = Vector2( 0, 0 )
-20/modulate = Color( 1, 1, 1, 1 )
-20/region = Rect2( 32, 64, 224, 224 )
-20/tile_mode = 0
-20/occluder_offset = Vector2( 0, 0 )
-20/navigation_offset = Vector2( 0, 0 )
-20/shapes = [  ]
-20/z_index = 0
-21/name = "Horror_house3_300x300.png 21"
-21/texture = ExtResource( 34 )
-21/tex_offset = Vector2( 0, 0 )
-21/modulate = Color( 1, 1, 1, 1 )
-21/region = Rect2( 32, 128, 224, 192 )
-21/tile_mode = 0
-21/occluder_offset = Vector2( 0, 0 )
-21/navigation_offset = Vector2( 0, 0 )
-21/shapes = [  ]
-21/z_index = 0
-22/name = "Horror_house4_300x300.png 22"
-22/texture = ExtResource( 35 )
-22/tex_offset = Vector2( 0, 0 )
-22/modulate = Color( 1, 1, 1, 1 )
-22/region = Rect2( 0, 64, 288, 224 )
-22/tile_mode = 0
-22/occluder_offset = Vector2( 0, 0 )
-22/navigation_offset = Vector2( 0, 0 )
-22/shapes = [  ]
-22/z_index = 0
-23/name = "House_1_300x300.png 23"
-23/texture = ExtResource( 36 )
-23/tex_offset = Vector2( 0, 0 )
-23/modulate = Color( 1, 1, 1, 1 )
-23/region = Rect2( 32, 64, 224, 256 )
-23/tile_mode = 0
-23/occluder_offset = Vector2( 0, 0 )
-23/navigation_offset = Vector2( 0, 0 )
-23/shapes = [  ]
-23/z_index = 0
-24/name = "House_2_300x300.png 24"
-24/texture = ExtResource( 37 )
-24/tex_offset = Vector2( 0, 0 )
-24/modulate = Color( 1, 1, 1, 1 )
-24/region = Rect2( 32, 32, 224, 288 )
-24/tile_mode = 0
-24/occluder_offset = Vector2( 0, 0 )
-24/navigation_offset = Vector2( 0, 0 )
-24/shapes = [  ]
-24/z_index = 0
-25/name = "House_3_300x300.png 25"
-25/texture = ExtResource( 38 )
-25/tex_offset = Vector2( 0, 0 )
-25/modulate = Color( 1, 1, 1, 1 )
-25/region = Rect2( 32, 0, 256, 320 )
-25/tile_mode = 0
-25/occluder_offset = Vector2( 0, 0 )
-25/navigation_offset = Vector2( 0, 0 )
-25/shapes = [  ]
-25/z_index = 0
-26/name = "House_group_1.png 26"
-26/texture = ExtResource( 39 )
-26/tex_offset = Vector2( 0, 0 )
-26/modulate = Color( 1, 1, 1, 1 )
-26/region = Rect2( 0, 64, 320, 256 )
-26/tile_mode = 0
-26/occluder_offset = Vector2( 0, 0 )
-26/navigation_offset = Vector2( 0, 0 )
-26/shapes = [  ]
-26/z_index = 0
-27/name = "House_group_2.png 27"
-27/texture = ExtResource( 40 )
-27/tex_offset = Vector2( 0, 0 )
-27/modulate = Color( 1, 1, 1, 1 )
-27/region = Rect2( 0, 64, 320, 256 )
-27/tile_mode = 0
-27/occluder_offset = Vector2( 0, 0 )
-27/navigation_offset = Vector2( 0, 0 )
-27/shapes = [  ]
-27/z_index = 0
-28/name = "Mystical_house_300x300.png 28"
-28/texture = ExtResource( 41 )
-28/tex_offset = Vector2( 0, 0 )
-28/modulate = Color( 1, 1, 1, 1 )
-28/region = Rect2( 0, 64, 320, 256 )
-28/tile_mode = 0
-28/occluder_offset = Vector2( 0, 0 )
-28/navigation_offset = Vector2( 0, 0 )
-28/shapes = [  ]
-28/z_index = 0
-29/name = "Sawmill_300x300.png 29"
-29/texture = ExtResource( 42 )
-29/tex_offset = Vector2( 0, 0 )
-29/modulate = Color( 1, 1, 1, 1 )
-29/region = Rect2( 0, 32, 288, 288 )
-29/tile_mode = 0
-29/occluder_offset = Vector2( 0, 0 )
-29/navigation_offset = Vector2( 0, 0 )
-29/shapes = [  ]
-29/z_index = 0
-30/name = "Stables_300x300.png 30"
-30/texture = ExtResource( 43 )
-30/tex_offset = Vector2( 0, 0 )
-30/modulate = Color( 1, 1, 1, 1 )
-30/region = Rect2( 0, 64, 320, 256 )
-30/tile_mode = 0
-30/occluder_offset = Vector2( 0, 0 )
-30/navigation_offset = Vector2( 0, 0 )
-30/shapes = [  ]
-30/z_index = 0
-31/name = "Stonemill_300x300.png 31"
-31/texture = ExtResource( 44 )
-31/tex_offset = Vector2( 0, 0 )
-31/modulate = Color( 1, 1, 1, 1 )
-31/region = Rect2( 0, 96, 288, 224 )
-31/tile_mode = 0
-31/occluder_offset = Vector2( 0, 0 )
-31/navigation_offset = Vector2( 0, 0 )
-31/shapes = [  ]
-31/z_index = 0
-32/name = "Stonemine_300x300.png 32"
-32/texture = ExtResource( 45 )
-32/tex_offset = Vector2( 0, 0 )
-32/modulate = Color( 1, 1, 1, 1 )
-32/region = Rect2( 32, 96, 256, 224 )
-32/tile_mode = 0
-32/occluder_offset = Vector2( 0, 0 )
-32/navigation_offset = Vector2( 0, 0 )
-32/shapes = [  ]
-32/z_index = 0
-33/name = "Wall1_300x300.png 33"
-33/texture = ExtResource( 46 )
-33/tex_offset = Vector2( 0, 0 )
-33/modulate = Color( 1, 1, 1, 1 )
-33/region = Rect2( 96, 128, 128, 160 )
-33/tile_mode = 0
-33/occluder_offset = Vector2( 0, 0 )
-33/navigation_offset = Vector2( 0, 0 )
-33/shapes = [  ]
-33/z_index = 0
-34/name = "Wall1_tower_link_300x300.png 34"
-34/texture = ExtResource( 47 )
-34/tex_offset = Vector2( 0, 0 )
-34/modulate = Color( 1, 1, 1, 1 )
-34/region = Rect2( 96, 128, 128, 160 )
-34/tile_mode = 0
-34/occluder_offset = Vector2( 0, 0 )
-34/navigation_offset = Vector2( 0, 0 )
-34/shapes = [  ]
-34/z_index = 0
-35/name = "Wall_300x300.png 35"
-35/texture = ExtResource( 48 )
-35/tex_offset = Vector2( 0, 0 )
-35/modulate = Color( 1, 1, 1, 1 )
-35/region = Rect2( 96, 128, 128, 160 )
-35/tile_mode = 0
-35/occluder_offset = Vector2( 0, 0 )
-35/navigation_offset = Vector2( 0, 0 )
-35/shapes = [  ]
-35/z_index = 0
-36/name = "Windmill_300x300.png 36"
-36/texture = ExtResource( 49 )
-36/tex_offset = Vector2( 0, 0 )
-36/modulate = Color( 1, 1, 1, 1 )
-36/region = Rect2( 0, 0, 288, 320 )
-36/tile_mode = 0
-36/occluder_offset = Vector2( 0, 0 )
-36/navigation_offset = Vector2( 0, 0 )
-36/shapes = [  ]
-36/z_index = 0
-37/name = "Wizards_tower_300x300.png 37"
-37/texture = ExtResource( 50 )
-37/tex_offset = Vector2( 0, 0 )
-37/modulate = Color( 1, 1, 1, 1 )
-37/region = Rect2( 32, 0, 256, 320 )
-37/tile_mode = 0
-37/occluder_offset = Vector2( 0, 0 )
-37/navigation_offset = Vector2( 0, 0 )
-37/shapes = [  ]
-37/z_index = 0
-38/name = "Woodcutters_300x300.png 38"
-38/texture = ExtResource( 51 )
-38/tex_offset = Vector2( 0, 0 )
-38/modulate = Color( 1, 1, 1, 1 )
-38/region = Rect2( 32, 96, 224, 224 )
-38/tile_mode = 0
-38/occluder_offset = Vector2( 0, 0 )
-38/navigation_offset = Vector2( 0, 0 )
-38/shapes = [  ]
-38/z_index = 0
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.3362
 
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 20 )
+[sub_resource type="CircleShape2D" id=3]
+radius = 42.0109
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="CircleShape2D" id=4]
+radius = 29.609
+
+[sub_resource type="DynamicFont" id=5]
 size = 29
 outline_size = 1
 outline_color = Color( 0.305882, 0.2, 0.164706, 1 )
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=6]
 
-[sub_resource type="CanvasItemMaterial" id=6]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 60 )
+shader_param/grayscale = false
 
-[sub_resource type="Curve" id=7]
-_data = [ Vector2( 0.041958, 0.636364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.827273 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
-
-[sub_resource type="Curve" id=9]
-min_value = 81.92
-max_value = 274.07
-_data = [ Vector2( 0.160839, 0.484091 ), 0.0, 2.13571, 0, 0, Vector2( 0.895105, 0.447727 ), -2.88261, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
-
-[sub_resource type="ParticlesMaterial" id=11]
-trail_size_modifier = SubResource( 10 )
-emission_shape = 2
-emission_box_extents = Vector3( 20, 20, 20 )
-flag_disable_z = true
-direction = Vector3( 2, 1, 5 )
-spread = 25.0
-gravity = Vector3( 0, -90, 0 )
-initial_velocity = 35.71
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -65.82
-linear_accel_random = 0.24
-scale = 1.5
-scale_random = 0.41
-scale_curve = SubResource( 8 )
-color = Color( 1, 1, 0, 1 )
-hue_variation = -0.05
-anim_speed = 18.29
-
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=9]
 size = 35
 outline_size = 3
 outline_color = Color( 0.101961, 0.054902, 0.0392157, 1 )
-font_data = SubResource( 12 )
+font_data = SubResource( 8 )
 
-[sub_resource type="DynamicFontData" id=14]
+[sub_resource type="DynamicFontData" id=10]
 font_path = "res://Fonts/BebasNeue-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=11]
 size = 24
 outline_size = 2
 outline_color = Color( 0.078476, 0.0850815, 0.144531, 1 )
-font_data = SubResource( 14 )
+font_data = SubResource( 10 )
 
-[sub_resource type="StyleBoxTexture" id=16]
+[sub_resource type="StyleBoxTexture" id=12]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 178, 11 )
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 60 )
+shader_param/grayscale = false
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
 
 [node name="villageAvalonia" type="Node2D"]
 script = ExtResource( 13 )
 __meta__ = {
-"_edit_horizontal_guides_": [ -863.676, 1285.96 ],
-"_edit_vertical_guides_": [ -2367.93, 1451.75 ]
+"_edit_horizontal_guides_": [ -863.129, 1285.96, 201.0 ],
+"_edit_vertical_guides_": [ -2361.64, 1451.75, 52.9996 ]
 }
 
 [node name="avaloniaBackground" type="Sprite" parent="."]
 position = Vector2( -456.764, 215.16 )
 texture = ExtResource( 3 )
 
-[node name="objects" type="TileMap" parent="."]
-tile_set = ExtResource( 52 )
-format = 1
-tile_data = PoolIntArray( -983030, 22, 0, -917501, 20, 0, -917499, 20, 0, -917498, 23, 0, -917495, 22, 0, -917493, 22, 0, -917492, 20, 0, -917490, 21, 0, -917487, 21, 0, -786448, 1, 0, -786437, 0, 0, -786434, 19, 0, -851968, 22, 0, -851966, 1, 0, -851961, 23, 0, -851948, 0, 0, -786430, 26, 0, -786426, 22, 0, -786419, 21, 0, -786417, 20, 0, -786416, 3, 0, -786411, 2, 0, -655363, 19, 0, -720892, 26, 0, -720889, 20, 0, -720887, 4, 0, -720885, 21, 0, -720878, 20, 0, -720877, 20, 0, -720875, 0, 0, -589849, 9, 0, -589827, 0, 0, -655358, 22, 0, -655351, 21, 0, -655345, 20, 0, -655339, 21, 0, -524290, 1, 0, -589823, 4, 0, -589821, 4, 0, -589819, 1, 0, -589807, 3, 0, -589806, 20, 0, -458778, 1, 0, -458752, 1, 0, -458746, 4, 0, -458735, 1, 0, -458731, 2, 0, -327661, 1, 0, -327659, 5, 0, -262142, 1, 0, -262128, 7, 0, -262126, 4, 0, -131087, 9, 0, -196589, 1, 0, -131062, 3, 0, -131060, 5, 0, -131058, 1, 0, -131055, 1, 0, -131051, 18, 0, -65534, 13, 0, -65520, 5, 0, -65516, 19, 0, -65515, 19, 0, 65546, 18, 0, 262123, 12, 0, 262131, 8, 0, 327662, 8, 0, 524305, 3, 0, 720873, 9, 0, 917477, 10, 0, 917496, 11, 0 )
+[node name="buttonsCollider" type="Node2D" parent="."]
+script = ExtResource( 14 )
 
-[node name="buildings" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
-cell_size = Vector2( 32, 32 )
-cell_custom_transform = Transform2D( 128, 0, 0, 128, 0, 0 )
-format = 1
-tile_data = PoolIntArray( -1703950, 14, 0, -1572898, 0, 0, -1441834, 10, 0, -1376302, 10, 0, -1441776, 4, 0, -917557, 14, 0, -851956, 14, 0, -720966, 19, 0, -655422, 18, 0, -524310, 23, 0, -458761, 27, 0, -524270, 14, 0, -327732, 2, 0, -327706, 23, 0, -327697, 23, 0, -262212, 6, 0, -131110, 27, 0, -131093, 23, 0, -65600, 6, 0, -68, 6, 0, 65463, 6, 0, 131020, 30, 0, 196648, 14, 0, 327607, 6, 0, 327613, 6, 0, 393160, 1, 0, 458740, 8, 0, 393216, 26, 0, 524254, 9, 0, 524321, 29, 0, 655292, 7, 0, 720889, 24, 0, 720905, 23, 0, 851920, 8, 0, 1048508, 14, 0, 1048522, 8, 0, 1114128, 11, 0, 1245124, 8, 0, 1179672, 12, 0, 1376216, 7, 0, 1572820, 7, 0, 1572829, 7, 0, 1769433, 7, 0, 1769459, 6, 0, 1835026, 25, 0, 2031554, 31, 0, 2162696, 14, 0, 2293709, 14, 0 )
+[node name="mainBuildings" type="Node2D" parent="buttonsCollider"]
 
-[node name="unlockableBuildingsBtns" type="Node2D" parent="."]
+[node name="bakeryBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -501, -411 )
+input_pickable = false
 
-[node name="buyBuilding1" type="TextureButton" parent="unlockableBuildingsBtns"]
-margin_left = -347.057
-margin_top = 296.79
-margin_right = -218.057
-margin_bottom = 324.79
-texture_normal = ExtResource( 14 )
-texture_disabled = ExtResource( 22 )
+[node name="bakeryCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/bakeryBtn"]
+polygon = PoolVector2Array( 56.1503, 211.85, 43.8003, 256.5, 33.3503, 233.7, 25.7502, 278.35, 9.60022, 300.2, 7.70023, 336.3, 61.8503, 365.75, 78.9503, 353.4, 93.2003, 374.3, 128.35, 374.3, 189.15, 418, 287.951, 350.55, 271.801, 339.15, 284.151, 329.65, 254.7, 247.95, 240.45, 261.25, 225.25, 226.1, 217.65, 252.7, 201.5, 218.5, 190.1, 251.75, 167.3, 199.5, 125.5, 201.4, 110.3, 233.7, 88.4503, 210.9, 72.3003, 213.75 )
+
+[node name="storeBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -989, -307 )
+
+[node name="storeCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/storeBtn"]
+polygon = PoolVector2Array( 424.585, 362.116, 385.122, 389.972, 368.099, 383.008, 350.302, 398.484, 354.171, 409.317, 334.052, 423.245, 313.934, 489.79, 323.993, 492.885, 320.124, 504.492, 301.553, 519.968, 405.24, 584.965, 508.927, 518.42, 477.976, 497.528, 480.297, 479.731, 453.215, 454.196, 433.096, 385.329, 440.834, 372.175 )
+
+[node name="farmBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( 38, -147 )
+
+[node name="farmCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/farmBtn"]
+polygon = PoolVector2Array( 575.031, 582.801, 552.243, 640.138, 553.714, 658.515, 522.84, 683.508, 526.515, 698.21, 668.388, 782.011, 810.189, 830.202, 947.149, 865.022, 998.219, 823.238, 985.213, 742.316, 1059.46, 694.535, 1013.15, 660.72, 1020.5, 634.257, 972.716, 606.324, 964.63, 586.476, 944.048, 590.887, 913.174, 576.92, 874.214, 612.939, 874.214, 628.376, 863.188, 634.992, 851.426, 623.231, 820.249, 629.792, 800.705, 675.422, 707.348, 621.76, 681.62, 555.602, 647.805, 595.297, 634.574, 551.192, 614.726, 543.106, 597.819, 593.092 )
+
+[node name="workshopBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -550, 46 )
+
+[node name="workshopCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/workshopBtn"]
+polygon = PoolVector2Array( -265.965, -122.544, -133.944, -38.2892, -98.783, -36.2989, 9.35474, -97.9971, 5.28571, -122.171, -5.30289, -124.615, -34.6252, -222.355, -57.4313, -212.581, -104.754, -199.501, -141.326, -206.88, -175.535, -228.872, -192.64, -215.025, -223.591, -232.944, -235.808, -194.662, -258.668, -166.33 )
+disabled = true
+
+[node name="fisheryProduce" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -17, 222 )
+
+[node name="fisheryProduceCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/fisheryProduce"]
+position = Vector2( -312.026, 678.442 )
+shape = SubResource( 1 )
+
+[node name="fisheryUpgrade" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( 1, 86 )
+
+[node name="fisheryUpgradeCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/fisheryUpgrade"]
+position = Vector2( -265.262, 868.901 )
+shape = SubResource( 2 )
+
+[node name="huntingProduce" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -80, -80 )
+
+[node name="huntingProduceCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/huntingProduce"]
+position = Vector2( 694.611, 927.694 )
+shape = SubResource( 3 )
+
+[node name="huntingUpgrade" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -80, -80 )
+
+[node name="huntingUpgradeCollision" type="CollisionShape2D" parent="buttonsCollider/mainBuildings/huntingUpgrade"]
+position = Vector2( 760.003, 980.995 )
+shape = SubResource( 4 )
+
+[node name="castleBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -107, -89 )
+
+[node name="castleCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/castleBtn"]
+polygon = PoolVector2Array( 527.201, -337.95, 521.501, -508, 572.801, -538.4, 605.101, -521.3, 681.101, -559.3, 683.001, -584, 708.651, -590.65, 706.751, -626.75, 713.401, -655.25, 762.801, -681.851, 807.451, -654.3, 806.501, -629.6, 815.051, -620.1, 816.001, -602.05, 835.001, -577.35, 902.451, -528.9, 950.901, -546, 1009.8, -504.2, 993.651, -479.5, 996.501, -329.4, 760.901, -190.7, 527.201, -338.9 )
+
+[node name="estateBtn" type="Area2D" parent="buttonsCollider/mainBuildings"]
+position = Vector2( -287, -170 )
+
+[node name="estateCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/estateBtn"]
+polygon = PoolVector2Array( -141.544, 323.078, -102.855, 324.625, -98.2123, 344.744, -45.5952, 381.885, -17.739, 428.312, -21.6079, 481.703, -29.3458, 494.083, -27.0244, 508.012, -5.35852, 525.035, -105.176, 587.711, -165.531, 552.117, -147.734, 535.094, -164.758, 530.451, -183.328, 542.832, -212.732, 526.582, -184.102, 504.143, -182.555, 458.49, -192.614, 454.621, -173.269, 420.574, -177.138, 402.777 )
+
+[node name="secondaryBuildings" type="Node2D" parent="buttonsCollider"]
+
+[node name="building1" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -416, 120 )
+
+[node name="building1Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building1"]
+polygon = PoolVector2Array( -1084.92, 41.787, -1104.43, 48.1267, -1101.02, 61.7816, -1176.61, 101.771, -1192.7, 128.106, -1192.7, 188.577, -1139.54, 228.079, -1058.59, 183.701, -1060.05, 118.352, -1072.73, 96.8943, -1065.91, 86.6531, -1068.83, 53.0035 )
+
+[node name="building2" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -1134, -142 )
+
+[node name="building2Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building2"]
+polygon = PoolVector2Array( -248.66, 236.936, -321.985, 276.043, -331.064, 295.597, -343.007, 314.948, -343.007, 364.682, -280.509, 409.135, -202.606, 356.76, -210.251, 231.349, -227.011, 216.684, -244.47, 225.064 )
+
+[node name="building3" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -1402, 31 )
+
+[node name="building3Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building3"]
+polygon = PoolVector2Array( -248.66, 236.936, -321.985, 276.043, -331.064, 295.597, -343.007, 314.948, -343.007, 364.682, -280.509, 409.135, -202.606, 356.76, -210.251, 231.349, -227.011, 216.684, -244.47, 225.064 )
+
+[node name="building4" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building4"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1408.86, 805.491, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1312.91, 709.983, -1332.28, 713.064, -1334.48, 723.187 )
+
+[node name="building5" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 110, -60 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building5"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building6" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 333, -19 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building6"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building7" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 455, -111 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building7"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building8" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 581, -174 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building8"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building9" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building9"]
+polygon = PoolVector2Array( -838.205, 934.544, -845.355, 937.721, -856.08, 963.143, -853.696, 981.415, -920.826, 1014.78, -935.92, 1033.45, -934.728, 1061.26, -826.288, 1133.95, -794.511, 1154.6, -660.65, 1078.34, -682.894, 1062.84, -684.88, 1053.71, -703.946, 1031.07, -726.985, 1002.07, -730.56, 972.279, -752.009, 961.157, -764.72, 989.757, -779.484, 964.438 )
+
+[node name="building10" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building10"]
+polygon = PoolVector2Array( -107.645, 619.221, 0.142792, 679.407, 107.931, 609.919, 105.742, 599.524, 75.649, 578.185, 74.0076, 566.148, 80.0262, 559.035, 40.6317, 534.96, 36.8016, 519.093, 25.3115, 518.546, 20.9344, 520.734, 0.142792, 516.904, -6.42297, 515.263, -31.0446, 543.715, -63.3262, 560.129 )
+
+[node name="building11" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building11"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building12" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -169, -112 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building12"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building13" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 146, -80 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building13"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building14" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 288, -160 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building14"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building15" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -24, -192 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building15"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building16" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 106, -280 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building16"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building17" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 448, -490 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building17"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building18" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 657, -618 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building18"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building19" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 655, -370 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building19"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building20" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 862, -499 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building20"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building21" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building21"]
+polygon = PoolVector2Array( -1135.93, 499.445, -1117.74, 510.358, -1112.29, 497.627, -1102.59, 501.264, -1099.55, 518.239, -1038.32, 554.615, -1017.1, 601.903, -1022.56, 609.178, -1021.35, 651.616, -1029.23, 660.71, -1023.77, 697.691, -1095.92, 740.129, -1142.6, 718.304, -1142.6, 697.085, -1158.36, 692.841, -1168.67, 703.148, -1174.73, 622.516, -1164.42, 594.021, -1164.42, 569.165 )
+
+[node name="building22" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building22"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building23" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 182, -108 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building23"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building24" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building24"]
+polygon = PoolVector2Array( -1068.55, 859.892, -1096.76, 901.541, -1102.81, 921.694, -1125.65, 931.098, -1154.53, 916.32, -1147.15, 1004.32, -1052.43, 1072.17, -934.2, 1007.01, -934.872, 957.297, -926.811, 922.365, -1036.98, 867.282 )
+
+[node name="building25" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building25"]
+polygon = PoolVector2Array( -1300.9, 849.216, -1267.59, 814.033, -1244.61, 831.39, -1243.2, 890.497, -1168.14, 937.878, -1191.13, 1003.08, -1281.67, 1043.9, -1382.05, 981.974, -1382.52, 958.518, -1343.59, 931.779, -1351.56, 906.916, -1329.98, 889.559 )
+
+[node name="building26" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 350, -215 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building26"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building27" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 542, -87 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building27"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building28" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 372, 21 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building28"]
+polygon = PoolVector2Array( -110.177, 207.576, -123.851, 204.358, -201.477, 244.98, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -98.9148, 212.804 )
+
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buyLabel" type="Label" parent="unlockableBuildingsBtns/buyBuilding1"]
-margin_left = 17.9471
-margin_top = 5.97775
-margin_right = 100.947
-margin_bottom = 23.9778
-custom_fonts/font = SubResource( 3 )
-text = "BUY INN - 1K"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bakeryLabel" type="Label" parent="."]
-margin_left = 86.751
-margin_top = 159.576
-margin_right = 213.751
-margin_bottom = 189.576
-custom_fonts/font = SubResource( 4 )
+[node name="bakeryLabel" type="Label" parent="labels"]
+margin_left = -433.249
+margin_top = -248.424
+margin_right = -302.249
+margin_bottom = -218.424
+custom_fonts/font = SubResource( 5 )
 text = "Bakery"
 align = 1
 valign = 1
@@ -599,9 +341,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="warning" type="TextureRect" parent="bakeryLabel"]
+[node name="warning" type="TextureRect" parent="labels/bakeryLabel"]
 visible = false
-material = SubResource( 5 )
+material = SubResource( 6 )
 margin_left = 76.2294
 margin_top = -6.15585
 margin_right = 98.2294
@@ -612,218 +354,115 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="shopLabel" type="Label" parent="."]
-margin_left = 318.57
-margin_top = 354.873
-margin_right = 414.57
-margin_bottom = 384.873
-custom_fonts/font = SubResource( 4 )
+[node name="shopLabel" type="Label" parent="labels"]
+margin_left = -721.43
+margin_top = 82.873
+margin_right = -625.43
+margin_bottom = 112.873
+custom_fonts/font = SubResource( 5 )
 text = "Shop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClickMoneyLabel" type="Label" parent="."]
-margin_left = -182.0
-margin_top = 358.0
-margin_right = -62.0
-margin_bottom = 388.0
+[node name="ClickMoneyLabel" type="Label" parent="labels"]
+margin_left = -398.0
+margin_top = 222.0
+margin_right = -278.0
+margin_bottom = 252.0
 rect_pivot_offset = Vector2( -250.777, 260.384 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Estate"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="farmLabel" type="Label" parent="."]
-margin_left = 561.683
-margin_top = 536.343
-margin_right = 666.683
-margin_bottom = 566.343
+[node name="farmLabel" type="Label" parent="labels"]
+margin_left = 537.683
+margin_top = 400.343
+margin_right = 642.683
+margin_bottom = 430.343
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Farm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="workshopLabel" type="Label" parent="."]
-margin_left = -234.917
-margin_top = -260.225
-margin_right = -35.9171
-margin_bottom = -230.225
+[node name="workshopLabel" type="Label" parent="labels"]
+margin_left = -762.917
+margin_top = -212.225
+margin_right = -563.917
+margin_bottom = -182.225
 rect_pivot_offset = Vector2( 199.156, 117.202 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Workshop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="getBakeryOpen" type="Button" parent="."]
-margin_left = 13.0
-margin_top = 166.0
-margin_right = 296.0
-margin_bottom = 382.0
-focus_mode = 0
-mouse_filter = 1
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="getStoreOpen" type="Button" parent="."]
-margin_left = 321.0
-margin_top = 359.0
-margin_right = 498.0
-margin_bottom = 563.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="getFarmOpen" type="Button" parent="."]
-margin_left = 544.0
-margin_top = 584.0
-margin_right = 1033.0
-margin_bottom = 783.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="getCastleOpen" type="Button" parent="."]
-margin_left = 517.0
-margin_top = -629.0
-margin_right = 998.0
-margin_bottom = -217.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="getWorkshopOpen" type="Button" parent="."]
-margin_left = -276.0
-margin_top = -269.0
-margin_right = -4.0
-margin_bottom = -26.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickMoneyButton" type="Button" parent="."]
-margin_left = -183.0
-margin_top = 333.0
-margin_right = -21.0
-margin_bottom = 575.0
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="coin" type="Particles2D" parent="ClickMoneyButton"]
-material = SubResource( 6 )
-position = Vector2( 71.8272, 41.394 )
-emitting = false
-amount = 12
-lifetime = 2.0
-one_shot = true
-speed_scale = 2.0
-explosiveness = 1.0
-process_material = SubResource( 11 )
-texture = ExtResource( 67 )
-
-[node name="castleLabel" type="Label" parent="."]
-margin_left = 504.59
-margin_top = -598.979
-margin_right = 651.59
-margin_bottom = -568.979
+[node name="castleLabel" type="Label" parent="labels"]
+margin_left = 392.59
+margin_top = -654.979
+margin_right = 539.59
+margin_bottom = -624.979
 rect_pivot_offset = Vector2( 370.222, -122.827 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Castle"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fisheryLabel" type="Label" parent="."]
-margin_left = -405.0
-margin_top = 722.01
-margin_right = -251.0
-margin_bottom = 752.01
+[node name="fisheryLabel" type="Label" parent="labels"]
+margin_left = -400.0
+margin_top = 807.01
+margin_right = -246.0
+margin_bottom = 837.01
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Fishery"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="huntingCabinLabel" type="Label" parent="."]
-margin_left = 573.0
-margin_top = 831.36
-margin_right = 818.0
-margin_bottom = 861.36
+[node name="huntingCabinLabel" type="Label" parent="labels"]
+margin_left = 493.0
+margin_top = 751.36
+margin_right = 738.0
+margin_bottom = 781.36
 rect_pivot_offset = Vector2( 384.49, 571.588 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Hunting Cabin"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fishery" type="Control" parent="."]
-margin_left = -451.39
-margin_top = 743.0
-margin_right = -190.39
-margin_bottom = 949.0
+[node name="fishery" type="Node2D" parent="."]
+position = Vector2( -451.197, 829.491 )
 script = ExtResource( 57 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="fisheryBtn" type="TextureButton" parent="fishery"]
-margin_left = 80.1658
-margin_top = 30.4111
-margin_right = 164.166
-margin_bottom = 114.411
-texture_normal = ExtResource( 55 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="fisheryBtn" type="Sprite" parent="fishery"]
+material = SubResource( 7 )
+position = Vector2( 122.539, 70.8541 )
+scale = Vector2( 0.449253, 0.449252 )
+texture = ExtResource( 55 )
 
-[node name="levelBkgr" type="TextureRect" parent="fishery/fisheryBtn"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -96.0
-margin_top = 63.0
-margin_right = -32.0
-margin_bottom = 127.0
+[node name="levelBkgr" type="Sprite" parent="fishery/fisheryBtn"]
+position = Vector2( -141.553, 120.918 )
+scale = Vector2( 2.05616, 2.05616 )
 texture = ExtResource( 54 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="levelCost" type="Label" parent="fishery/fisheryBtn/levelBkgr"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 28.8275
-margin_top = -3.36243
-margin_right = 97.8275
-margin_bottom = 39.6376
+margin_left = 0.895279
+margin_top = -34.3257
+margin_right = 69.8953
+margin_bottom = 8.67438
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 9 )
 text = "cost"
 align = 1
 valign = 1
@@ -836,13 +475,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -14.5
-margin_top = -11.0
-margin_right = 14.5
-margin_bottom = 11.0
+margin_left = -50.0886
+margin_top = -51.3337
+margin_right = -13.0886
+margin_bottom = -8.33366
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 11 )
 text = "lvl"
 align = 1
 valign = 1
@@ -850,18 +489,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="upgrade-fishery" type="TextureButton" parent="fishery/fisheryBtn"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 33.0
-margin_top = 64.0
-margin_right = 95.0
-margin_bottom = 126.0
-texture_normal = ExtResource( 56 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="upgrade-fishery" type="Sprite" parent="fishery/fisheryBtn"]
+position = Vector2( 142.055, 121.212 )
+scale = Vector2( 0.720088, 0.720088 )
+texture = ExtResource( 56 )
 
 [node name="progressBarBody" type="TextureRect" parent="fishery/fisheryBtn"]
 visible = false
@@ -869,11 +500,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -92.4181
-margin_top = -108.474
-margin_right = 91.5819
-margin_bottom = -92.4738
+margin_left = -278.191
+margin_top = -330.877
+margin_right = -94.1912
+margin_bottom = -314.877
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 16 )
+expand = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -884,8 +517,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 12 )
+custom_styles/bg = SubResource( 13 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -896,50 +529,31 @@ __meta__ = {
 [node name="progressTimer" type="Timer" parent="fishery"]
 wait_time = 0.001
 
-[node name="huntingCabin" type="Control" parent="."]
-margin_left = 572.61
-margin_top = 855.0
-margin_right = 833.61
-margin_bottom = 1061.0
+[node name="huntingCabin" type="Node2D" parent="."]
+position = Vector2( 615.173, 847.646 )
 script = ExtResource( 58 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="huntingBtn" type="TextureButton" parent="huntingCabin"]
-margin_left = 80.1658
-margin_top = 30.4111
-margin_right = 164.166
-margin_bottom = 114.411
-texture_normal = ExtResource( 59 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="huntingBtn" type="Sprite" parent="huntingCabin"]
+material = SubResource( 14 )
+scale = Vector2( 0.431354, 0.431353 )
+texture = ExtResource( 59 )
 
-[node name="levelBkgr" type="TextureRect" parent="huntingCabin/huntingBtn"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -96.0
-margin_top = 63.0
-margin_right = -32.0
-margin_bottom = 127.0
+[node name="levelBkgr" type="Sprite" parent="huntingCabin/huntingBtn"]
+position = Vector2( -141.618, 123.94 )
+scale = Vector2( 2.06903, 2.06903 )
 texture = ExtResource( 54 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="levelCost" type="Label" parent="huntingCabin/huntingBtn/levelBkgr"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 28.8275
-margin_top = -3.36243
-margin_right = 97.8275
-margin_bottom = 39.6376
+margin_left = -3.70796
+margin_top = -33.4879
+margin_right = 65.292
+margin_bottom = 9.51212
 grow_horizontal = 2
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 9 )
 text = "cost"
 align = 1
 valign = 1
@@ -952,13 +566,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -14.5
-margin_top = -11.0
-margin_right = 14.5
-margin_bottom = 11.0
+margin_left = -47.5436
+margin_top = -46.0807
+margin_right = -18.5436
+margin_bottom = -16.0807
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 11 )
 text = "lvl"
 align = 1
 valign = 1
@@ -966,18 +580,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="upgrade-hunting" type="TextureButton" parent="huntingCabin/huntingBtn"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 33.0
-margin_top = 64.0
-margin_right = 95.0
-margin_bottom = 126.0
-texture_normal = ExtResource( 56 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="upgrade-hunting" type="Sprite" parent="huntingCabin/huntingBtn"]
+position = Vector2( 151.631, 123.645 )
+scale = Vector2( 0.72, 0.72 )
+texture = ExtResource( 56 )
 
 [node name="progressBarBody" type="TextureRect" parent="huntingCabin/huntingBtn"]
 visible = false
@@ -985,11 +591,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -92.4181
-margin_top = -108.474
-margin_right = 91.5819
-margin_bottom = -92.4738
+margin_left = -283.283
+margin_top = -336.831
+margin_right = -99.2834
+margin_bottom = -320.831
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 16 )
+expand = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -1000,8 +608,8 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 181.0
 margin_bottom = 16.0
-custom_styles/fg = SubResource( 16 )
-custom_styles/bg = SubResource( 17 )
+custom_styles/fg = SubResource( 12 )
+custom_styles/bg = SubResource( 13 )
 max_value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1012,21 +620,135 @@ __meta__ = {
 [node name="progressTimer" type="Timer" parent="huntingCabin"]
 wait_time = 0.001
 
+[node name="incomeBuildings" type="Node2D" parent="."]
+position = Vector2( -546, 2 )
+
+[node name="building1" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1205.99, 176.488 )
+targetBuilding = "building1"
+
+[node name="building2" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1069.99, 89.488 )
+targetBuilding = "building2"
+
+[node name="building3" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1334.2, 258.549 )
+targetBuilding = "building3"
+
+[node name="building4" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1013.01, 700.436 )
+targetBuilding = "building4"
+
+[node name="building5" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -905.631, 640.633 )
+targetBuilding = "building5"
+
+[node name="building6" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -679.104, 680.369 )
+targetBuilding = "building6"
+
+[node name="building7" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -555.999, 590.684 )
+targetBuilding = "building7"
+
+[node name="building8" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -429.367, 524.632 )
+targetBuilding = "building8"
+
+[node name="building9" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -474.406, 946.98 )
+targetBuilding = "building9"
+
+[node name="building10" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 345.197, 514.02 )
+targetBuilding = "building10"
+
+[node name="building11" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1294.62, 671.914 )
+targetBuilding = "building11"
+
+[node name="building12" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1462.94, 559.849 )
+targetBuilding = "building12"
+
+[node name="building13" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1149.07, 590.515 )
+targetBuilding = "building13"
+
+[node name="building14" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1007.26, 510.369 )
+targetBuilding = "building14"
+
+[node name="building15" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1315.11, 476.306 )
+targetBuilding = "building15"
+
+[node name="building16" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1187.36, 390.148 )
+targetBuilding = "building16"
+
+[node name="building17" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -842.733, 179.657 )
+targetBuilding = "building17"
+
+[node name="building18" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -612.438, 51.1877 )
+targetBuilding = "building18"
+
+[node name="building19" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -635.219, 298.269 )
+targetBuilding = "building19"
+
+[node name="building20" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -426.662, 169.618 )
+targetBuilding = "building20"
+
+[node name="building21" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -760.761, 546.844 )
+targetBuilding = "building21"
+
+[node name="building22" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 195.32, 243.855 )
+targetBuilding = "building22"
+
+[node name="building23" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 381.826, 132.013 )
+targetBuilding = "building23"
+
+[node name="building24" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -697.057, 878.349 )
+targetBuilding = "building24"
+
+[node name="building25" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -932.589, 853.255 )
+targetBuilding = "building25"
+
+[node name="building26" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 544.347, 26.3899 )
+targetBuilding = "building26"
+
+[node name="building27" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 743.011, 152.972 )
+targetBuilding = "building27"
+
+[node name="building28" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 570.718, 256.7 )
+targetBuilding = "building28"
+
 [node name="UiCanvas" type="CanvasLayer" parent="."]
 
 [node name="bakery" parent="UiCanvas" instance=ExtResource( 19 )]
 visible = false
 margin_top = 101.0
 margin_bottom = 756.0
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 15 )
 
 [node name="store" parent="UiCanvas" instance=ExtResource( 17 )]
 visible = false
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 16 )
 
 [node name="farm" parent="UiCanvas" instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 0, 17 )
 
 [node name="workshop" parent="UiCanvas" instance=ExtResource( 53 )]
 visible = false
@@ -1037,19 +759,12 @@ rect_pivot_offset = Vector2( 415.173, 194.324 )
 [node name="checkUi" type="Timer" parent="."]
 wait_time = 0.002
 autostart = true
-[connection signal="pressed" from="unlockableBuildingsBtns/buyBuilding1" to="." method="_on_buyBuilding1_pressed"]
-[connection signal="pressed" from="getBakeryOpen" to="." method="_on_getBakeryOpen_pressed"]
-[connection signal="pressed" from="getStoreOpen" to="." method="_on_getStoreOpen_pressed"]
-[connection signal="pressed" from="getFarmOpen" to="." method="_on_getFarmOpen_pressed"]
-[connection signal="pressed" from="getCastleOpen" to="." method="_on_getCastleOpen_pressed"]
-[connection signal="pressed" from="getWorkshopOpen" to="." method="_on_getWorkshopOpen_pressed"]
-[connection signal="pressed" from="ClickMoneyButton" to="." method="_on_ClickMoneyButton_pressed"]
-[connection signal="pressed" from="fishery/fisheryBtn" to="fishery" method="_on_fisheryBtn_pressed"]
-[connection signal="pressed" from="fishery/fisheryBtn/upgrade-fishery" to="fishery" method="_on_upgradefishery_pressed"]
+
+[node name="dragTimer" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true
 [connection signal="timeout" from="fishery/fishTimer" to="fishery" method="_on_fishTimer_timeout"]
 [connection signal="timeout" from="fishery/progressTimer" to="fishery" method="_on_progressTimer_timeout"]
-[connection signal="pressed" from="huntingCabin/huntingBtn" to="huntingCabin" method="_on_huntingBtn_pressed"]
-[connection signal="pressed" from="huntingCabin/huntingBtn/upgrade-hunting" to="huntingCabin" method="_on_upgradehunting_pressed"]
 [connection signal="timeout" from="huntingCabin/huntingTimer" to="huntingCabin" method="_on_huntingTimer_timeout"]
 [connection signal="timeout" from="huntingCabin/progressTimer" to="huntingCabin" method="_on_progressTimer_timeout"]
 [connection signal="timeout" from="checkUi" to="." method="_on_checkUi_timeout"]

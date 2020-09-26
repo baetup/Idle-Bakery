@@ -1,6 +1,7 @@
-extends Control
+extends Node2D
 
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+var isProducing = false
 
 func _ready():
 	ui()
@@ -12,12 +13,14 @@ func ui():
 	$fisheryBtn/levelBkgr/levelCount.text = str(s_fish.fishingLevel)
 
 func _on_fisheryBtn_pressed():
-	$fisheryBtn/progressBarBody.show()
-	$fishTimer.start()
-	$progressTimer.start()
-	$fishTimer.autostart = 0
-	$progressTimer.autostart = 0
-	$fisheryBtn.disabled = 1
+	if isProducing == false:
+		isProducing = true
+		$fisheryBtn/progressBarBody.show()
+		$fishTimer.start()
+		$progressTimer.start()
+		$fishTimer.autostart = 0
+		$progressTimer.autostart = 0
+		$fisheryBtn.material.set_shader_param('grayscale', true)
 
 func _on_progressTimer_timeout():
 	var current_progress = ($fishTimer.wait_time - $fishTimer.time_left) / $fishTimer.wait_time 
@@ -26,10 +29,11 @@ func _on_progressTimer_timeout():
 
 
 func _on_fishTimer_timeout():
+	isProducing = false
 	$fishTimer.stop()
 	$progressTimer.stop()
 	$fisheryBtn/progressBarBody/progressBar.set("value", 0.00)
-	$fisheryBtn.disabled = 0
+	$fisheryBtn.material.set_shader_param('grayscale', false)
 	$fisheryBtn/progressBarBody.hide()
 	retrieveFish()
 

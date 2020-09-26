@@ -2,10 +2,10 @@ extends Node
 
 var resource_path = "res://"
 var day = 1
-var money = 920
+var money = 9205153432
 var username : String = ""
 var avatar : String= ""
-var prestigeLevel : int = 50
+var prestigeLevel : int = 45
 var charPoints : int = 5
 var neededExp : int = 10 #For level 1
 var curExp : int = 0
@@ -15,7 +15,17 @@ var intStat : int = 0
 var invStat : int = 0
 var avatarPlayerGender = "male"
 
+var fatherNoble = false
+var fatherMerchant = false
+var fatherHunter = false
+var fatherThief = false
+var fatherAngler = false
+var fatherFarmer = false
 
+var youthApprentice = false
+var youthServant = false
+var youthStreetThief = false
+var youthCircusTrainee = false
 
 
 var breadAvalonia = load(resource_path + "products/breadAvalonia.tres")

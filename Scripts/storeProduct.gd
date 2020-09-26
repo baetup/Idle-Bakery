@@ -65,11 +65,11 @@ func _on_checkUi_timeout():
 
 
 func _on_productIcon_pressed():
-		$saleTimer.start()
-		$progressTimer.start()
-		$saleTimer.autostart = 0
-		$progressTimer.autostart = 0
-		$productIcon.disabled = 1
+	$saleTimer.start()
+	$progressTimer.start()
+	$saleTimer.autostart = 0
+	$progressTimer.autostart = 0
+	$productIcon.disabled = 1
 
 
 

@@ -12,17 +12,17 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 1 )
 shader_param/grayscale = false
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
 shader_param/grayscale = false
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=5]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -30,7 +30,7 @@ VScrollBar/icons/increment_highlight = null
 VScrollBar/styles/grabber = null
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = SubResource( 2 )
+VScrollBar/styles/scroll = SubResource( 4 )
 VScrollBar/styles/scroll_focus = null
 
 [node name="bakeryAvalonia" type="Panel"]
@@ -50,7 +50,7 @@ position = Vector2( 217.356, 314.904 )
 texture = ExtResource( 10 )
 
 [node name="bakeryBtn" type="TextureButton" parent="."]
-material = SubResource( 4 )
+material = SubResource( 2 )
 margin_left = 27.9174
 margin_top = 36.8285
 margin_right = 214.917
@@ -77,7 +77,7 @@ __meta__ = {
 }
 
 [node name="supervisorsBtn" type="TextureButton" parent="."]
-material = SubResource( 5 )
+material = SubResource( 3 )
 margin_left = 212.461
 margin_top = 37.0006
 margin_right = 399.461
@@ -118,7 +118,7 @@ margin_left = 57.0
 margin_top = 114.0
 margin_right = 375.0
 margin_bottom = 569.0
-theme = SubResource( 3 )
+theme = SubResource( 5 )
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false

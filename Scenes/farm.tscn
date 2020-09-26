@@ -20,10 +20,12 @@ VScrollBar/styles/grabber_pressed = null
 VScrollBar/styles/scroll = SubResource( 1 )
 VScrollBar/styles/scroll_focus = null
 
-[node name="farm" type="Node2D"]
+[node name="farm" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 11 )
 __meta__ = {
-"_edit_vertical_guides_": [ 85.2642 ]
+"_edit_use_anchors_": false
 }
 
 [node name="farmBkgr" type="Sprite" parent="."]
