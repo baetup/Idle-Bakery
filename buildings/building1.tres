@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 name = "Manor"
 incomeTime = 10.0
-incomeAmount = 500.0
+incomeAmount = 300.0
 isBought = false
-cost = 300.0
-experience = 0.0
+cost = 5000.0
+experience = 1.0

@@ -4,7 +4,7 @@
 [ext_resource path="res://Shaders/grayscale.shader" type="Shader" id=2]
 [ext_resource path="res://Image-assets/billboard.png" type="Texture" id=3]
 [ext_resource path="res://Image-assets/bar-body.png" type="Texture" id=4]
-[ext_resource path="res://Image-assets/filler.png" type="Texture" id=5]
+[ext_resource path="res://Image-assets/fillder-emerald.png" type="Texture" id=5]
 [ext_resource path="res://Image-assets/small_background.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/building.gd" type="Script" id=7]
 
@@ -143,7 +143,7 @@ __meta__ = {
 
 [node name="manorBill" type="Node2D" parent="billboards"]
 visible = false
-position = Vector2( 3.47964, -95.3609 )
+position = Vector2( 3.47964, -83.3609 )
 
 [node name="Sprite" type="Sprite" parent="billboards/manorBill"]
 position = Vector2( 210.543, 249.09 )
@@ -152,9 +152,35 @@ texture = ExtResource( 3 )
 
 [node name="cottage1Bill" type="Node2D" parent="billboards"]
 visible = false
-position = Vector2( 3.47964, -95.3609 )
+position = Vector2( 0.47964, -92.3609 )
 
 [node name="Sprite" type="Sprite" parent="billboards/cottage1Bill"]
+position = Vector2( 205.543, 240.09 )
+scale = Vector2( 1.7465, 1.7465 )
+texture = ExtResource( 3 )
+
+[node name="cottage2Bill" type="Node2D" parent="billboards"]
+visible = false
+position = Vector2( -7.52036, -119.361 )
+
+[node name="Sprite" type="Sprite" parent="billboards/cottage2Bill"]
+position = Vector2( 205.543, 240.09 )
+scale = Vector2( 1.7465, 1.7465 )
+texture = ExtResource( 3 )
+
+[node name="stableBill" type="Node2D" parent="billboards"]
+visible = false
+position = Vector2( 100.48, -122.361 )
+
+[node name="Sprite" type="Sprite" parent="billboards/stableBill"]
+position = Vector2( 205.543, 240.09 )
+scale = Vector2( 1.7465, 1.7465 )
+texture = ExtResource( 3 )
+
+[node name="animalFarmBill" type="Node2D" parent="billboards"]
+position = Vector2( 42.4796, -140.361 )
+
+[node name="Sprite" type="Sprite" parent="billboards/animalFarmBill"]
 position = Vector2( 205.543, 240.09 )
 scale = Vector2( 1.7465, 1.7465 )
 texture = ExtResource( 3 )
