@@ -7,9 +7,12 @@ onready var prestigeLevelNodePath = get_node("/root/GameManager/UiCanvas/charPan
 onready var charPointsNodePath = get_node("/root/GameManager/UiCanvas/charPanel/charPointsLabel/charPoints")
 onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
+onready var buildingsBtns = get_node("/root/GameManager/villageAvalonia/incomeBuildings")
+onready var buildingsColliders = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
+
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
-
+var areBuildingsOn = true
 
 func _ready():
 	inventoryNodePath.checkAvailableItems()
@@ -100,3 +103,17 @@ func _on_notifications_pressed():
 
 func reopenWindows(window):
 	get_node(window).visible = 1
+
+
+func _on_buildings_pressed():
+	if areBuildingsOn :
+		areBuildingsOn = false
+		buildingsBtns.hide()
+		buildingsColliders.hideSecondaryColliders()
+		$UiCanvas/buildings.material.set_shader_param("grayscale", true)
+	else:
+		areBuildingsOn = true
+		buildingsBtns.show()
+		buildingsColliders.showSecondaryColliders()
+		$UiCanvas/buildings.material.set_shader_param("grayscale", false)
+		

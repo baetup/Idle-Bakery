@@ -10,6 +10,7 @@ onready var storeUpgrades = $panel/storeUpgrades
 onready var bakeryUpgrades = $panel/bakeryUpgrades
 onready var farmUpgrades = $panel/farmUpgrades
 var currentlySelected = "Bakery"
+onready var mainBuildingsColliders = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
 
 func _ready():
 	updateUi()
@@ -21,6 +22,7 @@ func updateUi():
 
 func _on_closeWorkshop_pressed():
 	$".".hide()
+	mainBuildingsColliders.showColliders()
 
 
 func _on_dropdown_top_pressed():

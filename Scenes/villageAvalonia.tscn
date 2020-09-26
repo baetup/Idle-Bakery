@@ -89,7 +89,6 @@ position = Vector2( -456.764, 215.16 )
 texture = ExtResource( 3 )
 
 [node name="buttonsCollider" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 14 )
 
 [node name="mainBuildings" type="Node2D" parent="buttonsCollider"]
@@ -118,6 +117,7 @@ position = Vector2( -550, 46 )
 
 [node name="workshopCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/workshopBtn"]
 polygon = PoolVector2Array( -265.965, -122.544, -133.944, -38.2892, -98.783, -36.2989, 9.35474, -97.9971, 5.28571, -122.171, -5.30289, -124.615, -34.6252, -222.355, -57.4313, -212.581, -104.754, -199.501, -141.326, -206.88, -175.535, -228.872, -192.64, -215.025, -223.591, -232.944, -235.808, -194.662, -258.668, -166.33 )
+disabled = true
 
 [node name="fisheryProduce" type="Area2D" parent="buttonsCollider/mainBuildings"]
 position = Vector2( -17, 222 )
@@ -165,13 +165,161 @@ polygon = PoolVector2Array( -141.544, 323.078, -102.855, 324.625, -98.2123, 344.
 position = Vector2( -416, 120 )
 
 [node name="building1Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building1"]
-polygon = PoolVector2Array( -536.18, -80.1994, -578.08, -54.3608, -598.332, -57.1542, -599.729, -47.3774, -633.948, 5.69629, -643.724, 47.5966, -649.311, 73.4352, -556.432, 132.794, -457.966, 70.6418, -475.425, 44.8033, -483.106, 32.2332, -512.437, 4.29962 )
+polygon = PoolVector2Array( -1084.92, 41.787, -1104.43, 48.1267, -1101.02, 61.7816, -1176.61, 101.771, -1192.7, 128.106, -1192.7, 188.577, -1139.54, 228.079, -1058.59, 183.701, -1060.05, 118.352, -1072.73, 96.8943, -1065.91, 86.6531, -1068.83, 53.0035 )
 
 [node name="building2" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
 position = Vector2( -1134, -142 )
 
 [node name="building2Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building2"]
 polygon = PoolVector2Array( -248.66, 236.936, -321.985, 276.043, -331.064, 295.597, -343.007, 314.948, -343.007, 364.682, -280.509, 409.135, -202.606, 356.76, -210.251, 231.349, -227.011, 216.684, -244.47, 225.064 )
+
+[node name="building3" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -1402, 31 )
+
+[node name="building3Collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building3"]
+polygon = PoolVector2Array( -248.66, 236.936, -321.985, 276.043, -331.064, 295.597, -343.007, 314.948, -343.007, 364.682, -280.509, 409.135, -202.606, 356.76, -210.251, 231.349, -227.011, 216.684, -244.47, 225.064 )
+
+[node name="building4" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building4"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1408.86, 805.491, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1312.91, 709.983, -1332.28, 713.064, -1334.48, 723.187 )
+
+[node name="building5" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 110, -60 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building5"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building6" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 333, -19 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building6"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building7" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 455, -111 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building7"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building8" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 581, -174 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building8"]
+polygon = PoolVector2Array( -1348.12, 725.828, -1410.18, 764.119, -1405.14, 801.841, -1362.64, 840.261, -1277.7, 804.611, -1291.78, 761.478, -1313.35, 727.148, -1317.55, 709.414, -1335.6, 711.615, -1334.48, 723.187 )
+
+[node name="building9" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building9"]
+polygon = PoolVector2Array( -838.205, 934.544, -845.355, 937.721, -856.08, 963.143, -853.696, 981.415, -920.826, 1014.78, -935.92, 1033.45, -934.728, 1061.26, -826.288, 1133.95, -794.511, 1154.6, -660.65, 1078.34, -682.894, 1062.84, -684.88, 1053.71, -703.946, 1031.07, -726.985, 1002.07, -730.56, 972.279, -752.009, 961.157, -764.72, 989.757, -779.484, 964.438 )
+
+[node name="building10" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building10"]
+polygon = PoolVector2Array( -107.645, 619.221, 0.142792, 679.407, 107.931, 609.919, 105.742, 599.524, 75.649, 578.185, 74.0076, 566.148, 80.0262, 559.035, 40.6317, 534.96, 36.8016, 519.093, 25.3115, 518.546, 20.9344, 520.734, 0.142792, 516.904, -6.42297, 515.263, -31.0446, 543.715, -63.3262, 560.129 )
+
+[node name="building11" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building11"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building12" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -169, -112 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building12"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building13" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 146, -80 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building13"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building14" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 288, -160 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building14"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building15" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( -24, -192 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building15"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building16" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 106, -280 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building16"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building17" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 448, -490 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building17"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building18" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 657, -618 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building18"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building19" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 655, -370 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building19"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building20" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 862, -499 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building20"]
+polygon = PoolVector2Array( -1608.77, 660.589, -1651.73, 688.241, -1663.58, 682.316, -1674.94, 701.08, -1696.67, 714.907, -1714.94, 779.594, -1702.59, 782.063, -1711.48, 814.16, -1628.03, 866.997, -1543.1, 810.704, -1557.91, 796.877, -1559.89, 779.594, -1583.59, 751.942, -1607.29, 679.353 )
+
+[node name="building21" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building21"]
+polygon = PoolVector2Array( -1135.93, 499.445, -1117.74, 510.358, -1112.29, 497.627, -1102.59, 501.264, -1099.55, 518.239, -1038.32, 554.615, -1017.1, 601.903, -1022.56, 609.178, -1021.35, 651.616, -1029.23, 660.71, -1023.77, 697.691, -1095.92, 740.129, -1142.6, 718.304, -1142.6, 697.085, -1158.36, 692.841, -1168.67, 703.148, -1174.73, 622.516, -1164.42, 594.021, -1164.42, 569.165 )
+
+[node name="building22" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building22"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building23" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 182, -108 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building23"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building24" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building24"]
+polygon = PoolVector2Array( -1068.55, 859.892, -1096.76, 901.541, -1102.81, 921.694, -1125.65, 931.098, -1154.53, 916.32, -1147.15, 1004.32, -1052.43, 1072.17, -934.2, 1007.01, -934.872, 957.297, -926.811, 922.365, -1036.98, 867.282 )
+
+[node name="building25" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building25"]
+polygon = PoolVector2Array( -1300.9, 849.216, -1267.59, 814.033, -1244.61, 831.39, -1243.2, 890.497, -1168.14, 937.878, -1191.13, 1003.08, -1281.67, 1043.9, -1382.05, 981.974, -1382.52, 958.518, -1343.59, 931.779, -1351.56, 906.916, -1329.98, 889.559 )
+
+[node name="building26" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 350, -215 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building26"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building27" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 542, -87 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building27"]
+polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.311, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -91.7766, 187.541 )
+
+[node name="building28" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
+position = Vector2( 372, 21 )
+
+[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building28"]
+polygon = PoolVector2Array( -110.177, 207.576, -123.851, 204.358, -201.477, 244.98, -242.833, 300.4, -225.471, 295.191, -222.866, 335.993, -209.844, 341.202, -219.394, 389.818, -136.92, 438.434, -35.3473, 380.269, -42.2924, 347.279, -90.9084, 216.19, -98.9148, 212.804 )
 
 [node name="labels" type="Control" parent="."]
 margin_right = 40.0
@@ -473,7 +621,7 @@ __meta__ = {
 wait_time = 0.001
 
 [node name="incomeBuildings" type="Node2D" parent="."]
-position = Vector2( -544, 0 )
+position = Vector2( -546, 2 )
 
 [node name="building1" parent="incomeBuildings" instance=ExtResource( 20 )]
 position = Vector2( -1205.99, 176.488 )
@@ -514,6 +662,78 @@ targetBuilding = "building9"
 [node name="building10" parent="incomeBuildings" instance=ExtResource( 20 )]
 position = Vector2( 345.197, 514.02 )
 targetBuilding = "building10"
+
+[node name="building11" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1294.62, 671.914 )
+targetBuilding = "building11"
+
+[node name="building12" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1462.94, 559.849 )
+targetBuilding = "building12"
+
+[node name="building13" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1149.07, 590.515 )
+targetBuilding = "building13"
+
+[node name="building14" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1007.26, 510.369 )
+targetBuilding = "building14"
+
+[node name="building15" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1315.11, 476.306 )
+targetBuilding = "building15"
+
+[node name="building16" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -1187.36, 390.148 )
+targetBuilding = "building16"
+
+[node name="building17" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -842.733, 179.657 )
+targetBuilding = "building17"
+
+[node name="building18" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -612.438, 51.1877 )
+targetBuilding = "building18"
+
+[node name="building19" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -635.219, 298.269 )
+targetBuilding = "building19"
+
+[node name="building20" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -426.662, 169.618 )
+targetBuilding = "building20"
+
+[node name="building21" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -760.761, 546.844 )
+targetBuilding = "building21"
+
+[node name="building22" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 195.32, 243.855 )
+targetBuilding = "building22"
+
+[node name="building23" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 381.826, 132.013 )
+targetBuilding = "building23"
+
+[node name="building24" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -697.057, 878.349 )
+targetBuilding = "building24"
+
+[node name="building25" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( -932.589, 853.255 )
+targetBuilding = "building25"
+
+[node name="building26" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 544.347, 26.3899 )
+targetBuilding = "building26"
+
+[node name="building27" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 743.011, 152.972 )
+targetBuilding = "building27"
+
+[node name="building28" parent="incomeBuildings" instance=ExtResource( 20 )]
+position = Vector2( 570.718, 256.7 )
+targetBuilding = "building28"
 
 [node name="UiCanvas" type="CanvasLayer" parent="."]
 

@@ -7,7 +7,6 @@ onready var gameManagerNodePath = get_node("/root/GameManager")
 
 var clickMoney = 10
 
-
 #Receive money when you click the click money building
 func _on_ClickMoneyButton_pressed():
 	globals.addToMoney(clickMoney)

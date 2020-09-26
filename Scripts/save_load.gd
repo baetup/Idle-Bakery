@@ -78,7 +78,32 @@ func save_resources():
 	#buildings
 	ResourceSaver.save("user://buildings/building1.tres", s_buildings.building1)
 	ResourceSaver.save("user://buildings/building2.tres", s_buildings.building2)
-
+	ResourceSaver.save("user://buildings/building3.tres", s_buildings.building3)
+	ResourceSaver.save("user://buildings/building4.tres", s_buildings.building4)
+	ResourceSaver.save("user://buildings/building5.tres", s_buildings.building5)
+	ResourceSaver.save("user://buildings/building6.tres", s_buildings.building6)
+	ResourceSaver.save("user://buildings/building7.tres", s_buildings.building7)
+	ResourceSaver.save("user://buildings/building8.tres", s_buildings.building8)
+	ResourceSaver.save("user://buildings/building9.tres", s_buildings.building9)
+	ResourceSaver.save("user://buildings/building10.tres", s_buildings.building10)
+	ResourceSaver.save("user://buildings/building11.tres", s_buildings.building11)
+	ResourceSaver.save("user://buildings/building12.tres", s_buildings.building12)
+	ResourceSaver.save("user://buildings/building13.tres", s_buildings.building13)
+	ResourceSaver.save("user://buildings/building14.tres", s_buildings.building14)
+	ResourceSaver.save("user://buildings/building15.tres", s_buildings.building15)
+	ResourceSaver.save("user://buildings/building16.tres", s_buildings.building16)
+	ResourceSaver.save("user://buildings/building17.tres", s_buildings.building17)
+	ResourceSaver.save("user://buildings/building18.tres", s_buildings.building18)
+	ResourceSaver.save("user://buildings/building19.tres", s_buildings.building19)
+	ResourceSaver.save("user://buildings/building20.tres", s_buildings.building20)
+	ResourceSaver.save("user://buildings/building21.tres", s_buildings.building21)
+	ResourceSaver.save("user://buildings/building22.tres", s_buildings.building22)
+	ResourceSaver.save("user://buildings/building23.tres", s_buildings.building23)
+	ResourceSaver.save("user://buildings/building24.tres", s_buildings.building24)
+	ResourceSaver.save("user://buildings/building25.tres", s_buildings.building25)
+	ResourceSaver.save("user://buildings/building26.tres", s_buildings.building26)
+	ResourceSaver.save("user://buildings/building27.tres", s_buildings.building27)
+	ResourceSaver.save("user://buildings/building28.tres", s_buildings.building28)
 
 func save_data():
 	data = {

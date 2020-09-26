@@ -26,14 +26,23 @@ func ui():
 		$income/produceTimer.autostart = 1
 		$income/progressTimer.autostart = 1
 		
-		match s_buildings.get(targetBuilding).name:
-			"Manor":
-				$billboards/manorBill.show()
-			"Cottage":
-				$billboards/cottage1Bill.show()
-	
+		if s_buildings.get(targetBuilding).name == "Manor":
+			$billboards/manorBill.show()
+		elif s_buildings.get(targetBuilding).name == "Cottage":
+			$billboards/cottage1Bill.show()
+		elif s_buildings.get(targetBuilding).name == "Small Cottage":
+			$billboards/cottage2Bill.show()
+		elif s_buildings.get(targetBuilding).name == "Barracks":
+			$billboards/manorBill.show()
+		elif s_buildings.get(targetBuilding).name == "Archery Range":
+			$billboards/manorBill.show()
+		elif s_buildings.get(targetBuilding).name == "Estate":
+			$billboards/manorBill.show()
+		elif s_buildings.get(targetBuilding).name == "Animal Farm":
+			$billboards/animalFarmBill.show()
+		elif s_buildings.get(targetBuilding).name == "Stables":
+			$billboards/stableBill.show()
 
-	
 	buildingName.text = s_buildings.get(targetBuilding).name
 	productionRate.text = "%.2f" % s_buildings.get(targetBuilding).incomeAmount + " / " + "%.2f" % s_buildings.get(targetBuilding).incomeTime + " sec"
 	produceTimer.wait_time = s_buildings.get(targetBuilding).incomeTime
@@ -78,7 +87,8 @@ func _on_Buy_Buildings():
 		else:
 			isOpen = true
 			incomeWindow.show()
-		
+	
+	ui()
 
 func _on_progressTimer_timeout():
 	var current_progress = ($income/produceTimer.wait_time - $income/produceTimer.time_left) / $income/produceTimer.wait_time 
