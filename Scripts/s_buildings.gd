@@ -33,7 +33,7 @@ var building26 = load(resource_path + "buildings/building26.tres")
 var building27 = load(resource_path + "buildings/building27.tres")
 var building28 = load(resource_path + "buildings/building28.tres")
 
-
+var buildingArray = [building1, building2, building3, building4, building5,building6,building7,building8,building9,building10,building11,building12,building13,building14,building15,building16,building17,building18,building19,building20,building21,building22,building23,building24,building25,building26,building27,building28]
 
 func loadResource():
 	building1 = load(resource_path + "buildings/building1.tres")
@@ -64,3 +64,4 @@ func loadResource():
 	building26 = load(resource_path + "buildings/building26.tres")
 	building27 = load(resource_path + "buildings/building27.tres")
 	building28 = load(resource_path + "buildings/building28.tres")
+	buildingArray = [building1, building2, building3, building4, building5,building6,building7,building8,building9,building10,building11,building12,building13,building14,building15,building16,building17,building18,building19,building20,building21,building22,building23,building24,building25,building26,building27,building28]

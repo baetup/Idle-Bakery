@@ -37,11 +37,13 @@ func _on_next_pressed():
 		applyFatherFishingBonus()
 		applyFatherFarmerBonus()
 		applyYouthSThief()
+		applyYouthServant()
 		applyYouthApprenticeBonus()
 		save_load.savePreconditions()
 		save_load.save_resources()
 		globals.resource_path = "user://"
 		ingredients.resource_path = "user://"
+		s_buildings.resource_path = "user://"
 		s_upgrades.resource_path = "user://"
 		s_fish.resource_path = "user://"
 		s_hunting.resource_path = "user://"
@@ -169,4 +171,7 @@ func applyYouthSThief():
 		for x in globals.arrayOfProducts:
 			x.sellPrice = x.sellPrice + ( x.sellPrice * 0.05)
 	
-	
+func applyYouthServant():
+	if globals.youthServant:
+		for x in s_buildings.buildingArray:
+			x.cost = x.cost - (x.cost * 0.05)
