@@ -9,7 +9,7 @@ func _ready():
 
 func ui():
 	$huntingTimer.wait_time = s_hunting.huntingTime
-	$huntingBtn/levelBkgr/levelCost.text = shortenMoney.shortenMoney(s_hunting.huntingLevelCost)
+	$huntingBtn/levelBkgr/levelCost.text = str(shortenMoney.short(s_hunting.huntingLevelCost))
 	$huntingBtn/levelBkgr/levelCount.text = str(s_hunting.huntingLevel)
 
 func _on_huntingBtn_pressed():

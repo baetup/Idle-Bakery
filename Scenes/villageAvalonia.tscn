@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/farm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Image-assets/notificationAlert.png" type="Texture" id=2]
 [ext_resource path="res://Image-assets/avaloniaBackground.jpg" type="Texture" id=3]
+[ext_resource path="res://Scenes/archeryRange.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/Medieval Scroll of Wisdom.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/villageAvalonia.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/buttonsCollider.gd" type="Script" id=14]
@@ -159,6 +160,11 @@ position = Vector2( -287, -170 )
 [node name="estateCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/estateBtn"]
 polygon = PoolVector2Array( -141.544, 323.078, -102.855, 324.625, -98.2123, 344.744, -45.5952, 381.885, -17.739, 428.312, -21.6079, 481.703, -29.3458, 494.083, -27.0244, 508.012, -5.35852, 525.035, -105.176, 587.711, -165.531, 552.117, -147.734, 535.094, -164.758, 530.451, -183.328, 542.832, -212.732, 526.582, -184.102, 504.143, -182.555, 458.49, -192.614, 454.621, -173.269, 420.574, -177.138, 402.777 )
 
+[node name="archeryRange" type="Area2D" parent="buttonsCollider/mainBuildings"]
+
+[node name="archeryCollision" type="CollisionPolygon2D" parent="buttonsCollider/mainBuildings/archeryRange"]
+polygon = PoolVector2Array( -1272.09, 811.057, -1303.01, 844.401, -1331.5, 885.627, -1358.18, 903.815, -1352.72, 932.309, -1383.04, 957.771, -1386.67, 978.384, -1284.82, 1046.29, -1167.82, 978.384, -1166.6, 935.946, -1244.81, 885.627, -1244.81, 828.032 )
+
 [node name="secondaryBuildings" type="Node2D" parent="buttonsCollider"]
 
 [node name="building1" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
@@ -297,11 +303,6 @@ polygon = PoolVector2Array( -105.667, 156.288, -123.03, 205.772, -199.426, 248.3
 
 [node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building24"]
 polygon = PoolVector2Array( -1068.55, 859.892, -1096.76, 901.541, -1102.81, 921.694, -1125.65, 931.098, -1154.53, 916.32, -1147.15, 1004.32, -1052.43, 1072.17, -934.2, 1007.01, -934.872, 957.297, -926.811, 922.365, -1036.98, 867.282 )
-
-[node name="building25" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
-
-[node name="collision" type="CollisionPolygon2D" parent="buttonsCollider/secondaryBuildings/building25"]
-polygon = PoolVector2Array( -1300.9, 849.216, -1267.59, 814.033, -1244.61, 831.39, -1243.2, 890.497, -1168.14, 937.878, -1191.13, 1003.08, -1281.67, 1043.9, -1382.05, 981.974, -1382.52, 958.518, -1343.59, 931.779, -1351.56, 906.916, -1329.98, 889.559 )
 
 [node name="building26" type="Area2D" parent="buttonsCollider/secondaryBuildings"]
 position = Vector2( 350, -215 )
@@ -719,10 +720,6 @@ targetBuilding = "building23"
 position = Vector2( -697.057, 878.349 )
 targetBuilding = "building24"
 
-[node name="building25" parent="incomeBuildings" instance=ExtResource( 20 )]
-position = Vector2( -932.589, 853.255 )
-targetBuilding = "building25"
-
 [node name="building26" parent="incomeBuildings" instance=ExtResource( 20 )]
 position = Vector2( 544.347, 26.3899 )
 targetBuilding = "building26"
@@ -755,6 +752,13 @@ visible = false
 margin_top = 56.0
 margin_bottom = 56.0
 rect_pivot_offset = Vector2( 415.173, 194.324 )
+
+[node name="archeryRange" parent="UiCanvas" instance=ExtResource( 4 )]
+visible = false
+margin_left = 16.0
+margin_top = 28.0
+margin_right = 16.0
+margin_bottom = 28.0
 
 [node name="checkUi" type="Timer" parent="."]
 wait_time = 0.002

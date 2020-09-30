@@ -5,6 +5,7 @@ onready var villageAvaloniaNodePath = get_node("/root/GameManager/villageAvaloni
 onready var cameraNodePath = get_node("/root/GameManager/Camera2D")
 onready var anmationPlayer = get_node("/root/GameManager/UiCanvas/ColorRect/AnimationPlayer")
 onready var colorRect = get_node("/root/GameManager/UiCanvas/ColorRect")
+onready var worldMap = get_node("/root/GameManager/worldMap/world-map")
 
 func _on_avaloniaVillage_pressed():
 	colorRect.visible = true
@@ -32,5 +33,19 @@ func _on_avaloniaVillage_pressed():
 	yield(t2, "timeout")
 	colorRect.visible = false
 
+	#disabling world-map collisions
+	for child in worldMap.get_children():
+		var collision = child.get_children()
+		collision[0].disabled = 1
+		
+	#enabling village collisions
+	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showColliders()
+	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showSecondaryColliders()
+
+func _on_close_v1_enemy_menu_pressed():
+	$v1Menu_enemy.hide()
 
 
+func _on_v1_attackBtn_pressed():
+	$canvas/attackMenu.show()
+	$canvas/attackMenu.ui("village1")

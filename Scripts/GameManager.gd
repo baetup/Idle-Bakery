@@ -9,6 +9,7 @@ onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 onready var buildingsBtns = get_node("/root/GameManager/villageAvalonia/incomeBuildings")
 onready var buildingsColliders = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
+onready var worldMapCollisions = get_node("/root/GameManager/worldMap/world-map")
 
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
@@ -32,7 +33,7 @@ func UpdateUI():
 	
 
 func _on_updateUi_timeout():
-	moneyLabel = shortenMoney.shortenMoney(globals.money)
+	moneyLabel = shortenMoney.short(globals.money)
 	$UiCanvas/moneyLabel.text = moneyLabel
 
 func setPrestigeLevel(buildingCost, buildingExp):
@@ -86,7 +87,15 @@ func _on_worldMapBtn_pressed():
 	t2.start()
 	yield(t2, "timeout")
 	$UiCanvas/ColorRect.visible = false
-
+	
+	#disabling village collisions
+	get_node("/root/GameManager/villageAvalonia/buttonsCollider").hideColliders()
+	get_node("/root/GameManager/villageAvalonia/buttonsCollider").hideSecondaryColliders()
+	
+	#enabling worldMapCollisions
+	for child in worldMapCollisions.get_children():
+		var collision = child.get_children()
+		collision[0].disabled = 0
 
 
 

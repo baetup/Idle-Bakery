@@ -48,8 +48,6 @@ func ui():
 	produceTimer.wait_time = s_buildings.get(targetBuilding).incomeTime
 	costLabel.text = "%.2f" %  s_buildings.get(targetBuilding).cost
 
-
-
 func _on_checkUi_timeout():
 	if globals.money >= s_buildings.get(targetBuilding).cost:
 		canBuy = true
@@ -57,7 +55,6 @@ func _on_checkUi_timeout():
 	else :
 		$unlockBtn/btnBkgr.material.set_shader_param('grayscale', true)
 		canBuy = false
-		
 
 func _on_Buy_Buildings():
 	if canBuy && s_buildings.get(targetBuilding).isBought == false:
@@ -74,6 +71,7 @@ func _on_Buy_Buildings():
 		unlockBtn.hide()
 		incomeWindow.show()
 		isOpen = true
+		canBuy = false
 		
 		$income/produceTimer.start()
 		$income/progressTimer.start()
@@ -93,7 +91,6 @@ func _on_Buy_Buildings():
 func _on_progressTimer_timeout():
 	var current_progress = ($income/produceTimer.wait_time - $income/produceTimer.time_left) / $income/produceTimer.wait_time 
 	$income/progressBarBody/progressBar.set("value", current_progress)
-
 
 func _on_produceTimer_timeout():
 	globals.addToMoney(s_buildings.get(targetBuilding).incomeAmount)

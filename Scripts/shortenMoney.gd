@@ -1,64 +1,52 @@
 extends Node
 
 
-
-func _ready():
-	pass # Replace with function body.
-
-#Function created to abbreviate money
-static func shortenMoney(money):
-	var stageOne = 1000.00
-	var stringDot = "."
-	var suffixArray = ["K", "M", "B", "T", "QD", "QI", "SX", "SP", "OC", "NO", "DC", "UD", "DD", "TD"]
-	var moneyLabel = str(money)
+func short(num, ends=["", "K", "M", "B", "T","QD", "QT", "SX", "SP", "OC", "NO", "DC", "UD", "DD", "TD"]):
 	
-	if money < 1000:
-		var stringMoney = str(money)
-		var splitNumber = stringMoney.split(".")
-		moneyLabel = splitNumber[0]
+	var mainDivision
+	var stringifyNumber
+	var splitDivision
+	var sizeOfNum = str(num).length()
 	
-	if money > 999: # Case for 1k ~ 999k
-		var splitMoney = money / stageOne #Dividing in order to get shorter version of the number
-		var stringSplitMoney = str(splitMoney) #Transforming the result of the divide into a string
-		var splitNumber = stringSplitMoney.split(".") #Separating the number into an array with two indexes
+	#1 - 999 case
+	if sizeOfNum > 0 && sizeOfNum < 4:
+		return num
+	#1000 - 999 999 case 
+	if sizeOfNum > 3 && sizeOfNum < 7:
+		mainDivision = num / pow (10, 3)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
+	#1 000 000 - 999 999 999
+	if sizeOfNum > 6 && sizeOfNum < 10:
+		mainDivision = num / pow (10, 6)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
+	#1 000 000 000 - 999 999 999 999
+	if sizeOfNum > 9 && sizeOfNum < 13:
+		mainDivision = num / pow (10, 9)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
+	#1 000 000 000 000 - 999 999 999 999 999
+	if sizeOfNum > 12 && sizeOfNum < 16:
+		mainDivision = num / pow (10, 12)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
+	#1 000 000 000 000 000 - 999 999 999 999 999 999
+	if sizeOfNum > 15 && sizeOfNum < 19:
+		mainDivision = num / pow (10, 15)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
+	#1 000 000 000 000 000 000 -  9 223 372 036 854 775 806
+	if sizeOfNum == 19:
+		mainDivision = num / pow (10, 18)
+		stringifyNumber = str(mainDivision)
+		splitDivision = stringifyNumber.split(".")
+		return splitDivision[0] + "." + splitDivision[1].left(2) + str(ends[int(floor(logWithBase(num, 10))/3)])
 
-		var firstDigit = ""
-		var secondDigit = ""
-		
-		moneyLabel = str(splitMoney) + suffixArray[0]
-		
-		if splitNumber.size() > 1:
-			firstDigit = splitNumber[0]
-			var secondDecimalArray = splitNumber[1]
-			secondDigit = secondDecimalArray[0] #Assigning the first entry in the array to the first digit variable
-
-		else:
-			firstDigit= splitNumber[0]
-			secondDigit= ""
-		
-		if stringDot in stringSplitMoney:
-			moneyLabel = firstDigit + "." + secondDigit + suffixArray[0]
-
-	if money > 999999: # Case for 1k ~ 999 999k
-		var splitMoney = money / (stageOne * stageOne) #Dividing in order to get shorter version of the number
-		var stringSplitMoney = str(splitMoney) #Transforming the result of the divide into a string
-		var splitNumber = stringSplitMoney.split(".") #Separating the number into an array with two indexes
-
-		var firstDigit = ""
-		var secondDigit = ""
-		
-		moneyLabel = str(splitMoney) + suffixArray[1]
-		
-		if splitNumber.size() > 1:
-			firstDigit = splitNumber[0]
-			var secondDecimalArray = splitNumber[1]
-			secondDigit = secondDecimalArray[0] #Assigning the first entry in the array to the first digit variable
-
-		else:
-			firstDigit= splitNumber[0]
-			secondDigit= ""
-		
-		if stringDot in stringSplitMoney:
-			moneyLabel = firstDigit + "." + secondDigit + suffixArray[1]
-			
-	return str(moneyLabel)
+func logWithBase(value, base):
+	return log(value) / log(base)

@@ -29,6 +29,8 @@ func _on_continue_pressed():
 	s_fish.resource_path = "user://"
 	s_hunting.resource_path = "user://"
 	s_buildings.resource_path = "user://"
+	s_army.resource_path = "user://"
+	s_villages.resource_path = "user://"
 	save_load.load_data()
 	
 	s_hunting.loadResource()
@@ -37,6 +39,8 @@ func _on_continue_pressed():
 	globals.loadResource()
 	s_upgrades.loadResource()
 	s_buildings.loadResource()
+	s_army.load_resource()
+	s_villages.load_resource()
 
 
 	

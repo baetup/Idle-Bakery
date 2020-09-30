@@ -56,7 +56,7 @@ var _wait_for_anim = false
 
 func _ready():
 	setCameraLimits("avalonia")
-	$".". zoom = Vector2(1.5,1.5)
+	$".". zoom = Vector2(2.5,2.5)
 	set_h_drag_enabled(false)
 	set_v_drag_enabled(false)
 	set_enable_follow_smoothing(true)

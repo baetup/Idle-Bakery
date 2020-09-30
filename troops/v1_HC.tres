@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/troop_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Heavy Cavalry"
+count = 0
+speed = 8
+carryCapacity = 50
+armor = 15
+health = 60
+attack = 15
+cost = 4000.0
+trainingTime = 40.0
+bonusOver = "Long Bowman"
+disadvantageOver = "Spearman"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/village_object.gd" type="Script" id=1]
+[ext_resource path="res://troops/bowman.tres" type="Resource" id=2]
+[ext_resource path="res://troops/longBowman.tres" type="Resource" id=3]
+[ext_resource path="res://troops/spearman.tres" type="Resource" id=4]
+[ext_resource path="res://troops/swordsman.tres" type="Resource" id=5]
+[ext_resource path="res://troops/knight.tres" type="Resource" id=6]
+[ext_resource path="res://troops/lightCavalry.tres" type="Resource" id=7]
+[ext_resource path="res://troops/heavyCavalry.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+type = "player"
+army = [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+xCoord = 0
+yCoord = 0

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/troop_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bowman"
+count = 0
+speed = 5
+carryCapacity = 15
+armor = 2
+health = 10
+attack = 3
+cost = 300.0
+trainingTime = 8.0
+bonusOver = "Swordsman"
+disadvantageOver = "Light Cavalry"

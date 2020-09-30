@@ -9,12 +9,12 @@ func _ready():
 
 func UpdateUI():
 	$name.text = ingredients.get(targetIngredient).name
-	$quantity.text = str(shortenMoney.shortenMoney(ingredients.get(targetIngredient).quantity))
+	$quantity.text = str(shortenMoney.short(ingredients.get(targetIngredient).quantity))
 	$levelCount.text = str(ingredients.get(targetIngredient).level)
 	$produceIcon/icon.set_texture(load(ingredients.get(targetIngredient).icon))
 	$farmTimer.wait_time = ingredients.get(targetIngredient).produceTime
 	$durationLabel.text = "%.1f" % ($farmTimer.time_left) + "s"
-	$research/upgradeCost.text = str(shortenMoney.shortenMoney(ingredients.get(targetIngredient).levelCost))
+	$research/upgradeCost.text = str(shortenMoney.short(ingredients.get(targetIngredient).levelCost))
 
 	if ingredients.get(targetIngredient).levelCost > globals.money:
 		$research.disabled = 1

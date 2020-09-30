@@ -48,6 +48,10 @@ func indentifyNode(nodeValue : String):
 		get_node("/root/GameManager/villageAvalonia")._on_getCastleOpen_pressed()
 	elif nodeValue == "estateBtn":
 		get_node("/root/GameManager/villageAvalonia")._on_ClickMoneyButton_pressed()
+	elif nodeValue == "archeryRange":
+		get_node("/root/GameManager/villageAvalonia/UiCanvas/archeryRange").show()
+		hideColliders()
+		hideSecondaryColliders()
 	
 	#secondary buildings
 	elif nodeValue == "building1":
@@ -106,6 +110,12 @@ func indentifyNode(nodeValue : String):
 		get_node("/root/GameManager/villageAvalonia/incomeBuildings/building27")._on_Buy_Buildings()
 	elif nodeValue == "building28":
 		get_node("/root/GameManager/villageAvalonia/incomeBuildings/building28")._on_Buy_Buildings()
+
+	#world-map interactions
+	elif nodeValue == "avalonia":
+		get_node("/root/GameManager/worldMap")._on_avaloniaVillage_pressed()
+	elif nodeValue == "v1":
+		get_node("/root/GameManager/worldMap/v1Menu_enemy").show()
 
 
 func hideColliders():

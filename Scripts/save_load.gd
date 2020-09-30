@@ -12,6 +12,8 @@ const PRODUCTS_DIR = "user://products/"
 const SUPERVISOR_DIR = "user://supervisors/"
 const UPGRADES_DIR = "user://upgrades/"
 const BUILDINGS_DIR = "user://buildings"
+const TROOPS_DIR = "user://troops/"
+const VILLAGES_DIR = "user://villages/"
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.save"
 var save_path_precond = SAVE_DIR + "save_precond.save"
@@ -43,6 +45,14 @@ func save_resources():
 	var dir_buildings = Directory.new()
 	if !dir_buildings.dir_exists(BUILDINGS_DIR):
 		dir_buildings.make_dir(BUILDINGS_DIR)
+		
+	var dir_troops = Directory.new()
+	if !dir_troops.dir_exists(TROOPS_DIR):
+		dir_troops.make_dir(TROOPS_DIR)
+
+	var dir_villages = Directory.new()
+	if !dir_villages.dir_exists(VILLAGES_DIR):
+		dir_villages.make_dir(VILLAGES_DIR)
 
 	#products
 	ResourceSaver.save("user://products/breadAvalonia.tres", globals.breadAvalonia)
@@ -105,6 +115,28 @@ func save_resources():
 	ResourceSaver.save("user://buildings/building27.tres", s_buildings.building27)
 	ResourceSaver.save("user://buildings/building28.tres", s_buildings.building28)
 
+	#troops
+		#avalonia troops
+	ResourceSaver.save("user://troops/bowman.tres", s_army.avaloniaBowman)
+	ResourceSaver.save("user://troops/heavyCavalry.tres", s_army.avaloniaHC)
+	ResourceSaver.save("user://troops/knight.tres", s_army.avaloniaKnight)
+	ResourceSaver.save("user://troops/lightCavalry.tres", s_army.avaloniaLC)
+	ResourceSaver.save("user://troops/longBowman.tres", s_army.avaloniaLB)
+	ResourceSaver.save("user://troops/spearman.tres", s_army.avaloniaSpMan)
+	ResourceSaver.save("user://troops/swordsman.tres", s_army.avaloniaSwMan)
+		#village 1 troops
+	ResourceSaver.save("user://troops/v1_bowman.tres", s_army.v1_bowman)
+	ResourceSaver.save("user://troops/v1_LB.tres", s_army.v1_LB)
+	ResourceSaver.save("user://troops/v1_HC.tres", s_army.v1_HC)
+	ResourceSaver.save("user://troops/v1_Knight.tres", s_army.v1_Knight)
+	ResourceSaver.save("user://troops/v1_SpMan.tres", s_army.v1_SpMan)
+	ResourceSaver.save("user://troops/v1_SwMan.tres", s_army.v1_SwMan)
+	ResourceSaver.save("user://troops/v1_LC.tres", s_army.v1_LC)
+	
+	#villages
+	ResourceSaver.save("user://villages/avalonia.tres", s_villages.avaloniaVillage)
+	ResourceSaver.save("user://villages/village1.tres", s_villages.village1)
+
 func save_data():
 	data = {
 		'day' : globals.day,
@@ -134,7 +166,21 @@ func save_data():
 		'youthApprentice' : globals.youthApprentice,
 		'youthServant' : globals.youthServant,
 		'youthStreetThief' : globals.youthStreetThief,
-		'youthCircusTrainee' : globals.youthCircusTrainee
+		'youthCircusTrainee' : globals.youthCircusTrainee,
+		'army':{
+			'archeryRange':{
+				'bowmenQueueLimit' : s_army.bowmenQueueLimit,
+				'bowmenQueue' : s_army.bowmenQueue,
+				'bowmenQueueTime': s_army.bowmenQueueTime,
+				'bowmenQueueInProgress' : s_army.bowmenQueueInProgress,
+				'bowmenQueueTimeLeft' : s_army.bowmenQueueTimeLeft,
+				'lbQueueLimit' : s_army.lbQueueLimit,
+				'lbQueue' : s_army.lbQueue,
+				'lbQueueTime' : s_army.lbQueueTime,
+				'lbQueueInProgress' : s_army.lbQueueInProgress,
+				'lbQueueTimeLeft' : s_army.lbQueueTimeLeft
+			}
+		}
 	}
 
 	var dir = Directory.new()
@@ -208,12 +254,15 @@ func assign_data():
 	globals.youthStreetThief = data['youthStreetThief']
 	globals.youthCircusTrainee = data['youthCircusTrainee']
 	
+	#army
+	s_army.bowmenQueue = data['army']['archeryRange']['bowmenQueue']
+	s_army.bowmenQueueInProgress = data['army']['archeryRange']['bowmenQueueInProgress']
+	s_army.bowmenQueueLimit = data['army']['archeryRange']['bowmenQueueLimit']
+	s_army.bowmenQueueTime = data['army']['archeryRange']['bowmenQueueTime']
+	s_army.bowmenQueueTimeLeft = data['army']['archeryRange']['bowmenQueueTimeLeft']
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	s_army.lbQueue = data['army']['archeryRange']['lbQueue']
+	s_army.lbQueueInProgress = data['army']['archeryRange']['lbQueueInProgress']
+	s_army.lbQueueLimit = data['army']['archeryRange']['lbQueueLimit']
+	s_army.lbQueueTime = data['army']['archeryRange']['lbQueueTime']
+	s_army.lbQueueTimeLeft = data['army']['archeryRange']['lbQueueTimeLeft']

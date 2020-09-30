@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Image-assets/close_button.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/bowman_recruiting.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/lb_recruiting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/archeryRange.gd" type="Script" id=6]
+
+[node name="archeryRange" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 164.132 ]
+}
+
+[node name="panelBkgr" type="Panel" parent="."]
+margin_left = 36.8088
+margin_top = 128.758
+margin_right = 398.809
+margin_bottom = 646.758
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bowman" parent="panelBkgr" instance=ExtResource( 4 )]
+
+[node name="lb" parent="panelBkgr" instance=ExtResource( 5 )]
+
+[node name="bowmanCount" type="Label" parent="panelBkgr"]
+margin_left = 36.9136
+margin_top = 15.9136
+margin_right = 103.914
+margin_bottom = 29.9136
+text = "Bowman : "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="longBowmanCount" type="Label" parent="panelBkgr"]
+margin_left = 188.914
+margin_top = 15.9136
+margin_right = 285.914
+margin_bottom = 29.9136
+text = "LongBowman : "
+
+[node name="closeArchery" type="TextureButton" parent="panelBkgr"]
+margin_left = 326.87
+margin_top = -17.7286
+margin_right = 373.87
+margin_bottom = 24.2714
+texture_normal = ExtResource( 2 )
+[connection signal="pressed" from="panelBkgr/closeArchery" to="." method="_on_closeArchery_pressed"]

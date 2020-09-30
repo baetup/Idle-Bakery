@@ -40,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://Scripts/supervisor_object.gd"
 }, {
 "base": "Resource",
+"class": "troop",
+"language": "GDScript",
+"path": "res://Scripts/troop_object.gd"
+}, {
+"base": "Resource",
 "class": "upgrade",
 "language": "GDScript",
 "path": "res://Scripts/upgrade_object.gd"
+}, {
+"base": "Resource",
+"class": "village",
+"language": "GDScript",
+"path": "res://Scripts/village_object.gd"
 } ]
 _global_script_class_icons={
 "building": "",
@@ -51,7 +61,9 @@ _global_script_class_icons={
 "notification": "",
 "productObject": "",
 "supervisor": "",
-"upgrade": ""
+"troop": "",
+"upgrade": "",
+"village": ""
 }
 
 [application]
@@ -68,9 +80,12 @@ s_hunting="*res://Scripts/s_hunting.gd"
 globals="*res://Scripts/globals.gd"
 s_upgrades="*res://Scripts/s_upgrades.gd"
 s_buildings="*res://Scripts/s_buildings.gd"
+s_villages="*res://Scripts/s_villages.gd"
 mainTheme="*res://Scenes/mainThemeSound.tscn"
 shortenMoney="*res://Scripts/shortenMoney.gd"
+s_army="*res://Scripts/s_army.gd"
 save_load="*res://Scripts/save_load.gd"
+timeCalculus="*res://Scripts/timeCalculus.gd"
 
 [debug]
 

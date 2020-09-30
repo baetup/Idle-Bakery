@@ -9,7 +9,7 @@ func _ready():
 
 func ui():
 	$fishTimer.wait_time = s_fish.fishingTime
-	$fisheryBtn/levelBkgr/levelCost.text = shortenMoney.shortenMoney(s_fish.fishingLevelCost)
+	$fisheryBtn/levelBkgr/levelCost.text = str(shortenMoney.short(s_fish.fishingLevelCost))
 	$fisheryBtn/levelBkgr/levelCount.text = str(s_fish.fishingLevel)
 
 func _on_fisheryBtn_pressed():

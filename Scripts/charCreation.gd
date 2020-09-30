@@ -47,6 +47,8 @@ func _on_next_pressed():
 		s_upgrades.resource_path = "user://"
 		s_fish.resource_path = "user://"
 		s_hunting.resource_path = "user://"
+		s_army.resource_path = "user://"
+		s_villages.resource_path = "user://"
 	else:
 		$center/paper/fourthStep/error.text = "Nickname too short or avatar not selected"
 

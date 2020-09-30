@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/troop_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Knight"
+count = 0
+speed = 6
+carryCapacity = 5
+armor = 15
+health = 60
+attack = 10
+cost = 1500.0
+trainingTime = 35.0
+bonusOver = "Light Cavalry"
+disadvantageOver = "Swordsman"

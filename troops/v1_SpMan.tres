@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/troop_object.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Spearman"
+count = 0
+speed = 3
+carryCapacity = 25
+armor = 10
+health = 30
+attack = 3
+cost = 450.0
+trainingTime = 10.0
+bonusOver = "Heavy Cavalry"
+disadvantageOver = "Long Bowman"
