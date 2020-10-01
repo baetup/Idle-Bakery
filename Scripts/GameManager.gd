@@ -9,7 +9,6 @@ onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 onready var buildingsBtns = get_node("/root/GameManager/villageAvalonia/incomeBuildings")
 onready var buildingsColliders = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
-onready var worldMapCollisions = get_node("/root/GameManager/worldMap/world-map")
 
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
@@ -92,11 +91,7 @@ func _on_worldMapBtn_pressed():
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").hideColliders()
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").hideSecondaryColliders()
 	
-	#enabling worldMapCollisions
-	for child in worldMapCollisions.get_children():
-		var collision = child.get_children()
-		collision[0].disabled = 0
-
+	worldMapNodePath.enableWorldMapCollisions()
 
 
 func _on_inventoryButton_pressed():

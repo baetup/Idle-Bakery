@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 name = "Long Bowman"
 count = 0
-speed = 2
+speed = 11
 carryCapacity = 20
 armor = 4
 health = 15

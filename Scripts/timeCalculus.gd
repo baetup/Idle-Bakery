@@ -23,4 +23,6 @@ func calculate(n):
 		return str(minutes) + "min " + str(seconds) + "sec"
 	elif day == 0 && hour == 0 && minutes == 0 && seconds != 0:
 		return str(seconds) + "sec"
+	elif day == 0 && hour == 0 && minutes == 0 && seconds == 0:
+		return "0 sec"
 	

@@ -33,19 +33,18 @@ func _on_avaloniaVillage_pressed():
 	yield(t2, "timeout")
 	colorRect.visible = false
 
-	#disabling world-map collisions
-	for child in worldMap.get_children():
-		var collision = child.get_children()
-		collision[0].disabled = 1
+	disableWorldMapCollisions()
 		
 	#enabling village collisions
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showColliders()
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showSecondaryColliders()
 
-func _on_close_v1_enemy_menu_pressed():
-	$v1Menu_enemy.hide()
+func disableWorldMapCollisions():
+	for child in worldMap.get_children():
+		var collision = child.get_children()
+		collision[0].disabled = 1
 
-
-func _on_v1_attackBtn_pressed():
-	$canvas/attackMenu.show()
-	$canvas/attackMenu.ui("village1")
+func enableWorldMapCollisions():
+	for child in worldMap.get_children():
+		var collision = child.get_children()
+		collision[0].disabled = 0

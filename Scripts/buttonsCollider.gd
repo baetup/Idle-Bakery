@@ -4,7 +4,8 @@ extends Node2D
 onready var drag_timer = get_node("/root/GameManager/villageAvalonia/dragTimer")
 onready var mainBuildings = get_node("/root/GameManager/villageAvalonia/buttonsCollider/mainBuildings")
 onready var secondaryBuildings = get_node("/root/GameManager/villageAvalonia/buttonsCollider/secondaryBuildings")
-	
+onready var worldMap = get_node("/root/GameManager/worldMap")
+
 func _input(event):
 
 	if event is InputEventScreenTouch && event.is_pressed():
@@ -115,8 +116,8 @@ func indentifyNode(nodeValue : String):
 	elif nodeValue == "avalonia":
 		get_node("/root/GameManager/worldMap")._on_avaloniaVillage_pressed()
 	elif nodeValue == "v1":
-		get_node("/root/GameManager/worldMap/v1Menu_enemy").show()
-
+		get_node("/root/GameManager/worldMap/canvas/attackMenu").showAttackMenu("village1")
+		worldMap.disableWorldMapCollisions()
 
 func hideColliders():
 	
