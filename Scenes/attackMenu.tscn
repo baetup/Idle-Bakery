@@ -154,70 +154,28 @@ margin_bottom = 171.0
 custom_constants/margin_top = -18
 
 [node name="ingredientsGrid" type="GridContainer" parent="pre_attackMenuBkgr/vbox/resourcesMargin"]
-margin_left = 54.0
+margin_left = 136.0
 margin_top = -18.0
-margin_right = 296.0
+margin_right = 214.0
 margin_bottom = 12.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="smallerVbox" type="HBoxContainer" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid"]
+[node name="smallerVbox1" type="HBoxContainer" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid"]
 margin_right = 78.0
 margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ingredientIcon" type="TextureRect" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox"]
+[node name="ingredientIcon" type="TextureRect" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox1"]
 margin_right = 30.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 6 )
 expand = true
 
-[node name="ingredientName" type="Label" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox"]
-margin_left = 34.0
-margin_top = 8.0
-margin_right = 78.0
-margin_bottom = 22.0
-text = "[name]"
-
-[node name="smallerVbox2" type="HBoxContainer" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid"]
-margin_left = 82.0
-margin_right = 160.0
-margin_bottom = 30.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="ingredientIcon" type="TextureRect" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox2"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-texture = ExtResource( 6 )
-expand = true
-
-[node name="ingredientName" type="Label" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox2"]
-margin_left = 34.0
-margin_top = 8.0
-margin_right = 78.0
-margin_bottom = 22.0
-text = "[name]"
-
-[node name="smallerVbox3" type="HBoxContainer" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid"]
-margin_left = 164.0
-margin_right = 242.0
-margin_bottom = 30.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="ingredientIcon" type="TextureRect" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox3"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-texture = ExtResource( 6 )
-expand = true
-
-[node name="ingredientName" type="Label" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox3"]
+[node name="ingredientName" type="Label" parent="pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox1"]
 margin_left = 34.0
 margin_top = 8.0
 margin_right = 78.0
@@ -492,18 +450,18 @@ align = 1
 valign = 1
 
 [node name="margin2" type="MarginContainer" parent="pre_attackMenuBkgr/vbox"]
-margin_left = 46.0
+margin_left = 101.0
 margin_top = 411.0
-margin_right = 303.0
-margin_bottom = 493.0
+margin_right = 248.0
+margin_bottom = 469.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 custom_constants/margin_top = -10
 
 [node name="btns" type="VBoxContainer" parent="pre_attackMenuBkgr/vbox/margin2"]
 margin_top = -10.0
-margin_right = 257.0
-margin_bottom = 82.0
+margin_right = 147.0
+margin_bottom = 58.0
 size_flags_horizontal = 7
 size_flags_vertical = 4
 custom_constants/separation = 10
@@ -513,8 +471,7 @@ __meta__ = {
 
 [node name="attack_btn" type="TextureButton" parent="pre_attackMenuBkgr/vbox/margin2/btns"]
 material = SubResource( 8 )
-margin_left = 55.0
-margin_right = 202.0
+margin_right = 147.0
 margin_bottom = 29.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -539,9 +496,8 @@ __meta__ = {
 }
 
 [node name="spy_btn" type="TextureButton" parent="pre_attackMenuBkgr/vbox/margin2/btns"]
-margin_left = 55.0
 margin_top = 39.0
-margin_right = 202.0
+margin_right = 147.0
 margin_bottom = 68.0
 size_flags_horizontal = 4
 texture_normal = ExtResource( 5 )
@@ -565,6 +521,7 @@ __meta__ = {
 }
 
 [node name="error" type="Label" parent="pre_attackMenuBkgr/vbox/margin2/btns"]
+visible = false
 margin_top = 78.0
 margin_right = 257.0
 margin_bottom = 92.0

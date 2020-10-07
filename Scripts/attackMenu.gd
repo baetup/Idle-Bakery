@@ -23,6 +23,7 @@ func showAttackMenu(village):
 	updateMyArmy()
 	duration.text = str(timeCalculus.calculate(calculateDistance() * getSlowestUnit()))
 	typeLabel.text = "Attack " + s_villages.get(targetVillage).type
+	setIngredients()
 	
 	if s_army.battleInProgess:
 		$pre_attackMenuBkgr/vbox/margin2/btns/attack_btn.material.set_shader_param('grayscale', true)
@@ -88,3 +89,15 @@ func getSlowestUnit() -> int:
 		if troop.count > 0 && troop.speed > slowestSpeed:
 			slowestSpeed = troop.speed
 	return slowestSpeed
+
+func setIngredients():
+	for x in s_villages.get(targetVillage).ingredients.size():
+		print(s_villages.get(targetVillage).ingredients.size())
+		$pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/smallerVbox1.DUPLICATE_USE_INSTANCING
+	
+	var ingredientsGridChildren = $pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid.get_children()
+	var temp = 0
+	for eachChild in ingredientsGridChildren:
+		get_node("pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/"+eachChild.name +"/ingredientIcon").set_texture(load(ingredients.get(s_villages.get(targetVillage).ingredients[temp]).icon))
+		get_node("pre_attackMenuBkgr/vbox/resourcesMargin/ingredientsGrid/"+eachChild.name +"/ingredientName").text = s_villages.get(targetVillage).ingredients[temp]
+		temp += 1
