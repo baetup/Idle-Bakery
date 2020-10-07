@@ -42,7 +42,5 @@ func _on_continue_pressed():
 	s_army.load_resource()
 	s_villages.load_resource()
 
-
-	
 	get_tree().change_scene("res://Scenes/GameManager.tscn")
 	

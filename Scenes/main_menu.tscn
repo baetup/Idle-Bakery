@@ -6,18 +6,40 @@
 [ext_resource path="res://Scripts/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/options.tscn" type="PackedScene" id=5]
 
-[node name="main_menu" type="Node"]
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="main-menu" type="Sprite" parent="."]
-position = Vector2( 216, 384 )
+[node name="container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main-menu" type="TextureRect" parent="container"]
+margin_right = 432.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 432, 768 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
 
 [node name="vbox" type="VBoxContainer" parent="."]
 margin_left = 144.0
 margin_top = 369.0
 margin_right = 289.0
 margin_bottom = 559.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false

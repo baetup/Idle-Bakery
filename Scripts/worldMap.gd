@@ -16,14 +16,14 @@ func _on_avaloniaVillage_pressed():
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	
+
 	cameraNodePath.getLastLocation(true, false)
 	cameraNodePath.getRootScreen("avalonia")
 	cameraNodePath.setCameraLimits("avalonia")
 	cameraNodePath.setCameraLimits("avalonia")
 	worldMapNodePath.visible = 0
 	villageAvaloniaNodePath.visible = 1
-	
+
 	anmationPlayer.play("fade-out")
 	var t2 = Timer.new()
 	t2.set_wait_time(0.5)
@@ -34,7 +34,7 @@ func _on_avaloniaVillage_pressed():
 	colorRect.visible = false
 
 	disableWorldMapCollisions()
-		
+
 	#enabling village collisions
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showColliders()
 	get_node("/root/GameManager/villageAvalonia/buttonsCollider").showSecondaryColliders()

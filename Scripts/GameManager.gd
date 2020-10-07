@@ -9,6 +9,7 @@ onready var worldMapNodePath = get_node("/root/GameManager/worldMap")
 onready var inventoryNodePath = get_node("/root/GameManager/UiCanvas/inventorySystem")
 onready var buildingsBtns = get_node("/root/GameManager/villageAvalonia/incomeBuildings")
 onready var buildingsColliders = get_node("/root/GameManager/villageAvalonia/buttonsCollider")
+onready var battleTimer = get_node("/root/GameManager/worldMap/canvas/attackMenu/battleTimer")
 
 var cameraZoomRate = Vector2(0.2, 0.2)
 var avatar = globals.avatar
@@ -18,6 +19,10 @@ func _ready():
 	inventoryNodePath.checkAvailableItems()
 	inventoryNodePath.setItems()
 	UpdateUI()
+
+func _process(delta):
+	if s_army.battleInProgess :
+		$UiCanvas/battleDetails/timeInfo.text = "Time until battle: " + str(timeCalculus.calculate(battleTimer.time_left))
 
 
 func _notification(what):
@@ -120,4 +125,20 @@ func _on_buildings_pressed():
 		buildingsBtns.show()
 		buildingsColliders.showSecondaryColliders()
 		$UiCanvas/buildings.material.set_shader_param("grayscale", false)
-		
+
+
+func _on_battleNotification_pressed():
+	$UiCanvas/battleDetails.show()
+	$UiCanvas/battleDetails/info.text = s_army.battleDetails
+	$UiCanvas/battleDetails/timeInfo.text = str(timeCalculus.calculate(s_army.battleTimer))
+	buildingsColliders.hideColliders()
+	buildingsColliders.hideSecondaryColliders()
+
+
+func _on_close_battleDetails_pressed():
+	$UiCanvas/battleDetails.hide()
+	if $Camera2D.rootScreen == "village":
+		buildingsColliders.showColliders()
+		buildingsColliders.showSecondaryColliders()
+	elif $Camera2D.rootScreen == "worldMap":
+		$worldMap.enableWorldMapCollisions()

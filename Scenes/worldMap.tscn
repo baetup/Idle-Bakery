@@ -46,3 +46,9 @@ margin_left = -379.0
 margin_top = -384.0
 margin_right = 379.0
 margin_bottom = 384.0
+
+[node name="pre_attackMenuBkgr" parent="canvas/attackMenu" index="0"]
+margin_left = 203.0
+margin_right = 553.0
+
+[editable path="canvas/attackMenu"]

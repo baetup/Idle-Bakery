@@ -15,3 +15,4 @@ type = "player"
 army = [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
 xCoord = 0
 yCoord = 0
+ingredients = [  ]

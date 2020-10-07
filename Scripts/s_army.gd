@@ -2,6 +2,10 @@ extends Node
 
 var resource_path = "res://"
 
+var battleInProgess = false
+var battleTimer = 0
+var battleDetails = ""
+
 #Archery Range Queue
 var bowmenQueueLimit = 25
 var bowmenQueue = 0
@@ -34,14 +38,59 @@ var v1_SwMan = load(resource_path + "troops/v1_SwMan.tres")
 var v1_LC = load(resource_path + "troops/v1_LC.tres")
 
 
-func battle(army1 : Array, playerAttacks : bool):
-	if playerAttacks:
-		var HC = s_army.avaloniaHC
-		var LC = s_army.avaloniaLC
-		var K = s_army.avaloniaKnight
+func battle(sendingVillage, targetVillage, playerAttacks : bool):
+	var sVPwr = 0 # sending village army power
+	var tVPwr = 0 # target village army power
+	
+	# calculating sending village army power (attack)
+	for troop in sendingVillage.army :
+		sVPwr = sVPwr + (troop.count * troop.attack)
+	
+	# calculating target village army power (defense)
+	for troop in targetVillage.army :
+		tVPwr = tVPwr + (troop.count * troop.armor)
 		
-	
-	
+	# if attacker wins
+	if sVPwr > tVPwr :
+		print("attacking village won")
+		#setting looser side army to 0
+		for troop in targetVillage.army:
+			troop.count = 0
+
+		# calculating casualties for winning side
+		var totalBattlePwr = sVPwr + tVPwr
+		var pwrDiff = sVPwr - tVPwr
+		var casualtiesPercentage = ((pwrDiff * 100) / totalBattlePwr) * 0.01
+
+		# substracting casualties from the winning army
+		for troop in sendingVillage.army:
+			troop.count *= casualtiesPercentage
+	# if defender wins
+	elif sVPwr < tVPwr :
+		print("target village won")
+		#setting loserside army to 0
+		for troop in sendingVillage.army:
+			troop.count = 0
+
+		# calculating casualties for winning side
+		var totalBattlePwr = sVPwr + tVPwr
+		var pwrDiff = tVPwr - sVPwr
+		var casualtiesPercentge = ((pwrDiff * 100) / totalBattlePwr) * 0.01
+
+		# substracting casualties from winning army
+		for troop in targetVillage.army:
+			troop.count *= casualtiesPercentge
+	# if its a power tie
+	elif sVPwr == tVPwr:
+		#set both armies to 0
+		for troop in sendingVillage.army:
+			troop.count = 0
+			
+		for troop in targetVillage.army:
+			troop.count = 0
+
+func setBattleTimer(value) :
+	battleTimer = value
 
 func load_resource():
 	avaloniaBowman = load(resource_path + "troops/bowman.tres")
